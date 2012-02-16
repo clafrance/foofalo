@@ -1,0 +1,1 @@
+Foofalo is a website for Arthur and his friends to learn and have fun.
