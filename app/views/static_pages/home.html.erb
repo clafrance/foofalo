@@ -4,5 +4,6 @@
   <p>
     This is the home page for Foofalo
   </p>
-
-<%= link_to "Sign up now!", signup_path, class: "signup_button round" %>
+<% if current_user.nil? %>
+  <%= link_to "Sign up now!", signup_path, class: "signup_button round" %>
+<% end %>
