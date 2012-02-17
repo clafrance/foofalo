@@ -65,6 +65,10 @@ Foofalo::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
+  # Force all access to the app over SSL, use Strict-Transport-Security, 
+  # and use secure cookies.
+  config.force_ssl = true
+  
   # Precompile Blueprint CSS
   config.assets.precompile += [ "blueprint/*.css" ]
 end

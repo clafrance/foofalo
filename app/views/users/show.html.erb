@@ -1,2 +1,10 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% provide(:title, @user.firstname) %>
+<div class="profile">
+    <div class="main">
+      <h1>Hi, <%= @user.firstname %> <%= @user.firstname %></h1>
+    </div>
+    <div class="sidebar round">
+      <strong>First Name</strong> <%= @user.firstname %><br />
+      <strong>URL</strong>  <%= link_to user_path(@user), @user %>
+    </div>
+</div>
