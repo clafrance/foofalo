@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user # make it available to views by passing it as a symble
+  helper_method :full_name
   
   # helper is available to views by default, include make it available to controllers
   include SessionsHelper 
@@ -9,5 +10,9 @@ class ApplicationController < ActionController::Base
   
     def current_user
       @current_user ||= User.find_by_remember_token(cookies[:remember_token]) if cookies[:remember_token]
+    end
+    
+    def full_name(first, last)
+      full_name = first + ' ' + last
     end
 end

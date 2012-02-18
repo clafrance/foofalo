@@ -3,10 +3,12 @@ class UsersController < ApplicationController
   before_filter :correct_user,   :only => [:edit, :update]
   
   def index
-    @users = User.all
+    # @users = User.all
+    @users = User.paginate(page: params[:page])
   end
   
   def show
+    @user = User.find(params[:id])
   end 
   
   def new
@@ -40,7 +42,7 @@ class UsersController < ApplicationController
   end
   
   private
-  
+    
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) if @user != current_user
