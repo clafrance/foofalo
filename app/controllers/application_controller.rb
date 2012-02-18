@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :current_user # make it available to views by passing it as symble
+  helper_method :current_user # make it available to views by passing it as a symble
   
   # helper is available to views by default, include make it available to controllers
-  #include SessionsHelper 
+  include SessionsHelper 
   
   private
   

@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   
   def new
+    store_referrer_location
   end
   
   def create
@@ -11,8 +12,8 @@ class SessionsController < ApplicationController
       else
         cookies[:remember_token] = user.remember_token
       end
-     # redirect_to root_url, :notice => "#{current_user.firstname} is signed in to Foofalo!"
-      redirect_to user, :notice => "#{current_user.firstname} is signed in to Foofalo!"
+      redirect_back_or user
+      #redirect_to user, :notice => "#{current_user.firstname} is signed in to Foofalo!"
     else
       flash.now.alert = "Invalid email or password"
       render "new"
