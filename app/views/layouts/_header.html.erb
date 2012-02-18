@@ -1,12 +1,13 @@
 <header>
   <nav class="round">
     <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <% if !current_user.nil? %>
-        <li>Hi, <%= current_user.firstname %></li>
+      <% if current_user %>
+        Logged in as <%= current_user.email %>
+        <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Profile", current_user %></li>
         <li><%= link_to "Sign out", signout_path %></li>
       <% else %>
+         <li><%= link_to "Home", root_path %></li>
 		     <li><%= link_to "Sign up", signup_path %></li>
 		     <li><%= link_to "Sign in", signin_path %></li>
       <% end %>
