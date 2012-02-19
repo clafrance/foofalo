@@ -10,7 +10,15 @@ module SessionsHelper
   end
   
   def store_referrer_location
-    session[:return_to] = request.referrer
+    if request.referrer == signup_url || request.referrer == signup_path 
+        session[:return_to] = root_url
+    else
+      if request.referrer == signin_path || request.referrer == signin_url
+        session[:return_to] = root_url
+      else
+        session[:return_to] = request.referrer
+      end
+    end
   end
 
   private
