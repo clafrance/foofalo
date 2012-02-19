@@ -5,11 +5,12 @@ class UsersController < ApplicationController
   
   def index
     #@users = User.all
-     @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page])
   end
   
   def show
     @user = User.find(params[:id])
+    @title = @user.firstname
   end 
   
   def new
@@ -63,7 +64,7 @@ class UsersController < ApplicationController
       end
     end
     
-    def admin_user
+    def admin_user?
       redirect_to(root_path) if current_user.privilege != 0
     end
 end

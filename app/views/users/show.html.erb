@@ -1,8 +1,8 @@
-<% provide(:title, current_user.firstname) %>
+<% provide(:title, current_user.username) %>
 
 <div class="profile">
   <div class="main">
-    <h1>Hi, <%= current_user.firstname %></h1>
+    <h1>Hi, <%= current_user.username %></h1>
   </div>
   <div class="sidebar round">
     <strong>First Name</strong> <%= current_user.firstname %><br />

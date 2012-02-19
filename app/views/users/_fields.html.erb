@@ -1,20 +1,24 @@
 <div class="field">
-  <%= f.label :firstname %><br />
-  <%= f.text_field :firstname %>
+  <%= f.label :username %><br />
+  <%= f.text_field :username %>
 </div>
 <div class="field">
-  <%= f.label :lastname %><br />
-  <%= f.text_field :lastname %>
-</div>
-<div class="field">
-  <%= f.label :email %><br />
-  <%= f.text_field :email %>
-</div>
-<div class="field">
-  <%= f.label :password %><br />
+  <%= f.label :password, "Password (minimum 6 characters)" %><br />
   <%= f.password_field :password %>
 </div>
 <div class="field">
-  <%= f.label :password_confirmation, "Confirmation" %><br />
+  <%= f.label :password_confirmation, "Password Confirmation" %><br />
   <%= f.password_field :password_confirmation %>
+</div>
+<div class="field">
+  <%= f.label :firstname, "First Name" %><br />
+  <%= f.text_field :firstname %>
+</div>
+<div class="field">
+  <%= f.label :lastname, "Last Name" %><br />
+  <%= f.text_field :lastname %>
+</div>
+<div class="field">
+  <%= f.label :email, "Parents' Email" %><br />
+  <%= f.text_field :email %>
 </div>

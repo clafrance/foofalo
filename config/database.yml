@@ -12,7 +12,7 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: foofalo_development
+  database: new_foofalo_development
   pool: 5
   username: root
   password:
@@ -25,7 +25,7 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: foofalo_test
+  database: new_foofalo_test
   pool: 5
   username: root
   password:
