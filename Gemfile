@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
-gem 'mysql2', '0.3.11'
-gem 'jquery-rails', '2.0.0'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1' # generate fake data into database
 gem 'will_paginate', '3.0.3'
+gem 'mysql2', '0.3.11'
+gem 'jquery-rails', '2.0.0'
 
 
 
@@ -17,13 +17,20 @@ group :assets do
   gem 'uglifier',     '1.2.3'
 end
 
+group :development do
+  gem 'annotate',    '~> 2.4.1.beta'
+end
+
 group :development, :test do
   gem 'rspec-rails', '2.8.1'
-  gem 'annotate',    '~> 2.4.1.beta'
+  gem 'guard-rspec', '0.5.5'
+  gem 'guard-spork', '0.3.2'
+  gem 'spork', '0.9.0'
 end
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'factory_girl_rails', '1.4.0'
 end
 
 
