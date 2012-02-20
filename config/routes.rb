@@ -1,7 +1,10 @@
 Foofalo::Application.routes.draw do
 
+  get "password_resets/new"
+
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :password_resets
 
   root :to => 'static_pages#home'
   
