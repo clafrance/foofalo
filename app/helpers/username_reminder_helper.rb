@@ -1,0 +1,2 @@
+module UsernameReminderHelper
+end

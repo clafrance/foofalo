@@ -34,6 +34,10 @@ class User < ActiveRecord::Base
     save!
     UserMailer.password_reset(self).deliver
   end
+  
+  def send_username_reminder
+    UserMailer.username_reminder(self).deliver
+  end
     
   def generate_token(column)
     begin
