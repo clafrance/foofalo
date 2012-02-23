@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user, :only => [:index, :edit, :update, :destroy]
   before_filter :correct_user,   :only => [:edit, :update]
-  before_filter :admin_user?,     :only => :destroy
+  before_filter :admin_user?,    :only => :destroy
   
   def index
     #@users = User.all
@@ -20,10 +20,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      UserMailer.registration_confirmation(@user).deliver
       cookies[:remember_token] = @user.remember_token # signin user
       #flash[:success] = "Welcome to join Foofalo! #{current_user.firstname}"
       #redirect_to current_user
-      redirect_to root_url, :notice => "Signed up"
+      redirect_to root_url, :notice => "Signed up. You should receive an email shortly to confirm your registration."
     else
       render 'new'
     end

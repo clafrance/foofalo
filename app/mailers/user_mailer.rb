@@ -8,13 +8,21 @@ class UserMailer < ActionMailer::Base
   #
   def password_reset(user)
     @user = user
-    mail(:to => user.email, :subject => "Password Reset")
+    #mail(:to => user.email, :subject => "Password Reset")
+    mail(:to => "#{@user.username} <#{@user.email}>", :subject => "Password Reset")
   end
   
   def username_reminder(user)
     @user = user
     email = @user.email
     @users = User.where(:email => email)
-    mail(:to => user.email, :subject => "Username Reminder")
+    mail(:to => "#{@user.email}", :subject => "Username Reminder")
+  end
+  
+  def registration_confirmation(user)
+    @user = user
+    # attach images to confirmation email
+    # attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
+    mail(:to => "#{@user.firstname} #{@user.lastname} <#{@user.email}>", :subject => "Registration Confirmation")
   end
 end
