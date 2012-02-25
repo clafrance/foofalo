@@ -25,4 +25,9 @@ class UserMailer < ActionMailer::Base
     # attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
     mail(:to => "#{@user.firstname} #{@user.lastname} <#{@user.email}>", :subject => "Registration Confirmation")
   end
+  
+  def inform_parents(user)
+    @user = user
+    mail(:to => "#{@user.username} <#{@user.email}>", :subject => "Needs Parents approval to active the account")
+  end
 end

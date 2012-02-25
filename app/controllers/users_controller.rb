@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       UserMailer.registration_confirmation(@user).deliver
+      @user.send_inform_parents
       cookies[:remember_token] = @user.remember_token # signin user
       #flash[:success] = "Welcome to join Foofalo! #{current_user.firstname}"
       #redirect_to current_user
@@ -49,6 +50,18 @@ class UsersController < ApplicationController
     user.destroy
     flash[:success] = "User #{user.firstname} has been deleted."
     redirect_to users_path
+  end
+  
+  def approve
+    @user = User.find_by_inform_parents_token!(params[:id])
+    @user.parents_approved = "true"
+    @user.parents_responded_at = Time.zone.now
+  end
+  
+  def not_approve
+    @user = User.find_by_inform_parents_token!(params[:id])
+    @user.parents_approved = "false"
+    @user.parents_responded_at = Time.zone.now
   end
   
   private

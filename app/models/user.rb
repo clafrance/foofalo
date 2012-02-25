@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include UsersHelper 
+  
   attr_accessible :firstname, :lastname, :email, :username, :password, :password_confirmation
   has_secure_password
   validates_presence_of :password, :on => :create
@@ -38,10 +40,17 @@ class User < ActiveRecord::Base
   def send_username_reminder
     UserMailer.username_reminder(self).deliver
   end
-    
-  def generate_token(column)
-    begin
-      self[column] = SecureRandom.urlsafe_base64
-    end while User.exists?(column => self[column])
+  
+  def send_inform_parents
+    generate_token(:inform_parents_token)
+    self.inform_parents_sent_at = Time.zone.now
+    save!
+    UserMailer.inform_parents(self).deliver
   end
+    
+  # def generate_token(column)
+  #   begin
+  #     self[column] = SecureRandom.urlsafe_base64
+  #   end while User.exists?(column => self[column])
+  # end
 end

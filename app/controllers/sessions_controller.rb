@@ -7,13 +7,18 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
-      if params[:remember_me]
-        cookies.permanent[:remember_token] = user.remember_token
-      else
-        cookies[:remember_token] = user.remember_token
+      if user.parents_approve == "true"
+        if params[:remember_me]
+          cookies.permanent[:remember_token] = user.remember_token
+        else
+          cookies[:remember_token] = user.remember_token
+        end
+        redirect_back_or root_url
+      elsif user.parents_approve == "false"
+        redirect_to root_url, :notice => "Sorry your parents didn't approve you to have this account."
+      else      
+        redirect_to root_url, :notice => "still waiting for your parents approval."
       end
-      redirect_back_or root_url
-      #redirect_to user, :notice => "#{current_user.firstname} is signed in to Foofalo!"
     else
       flash.now.alert = "Invalid username or password"
       render "new"
