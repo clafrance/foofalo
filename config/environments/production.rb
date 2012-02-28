@@ -71,4 +71,7 @@ Foofalo::Application.configure do
   
   # Precompile Blueprint CSS
   config.assets.precompile += [ "blueprint/*.css" ]
+  
+  # setup mailer (added by Christie)
+  config.action_mailer.default_url_options = { :host => "www.foofalo.com" }
 end

@@ -1,9 +1,12 @@
 Foofalo::Application.routes.draw do
 
+  get "parent_confirms/new"
+
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :password_resets
   resources :username_reminder
+  resources :parent_confirms
 
   root :to => 'static_pages#home'
   
@@ -13,8 +16,7 @@ Foofalo::Application.routes.draw do
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/users',   :to => 'users#index'
-  match '/approve', :to => 'users#approve'
-  match '/not_approve', :to => 'users#not_approve'
+  #match '/not_approve', :to => 'users#not_approve'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

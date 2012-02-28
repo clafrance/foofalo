@@ -1,0 +1,26 @@
+<h1>Parents Approve</h1>
+
+<%= form_for @user, :url => parent_confirm_path(params[:id]) do |f| %>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :parent_firstname %>
+    <%= f.text_field :parent_firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :parent_lastname %>
+    <%= f.text_field :parent_lastname %>
+  </div>
+    <p>Current Time</p>
+	<%= f.datetime_select :parent_approved_at, :from_time => Time.now %>
+  </div>	
+  <div class="actions"><%= f.submit "Approve" %></div>
+<% end %>

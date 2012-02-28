@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224065445) do
+ActiveRecord::Schema.define(:version => 20120228001310) do
 
   create_table "users", :force => true do |t|
     t.string   "firstname"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(:version => 20120224065445) do
     t.datetime "password_reset_sent_at"
     t.string   "inform_parents_token"
     t.datetime "inform_parents_sent_at"
-    t.string   "parents_approve"
-    t.datetime "parents_responded_at"
+    t.datetime "parent_approved_at"
+    t.string   "parent_firstname"
+    t.string   "parent_lastname"
   end
 
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token"

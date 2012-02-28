@@ -20,13 +20,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      UserMailer.registration_confirmation(@user).deliver
-      @user.send_inform_parents
-      cookies[:remember_token] = @user.remember_token # signin user
-      #flash[:success] = "Welcome to join Foofalo! #{current_user.firstname}"
-      #redirect_to current_user
-      redirect_to root_url, :notice => "Signed up. You should receive an email shortly to confirm your registration."
-    else
+      @user.send_parent_confirm
+      #cookies[:remember_token] = @user.remember_token # signin user
+      redirect_to root_url, :notice => "You have signed up. Your parents should receive 
+          an email with a link to approval, then you can signin and have fun."
+    else      
       render 'new'
     end
   end
@@ -50,18 +48,6 @@ class UsersController < ApplicationController
     user.destroy
     flash[:success] = "User #{user.firstname} has been deleted."
     redirect_to users_path
-  end
-  
-  def approve
-    @user = User.find_by_inform_parents_token!(params[:id])
-    @user.parents_approved = "true"
-    @user.parents_responded_at = Time.zone.now
-  end
-  
-  def not_approve
-    @user = User.find_by_inform_parents_token!(params[:id])
-    @user.parents_approved = "false"
-    @user.parents_responded_at = Time.zone.now
   end
   
   private
