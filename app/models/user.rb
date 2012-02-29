@@ -50,9 +50,4 @@ class User < ActiveRecord::Base
     UserMailer.inform_parents(self).deliver
   end
 
-  # def generate_token(column) (It has been moved to users_helper.rb)
-  #   begin
-  #     self[column] = SecureRandom.urlsafe_base64
-  #   end while User.exists?(column => self[column])
-  # end
 end

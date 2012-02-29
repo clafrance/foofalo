@@ -3,7 +3,6 @@ class UsernameReminderController < ApplicationController
   end
   
   def create
-    # @user = User.where(:email => params[:email])
     user = User.find_by_email(params[:email])
     @user = user
     if user
