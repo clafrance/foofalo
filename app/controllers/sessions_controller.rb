@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by_username(params[:username])
     if user && user.authenticate(params[:password])
-      if user.parent_firstname && user.parent_lastname && user.parent_approved_at
+      if user.parent_approved =="Yes" && user.parent_approved_at
         if params[:remember_me]
           cookies.permanent[:remember_token] = user.remember_token
         else
