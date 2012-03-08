@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PasswordResetsController do
+describe UsernameReminderController do
 
   # describe "GET 'new'" do
   #   it "returns http success" do
