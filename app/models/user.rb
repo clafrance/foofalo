@@ -43,11 +43,20 @@ class User < ActiveRecord::Base
     UserMailer.username_reminder(self).deliver
   end
   
-  def send_parent_confirm
+  def send_inform_parents
     generate_token(:inform_parents_token)
     self.inform_parents_sent_at = Time.zone.now
     save!
     UserMailer.inform_parents(self).deliver
   end
+  
+  # old
+  # def send_parent_confirm
+  #   generate_token(:inform_parents_token)
+  #   self.inform_parents_sent_at = Time.zone.now
+  #   save!
+  #   UserMailer.inform_parents(self).deliver
+  # end
+
 
 end

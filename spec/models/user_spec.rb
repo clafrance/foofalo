@@ -31,4 +31,24 @@ describe User do
     end
   end
   
+  describe "#send_inform_parents" do
+    let(:user) { Factory(:user) }
+    
+    it "generates a unique inform_parents_token each time" do
+      user.send_inform_parents
+      last_token = user.inform_parents_token
+      user.send_inform_parents
+      user.inform_parents_token.should_not eq(last_token)
+    end
+    
+    it "saves the time the inform parents was sent" do
+      user.send_inform_parents
+      user.reload.inform_parents_sent_at.should be_present
+    end
+    
+    it "delivers email to user" do
+      user.send_inform_parents
+      last_email.to.should include(user.email)
+    end
+  end  
 end
