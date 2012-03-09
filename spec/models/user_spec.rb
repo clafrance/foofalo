@@ -21,4 +21,14 @@ describe User do
       last_email.to.should include(user.email)
     end
   end
+  
+  describe "#send_username_reminder" do
+    let(:user) { Factory(:user) }
+    
+    it "delivers email to user" do
+      user.send_username_reminder
+      last_email.to.should include(user.email)
+    end
+  end
+  
 end

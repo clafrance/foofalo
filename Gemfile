@@ -27,6 +27,7 @@ group :development, :test do
   # gem 'guard-spork', '0.3.2'
   # gem 'spork', '0.9.0'
   gem 'rb-fsevent' # guard dependency
+  # gem 'guard-livereload' # reload browser, gems eventmachine and em-websocket are installed
 end
 
 group :test do
