@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "username_reminder/new.html.erb" do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+# describe "username_reminder/new.html.erb" do
+#   pending "add some examples to (or delete) #{__FILE__}"
+# end

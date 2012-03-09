@@ -9,7 +9,7 @@ Foofalo::Application.routes.draw do
   resources :parent_confirms
 
   root :to => 'static_pages#home'
-  
+
   match '/',        :to => 'static_pages#home'
   match '/about',   :to => 'static_pages#about'
   match '/signup',  :to => 'users#new'

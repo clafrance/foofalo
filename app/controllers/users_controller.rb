@@ -20,8 +20,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      @user.send_inform_parents
-      redirect_to root_url, :notice => "You have signed up. Your parents should receive 
+     # @user.send_inform_parents
+      redirect_to root_path, :notice => "You have signed up. Your parents should receive 
           an email with a link to approval, then you can signin and have fun."
     else      
       render 'new'
