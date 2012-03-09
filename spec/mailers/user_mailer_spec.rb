@@ -24,4 +24,16 @@ describe UserMailer do
       mail.body.encoded.should have_content("Here are the username(s) registered at")
     end
   end
+  
+  describe "parent_confirm" do
+    let(:user) { Factory(:user, :inform_parents_token => "anything") }
+    let(:mail) { UserMailer.inform_parents(user) }
+  
+    it "send inform parents url" do
+      mail.subject.should eq("Needs Parents approval to active the account") 
+      mail.to.should eq([user.email])
+      mail.from.should eq(["foofalo12@gmail.com"])
+      mail.body.encoded.should match(edit_parent_confirm_path(user.inform_parents_token))
+    end
+  end
 end
