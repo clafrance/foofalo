@@ -29,7 +29,6 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.7)
-    annotate (2.4.1.beta1)
     arel (3.0.0)
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
@@ -58,8 +57,6 @@ GEM
     factory_girl_rails (1.4.0)
       factory_girl (~> 2.3.0)
       railties (>= 3.0.0)
-    faker (1.0.1)
-      i18n (~> 0.4)
     ffi (1.0.11)
     guard (1.0.0)
       ffi (>= 0.5.0)
@@ -155,19 +152,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate (~> 2.4.1.beta)
-  bcrypt-ruby (= 3.0.1)
-  capybara (= 1.1.2)
-  coffee-rails (= 3.2.2)
-  factory_girl_rails (= 1.4.0)
-  faker (= 1.0.1)
-  guard-rspec (= 0.5.5)
-  jquery-rails (= 2.0.0)
-  launchy (= 2.0.5)
-  mysql2 (= 0.3.11)
-  rails (= 3.2.1)
+  bcrypt-ruby
+  capybara
+  coffee-rails
+  factory_girl_rails
+  guard-rspec
+  jquery-rails
+  launchy
+  mysql2
+  rails
   rb-fsevent
-  rspec-rails (= 2.8.1)
-  sass-rails (= 3.2.3)
-  uglifier (= 1.2.3)
-  will_paginate (= 3.0.3)
+  rspec-rails
+  sass-rails
+  uglifier
+  will_paginate
