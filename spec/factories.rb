@@ -1,5 +1,6 @@
 Factory.define :user do |f|
-  f.sequence(:username) { |n| "user#{n}" }
+  f.username "#{(rand(122-97) + 97).chr + (rand(122-97) + 97).chr + (rand(122-97) + 97).chr + (rand(122-97) + 97).chr + (rand(122-97) + 97).chr}"
+  #f.sequence(:username) { |n| "user#{n}" }
   #f.username "abc"
   f.firstname "firstname"
   f.lastname "lastname"
