@@ -50,13 +50,12 @@ class User < ActiveRecord::Base
     UserMailer.inform_parents(self).deliver
   end
   
-  # old
-  # def send_parent_confirm
-  #   generate_token(:inform_parents_token)
-  #   self.inform_parents_sent_at = Time.zone.now
-  #   save!
-  #   UserMailer.inform_parents(self).deliver
-  # end
+  def send_parent_confirm
+    self.parent_approved = "Yes"
+    self.parent_approved_at = Time.zone.now
+    save!
+    UserMailer.registration_confirmation(self).deliver
+  end
 
 
 end

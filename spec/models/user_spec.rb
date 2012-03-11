@@ -50,5 +50,24 @@ describe User do
       user.send_inform_parents
       last_email.to.should include(user.email)
     end
+  end
+  
+  describe "#send_parent_confirm" do
+    let(:user) { Factory(:user) }
+    
+    it "sets the 'parent_approved' to Yes" do
+      user.send_parent_confirm
+      user.reload.parent_approved.should eq("Yes")
+    end
+    
+    it "sets the parent_approved_atto current time" do
+      user.send_parent_confirm
+      user.reload.parent_approved_at.should be_present
+    end
+    
+    it "delivers email to user" do
+      user.send_parent_confirm
+      last_email.to.should include(user.email)
+    end
   end  
 end
