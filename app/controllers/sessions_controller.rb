@@ -9,9 +9,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       if user.parent_approved =="Yes" && user.parent_approved_at
         if params[:remember_me]
-          cookies.permanent[:remember_token] = user.remember_token
+          sign_in_remember(user)
+          #cookies.permanent[:remember_token] = user.remember_token
         else
-          cookies[:remember_token] = user.remember_token
+          sign_in(user)
+          #cookies[:remember_token] = user.remember_token
         end
         redirect_back_or root_url
       else      
@@ -24,7 +26,7 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    cookies.delete(:remember_token)
+    sign_out
     redirect_to root_url, :notice => "See you next time!"
   end
 end

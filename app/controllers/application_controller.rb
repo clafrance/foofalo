@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
   
   private
   
-    def current_user
-      @current_user ||= User.find_by_remember_token(cookies[:remember_token]) if cookies[:remember_token]
-    end
+    # def current_user
+    #   @current_user ||= User.find_by_remember_token(cookies[:remember_token]) if cookies[:remember_token]
+    # end
     
     def full_name(first, last)
       full_name = first + ' ' + last
