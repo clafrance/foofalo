@@ -1,23 +1,24 @@
 require 'spec_helper'
 
 describe "User Signup" do
+  subject { page }
   
-  it "should have these fields and links" do
-    visit '/signup'
-    page.should have_selector('h1', :text=>"Sign up")
-    page.should have_field('Username')
-    page.should have_field('Password')
-    page.should have_field('Retype Password')
-    page.should have_field('First Name')
-    page.should have_field('Last Name')
-    page.should have_field("Parents' Email")
-    page.should have_field("Retype Parents' Email")
-    page.should have_button('Sign up')
-    page.should have_link('Sign up')
-    page.should have_link('Sign in')
-    page.should have_link('Home')
-    page.should have_link('About')
-    page.should have_link('Terms')
+  describe "signup pages" do
+    before { visit '/signup' }
+    it { should have_selector('h1', :text=>"Sign up") }
+    it { should have_field('Username') }
+    it { should have_field('Password') }
+    it { should have_field('Retype Password') }
+    it { should have_field('First Name') }
+    it { should have_field('Last Name') }
+    it { should have_field("Parents' Email") }
+    it { should have_field("Retype Parents' Email") }
+    it { should have_button('Sign up') }
+    it { should have_link('Sign up') }
+    it { should have_link('Sign in') }
+    it { should have_link('Home') }
+    it { should have_link('About') }
+    it { should have_link('Terms') }
   end
   
   it "should sign up user with valid info, send inform parents email" do

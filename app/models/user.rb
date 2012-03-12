@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   before_create { generate_token(:remember_token) }
   
-  valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  
+  valid_email_regex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i 
+  #valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   valid_username_regex = /\A[a-z\d\-._]+[a-z\d]+\z/i
   valid_firstname_regex = /\A[a-z\d\-._]+[a-z\d]+\z/i
   valid_lastname_regex = /\A[a-z\d\-._]+[a-z\d]+\z/i
@@ -56,6 +58,4 @@ class User < ActiveRecord::Base
     save!
     UserMailer.registration_confirmation(self).deliver
   end
-
-
 end

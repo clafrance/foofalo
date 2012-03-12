@@ -12,6 +12,7 @@ Foofalo::Application.routes.draw do
 
   match '/',        :to => 'static_pages#home'
   match '/about',   :to => 'static_pages#about'
+  match '/terms',   :to => 'static_pages#terms'
   match '/signup',  :to => 'users#new'
   match '/users',   :to => 'static_pages#home'
   match '/signin',  :to => 'sessions#new'
