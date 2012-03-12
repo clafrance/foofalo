@@ -19,7 +19,7 @@ describe "User Signin" do
     page.should have_link('Terms')
   end
   
-  it "# sign in user with valid info, 'Remember me' not checked" do
+  it "signs in user with valid info, 'Remember me' not checked" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     visit signin_path
     fill_in "Username", :with => user.username
@@ -31,7 +31,7 @@ describe "User Signin" do
     page.should have_link("Profile")
   end
     
-  it "sign in user parent hasn't approved" do
+  it "signs in user parent hasn't approved" do
     user = Factory(:user)
     visit signin_path
     fill_in "Username", :with => user.username
@@ -41,7 +41,7 @@ describe "User Signin" do
     page.should have_content("still waiting for your parents approval")
   end
     
-  it "sign in user with 'Remember me' selected" do
+  it "signs in user with 'Remember me' selected" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     visit signin_path
     fill_in "Username", :with => user.username
@@ -54,7 +54,7 @@ describe "User Signin" do
     page.should have_link("Profile") 
   end
     
-  it "sign in user with invalid username password combination" do
+  it "signs in user with invalid username password combination" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     visit signin_path
     fill_in "Username", :with => user.username
