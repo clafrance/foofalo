@@ -12,8 +12,7 @@ describe User do
         user.send_password_reset
         user.password_reset_token.should_not eq(last_token)
       end
-  
-  
+   
       it "saves the time the password reset was sent" do
         user.send_password_reset
         user.reload.password_reset_sent_at.should be_present
@@ -84,17 +83,19 @@ describe User do
       
     subject { @user }
     
-    it { should respond_to(:username) }
-    it { should respond_to(:password) }
-    it { should respond_to(:password_confirmation) }
-    it { should respond_to(:firstname) }
-    it { should respond_to(:lastname) }
-    it { should respond_to(:email) }
-    it { should respond_to(:password_digest) }
-    it { should respond_to(:remember_token) }
-    it { should respond_to(:authenticate) }
-    it { should be_valid }
-    
+    it "should respond to these objects, methods" do
+      should respond_to(:username)
+      should respond_to(:password) 
+      should respond_to(:password_confirmation) 
+      should respond_to(:firstname) 
+      should respond_to(:lastname) 
+      should respond_to(:email) 
+      should respond_to(:password_digest) 
+      should respond_to(:remember_token) 
+      should respond_to(:authenticate) 
+      should be_valid 
+    end
+
     describe "when username is not present" do
       before { @user.username = " " }
       it { should_not be_valid }
