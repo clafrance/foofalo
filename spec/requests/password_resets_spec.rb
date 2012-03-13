@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "PasswordResets" do
+  subject { page }
   it "email user when requesting password reset" do
     user = Factory(:user)
     visit signin_path
@@ -8,7 +9,7 @@ describe "PasswordResets" do
     fill_in "Username", :with => user.username
     click_button "Reset Password"
     current_path.should eq(root_path)
-    page.should have_content("Email sent")
+    should have_content("Email sent")
     last_email.to.should include(user.email)
   end
   
@@ -26,11 +27,11 @@ describe "PasswordResets" do
     visit edit_password_reset_path(user.password_reset_token)
     fill_in "Password", :with => "foobar"
     click_button "Update Password"
-    page.should have_content("Password doesn't match confirmation") 
+    should have_content("Password doesn't match confirmation") 
     fill_in "Password", :with => "foobar"
     fill_in "Retype Password", :with => "foobar"
     click_button "Update Password"
-    page.should have_content("Password has been reset")
+    should have_content("Password has been reset")
   end
   
   it "reports when password token has expired" do
@@ -40,7 +41,7 @@ describe "PasswordResets" do
     fill_in "Password", :with => "foobar"
     fill_in "Retype Password", :with => "foobar"
     click_button "Update Password"
-    page.should have_content("Password reset has expired")
+    should have_content("Password reset has expired")
   end
   
   it "raised record not found when password token is invalid" do

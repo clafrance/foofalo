@@ -36,7 +36,7 @@ describe "User Signup" do
     end.to change(User, :count).by(1)
     # click_button "Sign up" 
     current_path.should eq(root_path)
-    page.should have_content("You have signed up")
+    should have_content("You have signed up")
     last_email.to.should include(user.email)
   end
   
@@ -55,7 +55,7 @@ describe "User Signup" do
     # final = User.count
     # initial.should == final
     expect { click_button "Sign up" }.not_to change(User, :count)
-    page.should have_content("prohibited this user from being saved")
+    should have_content("prohibited this user from being saved")
     last_email.should be_nil
   end
   
@@ -70,7 +70,7 @@ describe "User Signup" do
     fill_in "Parents' Email", :with => user.email
     fill_in "Retype Parents' Email", :with => user.email_confirmation
     click_button "Sign up"  
-    page.should have_content("prohibited this user from being saved")
+    should have_content("prohibited this user from being saved")
     last_email.should be_nil
   end
   
@@ -85,14 +85,14 @@ describe "User Signup" do
     fill_in "Parents' Email", :with => user.email
     fill_in "Retype Parents' Email", :with => user.email_confirmation
     click_button "Sign up"  
-    page.should have_content("prohibited this user from being saved")
+    should have_content("prohibited this user from being saved")
     last_email.should be_nil
   end
    
   it "should fail if there is any field unfilled" do
     visit "/signup"
     click_button "Sign up"  
-    page.should have_content("11 errors prohibited this user from being saved")
+    should have_content("11 errors prohibited this user from being saved")
     last_email.should be_nil
   end
 end
