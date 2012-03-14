@@ -32,6 +32,8 @@
 	  <%= f.label :email_confirmation, "Retype Parents' Email" %><br />
 	  <%= f.text_field :email_confirmation %>
 	</div>
+	
+	<p>By clicking the Sign Up button, you agree to our <%= link_to "Terms and Use", terms_path %>. Please read it and make sure you understand the Terms and Use before clicking Sign up button.</p>
   <div class="button">
     <%= f.submit "Sign up" %>
   </div>

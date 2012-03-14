@@ -8,6 +8,9 @@ describe "Show Users" do
     sign_in(user)
     click_link("Users")
     should have_content("All users")
+    User.all.each do |user|
+      should have_selector('li', text: user.username)
+    end
   end
 end
 
@@ -95,5 +98,15 @@ describe "EditProfile" do
     click_button "Update"
     current_path.should eq(user_path(user))
     should have_content("Email doesn't match confirmation")
+  end
+  
+  it "does not submit a PUT request to the Users#update action" do
+    user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
+    wrong_user = Factory(:user, :username => "wrongusername")
+    sign_in(user)
+    visit edit_user_path(wrong_user)
+    #should have_selector('title', text: full_title('')) }
+    put user_path(wrong_user)
+    response.should redirect_to(signin_path) 
   end
 end

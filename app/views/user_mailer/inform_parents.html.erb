@@ -1,3 +1,5 @@
 <p>To approve <%= @user.firstname %> <%= @user.lastname %>'s account with Foofalo, click the link below:</p>
 
+<p>By clicking the Approve link below, you and your child agree to our <%= link_to "Terms and Use", terms_path %>. Please read it and make sure you understand the Terms and Use before clicking the link.</p>
+
 <p><%= link_to "Approve #{@user.firstname} #{@user.lastname} to use www.foofalo.com", edit_parent_confirm_url(@user.inform_parents_token) %></p>
