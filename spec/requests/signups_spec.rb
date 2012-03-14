@@ -19,6 +19,8 @@ describe "User Signup" do
     it { should have_link('Home') }
     it { should have_link('About') }
     it { should have_link('Terms') }
+    it { page.should have_link("Terms and Use") }
+    it { page.should have_content('By clicking the Sign Up button, you agree to our Terms and Use.') }
   end
   
   it "should sign up user with valid info, send inform parents email" do

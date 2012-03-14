@@ -19,7 +19,7 @@ RSpec.configure do |config|
   # config.mock_with :rr
   
   # May need to added this based on Rails case #275 (3/8/2012)
-  # config.mock_with :rspec
+  config.mock_with :rspec
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
