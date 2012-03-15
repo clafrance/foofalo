@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
           sign_in(user)
           #cookies[:remember_token] = user.remember_token
         end
-        redirect_back_or root_url
+        redirect_back_or front_url
       else      
         redirect_to root_url, :notice => "still waiting for your parents approval."
       end

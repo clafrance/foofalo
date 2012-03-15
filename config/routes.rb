@@ -7,17 +7,20 @@ Foofalo::Application.routes.draw do
   resources :password_resets
   resources :username_reminder
   resources :parent_confirms
+  resources :jokes
 
   root :to => 'static_pages#home'
 
   match '/',        :to => 'static_pages#home'
   match '/about',   :to => 'static_pages#about'
   match '/terms',   :to => 'static_pages#terms'
+  match '/front',   :to => 'static_pages#front'
   match '/signup',  :to => 'users#new'
   match '/users',   :to => 'static_pages#home'
   match '/signin',  :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
   match '/users',   :to => 'users#index'
+  match '/newjoke', :to => 'jokes#new'
   #match '/not_approve', :to => 'users#not_approve'
 
   # The priority is based upon order of creation:

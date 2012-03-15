@@ -24,4 +24,15 @@ describe "StaticPages" do
     it { should have_selector("title", :text => "Foofalo | Terms") }
     should_have_links_before_signin
   end
+  
+  
+  describe "Front page" do
+    subject { page }
+    
+    it "redirect to pront gage after sign in" do
+      user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
+      sign_in_successfully(user)
+      should have_selector("title", :text => "Foofalo | Front")
+    end
+  end
 end

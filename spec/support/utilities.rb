@@ -12,7 +12,6 @@ def sign_in(user)
   fill_in "Username", :with => user.username
   fill_in "Password", :with => user.password
   click_button "Sign in"
-  current_path.should eq(root_path)
 end
 
 def remember_me_sign_in_successfully(user)
@@ -21,10 +20,7 @@ def remember_me_sign_in_successfully(user)
   fill_in "Password", :with => user.password
   check("Remember me")
   click_button "Sign in"
-  current_path.should eq(root_path)
-  page.should have_content("Signed in as #{user.username}")
-  page.should have_link("Users")
-  page.should have_link("Sign out")
+  should_have_links_after_signin(user)
 end
 
 def sign_in_successfully(user)
@@ -32,12 +28,15 @@ def sign_in_successfully(user)
   fill_in "Username", :with => user.username
   fill_in "Password", :with => user.password
   click_button "Sign in"
-  current_path.should eq(root_path)
+  should_have_links_after_signin(user)
+end
+
+def should_have_links_after_signin(user)
+  current_path.should eq(front_path)
   page.should have_content("Signed in as #{user.username}")
   page.should have_link("Users")
   page.should have_link("Sign out")
 end
-
 
 def should_have_links_before_signin
   it { should have_link("Sign up") }
