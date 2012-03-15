@@ -1,0 +1,34 @@
+<div class="clearfix">
+  <fieldset class="content_wrapper round">
+	<div class="content_list align_center clearfix">
+	  <h3 class="title">Jokes entered by <%= @current_joke.author %></h3>
+	  <table>
+        <tr>
+   	      <td class="joke_name bold">Joke Name</td>
+	      <td class="publish_date bold">Publish Date</td>
+	    </tr>
+	    <% @jokes.each do |joke| %>
+	      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+            <td  class="joke_name"><%= link_to joke.name, joke  %></td>
+		    <td class="publish_date"><%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesbydate_path(:joke=>joke.id)  %></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="joke_links" class="clearfix align_center">
+      <p class="view_my_jokes clearfix">
+        <%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
+        <%= link_to 'View All Jokes', alljokes_path %>
+      </p>
+      <p class="view_my_jokes clearfix">
+        <%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
+        <%= link_to 'View, Edit My Jokes', myjokes_path %>
+      </p>
+      <p class="create_new_joke clearfix">
+        <%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
+        <%= link_to 'Enter New Joke', newjoke_path %>
+      </p>
+    <div>
+  </fieldset>
+</div>
