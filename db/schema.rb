@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20120315004253) do
   create_table "jokes", :force => true do |t|
     t.string   "name",       :limit => 50,                :null => false
     t.text     "content",                                 :null => false
+    t.string   "author",                                  :null => false
     t.integer  "status",                   :default => 0, :null => false
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
