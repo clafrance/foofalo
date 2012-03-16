@@ -1,10 +1,13 @@
 class CreateJokes < ActiveRecord::Migration
   def change
     create_table :jokes do |t|
-      t.string :name, :null => false, :limit =>50, :unique => true
+      t.string :name, :null => false, :limit => 50, :unique => true
       t.text :content, :null => false
-      t.string :author, :null => false
+      t.integer :user_id, :null => false
+      t.string :author, :null => false, :limit => 50
       t.integer :status, :null => false, :default => 0
+      t.string :message, :default => "new", :limit => 16
+      t.timestamps :approved_at
 
       t.timestamps
     end

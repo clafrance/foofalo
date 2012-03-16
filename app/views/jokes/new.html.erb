@@ -1,21 +1,10 @@
+<% provide :title, "Create Joke" %>
 <div class="clearfix">
   <fieldset class="content_wrapper round">
 	<div class="content_list align_center clearfix">
+		<h3 class="title">Enter New Joke</h3>
 	  <%= form_for(@joke) do |f| %>
-	    <% if @joke.errors.any? %>
-	      <div id="error_explanation">
-	        <h2><%= pluralize(@joke.errors.count, "error") %> 
-	          prohibited this joke from being saved:
-	        </h2>
-	        <p>There were problems with the following fields:</p>
-	        <ul>
-	          <% @joke.errors.full_messages.each do |msg| %>
-	            <li><%= msg %></li>
-	          <% end %>
-	        </ul>
-	      </div>
-	    <% end %>
-	    <h3 class="title">Enter New Joke</h3>
+      <%= render 'shared/error_messages', :object => f.object %>
 	    <div class="field">
 	      <%= f.label :name, "Joke Name:" %>
 	      <%= f.text_field :name, :class=>"input", :autofocus=>true %>

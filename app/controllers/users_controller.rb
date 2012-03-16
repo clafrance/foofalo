@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   def index
     #@users = User.all
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(:page => params[:page], :per_page => 20)
   end
   
   def show
@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   
   def new
     @user = User.new
+    @focus ="autofocus"
   end
   
   def create
@@ -53,20 +54,20 @@ class UsersController < ApplicationController
   end
   
   private
-    
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_path) if @user != current_user
-    end
-  
-    def signed_in_user
-      if current_user.nil?
-        store_location
-        redirect_to signin_path, notice: "Please sign in."
-      end
-    end
-    
-    def admin_user?
-      redirect_to(root_path) if current_user.privilege != 0
-    end
+    # 
+    # def correct_user
+    #   @user = User.find(params[:id])
+    #   redirect_to(root_path) if @user != current_user
+    # end
+    #   
+    # def signed_in_user
+    #   if current_user.nil?
+    #     store_location
+    #     redirect_to signin_path, notice: "Please sign in."
+    #   end
+    # end
+    # 
+    # def admin_user?
+    #   redirect_to(root_path) if current_user.privilege != 0
+    # end
 end

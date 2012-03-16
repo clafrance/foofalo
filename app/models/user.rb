@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   attr_accessible :firstname, :lastname, :email, :email_confirmation, :username, :password, :password_confirmation,
                   :parent_approved, :parent_approved_at
   has_secure_password
+  
+  has_many :jokes, :dependent => :destroy
+  
   validates_presence_of :password, :on => :create
   before_create { generate_token(:remember_token) }
   

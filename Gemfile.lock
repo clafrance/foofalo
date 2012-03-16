@@ -168,4 +168,4 @@ DEPENDENCIES
   rspec-rails (= 2.8.1)
   sass-rails (~> 3.2.3)
   uglifier (~> 1.2.3)
-  will_paginate (= 3.0.3)
+  will_paginate (~> 3.0.3)

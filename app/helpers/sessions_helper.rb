@@ -42,9 +42,27 @@ module SessionsHelper
     cookies.delete(:remember_token)
   end
   
-  
+  def signed_in?
+    !current_user.nil?
+  end
   
   private
+    
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_path) if @user != current_user
+    end
+  
+    def signed_in_user
+      if current_user.nil?
+        store_location
+        redirect_to signin_path, notice: "Please sign in."
+      end
+    end
+    
+    def admin_user?
+      redirect_to(root_path) if current_user.privilege != 0
+    end
     
     def clear_return_to
       session.delete(:return_to)

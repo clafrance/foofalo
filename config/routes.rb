@@ -21,7 +21,11 @@ Foofalo::Application.routes.draw do
   match '/signout', :to => 'sessions#destroy'
   match '/users',   :to => 'users#index'
   match '/newjoke', :to => 'jokes#new'
-  match '/viewjokes', :to => 'jokes#index'
+  match '/jokes',   :to => 'jokes#index'
+  match '/jokesshow/', :to => 'jokes#show'
+  match '/jokesbyauthor', :to => 'jokes#jokes_by_author'
+  match '/jokesbydate',  :to => 'jokes#jokes_by_date'
+  match '/myjokes',      :to => 'jokes#my_jokes'
   #match '/not_approve', :to => 'users#not_approve'
 
   # The priority is based upon order of creation:

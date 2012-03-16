@@ -3,3 +3,8 @@
 
 en:
   hello: "Hello world"
+  views:
+    pagiantion:
+      previous: "&lt; Prev"
+      next: "Next &gt;"
+      truncate: "..."
