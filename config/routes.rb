@@ -5,7 +5,7 @@ Foofalo::Application.routes.draw do
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :password_resets
-  resources :username_reminder
+  #resources :username_reminder
   resources :parent_confirms
   resources :jokes
 
@@ -27,6 +27,8 @@ Foofalo::Application.routes.draw do
   match '/jokesdate',  :to => 'jokes#jokes_date'
   match '/myjokes',      :to => 'jokes#my_jokes'
   match '/jokesbyauthors', :to => 'jokes#jokes_by_authors'
+  match '/usernamereminder', :to => 'username_reminder#new'
+  match '/usernamereminder_create', :to => 'username_reminder#create'
   #match '/not_approve', :to => 'users#not_approve'
 
   # The priority is based upon order of creation:

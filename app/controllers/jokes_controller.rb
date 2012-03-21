@@ -50,16 +50,7 @@ class JokesController < ApplicationController
   end
   
   def jokes_by_authors
-    # @jokes_all = Joke.where(:status => 1).order("#{:name}").paginate(:page => params[:page], :per_page => 20)
-    # @jokes = @jokas_all.group_by {:author}  
-    #@authors = Joke.find_(:author)
     @authors = Joke.select("DISTINCT(author)").order(:author).map(&:author)
-#jokes_by_author = @author.jokes
-  end
-  
-  def jokes_by_dates
-    @dates = Joke.select("DISTINCT(created_at.beginning_of_day)").map(&:created_at)
-    #@jokes = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
   end
   
   def edit
