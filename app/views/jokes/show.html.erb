@@ -1,32 +1,17 @@
 <% provide :title, "View Joke" %>
 <div class="clearfix">
-  <fieldset class="content_wrapper jokes round clearfix">
-	<div class="content_list align_center clearfix">
-	  <h3 class="title"><%= @joke.name %></h3>
-      <p class="italic small_font_2">Entered by   <span class="grey"> <%= @joke.author %></span> on 
+	<h3 class="title"><%= @joke.name %></h3>
+  <p class="italic small_font_2">Entered by   <span class="grey"> <%= @joke.author %></span> on 
 	    <%= @joke.created_at.strftime("%m/%d/%Y") %>
-	  </p> 
-      <div class="align-left joke_content clearfix">
-        <%= simple_format @joke.content %>
-      </div>
-    </div>
-
-    <div class="joke_links clearfix align_left">
-	  <p class="view_my_jokes clearfix">
-	    <%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
-	    <%= link_to 'View All Jokes', jokes_path %>
-	  </p>
-      <p class="view_my_jokes clearfix">
-        <%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
-        <%= link_to 'View My Jokes', '#' %>
-      </p>
-      <p class="create_new_joke clearfix">
-        <%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
-        <%= link_to 'Enter New Jokes', newjoke_path %>
-      </p>
-    <div>
-  </fieldset>
+	</p> 
+  <div class="align-left joke_content clearfix">
+    <%= simple_format @joke.content %>
+  </div>
 </div>
+
+<div class="joke_links clearfix align_left">
+  <%= render 'linktojokes' %>
+<div>
 
 
 	       

@@ -1,0 +1,20 @@
+<% provide :title, "Jokes by Author" %>
+
+<div class="clearfix">
+	<h3 class="title">Jokes entered by <%= @current_joke.author %> (<%= @jokes.count %> )</h3>
+	<p><span>Joke Name</span> <span>Date Created</span></p>
+  <%= will_paginate %>
+	  <ul class="users">
+      <% @jokes.each do |joke| %>
+        <li>
+          <p><%= link_to joke.name, joke %> <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %></p>
+          <p><%= joke.content %></p>
+        </li>
+      <% end %>		
+    </ul>
+  <%= will_paginate %>
+</div>
+
+<div class="joke_links" class="clearfix align_center">
+	<%= render 'linktojokes' %>
+<div>

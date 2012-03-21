@@ -12,5 +12,5 @@ class Joke < ActiveRecord::Base
                    :length => { :maximum => 50 }
   validates :status, :presence => true
   
-  default_scope order: 'jokes.created_at DESC'
+  #default_scope order: 'jokes.created_at DESC'
 end

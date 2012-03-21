@@ -23,9 +23,10 @@ Foofalo::Application.routes.draw do
   match '/newjoke', :to => 'jokes#new'
   match '/jokes',   :to => 'jokes#index'
   match '/jokesshow/', :to => 'jokes#show'
-  match '/jokesbyauthor', :to => 'jokes#jokes_by_author'
-  match '/jokesbydate',  :to => 'jokes#jokes_by_date'
+  match '/jokesauthor', :to => 'jokes#jokes_author'
+  match '/jokesdate',  :to => 'jokes#jokes_date'
   match '/myjokes',      :to => 'jokes#my_jokes'
+  match '/jokesbyauthors', :to => 'jokes#jokes_by_authors'
   #match '/not_approve', :to => 'users#not_approve'
 
   # The priority is based upon order of creation:
