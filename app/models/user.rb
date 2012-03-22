@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
                   :parent_approved, :parent_approved_at
   has_secure_password
   
-  has_many :jokes, :dependent => :destroy
-  has_many :links
+  has_many :jokes
+  has_many :links, :dependent => :destroy
   
   validates_presence_of :password, :on => :create
   before_create { generate_token(:remember_token) }
