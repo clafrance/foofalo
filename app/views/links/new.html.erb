@@ -1,2 +1,22 @@
-<h1>MyLinks#new</h1>
-<p>Find me in app/views/my_links/new.html.erb</p>
+<% provide :title, "Create Link" %>
+
+<div class="clearfix">
+	<h3 class="title">Enter New Link</h3>
+  <%= form_for(@link) do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>
+    <div class="field">
+     <%= f.label :name, "Link Name:" %>
+     <%= f.text_field :name, :class=>"input", :autofocus=>true %>
+   </div>
+   <div class="field", id="joke_details">
+     <%= f.label :url, "URL" %>
+     <%= f.text_field :url, :class=>"input" %>
+   </div>
+   <div class="actions">
+     <%= f.submit "Submit", :class=>"button" %>
+     <p class="button cancel_button">
+        <a href="javascript:history.back()">Cancel</a></p>
+   </div>
+  <% end %>	  
+</div>
+

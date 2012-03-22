@@ -7,9 +7,12 @@
 	      <li class="title"><%= category %> (<%= Link.where(:user_id => current_user.id, :category => category).count %>)</li>
         <ul>
 	        <% Link.where(:user_id => current_user.id, :category => category).order(:name).each do |link| %>
-	          <li><%= link_to link.name, link %></li>
+	          <li><%= link_to link.name, "#{link.url}" %></li>
           <% end %>
         </ul>
       <% end %>		
     </ul>
 </div>
+<div class="joke_links" class="clearfix align_center">
+	<%= render 'linkstomylinks' %>
+<div>

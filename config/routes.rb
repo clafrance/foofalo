@@ -57,7 +57,8 @@ Foofalo::Application.routes.draw do
   match '/games',        :to => 'games#index'
   match '/funfacts',     :to => 'fun_facts#index'
   match '/newfunfact',   :to => 'fun_facts#new'
-  match '/links',        :to => 'links#new'
+  match '/links',        :to => 'links#index'
+  match '/newlink',        :to => 'links#new'
   #match '/not_approve', :to => 'users#not_approve'
 
   # The priority is based upon order of creation:

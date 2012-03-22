@@ -10,7 +10,7 @@ class LinksController < ApplicationController
   end
 
   def new
-    @flink = Link.new
+    @link = Link.new
     @focus ="autofocus"
   end
 
