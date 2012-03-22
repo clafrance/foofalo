@@ -5,18 +5,26 @@
   <%= form_for(@link) do |f| %>
     <%= render 'shared/error_messages', :object => f.object %>
     <div class="field">
-     <%= f.label :name, "Link Name:" %>
-     <%= f.text_field :name, :class=>"input", :autofocus=>true %>
-   </div>
-   <div class="field", id="joke_details">
-     <%= f.label :url, "URL" %>
-     <%= f.text_field :url, :class=>"input" %>
-   </div>
-   <div class="actions">
-     <%= f.submit "Submit", :class=>"button" %>
-     <p class="button cancel_button">
-        <a href="javascript:history.back()">Cancel</a></p>
-   </div>
+      <%= f.label :name, "Link Name:" %>
+      <%= f.text_field :name, :class=>"input", :autofocus=>true %>
+    </div>
+    <div>
+	    <%= f.label :category, "Category:" %>
+      <%= select(:link, :category, Link::CATEGORIES, {:prompt => true} ) %> 
+    </div>
+    <div class="field", id="joke_details">
+      <%= f.label :url, "URL" %>
+      <%= f.text_area :url, :class=>"input" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Submit", :class=>"button" %>
+      <p class="button cancel_button">
+         <a href="javascript:history.back()">Cancel</a></p>
+    </div>
   <% end %>	  
 </div>
+
+<div class="joke_links" class="clearfix align_center">
+	<%= render 'linkstomylinks' %>
+<div>
 

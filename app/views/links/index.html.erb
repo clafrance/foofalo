@@ -1,17 +1,21 @@
 <% provide :title, "My Links" %>
 
 <div class="clearfix">
-
-	  <ul class="users">
-      <% @categories.each do |category| %>
-	      <li class="title"><%= category %> (<%= Link.where(:user_id => current_user.id, :category => category).count %>)</li>
-        <ul>
-	        <% Link.where(:user_id => current_user.id, :category => category).order(:name).each do |link| %>
-	          <li><%= link_to link.name, "#{link.url}" %></li>
-          <% end %>
-        </ul>
-      <% end %>		
-    </ul>
+  <ul class="users">
+    <% @categories.each do |category| %>
+	    <li class="title"><%= category %> (<%= Link.where(:user_id => current_user.id, 
+	                      :category => category).count %>)</li>
+      <ul>
+	      <% Link.where(:user_id => current_user.id, 
+	              :category => category).order(:name).each do |link| %>
+	        <li><%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %>
+				        <span><%= link_to "Edit", edit_link_path(link) %>
+				        <%= link_to "delete", link, :method => :delete, 
+				        :confirm => "Deleting link #{link.name}?" %></span></li>
+        <% end %>
+      </ul>
+    <% end %>		
+  </ul>
 </div>
 <div class="joke_links" class="clearfix align_center">
 	<%= render 'linkstomylinks' %>

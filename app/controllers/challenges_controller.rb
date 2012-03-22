@@ -1,6 +1,5 @@
 class ChallengesController < ApplicationController
   before_filter :signed_in_user 
-  #before_filter :correct_user,   :only => [:edit, :update]
   before_filter :admin_user,     :only => [:create, :new, :edit, :update, :destroy]
   
   def new
@@ -30,8 +29,6 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = Challenge.find(:all)
-    # @jokes_by_date = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
-    # @jokes_by_author = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
   end
   
   def edit

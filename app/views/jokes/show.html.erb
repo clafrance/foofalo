@@ -1,7 +1,7 @@
 <% provide :title, "View Joke" %>
 <div class="clearfix">
 	<h3 class="title"><%= @joke.name %></h3>
-  <p class="italic small_font_2">Entered by   <span class="grey"> <%= @joke.author %></span> on 
+  <p class="italic small_font_2">Entered by <span class="grey"><%= @joke.author %></span> on 
 	    <%= @joke.created_at.strftime("%m/%d/%Y") %>
 	</p> 
   <div class="align-left joke_content clearfix">

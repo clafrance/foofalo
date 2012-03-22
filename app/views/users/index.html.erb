@@ -8,7 +8,8 @@
 	  <li>
 		  <p><%= user.username %> <%= full_name(user.firstname, user.lastname) %><br />
 		  <% if current_user.privilege == 0 && current_user.id != user.id %>
-		    | <%= link_to "delete", user, :method => :delete, :confirm => "Deleting user #{full_name(user.firstname, user.lastname)}?" %>
+		    | <%= link_to "delete", user, :method => :delete, 
+		      :confirm => "Deleting user #{full_name(user.firstname, user.lastname)}?" %>
 		  <% end %></p>
 		</li>
   <% end %>

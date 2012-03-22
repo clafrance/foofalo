@@ -1,5 +1,28 @@
-<h1>MyLinks#edit</h1>
-<p>Find me in app/views/my_links/edit.html.erb</p>
+<% provide :title, "Edit Link" %>
+
+<div class="clearfix">
+	<h1 class="title">Edit Link</h1>
+  <%= form_for(@link) do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>
+    <div class="field">
+      <%= f.label :name, "Link Name:" %>
+      <%= f.text_field :name, :class=>"input", :autofocus=>true %>
+    </div>
+    <div>
+	    <span><strong>Category:</strong></span>
+      <%= select("link", "category", Link::CATEGORIES, {:prompt => true} ) %> 
+    </div>
+    <div class="field", id="joke_details">
+      <%= f.label :url, "URL:" %>
+      <%= f.text_area :url, :class=>"input textarea" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Update", :class=>"button" %>
+      <p class="button cancel_button">
+        <a href="javascript:history.back()">Cancel</a></p>
+    </div>
+  <% end %>	  
+</div>
 
 
 <div class="joke_links" class="clearfix align_center">

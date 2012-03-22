@@ -19,9 +19,10 @@
 	      <li><%= link_to "Home", front_path, :class=>"home_link round_top" %></li>
 	      <li><%= link_to "Jokes", jokes_path, :class=>"jokes_link round_top" %></li>
 	      <li><%= link_to "Challenges", challenges_path, :class=>"challenges_link round_top" %></li>
-		      <li><%= link_to "Fun Facts", fun_facts_path, :class=>"fun_facts_link round_top" %></li>
+		    <li><%= link_to "Fun Facts", fun_facts_path, :class=>"fun_facts_link round_top" %></li>
 	      <li><%= link_to "Games", games_path, :class=>"games_link round_top" %></li>
-	      <li><a href="http://www.chikaradev.com/mansters/" class="mansters_link round_top">Manster Cards</a></li>
+	      <li><%= link_to "Manster Cards", "http://www.chikaradev.com/mansters/", 
+	              :target => :blank, :class=>"mansters_link round_top" %></li>
 	      <li><%= link_to "My Links", links_path, :class=>"my_links round_top" %></li>
 	    </ul>
 	  </div>

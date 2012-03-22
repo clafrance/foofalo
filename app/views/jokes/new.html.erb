@@ -5,18 +5,18 @@
   <%= form_for(@joke) do |f| %>
     <%= render 'shared/error_messages', :object => f.object %>
     <div class="field">
-     <%= f.label :name, "Joke Name:" %>
-     <%= f.text_field :name, :class=>"input", :autofocus=>true %>
-   </div>
-   <div class="field", id="joke_details">
-     <%= f.label :content, "Joke details:" %>
-     <%= f.text_area :content, :class=>"input textarea" %>
-   </div>
-   <div class="actions">
-     <%= f.submit "Submit", :class=>"button" %>
-     <p class="button cancel_button">
-        <a href="javascript:history.back()">Cancel</a></p>
-   </div>
+      <%= f.label :name, "Joke Name:" %>
+      <%= f.text_field :name, :class=>"input", :autofocus=>true %>
+    </div>
+    <div class="field", id="joke_details">
+      <%= f.label :content, "Joke details:" %>
+      <%= f.text_area :content, :class=>"input textarea" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Submit", :class=>"button" %>
+      <p class="button cancel_button">
+         <a href="javascript:history.back()">Cancel</a></p>
+    </div>
   <% end %>	  
 </div>
 
