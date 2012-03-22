@@ -1,0 +1,25 @@
+<% provide :title, "Edit Challenge" %>
+
+<div class="clearfix">
+	<h1 class="title">Edit Challenge</h1>
+  <%= form_for(@challenge) do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>
+    <div class="field">
+     <%= f.label :name, "Challenge Name:" %>
+     <%= f.text_field :name, :class=>"input", :autofocus=>true %>
+   </div>
+   <div class="field", id="challenge_details">
+     <%= f.label :content, "challenge details:" %>
+     <%= f.text_area :content, :class=>"input textarea" %>
+   </div>
+   <div class="actions">
+     <%= f.submit "Update", :class=>"button" %>
+     <p class="button cancel_button">
+        <a href="javascript:history.back()">Cancel</a></p>
+   </div>
+  <% end %>	  
+</div>
+
+<div class="joke_links" class="clearfix align_center">
+	<%= render 'linkstochallenges' %>
+<div>

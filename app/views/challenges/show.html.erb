@@ -1,0 +1,12 @@
+<% provide :title, "View Challenge" %>
+
+<div class="clearfix">
+	<h3 class="title"><%= @challenge.name %></h3> 
+  <div class="align-left joke_content clearfix">
+    <%= simple_format @challenge.content %>
+  </div>
+</div>
+
+<div class="joke_links clearfix align_left">
+  <%= render 'linkstochallenges' %>
+<div>

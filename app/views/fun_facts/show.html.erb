@@ -1,0 +1,12 @@
+<% provide :title, "View Fun Fact" %>
+
+<div class="clearfix">
+	<h3 class="title"><%= @fun_fact.name %></h3> 
+  <div class="align-left joke_content clearfix">
+    <%= simple_format @fun_fact.content %>
+  </div>
+</div>
+
+<div class="joke_links clearfix align_left">
+  <%= render 'linkstofunfacts' %>
+<div>

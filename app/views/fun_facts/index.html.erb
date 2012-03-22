@@ -1,0 +1,28 @@
+<% provide :title, "All Fun Facts" %>
+
+<div class="clearfix">
+	<h3 class="title">Fun Facts (<%= @fun_facts.count %> )</h3>
+	<p><span>Fun Fact Name</span> <span>Date Created</span></p>
+
+	<ul class="users">
+	  <% @fun_facts.each do |fun_fact| %>
+		  <li>
+			  <% if current_user.privilege == 0 %>
+			    <p><%= link_to fun_fact.name, fun_fact %> 
+			       <%= fun_fact.created_at.strftime("%m/%d/%Y") %></p>
+          <p><%= fun_fact.content %></p>
+			    <p><%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
+			       <%= link_to "delete", fun_fact, :method => :delete, :confirm => "Deleting fun_fact #{fun_fact.name}?" %></p>
+			  <% else %>
+			    <p><%= link_to fun_fact.name, fun_fact %> 
+			       <%= fun_fact.created_at.strftime("%m/%d/%Y") %></p>
+          <p><%= fun_fact.content %></p>
+			  <% end %>
+			</li>
+	  <% end %>
+	</ul>
+</div>
+
+<div class="challenge_links" class="clearfix align_center">
+	<%= render 'linkstofunfacts' %>
+<div>

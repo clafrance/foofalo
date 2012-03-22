@@ -52,22 +52,4 @@ class UsersController < ApplicationController
     flash[:success] = "User #{user.firstname} has been deleted."
     redirect_to users_path
   end
-  
-  private
-    # 
-    # def correct_user
-    #   @user = User.find(params[:id])
-    #   redirect_to(root_path) if @user != current_user
-    # end
-    #   
-    # def signed_in_user
-    #   if current_user.nil?
-    #     store_location
-    #     redirect_to signin_path, notice: "Please sign in."
-    #   end
-    # end
-    # 
-    # def admin_user?
-    #   redirect_to(root_path) if current_user.privilege != 0
-    # end
 end

@@ -1,0 +1,15 @@
+<% provide :title, "My Links" %>
+
+<div class="clearfix">
+
+	  <ul class="users">
+      <% @categories.each do |category| %>
+	      <li class="title"><%= category %> (<%= Link.where(:user_id => current_user.id, :category => category).count %>)</li>
+        <ul>
+	        <% Link.where(:user_id => current_user.id, :category => category).order(:name).each do |link| %>
+	          <li><%= link_to link.name, link %></li>
+          <% end %>
+        </ul>
+      <% end %>		
+    </ul>
+</div>

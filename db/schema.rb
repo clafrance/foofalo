@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120315004253) do
+ActiveRecord::Schema.define(:version => 20120322041406) do
+
+  create_table "challenges", :force => true do |t|
+    t.string   "name",       :limit => 50,                :null => false
+    t.text     "content",                                 :null => false
+    t.integer  "status",                   :default => 0, :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+  end
+
+  create_table "fun_facts", :force => true do |t|
+    t.string   "name",       :limit => 50,                :null => false
+    t.text     "content",                                 :null => false
+    t.integer  "status",                   :default => 0, :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
+  end
 
   create_table "jokes", :force => true do |t|
     t.string   "name",       :limit => 50,                    :null => false
@@ -22,6 +38,15 @@ ActiveRecord::Schema.define(:version => 20120315004253) do
     t.string   "message",    :limit => 16, :default => "new"
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
+  end
+
+  create_table "links", :force => true do |t|
+    t.string   "name",       :limit => 50, :null => false
+    t.string   "url"
+    t.string   "category"
+    t.integer  "user_id"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "users", :force => true do |t|

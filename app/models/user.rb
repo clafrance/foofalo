@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_secure_password
   
   has_many :jokes, :dependent => :destroy
+  has_many :links
   
   validates_presence_of :password, :on => :create
   before_create { generate_token(:remember_token) }

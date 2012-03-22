@@ -1,6 +1,26 @@
 Foofalo::Application.routes.draw do
 
-  get "parent_confirms/new"
+  # get "my_links/index"
+  # 
+  #  get "my_links/new"
+  # 
+  #  get "my_links/edit"
+
+  # get "fun_facts/index"
+  # 
+  # get "fun_facts/show"
+  # 
+  # get "fun_facts/new"
+  # 
+  # get "fun_facts/edit"
+  # 
+  # get "challenges/new"
+  # 
+  # get "challenges/show"
+  # 
+  # get "challenges/edit"
+  # 
+  # get "parent_confirms/new"
 
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
@@ -8,6 +28,9 @@ Foofalo::Application.routes.draw do
   #resources :username_reminder
   resources :parent_confirms
   resources :jokes
+  resources :challenges
+  resources :fun_facts
+  resources :links
 
   root :to => 'static_pages#home'
 
@@ -29,6 +52,12 @@ Foofalo::Application.routes.draw do
   match '/jokesbyauthors', :to => 'jokes#jokes_by_authors'
   match '/usernamereminder', :to => 'username_reminder#new'
   match '/usernamereminder_create', :to => 'username_reminder#create'
+  match '/challenges',   :to => 'challenges#index'
+  match '/newchallenge', :to => 'challenges#new'
+  match '/games',        :to => 'games#index'
+  match '/funfacts',     :to => 'fun_facts#index'
+  match '/newfunfact',   :to => 'fun_facts#new'
+  match '/links',        :to => 'links#new'
   #match '/not_approve', :to => 'users#not_approve'
 
   # The priority is based upon order of creation:
