@@ -28,6 +28,10 @@ class UsersController < ApplicationController
       end
     end
     
+    # if @user.email == "christie.lafrance@gmail.com"
+    #   @user.privilege = 0
+    # end
+    
     if @user.save 
       if @user.send_inform_parents
         redirect_to root_path, :notice => "#{@user.username} You have signed up. Your parents should receive 
