@@ -20,6 +20,14 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
+    emails = ["christie.lafrance@gmail.com", "gclafrance@gmail.com", "philliptao@gmail.com"]
+    emails.each do |email|
+      if @user.email == email
+        @user.privilege = 0
+        break
+      end
+    end
+    
     if @user.save 
       if @user.send_inform_parents
         redirect_to root_path, :notice => "#{@user.username} You have signed up. Your parents should receive 
