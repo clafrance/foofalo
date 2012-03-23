@@ -8,8 +8,8 @@
         <li>
           <p><%= link_to joke.name, joke %> 
              <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
-             <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %></p>
-          <p><%= joke.content %></p>
+             <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %><br />
+          <%= joke.content %></p>
         </li>
       <% end %>		
     </ul>

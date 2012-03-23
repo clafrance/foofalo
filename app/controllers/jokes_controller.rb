@@ -21,9 +21,10 @@ class JokesController < ApplicationController
   end
   
   def index
+    @jokes_need_approve = Joke.where(:status => 0).order("#{:created_at}")
     @jokes = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
-    @jokes_by_date = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
-    @jokes_by_author = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
+    #@jokes_by_date = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
+    #@jokes_by_author = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
   end
   
   def show
