@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  
+  #force_ssl :only => [:new, :create]
+    
   def new
     store_referrer_location
   end
