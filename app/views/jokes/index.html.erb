@@ -10,7 +10,7 @@
 	          <%= link_to joke.name, joke %> 
 	          <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
 	          <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %><br />
-	          <%= joke.content %>
+	          <%= simple_format joke.content %>
 		      </li>
 		    <% end %>		
 		  </ul>
@@ -23,7 +23,7 @@
 	      <li><%= link_to joke.name, joke %> 
 	          <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
 	          <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %><br />
-	          <%= joke.content %>
+	          <%= simple_format joke.content %>
 	      </li>
 	    <% end %>	
 	  </ul>	
@@ -38,7 +38,7 @@
           <p><%= link_to joke.name, joke %> 
             <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
             <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %><br />
-            <%= joke.content %></p>
+            <%= simple_format joke.content %></p>
         </li>
       <% end %>		
     </ul>

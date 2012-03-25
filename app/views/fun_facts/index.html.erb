@@ -10,13 +10,13 @@
 			  <% if current_user.privilege == 0 %>
 			    <p><%= link_to fun_fact.name, fun_fact %> 
 			       <%= fun_fact.created_at.strftime("%m/%d/%Y") %></p>
-          <p><%= fun_fact.content %></p>
+          <p><%= simple_format fun_fact.content %></p>
 			    <p><%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
 			       <%= link_to "delete", fun_fact, :method => :delete, :confirm => "Deleting fun_fact #{fun_fact.name}?" %></p>
 			  <% else %>
 			    <p><%= link_to fun_fact.name, fun_fact %> 
 			       <%= fun_fact.created_at.strftime("%m/%d/%Y") %></p>
-          <p><%= fun_fact.content %></p>
+          <p><%= simple_format fun_fact.content %></p>
 			  <% end %>
 			</li>
 	  <% end %>

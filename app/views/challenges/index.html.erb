@@ -10,14 +10,15 @@
 			  <% if current_user.privilege == 0 %>
 			    <p><%= link_to challenge.name, challenge %> 
 			       <%= challenge.created_at.strftime("%m/%d/%Y") %></p>
-          <p><%= challenge.content %></p>
+          <p><%= simple_format challenge.content %></p>
+
 			    <p><%= link_to "Edit", edit_challenge_path(challenge) %>
 			       <%= link_to "delete", challenge, :method => :delete, 
 			             :confirm => "Deleting challenge #{challenge.name}?" %></p>
 			  <% else %>
 			    <p><%= link_to challenge.name, challenge %> 
 			       <%= challenge.created_at.strftime("%m/%d/%Y") %></p>
-          <p><%= challenge.content %></p>
+          <p><%= simple_format challenge.content %></p>
 			  <% end %>
 			</li>
 	  <% end %>

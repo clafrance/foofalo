@@ -12,7 +12,7 @@
 	          <li><%= link_to joke.name, joke %> 
 	              <%= link_to joke.created_at.strftime("%m/%d/%Y"), 
 	                      jokesdate_path(:joke=>joke.id) %></li>
-	          <p><%= joke.content %></p>
+	          <p><%= simple_format joke.content %></p>
           <% end %>
         </ul>
       <% end %>		
