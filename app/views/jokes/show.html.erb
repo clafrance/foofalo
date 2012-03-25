@@ -1,12 +1,18 @@
 <% provide :title, "View Joke" %>
 <div class="clearfix">
-	<h3 class="title"><%= @joke.name %></h3>
-  <p class="italic small_font_2">Entered by <span class="grey"><%= @joke.author %></span> on 
-	    <%= @joke.created_at.strftime("%m/%d/%Y") %>
-	</p> 
-  <div class="align-left joke_content clearfix">
-    <%= simple_format @joke.content %>
-  </div>
+	<% if current_user.privilege == 0 %>
+		<%= form_tag unapprove_path, :method => :put do %>
+			<%= check_box_tag "joke_id[]", @joke.id %>
+	    <h3 class="title"><%= @joke.name %></h3>
+      <p class="italic small_font_2">Entered by <span class="grey"><%= @joke.author %></span> on 
+	        <%= @joke.created_at.strftime("%m/%d/%Y") %>
+	    </p> 
+      <div class="align-left joke_content clearfix">
+        <%= simple_format @joke.content %>
+      </div>
+	    <%= submit_tag "Unapprove" %>
+	  <% end %>
+	<% end %>
 </div>
 
 <div class="joke_links clearfix align_left">

@@ -27,7 +27,7 @@ Foofalo::Application.routes.draw do
   resources :password_resets
   #resources :username_reminder
   resources :parent_confirms
-  resources :jokes
+  resources :jokes  # , :collection => { :review => :put }
   resources :challenges
   resources :fun_facts
   resources :links
@@ -58,7 +58,10 @@ Foofalo::Application.routes.draw do
   match '/funfacts',     :to => 'fun_facts#index'
   match '/newfunfact',   :to => 'fun_facts#new'
   match '/links',        :to => 'links#index'
-  match '/newlink',        :to => 'links#new'
+  match '/newlink',      :to => 'links#new'
+  match '/review',      :to => 'jokes#review', :method => :put
+  match '/unapprove',      :to => 'jokes#unapprove', :method => :put
+  #match '/unapprove',    :to => 'jokes#unapprove', :method => :put
   #match '/not_approve', :to => 'users#not_approve'
 
   # The priority is based upon order of creation:

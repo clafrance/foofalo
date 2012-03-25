@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
-  #force_ssl :only => [:new, :create]
+  force_ssl :only => [:new, :create]
     
   def new
     store_referrer_location
+    @focus ="autofocus"
   end
   
   def create

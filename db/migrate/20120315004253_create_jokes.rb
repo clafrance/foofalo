@@ -6,7 +6,7 @@ class CreateJokes < ActiveRecord::Migration
       t.integer :user_id, :null => false
       t.string :author, :null => false, :limit => 50
       t.integer :status, :null => false, :default => 0 #(0-need to be approved, 1-approved, 2-didn't get approved)
-      t.string :message, :default => "new", :limit => 16
+      t.string :message, :default => "new", :limit => 60
       t.timestamps :approved_at
 
       t.timestamps
