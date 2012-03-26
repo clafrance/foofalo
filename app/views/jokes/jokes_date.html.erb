@@ -9,7 +9,7 @@
 	    <li>
         <p><%= link_to joke.name, joke %> 
            <%= link_to joke.author, jokesauthor_path(:joke=>joke.id)  %></p>
-        <p><%= joke.content %></p>
+        <p><%= simple_format joke.content %></p>
 	    </li>
 	  <% end %>		
 	</ul>

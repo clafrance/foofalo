@@ -61,7 +61,6 @@ module SessionsHelper
     end
     
     def admin_user?
-      flash[:notice] = "You don't have the priviledeg to do it."
       redirect_to store_referrer_location ||= root_path if current_user.privilege != 0
     end
     
