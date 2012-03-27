@@ -51,11 +51,16 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(params[:user])
-      flash[:success] = "Profile Updated"
-      redirect_to @user
+    if @user = current_user
+      if @user.update_attributes(params[:user])
+        flash[:success] = "Profile Updated"
+        redirect_to @user
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      flash[:notice] = "You can only update your own profile"
+      redirect_to root_url
     end
   end
   

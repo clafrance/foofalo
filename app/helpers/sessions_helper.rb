@@ -1,7 +1,7 @@
 module SessionsHelper
   
   def redirect_back_or(default)
-    redirect_to(session[:return_to] ||= default)
+    redirect_to(store_referrer_location ||= default)
     clear_return_to
   end
   

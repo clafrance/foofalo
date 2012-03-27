@@ -12,12 +12,10 @@ class SessionsController < ApplicationController
       if user.parent_approved =="Yes" && user.parent_approved_at
         if params[:remember_me]
           sign_in_remember(user)
-          #cookies.permanent[:remember_token] = user.remember_token
         else
           sign_in(user)
-          #cookies[:remember_token] = user.remember_token
         end
-        redirect_back_or front_url
+        redirect_back_or(front_url)
       else      
         redirect_to root_url, :notice => "still waiting for your parents approval."
       end

@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   # helper is available to views by default, include make it available to controllers
   include SessionsHelper 
   include UsersHelper 
+  include StaticPagesHelper
+  include JokesHelper
   
   private
   

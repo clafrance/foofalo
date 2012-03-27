@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120322041406) do
+ActiveRecord::Schema.define(:version => 20120326235308) do
 
   create_table "challenges", :force => true do |t|
     t.string   "name",       :limit => 50,                :null => false
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(:version => 20120322041406) do
     t.integer  "status",                   :default => 0, :null => false
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
+  end
+
+  create_table "display_objects", :force => true do |t|
+    t.string   "obj_type",   :limit => 30, :null => false
+    t.integer  "obj_id"
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
   end
 
   create_table "fun_facts", :force => true do |t|
@@ -35,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20120322041406) do
     t.integer  "user_id",                                     :null => false
     t.string   "author",     :limit => 50,                    :null => false
     t.integer  "status",                   :default => 0,     :null => false
-    t.string   "message",    :limit => 16, :default => "new"
+    t.string   "message",    :limit => 60, :default => "new"
     t.datetime "created_at",                                  :null => false
     t.datetime "updated_at",                                  :null => false
   end

@@ -1,6 +1,7 @@
 class Challenge < ActiveRecord::Base
   attr_accessible :name, :content, :status
   
+  has_one :display_object
   #belongs_to :user
   
   validates :name, :presence => true,

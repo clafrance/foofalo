@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+DisplayObject.create(obj_type: 'joke', obj_id: nil)
+DisplayObject.create(obj_type: 'challenge', obj_id: nil)
+DisplayObject.create(obj_type: 'fun_fact', obj_id: nil)
+#puts "db seeds data here"

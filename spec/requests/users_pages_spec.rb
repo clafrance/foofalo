@@ -15,7 +15,7 @@ describe "Show Users" do
 end
 
 describe "EditProfile" do
-  subject { page }
+   subject { page }
   
   it "updates user profile with valid info" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
@@ -88,7 +88,7 @@ describe "EditProfile" do
     current_path.should eq(user_path(user))
     should have_content("Email is invalid")
   end
-  
+   
   it "doesn't update user profile when email doesn't match confirmation" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     sign_in(user)
@@ -102,11 +102,12 @@ describe "EditProfile" do
   
   it "does not submit a PUT request to the Users#update action" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
-    wrong_user = Factory(:user, :username => "wrongusername")
+    wrong_user = Factory(:user, :username => "wrppppongusername")
     sign_in(user)
     visit edit_user_path(wrong_user)
-    #should have_selector('title', text: full_title('')) }
+    should have_selector('title', text: "Foofalo | Home")
     put user_path(wrong_user)
-    response.should redirect_to(signin_path) 
+    should have_selector('title', text: "Foofalo | Home")   
+    #response.should redirect_to(root_url) 
   end
 end
