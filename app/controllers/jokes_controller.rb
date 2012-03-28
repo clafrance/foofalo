@@ -76,7 +76,7 @@ class JokesController < ApplicationController
         render 'edit'
       end
     else
-      redirect_to root_url, :Notice => "You can only edit your jokes."
+      redirect_to root_url, :Notice => "You can only edit your own jokes."
     end
   end
   
@@ -91,18 +91,7 @@ class JokesController < ApplicationController
     Joke.update_all(["status=?", 2], :id => params[:joke_id])
     Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[:joke_id])
     redirect_to jokes_path
-  end
-  # def unapprove
-  #   Joke.update_all(["status=?", 2], :id => params[:joke_id])
-  #   redirect_to jokes_path
-  # end
-  
-  # def review
-  #   Joke.update_all(["status=?", 1], :id => params[:joke_ids])
-  #   #@unapproved_jokes = Joke.where(:status => 0).order("#{:created_at}")
-  #   redirect_to jokes_path
-  # end
-  
+  end  
   
   def destroy
     joke = Joke.find(params[:id])
