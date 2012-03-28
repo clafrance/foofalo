@@ -24,11 +24,15 @@
     <div  class="legend clearfix">
 	    <h3><%= random_fun_fact.name %></h3>
       <p><%= random_fun_fact.content %></p>
-      <p>An oak tree produces about 2,200 acorns in a season, but each acorn only has a 1 in 10,000 chance of becoming an oak tree.</p>
     </div>
   </div>
 
   <div>
 	  <h2>My Links</h2>
+	  <ul>
+	  <% display_links.each do |link| %>
+	    <li><%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %></li>
+	  <% end %>
+	  </ul>
 	</div>
 </div>

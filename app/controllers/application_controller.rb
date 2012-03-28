@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   include UsersHelper 
   include StaticPagesHelper
   include JokesHelper
+  include LinksHelper
   
   private
   

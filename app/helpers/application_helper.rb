@@ -101,4 +101,8 @@ module ApplicationHelper
       fun_fact = FunFact.find_by_id(displayed_fun_fact.obj_id)
     end
   end
+  
+  # def display_links
+  #   @my_links = Link.find(:all, :order => :name).paginate(:page => params[:page], :per_page => 20)   
+  # end
 end

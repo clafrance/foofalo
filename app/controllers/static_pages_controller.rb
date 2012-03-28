@@ -11,7 +11,6 @@ class StaticPagesController < ApplicationController
   end
   
   def front
-    
-    
+    #@my_links = Link.find(:all, :order => :name)
   end
 end
