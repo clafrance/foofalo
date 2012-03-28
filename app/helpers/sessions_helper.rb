@@ -7,10 +7,10 @@ module SessionsHelper
   
   def store_referrer_location
     if request.referrer == signup_url || request.referrer == signup_path 
-      session[:return_to] = front_url
+      session[:return_to] = index_url
     else
       if request.referrer == signin_path || request.referrer == signin_url 
-        session[:return_to] = front_url
+        session[:return_to] = index_url
       else
         session[:return_to] = request.referrer
         #session[:return_to] = request.fullpath
@@ -50,23 +50,23 @@ module SessionsHelper
     
     def correct_user
       @user = User.find(params[:id])
-      redirect_to(root_path) if @user != current_user
+      redirect_to(root_url) if @user != current_user
     end
   
     def signed_in_user
       if current_user.nil?
         store_location
-        redirect_to signin_path, notice: "Please sign in."
+        redirect_to signin_url, notice: "Please sign in."
       end
     end
     
     def admin_user?
-      redirect_to store_referrer_location ||= root_path if current_user.privilege != 0
+      redirect_to store_referrer_location ||= root_url if current_user.privilege != 0
     end
     
     def admin_user
       if current_user.privilege != 0
-        redirect_to store_referrer_location ||= root_path
+        redirect_to store_referrer_location ||= root_url
       else
         current_user
       end

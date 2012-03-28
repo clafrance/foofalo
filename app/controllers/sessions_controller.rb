@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
         else
           sign_in(user)
         end
-        redirect_back_or(front_url)
+        redirect_back_or(index_url)
       else      
         redirect_to root_url, :notice => "still waiting for your parents approval."
       end

@@ -102,7 +102,4 @@ module ApplicationHelper
     end
   end
   
-  # def display_links
-  #   @my_links = Link.find(:all, :order => :name).paginate(:page => params[:page], :per_page => 20)   
-  # end
 end
