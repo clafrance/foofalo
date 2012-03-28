@@ -20,7 +20,7 @@ class FunFactsController < ApplicationController
 
   def show
     @fun_fact = FunFact.find(params[:id])
-    if @fun_fact.status == 0
+    if @fun_fact.status == 1
       @display_status = "It hasn't been published." 
     else
       @display_status = "It has been published."

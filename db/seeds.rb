@@ -9,4 +9,29 @@
 DisplayObject.create(obj_type: 'joke', obj_id: nil)
 DisplayObject.create(obj_type: 'challenge', obj_id: nil)
 DisplayObject.create(obj_type: 'fun_fact', obj_id: nil)
-#puts "db seeds data here"
+
+
+Joke.create(
+  name: 'Law of Refrigerator Observation', 
+  content: 'If a cat watches a refrigerator long enough, someone will come along and take out something good to eat.', 
+  user_id: 1, 
+  author: 'aa', 
+  status: 1, 
+  message: 'Approved', 
+  approved_at: '2012-03-28 04:43:52', 
+  created_at: '2012-03-28 04:43:52', 
+  updated_at: '2012-03-28 04:43:52')
+  
+Challenge.create(
+  name: 'Triangles', 
+  content: 'The sequence of numbers 1, 6, 15, 20, ... continues with which three numbers?', 
+  status: 1, 
+  created_at: '2012-03-28 04:43:52', 
+  updated_at: '2012-03-28 04:43:52')
+  
+FunFact.create(
+  name: 'Gravity', 
+  content: 'Because of differences in gravity, a 100kg (220 pound) person would only weigh 38kg (84 pounds) on Mars.', 
+  status: 1, 
+  created_at: '2012-03-28 04:43:52', 
+  updated_at: '2012-03-28 04:43:52')
