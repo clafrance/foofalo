@@ -28,7 +28,7 @@ class ChallengesController < ApplicationController
   end
 
   def index
-    @challenges = Challenge.find(:all).paginate(:page => params[:page], :per_page => 20)
+    @challenges = Challenge.find(:all)
   end
   
   def edit
