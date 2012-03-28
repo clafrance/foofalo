@@ -25,7 +25,7 @@ module ApplicationHelper
       the_random_joke        
     elsif current_date > displayed_date
       random_joke_id = Joke.find(:all, :select => "id", :conditions => ["status=?", 1]).map(&:id).shuffle.first
-      if random_joke_id.nil?!
+      if !random_joke_id.nil?
         the_random_joke = Joke.find_by_id(random_joke_id)
         the_random_joke.status = 3
         the_random_joke.message = "Displayed"
