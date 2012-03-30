@@ -12,6 +12,32 @@
      <%= f.label :content, "Challenge details:" %>
      <%= f.text_area :content, :class=>"input textarea" %>
    </div>
+
+   <h3 class="title">Enter the Answers</h3>
+   <div class="field", id="joke_details">
+     <%= f.label :answer1, "Answer1:" %>
+     <%= f.text_field :answer1, :class=>"input textarea" %>
+   </div>
+   <div class="field", id="joke_details">
+     <%= f.label :answer2, "Answer2" %>
+     <%= f.text_field :answer2, :class=>"input textarea" %>
+   </div>
+   <div class="field", id="joke_details">
+     <%= f.label :answer3, "Answer3:" %>
+     <%= f.text_field :answer3, :class=>"input textarea" %>
+   </div>
+   <div class="field", id="joke_details">
+     <%= f.label :answer4, "Answer4:" %>
+     <%= f.text_field :answer4, :class=>"input textarea" %>
+   </div>
+   <div class="field", id="joke_details">
+     <%= f.label :correct, "Correct Answer:" %>
+     <%= select(:challenge, :correct, Challenge::ANSWER_COLUMNS, {:prompt => true} ) %>
+   </div>
+   <div class="field", id="joke_details">
+     <%= f.label :explanation, "Explanation" %>
+     <%= f.text_area :explanation, :placeholder => "Optional", :class=>"input textarea" %>
+   </div>
    <div class="actions">
      <%= f.submit "Submit", :class=>"button" %>
      <p class="button cancel_button">

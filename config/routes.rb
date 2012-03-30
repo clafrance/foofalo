@@ -1,5 +1,6 @@
 Foofalo::Application.routes.draw do
 
+
   # get "my_links/index"
   # 
   #  get "my_links/new"
@@ -28,11 +29,16 @@ Foofalo::Application.routes.draw do
   #resources :username_reminder
   resources :parent_confirms
   resources :jokes  # , :collection => { :review => :put }
-  resources :challenges
+  #resources :challenges
   resources :fun_facts
   resources :links
+  #resources :answers
 
   root :to => 'static_pages#home'
+  
+  resources :challenges do
+    resources :answers
+  end
 
   match '/',        :to => 'static_pages#home'
   match '/about',   :to => 'static_pages#about'
@@ -61,8 +67,11 @@ Foofalo::Application.routes.draw do
   match '/newlink',      :to => 'links#new'
   match '/review',      :to => 'jokes#review', :method => :put
   match '/unapprove',      :to => 'jokes#unapprove', :method => :put
-  #match '/unapprove',    :to => 'jokes#unapprove', :method => :put
-  #match '/not_approve', :to => 'users#not_approve'
+  
+  match '/saveanswer',      :to => 'answers#save_answer', :method => :put
+  
+ 
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

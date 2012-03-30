@@ -11,14 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120326235308) do
+ActiveRecord::Schema.define(:version => 20120329202027) do
 
   create_table "challenges", :force => true do |t|
-    t.string   "name",       :limit => 50,                :null => false
-    t.text     "content",                                 :null => false
-    t.integer  "status",                   :default => 0, :null => false
-    t.datetime "created_at",                              :null => false
-    t.datetime "updated_at",                              :null => false
+    t.string   "name",        :limit => 50,                 :null => false
+    t.text     "content",                                   :null => false
+    t.integer  "status",                     :default => 0, :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.string   "answer1",     :limit => 128
+    t.string   "answer2",     :limit => 128
+    t.string   "answer3",     :limit => 128
+    t.string   "answer4",     :limit => 128
+    t.string   "answer5",     :limit => 128
+    t.string   "correct",     :limit => 16
+    t.string   "explanation", :limit => 500
   end
 
   create_table "display_objects", :force => true do |t|

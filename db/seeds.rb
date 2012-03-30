@@ -25,6 +25,13 @@ Joke.create(
 Challenge.create(
   name: 'Triangles', 
   content: 'The sequence of numbers 1, 6, 15, 20, ... continues with which three numbers?', 
+  answer1: '32, 80, 120'
+  answer2: '1, 6, 15'
+  answer3: '15 6 1'
+  answer4: '21 26 35'
+  answer5: ''
+  correct: "answer3"
+  explaination: "The sequence is the seventh row of the additive number triangle."
   status: 1, 
   created_at: '2012-03-28 04:43:52', 
   updated_at: '2012-03-28 04:43:52')

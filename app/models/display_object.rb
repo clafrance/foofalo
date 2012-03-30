@@ -1,5 +1,5 @@
 class DisplayObject < ActiveRecord::Base
-  has_one :joke
-  has_one :challenge
-  has_one :fun_fact
+  belongs_to :joke
+  belongs_to :challenge
+  belongs_to :fun_fact
 end
