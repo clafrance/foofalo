@@ -23,19 +23,20 @@ Foofalo::Application.routes.draw do
   # 
   # get "parent_confirms/new"
 
-  resources :users
+  #resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :password_resets
-  #resources :username_reminder
   resources :parent_confirms
-  resources :jokes  # , :collection => { :review => :put }
+  resources :jokes  
   #resources :challenges
   resources :fun_facts
   resources :links
-  #resources :answers
 
   root :to => 'static_pages#home'
   
+  resources :users do
+    resources :answers
+  end
   resources :challenges do
     resources :answers
   end
@@ -68,7 +69,7 @@ Foofalo::Application.routes.draw do
   match '/review',      :to => 'jokes#review', :method => :put
   match '/unapprove',      :to => 'jokes#unapprove', :method => :put
   
-  match '/saveanswer',      :to => 'answers#save_answer', :method => :put
+  #match '/saveanswer',      :to => 'answers#save_answer', :method => :put
   
  
 

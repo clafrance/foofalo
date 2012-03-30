@@ -1,14 +1,14 @@
 class AddAnswersToChallenges < ActiveRecord::Migration
   def change
-    add_column :challenges, :answer1, :string, :limit => 128
+    add_column :challenges, :a, :string, :limit => 128
 
-    add_column :challenges, :answer2, :string, :limit => 128
+    add_column :challenges, :b, :string, :limit => 128
 
-    add_column :challenges, :answer3, :string, :limit => 128
+    add_column :challenges, :c, :string, :limit => 128
 
-    add_column :challenges, :answer4, :string, :limit => 128
+    add_column :challenges, :d, :string, :limit => 128
 
-    add_column :challenges, :answer5, :string, :limit => 128
+    add_column :challenges, :e, :string, :limit => 128
 
     add_column :challenges, :correct, :string, :limit => 16
     

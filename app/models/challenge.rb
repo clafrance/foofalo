@@ -1,29 +1,28 @@
 class Challenge < ActiveRecord::Base
-  attr_accessible :name, :content, :status, :answer1, :answer2, :answer3, :answer4, :answer5, :correct, :explanation
+  attr_accessible :name, :content, :status, :a, :b, :c, :d, :e, :correct, :explanation
   
   has_many :answers, :dependent => :destroy
   has_one :display_object
-  #belongs_to :user
   
   validates :name, :presence => true,
                    :length => { :maximum => 50 },
                    :uniqueness => true
   validates :content, :presence => true
   validates :status, :presence => true
-  validates :answer1, :presence => true,
+  validates :a, :presence => true,
               :length => { :maximum => 128 }
-  validates :answer2, :presence => true,
+  validates :b, :presence => true,
               :length => { :maximum => 128 }
-  validates :answer3, :presence => true,
+  validates :c, :presence => true,
               :length => { :maximum => 128 }
-  validates :answer4, :presence => true,
+  validates :d, :presence => true,
               :length => { :maximum => 128 }
-  validates :answer5, :length => { :maximum => 128 }
+  validates :e, :length => { :maximum => 128 }
   validates :explanation, :length => { :maximum => 400 }
   validates :correct, :presence => true,
               :length => { :maximum => 16 }
                                  
   default_scope order: 'challenges.created_at DESC'
   
-  ANSWER_COLUMNS =  ["answer1", "answer2", "answer3", "answer4", "answer5"]
+  ANSWER_COLUMNS =  ["a", "b", "c", "d"]
 end

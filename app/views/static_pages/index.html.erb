@@ -4,28 +4,53 @@
   <div class="joke_legend_title round">
     <h2 class="round">Joke of the Day</h2>
     <div  class="legend clearfix">
-      <h3><%= random_joke.name %></h3>
-      <p><%= random_joke.content %></p>
+      <h3><%= @the_random_joke.name %></h3>
+      <p><%= @the_random_joke.content %></p>
 	  </div>
   </div>
 
   <div class="challenge_legend_title round">
     <h2 class="round">Challenge of the week</h2>
     <div  class="legend clearfix">
-      <h3><%= random_challenge.name %></h3>
-      <p><%= random_challenge.content %></p>
+
+      <h3><%= @the_random_challenge.name %></h3>
+      <p><%= @the_random_challenge.content %></p>
 
       <h3>Choose the Correct Answer</h3>
-      <%= render 'user_answer'%>
-
+      
+			<%= form_for(@the_random_challenge) do |f| %>
+			  <div class="field">
+				    <%= check_box_tag "@the_random_challenge.a", @the_random_challenge.a %>
+				    <%= @the_random_challenge.a %><br/>
+			  </div>
+			  <div class="field">
+				    <%= check_box_tag "@the_random_challenge.b", @the_random_challenge.b %>
+				    <%= @the_random_challenge.b %><br/>
+			  </div>
+			  <div class="field">
+				    <%= check_box_tag "@the_random_challenge.c", @the_random_challenge.c %>
+				    <%= @the_random_challenge.c %><br/>
+			  </div>
+			  <div class="field">
+				    <%= check_box_tag "@the_random_challenge.d", @the_random_challenge.d %>
+				    <%= @the_random_challenge.d %><br/>
+			  </div>
+			  <div class="actions">
+			    <%= f.submit "Submit" %>
+			  </div>
+			<% end %>
+			
+			<h4>Is your answer correct?</h4>
+			
+			Yes? No?
 	  </div>
   </div>
 
   <div class="fact_legend_title round">
     <h2 class="round">Fun Facts</h2>
     <div  class="legend clearfix">
-	    <h3><%= random_fun_fact.name %></h3>
-      <p><%= random_fun_fact.content %></p>
+	    <h3><%= @the_random_fun_fact.name %></h3>
+      <p><%= @the_random_fun_fact.content %></p>
     </div>
   </div>
 

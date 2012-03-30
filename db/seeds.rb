@@ -6,10 +6,24 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-DisplayObject.create(obj_type: 'joke', obj_id: nil)
-DisplayObject.create(obj_type: 'challenge', obj_id: nil)
-DisplayObject.create(obj_type: 'fun_fact', obj_id: nil)
 
+User.create(
+  id: 1, 
+  firstname: "Christie", 
+  lastname: "Lafrance", 
+  email: "christie.lafrance@gmail.com", 
+  created_at: "2012-03-28 06:34:25", 
+  updated_at: "2012-03-28 06:34:41", 
+  password_digest: "$2a$10$D8dMdFjKG6zz8g9jhYn98uZ6Z5G/r4giyj1p/Ru76RILqUWqtj/SO", 
+  remember_token: "ms7t0wDkH5IA24QWvDJ-SA", 
+  privilege: 0, 
+  username: "aa", 
+  password_reset_token: nil, 
+  password_reset_sent_at: nil, 
+  inform_parents_token: "feH5l7Mo-9kOdJ_DVS0gHA", 
+  inform_parents_sent_at: "2012-03-28 06:34:25", 
+  parent_approved: "Yes", 
+  parent_approved_at: "2012-03-28 06:34:41")
 
 Joke.create(
   name: 'Law of Refrigerator Observation', 
@@ -42,3 +56,7 @@ FunFact.create(
   status: 1, 
   created_at: '2012-03-28 04:43:52', 
   updated_at: '2012-03-28 04:43:52')
+  
+DisplayObject.create(obj_type: 'joke', obj_id: nil)
+DisplayObject.create(obj_type: 'challenge', obj_id: nil)
+DisplayObject.create(obj_type: 'fun_fact', obj_id: nil)
