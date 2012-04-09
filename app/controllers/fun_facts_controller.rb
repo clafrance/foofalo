@@ -8,9 +8,8 @@ class FunFactsController < ApplicationController
   end
   
   def create
-    @fun_fact = FunFact.new(params[:fun_fact])
-    # @joke = current_user.jokes.build(params[:joke])
-    # @joke.author = current_user.username
+    @fun_fact = current_user.fun_facts.build(params[:fun_fact])
+    @fun_fact.author = current_user.username
     if @fun_fact.save
       redirect_to @fun_fact, :success => "Fun fact has been created."
     else

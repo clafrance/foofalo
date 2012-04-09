@@ -1,6 +1,7 @@
 class Challenge < ActiveRecord::Base
-  attr_accessible :name, :content, :status, :a, :b, :c, :d, :e, :correct, :explanation
+  attr_accessible :name, :content, :status, :a, :b, :c, :d, :e, :correct_col_name, :correct_answer, :explanation, :user_id, :author
   
+  belongs_to :user
   has_many :answers, :dependent => :destroy
   has_one :display_object
   
@@ -19,8 +20,10 @@ class Challenge < ActiveRecord::Base
               :length => { :maximum => 128 }
   validates :e, :length => { :maximum => 128 }
   validates :explanation, :length => { :maximum => 400 }
-  validates :correct, :presence => true,
+  validates :correct_col_name, :presence => true,
               :length => { :maximum => 16 }
+  # validates :correct_answer, :presence => true,
+  #             :length => { :maximum => 128 }
                                  
   default_scope order: 'challenges.created_at DESC'
   

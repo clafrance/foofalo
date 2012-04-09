@@ -52,22 +52,23 @@ Foofalo::Application.routes.draw do
   match '/users',   :to => 'users#index'
   match '/newjoke', :to => 'jokes#new'
   match '/jokes',   :to => 'jokes#index'
-  match '/jokesshow/', :to => 'jokes#show'
-  match '/jokesauthor', :to => 'jokes#jokes_author'
-  match '/jokesdate',  :to => 'jokes#jokes_date'
-  match '/myjokes',      :to => 'jokes#my_jokes'
-  match '/jokesbyauthors', :to => 'jokes#jokes_by_authors'
+  match '/jokesshow/',       :to => 'jokes#show'
+  match '/jokesauthor',      :to => 'jokes#jokes_author'
+  match '/jokesdate',        :to => 'jokes#jokes_date'
+  match '/myjokes',          :to => 'jokes#my_jokes'
+  match '/jokesbyauthors',   :to => 'jokes#jokes_by_authors'
   match '/usernamereminder', :to => 'username_reminder#new'
   match '/usernamereminder_create', :to => 'username_reminder#create'
-  match '/challenges',   :to => 'challenges#index'
-  match '/newchallenge', :to => 'challenges#new'
-  match '/games',        :to => 'games#index'
-  match '/funfacts',     :to => 'fun_facts#index'
-  match '/newfunfact',   :to => 'fun_facts#new'
-  match '/links',        :to => 'links#index'
-  match '/newlink',      :to => 'links#new'
-  match '/review',      :to => 'jokes#review', :method => :put
-  match '/unapprove',      :to => 'jokes#unapprove', :method => :put
+  match '/challenges',              :to => 'challenges#index'
+  match '/newchallenge',            :to => 'challenges#new'
+  match '/games',                   :to => 'games#index'
+  match '/funfacts',                :to => 'fun_facts#index'
+  match '/newfunfact',              :to => 'fun_facts#new'
+  match '/links',                   :to => 'links#index'
+  match '/newlink',                 :to => 'links#new'
+  match '/review',                  :to => 'jokes#review', :method => :put
+  match '/unapprove',               :to => 'jokes#unapprove', :method => :put
+  match '/submit_answer',           :to => 'challenges#submit_answer', :method => :put
   
   #match '/saveanswer',      :to => 'answers#save_answer', :method => :put
   

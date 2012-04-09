@@ -8,11 +8,19 @@ class ChallengesController < ApplicationController
   end
   
   def create
-    @challenge = Challenge.new(params[:challenge])
-    # @joke = current_user.jokes.build(params[:joke])
-    # @joke.author = current_user.username
+    @challenge = current_user.challenges.build(params[:challenge])
+    @challenge.author = current_user.username
     if @challenge.save
-      redirect_to @challenge, :success => "Challenge has been created."
+      id = @challenge.id
+      col_name = @challenge.correct_col_name
+      correct_answer = Challenge.find(:all, :select => "#{@challenge.correct_col_name}", :conditions => ["id=?", @challenge.id])
+      @challenge.correct_answer = correct_answer[0][col_name]
+      if @challenge.save
+        flash[:success] = "Challenge has been created."
+        redirect_to @challenge
+      else
+        render 'new'
+      end
     else
       render 'new'
     end
@@ -34,7 +42,7 @@ class ChallengesController < ApplicationController
   def edit
     @challenge = Challenge.find(params[:id])
   end
-  
+    
   def update
     @challenge = Challenge.find(params[:id])
     if @challenge.update_attributes(params[:challenge])
@@ -50,5 +58,53 @@ class ChallengesController < ApplicationController
     challenge.destroy
     flash[:success] = "Challenge #{challenge.name} has been deleted."
     redirect_to challenges_path
+  end
+  
+  
+  def submit_answer
+    challenge_id = params[:challenge_id]
+    # flash[:success] = "You have selected an answer for #{challenge_id} "
+    # redirect_to index_url
+    if params[:answer].nil?
+      flash[:success] = "You have to selected one answer"
+      redirect_to index_url
+    else
+      answer = params[:answer]
+      if answer.length > 1
+        flash[:notice] = "You can not select more than one answer."
+        redirect_to index_url
+      else
+        @challenge = Challenge.find_by_id(challenge_id)
+        @answer = @challenge.answers.build(params[:answers])
+        @answer.challenge_name = @challenge.name
+        @answer.user_id = current_user.id
+        @answer.answer_selected = answer[0]
+        @answer.reason = params[:reason][0]
+        case
+        when answer[0] == @challenge.a
+          @answer.answer_col_selected = "a"
+        when answer[0] == @challenge.b
+          @answer.answer_col_selected = "b"
+        when answer[0] == @challenge.c
+          @answer.answer_col_selected = "c"
+        when answer[0] == @challenge.d
+          @answer.answer_col_selected = "c"
+        end
+      
+        if @challenge.correct_col_name == @answer.answer_col_selected && @challenge.correct_answer == answer[0]
+          @answer.correct = "yes"
+        else
+          @answer.correct = "no"
+        end
+        @answer.save
+        if @answer.correct == "yes"
+          flash[:success] = "Congulation! You have selected correct answer: #{@answer.answer_col_selected}, #{@answer.answer_selected}"
+          redirect_to index_url
+        else
+          flash[:notice] = "Sorry. The correct answer is #{@challenge.correct_col_name}, #{@challenge.correct_answer}."
+          redirect_to index_url
+        end
+      end
+    end
   end
 end

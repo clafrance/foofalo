@@ -31,8 +31,8 @@
      <%= f.text_field :d, :class=>"input textarea" %>
    </div>
    <div class="field", id="joke_details">
-     <%= f.label :correct, "Correct Answer:" %>
-     <%= select(:challenge, :correct, Challenge::ANSWER_COLUMNS, {:prompt => true} ) %>
+     <%= f.label :correct_col_name, "Correct Answer:" %>
+     <%= select(:challenge, :correct_col_name, Challenge::ANSWER_COLUMNS, {:prompt => true} ) %>
    </div>
    <div class="field", id="joke_details">
      <%= f.label :explanation, "Explanation" %>

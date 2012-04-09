@@ -1,10 +1,9 @@
 class FunFact < ActiveRecord::Base
   
-  attr_accessible :name, :content, :status
+  attr_accessible :name, :content, :status, :user_id, :author
   
   has_one :display_object
-  
-  #belongs_to :user
+  belongs_to :user
   
   validates :name, :presence => true,
                    :length => { :maximum => 50 },

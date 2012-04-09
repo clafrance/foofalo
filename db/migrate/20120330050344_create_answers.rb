@@ -5,6 +5,7 @@ class CreateAnswers < ActiveRecord::Migration
       t.integer :challenge_id
       t.string :challenge_name, :limit => 50
       t.string :answer_selected, :limit => 128
+      t.string :answer_col_selected, :limit => 10
       t.string :reason, :limit => 500
       t.string :correct
 
