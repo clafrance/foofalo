@@ -14,6 +14,8 @@ class StaticPagesController < ApplicationController
     @the_random_challenge = random_challenge
     @the_random_fun_fact = random_fun_fact
     @the_random_joke = random_joke
+    @display_challenge = DisplayObject.where(:obj_type => "challenge")
+    @current_user_answer = Answer.where(:user_id => current_user.id, :challenge_id => @display_challenge[0].obj_id)  
     #@my_links = Link.find(:all, :order => :name)
   end
   # 

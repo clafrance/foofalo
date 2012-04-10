@@ -1,6 +1,7 @@
 class ChallengesController < ApplicationController
   before_filter :signed_in_user 
   before_filter :admin_user,     :only => [:create, :new, :edit, :update, :destroy]
+  # before_filter :already_answered?
   
   def new
     @challenge = Challenge.new
@@ -63,8 +64,9 @@ class ChallengesController < ApplicationController
   
   def submit_answer
     challenge_id = params[:challenge_id]
-    # flash[:success] = "You have selected an answer for #{challenge_id} "
-    # redirect_to index_url
+    
+    # check_answer = Answer.where(:user_id => current_user.id, :challenge_id => challenge_id)    
+
     if params[:answer].nil?
       flash[:success] = "You have to selected one answer"
       redirect_to index_url
@@ -90,13 +92,14 @@ class ChallengesController < ApplicationController
         when answer[0] == @challenge.d
           @answer.answer_col_selected = "c"
         end
-      
+    
         if @challenge.correct_col_name == @answer.answer_col_selected && @challenge.correct_answer == answer[0]
           @answer.correct = "yes"
         else
           @answer.correct = "no"
         end
         @answer.save
+
         if @answer.correct == "yes"
           flash[:success] = "Congulation! You have selected correct answer: #{@answer.answer_col_selected}, #{@answer.answer_selected}"
           redirect_to index_url
@@ -106,5 +109,8 @@ class ChallengesController < ApplicationController
         end
       end
     end
+
   end
+      
+  
 end

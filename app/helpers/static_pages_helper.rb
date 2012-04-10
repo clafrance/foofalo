@@ -106,4 +106,9 @@ module StaticPagesHelper
       fun_fact = FunFact.find_by_id(displayed_fun_fact.obj_id)
     end
   end
+  # 
+  # def already_answered?
+  #   check_answer = Answer.where(:user_id => current_user.id, :challenge_id => challenge_id) 
+  #   check_answer.length >= 1
+  # end
 end

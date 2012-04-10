@@ -15,33 +15,41 @@ class UsersController < ApplicationController
   end 
   
   def new
-    @user = User.new
-    @focus ="autofocus"
+    if current_user.nil?
+      @user = User.new
+      @focus ="autofocus"
+    else
+      sign_out
+      flash[:notice] = "Previous user has been signed out, you can signup now."
+      redirect_to signup_url
+    end
   end
   
   def create
-    @user = User.new(params[:user])
-    emails = ["christie.lafrance@gmail.com", "gclafrance@gmail.com", "philliptao@gmail.com"]
-    emails.each do |email|
-      if @user.email == email
-        @user.privilege = 0
-        break
+    if current_user.nil?
+      @user = User.new(params[:user])
+      emails = ["christie.lafrance@gmail.com", "gclafrance@gmail.com", "philliptao@gmail.com"]
+      emails.each do |email|
+        if @user.email == email
+          @user.privilege = 0
+          break
+        end
       end
-    end
-    
-    # if @user.email == "christie.lafrance@gmail.com"
-    #   @user.privilege = 0
-    # end
-    
-    if @user.save 
-      if @user.send_inform_parents
-        redirect_to root_url, :notice => "#{@user.username} You have signed up. Your parents should receive 
-          an email with a link to approval, then you can signin and have fun."
-      else 
-        redirect_to root_url, :notice => "You have signed up, but couldn't send confirmation to your parants, contact foofalo.com here."
+  
+      if @user.save 
+        if @user.send_inform_parents
+          redirect_to root_url, :notice => "#{@user.username} You have signed up. Your parents should receive 
+            an email with a link to approval, then you can signin and have fun."
+        else 
+          redirect_to root_url, :notice => "You have signed up, but couldn't send confirmation to your parants, contact foofalo.com here."
+        end
+      else      
+        render 'new'
       end
-    else      
-      render 'new'
+    else
+      sign_out
+      flash[:notice] = "Previous user has been signed out, try signup again."
+      redirect_to root_url
     end
   end
   

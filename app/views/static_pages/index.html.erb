@@ -14,39 +14,10 @@
     <div  class="legend clearfix">
       <h3><%= @the_random_challenge.name %></h3>
       <p><%= @the_random_challenge.content %></p>
-
-      <h3>Choose the Correct Answer for <%= @the_random_challenge.name %></h3>
-		  <%= form_tag(submit_answer_path, :method => :put) do %>
-			  <%= hidden_field_tag "challenge_id[]", @the_random_challenge.id %>
-			  <div class="field">
- 		      <%= check_box_tag "answer[]", @the_random_challenge.a %>
-		      <%= label_tag @the_random_challenge.a, "a. " %>
-		      <%= @the_random_challenge.a %><br/>
-			  </div>
-			  <div class="field">
-				  <%= check_box_tag "answer[]", @the_random_challenge.b %>
-	        <%= label_tag @the_random_challenge.b, "b. " %>
-				  <%= @the_random_challenge.b %><br/>
-			  </div>
-			  <div class="field">
-				  <%= check_box_tag "answer[]", @the_random_challenge.c %>
-				  <%= label_tag @the_random_challenge.c, "c. " %>
-				  <%= @the_random_challenge.c %><br/>
-			  </div>
-			  <div class="field">
-				  <%= check_box_tag "answer[]", @the_random_challenge.d %>
-				  <%= label_tag @the_random_challenge.d, "d. " %>
-				  <%= @the_random_challenge.d %><br/>
-			  </div>
-			
-			  <div class="field", id="joke_details">
-		      <%= label_tag 'Enter your explanation' %>
-				  <%= text_area_tag "reason[]" %>
-		    </div>
-
-			  <div class="actions">
-			    <%= submit_tag "Submit Answer" %>
-			  </div>
+      <% if @current_user_answer.length < 1 %>
+        <%= render 'select_answer' %> 
+      <% else %>
+        <%= render 'show_answer' %>
       <% end %>
 	  </div>
  </div>

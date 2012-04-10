@@ -9,9 +9,9 @@ module ApplicationHelper
       "#{base_title} | #{page_title}"
     end
   end
-  
-  def full_name(first, last)
-    full_name = first + ' ' + last
-  end
+  # 
+  # def full_name(first, last)
+  #   full_name = first + ' ' + last
+  # end
   
 end
