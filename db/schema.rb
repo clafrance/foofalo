@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20120405204819) do
   create_table "challenges", :force => true do |t|
     t.string   "name",             :limit => 50,                 :null => false
     t.text     "content",                                        :null => false
-    t.integer  "status",                          :default => 0, :null => false
+    t.integer  "status",                          :default => 1, :null => false
     t.datetime "created_at",                                     :null => false
     t.datetime "updated_at",                                     :null => false
     t.string   "a",                :limit => 128
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20120405204819) do
   create_table "fun_facts", :force => true do |t|
     t.string   "name",       :limit => 50,                :null => false
     t.text     "content",                                 :null => false
-    t.integer  "status",                   :default => 0, :null => false
+    t.integer  "status",                   :default => 1, :null => false
     t.datetime "created_at",                              :null => false
     t.datetime "updated_at",                              :null => false
     t.integer  "user_id"
@@ -81,15 +81,15 @@ ActiveRecord::Schema.define(:version => 20120405204819) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "email"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.string   "firstname",              :limit => 50,                :null => false
+    t.string   "lastname",               :limit => 50,                :null => false
+    t.string   "email",                  :limit => 64,                :null => false
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.integer  "privilege",              :default => 1
-    t.string   "username"
+    t.integer  "privilege",                            :default => 1
+    t.string   "username",               :limit => 50,                :null => false
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "inform_parents_token"

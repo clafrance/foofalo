@@ -28,7 +28,7 @@ module StaticPagesHelper
   
   def random_challenge
     displayed_challenge = DisplayObject.where(:obj_type => "challenge").first
-    displayed_date = displayed_challenge.updated_at.strftime("%Y-%m-%d")
+    displayed_date = displayed_challenge.updated_at.strftime("%Y-%m-%d") if !displayed_challenge.updated_at.nil?
     current_date = Time.now().strftime("%Y-%m-%d")
     random_challenge_id = Challenge.find(:all, :select => "id", :conditions => ["status=?", 1]).map(&:id).shuffle.first
     if !random_challenge_id.nil?

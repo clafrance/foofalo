@@ -36,5 +36,6 @@ Foofalo::Application.configure do
   config.active_support.deprecation = :stderr
   
   # Should add this to development and production as well Rails case 3/8/12
-  config.action_mailer.default_url_options = { :host => "www.foofalo.com" }
+  # config.action_mailer.default_url_options = { :host => "www.foofalo.com" }
+  config.action_mailer.default_url_options = { :host => "http://localhost:3000" }
 end

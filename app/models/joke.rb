@@ -1,5 +1,5 @@
 class Joke < ActiveRecord::Base
-  attr_accessible :name, :content, :status
+  attr_accessible :name, :content, :status, :user_id, :author, :created_at, :updated_at, :message
   
   has_one :display_object
   belongs_to :user

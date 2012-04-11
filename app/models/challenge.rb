@@ -1,5 +1,7 @@
 class Challenge < ActiveRecord::Base
-  attr_accessible :name, :content, :status, :a, :b, :c, :d, :e, :correct_col_name, :correct_answer, :explanation, :user_id, :author
+  attr_accessible :name, :content, :status, :a, :b, :c, :d, :e, 
+                  :correct_col_name, :correct_answer, :explanation, :user_id, :author,
+                  :created_at, :updated_at
   
   belongs_to :user
   has_many :answers, :dependent => :destroy

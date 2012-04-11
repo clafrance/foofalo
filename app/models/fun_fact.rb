@@ -1,6 +1,6 @@
 class FunFact < ActiveRecord::Base
   
-  attr_accessible :name, :content, :status, :user_id, :author
+  attr_accessible :name, :content, :status, :user_id, :author, :created_at, :updated_at
   
   has_one :display_object
   belongs_to :user
