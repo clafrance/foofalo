@@ -30,7 +30,7 @@ Joke.create(
   content: 'If a cat watches a refrigerator long enough, someone will come along and take out something good to eat.', 
   user_id: 1, 
   author: 'aa', 
-  status: 1, 
+  status: "approved", 
   message: 'Approved', 
   created_at: '2012-03-28 04:43:52', 
   updated_at: '2012-03-28 04:43:52')

@@ -21,16 +21,16 @@ class JokesController < ApplicationController
   end
   
   def index
-    @unreviewed_jokes = Joke.where(:status => 0).order("#{:created_at}")
-    @unapproved_jokes = Joke.where(:status => 2).order("#{:created_at}")
-    @jokes = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
+    @unreviewed_jokes = Joke.where(:status => "reviewing").order("#{:created_at}")
+    @unapproved_jokes = Joke.where(:status => "unapproved").order("#{:created_at}")
+    @jokes = Joke.where(:status => "approved").order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
     #@jokes_by_date = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
     #@jokes_by_author = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
   end
   
   def show
     @joke = Joke.find(params[:id])
-    if @joke.status == 1
+    if @joke.status == "approved"
       @display_status = "Published" 
     else
       @display_status = "Being reviewed"
@@ -38,20 +38,20 @@ class JokesController < ApplicationController
   end
   
   def my_jokes
-    @jokes_approved = Joke.where(:author => current_user.username, :status => 1).order("#{:name}").paginate(:page => params[:page], :per_page => 20)
-    @jokes_unapproved = Joke.where(:author => current_user.username, :status => 2).order("#{:name}").paginate(:page => params[:page], :per_page => 20)
-    @jokes_review = Joke.where(:author => current_user.username, :status => 0).order("#{:name}").paginate(:page => params[:page], :per_page => 20)
+    @jokes_approved = Joke.where(:author => current_user.username, :status => "approved").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
+    @jokes_unapproved = Joke.where(:author => current_user.username, :status => "unapproved").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
+    @jokes_review = Joke.where(:author => current_user.username, :status => "reviewing").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
     @jokes = Joke.where(:author => current_user.username).order("#{:name}").paginate(:page => params[:page], :per_page => 20)
   end
   
   def jokes_author
     @current_joke = Joke.find(params[:joke])
-    @jokes = Joke.where(:author => @current_joke.author, :status => 1).order("#{:name}").paginate(:page => params[:page], :per_page => 20)
+    @jokes = Joke.where(:author => @current_joke.author, :status => "approved").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
   end
   
   def jokes_date
     @current_joke = Joke.find(params[:joke])
-    @jokes = Joke.where(:status => 1, :created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
+    @jokes = Joke.where(:status => "approved", :created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
   end
   
   def jokes_by_authors
@@ -67,7 +67,7 @@ class JokesController < ApplicationController
     @joke = Joke.find(params[:id])
     if @joke.author == current_user.username
       if @joke.update_attributes(params[:joke])
-        @joke.status = 0
+        @joke.status = "reviewing"
         @joke.message = "Needs to be reviewed again"
         @joke.save
         flash[:success] = "Joke has been Updated"
@@ -81,14 +81,14 @@ class JokesController < ApplicationController
   end
   
   def review
-    Joke.update_all(["status=?", 1], :id => params[:joke_ids])
+    Joke.update_all(["status=?", "approved"], :id => params[:joke_ids])
     Joke.update_all(["message=?", "approved"], :id => params[:joke_ids])
     redirect_to jokes_path
   end
   
   def unapprove
     joke_id = params[:joke_id]
-    Joke.update_all(["status=?", 2], :id => params[:joke_id])
+    Joke.update_all(["status=?", "unapproved"], :id => params[:joke_id])
     Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[:joke_id])
     redirect_to jokes_path
   end  

@@ -6,8 +6,11 @@ class Link < ActiveRecord::Base
   validates :name, :presence => true,
                    :length => { :maximum => 100 },
                    :uniqueness => true
+                   
   validates :category, :presence => true
+  
   validates :url, :presence => true
+  
   validates :user_id, :presence => true
   
   CATEGORIES =  ["Games", "Home Works", "School Works", "Others"]

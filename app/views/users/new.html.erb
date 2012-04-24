@@ -1,40 +1,41 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<h1 class="center">Sign up</h1>
 
-<%= form_for(@user) do |f| %>
-  <%= render 'shared/error_messages', :object => f.object %>
+<div class="content_container">
+	<%= form_for(@user) do |f| %>
+	  <%= render 'shared/error_messages', :object => f.object %>
 
-	<div class="field">
-	  <%= f.label :username %><br />
-	  <%= f.text_field :username,  :autofocus=>true %>
-	</div>
-	<div class="field">
-	  <%= f.label :password, "Password (minimum 6 characters)" %><br />
-	  <%= f.password_field :password %>
-	</div>
-	<div class="field">
-	  <%= f.label :password_confirmation, "Retype Password" %><br />
-	  <%= f.password_field :password_confirmation %>
-	</div>
-	<div class="field">
-	  <%= f.label :firstname, "First Name" %><br />
-	  <%= f.text_field :firstname %>
-	</div>
-	<div class="field">
-	  <%= f.label :lastname, "Last Name" %><br />
-	  <%= f.text_field :lastname %>
-	</div>
-	<div class="field">
-	  <%= f.label :email, "Parents' Email" %><br />
-	  <%= f.text_field :email %>
-	</div>
-	<div class="field">
-	  <%= f.label :email_confirmation, "Retype Parents' Email" %><br />
-	  <%= f.text_field :email_confirmation %>
-	</div>
+		<div class="field">
+		  <%= f.label :username %><br />
+		  <%= f.text_field :username, :class => "field_size", :autofocus=>true %>
+		</div>
+		<div class="field">
+		  <%= f.label :password, "Password (minimum 6 characters)" %><br />
+		  <%= f.password_field :password, :class => "field_size" %>
+		</div>
+		<div class="field">
+		  <%= f.label :password_confirmation, "Retype Password" %><br />
+		  <%= f.password_field :password_confirmation, :class => "field_size" %>
+		</div>
+		<div class="field">
+		  <%= f.label :firstname, "First Name" %><br />
+		  <%= f.text_field :firstname, :class => "field_size" %>
+		</div>
+		<div class="field">
+		  <%= f.label :lastname, "Last Name" %><br />
+		  <%= f.text_field :lastname, :class => "field_size" %>
+		</div>
+		<div class="field">
+		  <%= f.label :email, "Parents' Email" %><br />
+		  <%= f.text_field :email, :class => "field_size" %>
+		</div>
+		<div class="field">
+		  <%= f.label :email_confirmation, "Retype Parents' Email" %><br />
+		  <%= f.text_field :email_confirmation, :class => "field_size" %>
+		</div>
 	
-	<p>By clicking the Sign Up button, you agree to our <%= link_to "Terms and Use", terms_path %>. Please read it and make sure you understand the Terms and Use before clicking Sign up button.</p>
-  <div class="button">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+		<p class="signup_info">By clicking the Sign Up button, you agree to our <%= link_to "Terms and Use", terms_path %>. Please read it before clicking Sign up button.</p>
+	    <%= f.submit "Sign up", :class=>"button_sign" %>
+	    <%= link_to "Cancel" %>
+	<% end %>
+</div>

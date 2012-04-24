@@ -1,6 +1,6 @@
 <% provide :title, "All Jokes" %>
 <div class="clearfix">
-	<% if current_user.privilege == 0 %>
+	<% if current_user.privilege == "admin" %>
 		<%= form_tag review_path, :method => :put do %>
 		  <H3>Unreviewed Jokes (<%= @unreviewed_jokes.count %> )</h3>
 			<ul class="users">

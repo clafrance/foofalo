@@ -1,152 +1,290 @@
-.container {
-  width: 710px;
-}
-
+/***** Layout *****/
 body {
-  background: #cff;
+	/*border: 1px solid yellow;*/	
+	background: #DCDEDC;
 }
 
-/* Navigation */
+.top {
+  border-bottom: 1px solid #BBBFBF;
+  height: 140px; 
+  margin-top: 0px; 	
+	background: #C7D1CA;
+}
+
+/*div.top_inner {
+	height: 55px;
+	background: #C7D1CA;
+	background: green;
+	border: none !important;
+}
+
+.top_inner img {
+	float: left;
+	border: 1px solid red;
+	margin-top: 15px;
+	margin-left: 10px;
+}*/
+
+header {
+	height: 55px;
+	width: 991px;
+	background: #C7D1CA;
+	border: none !important;
+}
 
 nav {
+	width: 990px;
+  float: left;
+ /* border: 1px blue solid;*/
+  margin-top: 20px;
+  margin-bottom: -6px;
+  margin-right: 10px;
+}
+
+header img {
+	/*border: 1px solid red;*/
+/*	margin-top: 15px;*/
+	margin-left: 10px;
+	margin-right: 526px;
+}
+
+nav a {
+	/*border: 1px solid purple;*/
+  font-size: 1.2em;
+	font-weight: bold;
+	color: #368BB5 !important;
+	margin-right: 12px;
+	margin-bottom: 10px;
+	/*padding-bottom: 15px;*/
+}
+
+nav span {
+	/*border: 1px solid purple;*/
+	margin-right: 12px;
+}
+
+div.container {
+	margin-top: -140px;
+}
+
+div.main {
+	background: #fff;
+	border: 1px solid #BBBFBF;
+	min-height: 600px;
+	max-height: 800px;
+	margin-top: -7px;
+	padding: 40px 40px 40px 40px;
+}
+
+/***** Home page *****/
+
+div.home_images {
+	width: 180px;
+	height: 140px;
+	background-color: #CCFFCC;
+	text-align: center;
+}
+
+div.joke_image {
+  float: left;
+  margin: 15px 0 0 60px;
+}
+
+div.challenge_image {
+  float: left;
+  margin: 230px 0 0 -240px;
+}
+
+div.manster_image {
+  float: left;
+  margin: 485px 0 50px -10px;
+  margin: 440px 0 -10px -40px;
+}
+
+#logo_image {
+	float: left;
+  /*border: 1px solid purple;*/
+	margin-top: 50px;
+  margin-left: -80px;
+  padding: 0 20px 0 20px;
+}
+
+#home_main {
+	float: left;
+	width: 360px;
+  /*border: 1px solid purple;*/
+	margin-top: -420px;
+  margin-left: 256px;
+  padding: 20px 20px 0 20px;
+}
+
+div.funfact_image {
   float: right;
-  background-color: white;
-  padding: 0 0.7em;
-  white-space: nowrap;
+  margin: -550px 65px 0 0;
 }
 
-nav ul {
-  margin: 0;
-  padding: 0;
+div.links_image {
+  float: right;
+  margin: -340px 0px 0 0;
 }
 
-nav ul li {
-  list-style-type: none;
-  display: inline-block;
-  padding: 0.2em 0;
+div.game_image {
+  float: right;
+  margin: -132px 190px -10px 0;
 }
 
-nav ul li a {
-  padding: 0 5px;
+
+.border-top {
+  border-bottom: 1px solid #BBBFBF;
+  height: 120px; 
+  margin-top: 0px; 
+	background: #E1EDE7;
+}
+
+a.signup_button {
+	display: block;
+	width: 170px;
+  background: #F2A81A;
+  padding: 20px;
+	margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  text-align: center;
+  color: white !important;
+  font-size: 150%;
   font-weight: bold;
 }
 
-nav ul li a:visited {
-  color: #09c;
+a.signup_button:hover {
+  text-decoration: none !important;
 }
 
-nav ul li a:hover {
-  text-decoration: underline;
+/***** Signin /Signup forms *****/
+
+.content_container label {
+	/*border: 1px solid red;*/
+	font: 1.1em;
 }
 
-/* Links */
+.content_container {
+	width: 910px;
+	min-height: 400px;
+}
+
+div.field {
+/*	border: 1px solid red;*/
+	width: 305px;
+	margin-top: 6px;
+}
+
+.field_size {
+	width: 300px;
+	height: 20px;
+	font-size: 14px;
+}
+
+input#password {
+	width: 300px;
+	height: 20px;
+	font-size: 14px; 
+}
+
+.field input {
+	margin-top: 1px;
+}
+
+
+p.signup_info {
+	width: 720px;
+	margin-top: 20px;
+}
+
+input.button_sign {
+	width: 80px;
+	font-size: 1.4em;
+	margin-right: 20px;
+}
+
+.content_container p {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	font-size: 1.1em;
+}
+
+.rememberme {
+	margin-bottom: 25px;
+}
+/***** Footer *****/
+
+footer {
+	/*border: 1px solid red;*/
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+footer span, footer a  {
+	margin-right: 6px;
+	margin-left: 6px;
+}
+
+/***** Link Style *****/
 
 a {
-  color: #09c;
+  color: #368BB5;
   text-decoration: none;
 }
 
 a:hover {
-  color: #069;
+  color: #590E5A;
   text-decoration: underline;
 }
 
 a:visited {
-  color: #069;
+  color: #590E5A;
 }
 
-footer {
-  text-align: center;
-  margin-top: 10px;
-  width: 710px;
-  margin-left: auto;
-  margin-right: auto;
-}
+/**** Utilities ****/
 
-footer nav {
-  float: none;
-}
-
-
-/* Error message */
-
-.field_with_errors {
-  margin-top: 10px;
-  padding: 2px;
-  background-color: red;
-  display: table;
-
-  label {
-    color: #fff;
-  }
-}
-
-#error_explanation {
-  width: 400px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 12px;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    background-color: #c00;
-    color: #fff;
-  }
-
-  p {
-    color: #333;
-    margin-bottom: 0;
-    padding: 5px;
-  }
-
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
-}
-
-
-/* User new page */
-div.field, div.actions {
-  margin-bottom: 10px;
-}
-
-/* User index page */
-
-ul.users {
-  margin-top: 1em;
-  li {
-    list-style: none;
-  }
-}
-
-/* User show page */
-
-div.profile {
-  width: 100%;
-  margin-bottom: 0;
-}
-
-div.main {
-  width: 70%;
-  padding: 1em;
-}
-
-div.sidebar {
-  width: 30%;
-  padding: 1em;
-  vertical-align: top;
-  background: #ffc;
+p {
+	font-size: 1.2em
 }
 
 .round {
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
+  -moz-border-radius:    12px;
+  -webkit-border-radius: 12px;
+  border-radius:         12px;
 }
+
+.round_bottom {
+	-moz-border-radius:    0 0 8px 8px;
+  -webkit-border-radius: 0 0 8px 8px;
+  border-radius:         0 0 8px 8px;
+}
+
+.center {
+	text-align: center;
+}
+
+.font_small_1 {
+	font-size: .9em;
+}
+
+.font_color_grey {
+	color: #808080;
+}
+
+.bold {
+	font-weight: bold;
+}
+	
+/*** enclose floated elements ***/
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix {display: inline-table;}
+/*** END enclose floated elements ***/

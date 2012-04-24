@@ -7,7 +7,7 @@
 	<ul class="users">
 	  <% @fun_facts.each do |fun_fact| %>
 		  <li>
-			  <% if current_user.privilege == 0 %>
+			  <% if current_user.privilege == "admin" %>
 			    <p><%= link_to fun_fact.name, fun_fact %> 
 			       <%= fun_fact.created_at.strftime("%m/%d/%Y") %></p>
           <p><%= simple_format fun_fact.content %></p>

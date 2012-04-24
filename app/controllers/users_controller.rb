@@ -31,7 +31,7 @@ class UsersController < ApplicationController
       emails = ["christie.lafrance@gmail.com", "gclafrance@gmail.com", "philliptao@gmail.com"]
       emails.each do |email|
         if @user.email == email
-          @user.privilege = 0
+          @user.privilege = "admin"
           break
         end
       end
@@ -70,6 +70,10 @@ class UsersController < ApplicationController
       flash[:notice] = "You can only update your own profile"
       redirect_to root_url
     end
+  end
+  
+  def cancel 
+    redirect_to home_url
   end
   
   def destroy

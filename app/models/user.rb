@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
   validates_presence_of :password, :on => :create
   before_create { generate_token(:remember_token) }
   
-  
   valid_email_regex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i 
   #valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   valid_username_regex = /\A[a-z\d\-._]+[a-z\d]+\z/i
@@ -40,6 +39,9 @@ class User < ActiveRecord::Base
                     :length => { :maximum => 64 }
                     
   validates :password, :length => { :within => 6..16 }, :if => :password
+  
+  validates :privilege, :presence => true,
+            :length => { :maximum => 20 }
   
   def send_password_reset
     generate_token(:password_reset_token)

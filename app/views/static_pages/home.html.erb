@@ -1,9 +1,37 @@
 <% provide(:title, 'Home') %>
 
-<h1>Foofalo</h1>
-  <p>
-    Foofalo is a website for Arthur and his friends to share jokes, learn fun facts, working on challenge question, view Masnter Cards, play games and more.
+<div class="home_images joke_image round">
+  <p>Joke of the Day Image</p>
+</div>
+
+<div class="home_images challenge_image round">
+  <p>Challenge of the Week Image</p>
+</div>
+
+<div class="home_images manster_image round">
+  <p>Manster Cards Image</p>
+</div>		
+
+<div id="logo_image">
+  <%= image_tag("logo60.png", alt: "foofalo logo") %>
+</div>
+
+<div id="home_main", class="round">
+   <p>
+    Foofalo is a website for Arthur and his friends to share jokes, learn fun facts, work on challenge question, view Masnter Cards, play games and more.
   </p>
-<% if current_user.nil? %>
   <%= link_to "Sign up now!", signup_path, class: "signup_button round" %>
-<% end %>
+</div>
+
+<div class="home_images funfact_image round">
+  <p>Fun Facts Image</p>
+</div>
+
+<div class="home_images links_image round">
+  <p>My Favorate links Image</p>
+</div>
+	
+<div class="home_images game_image round">
+  <p>Games Image</p>
+</div>
+

@@ -7,9 +7,15 @@ class Joke < ActiveRecord::Base
   validates :name, :presence => true,
                    :length => { :maximum => 50 },
                    :uniqueness => true
+                   
   validates :content, :presence => true
+  
+  validates :user_id, :presence => true,
+                   :uniqueness => true
+                   
   validates :author, :presence => true,
                    :length => { :maximum => 50 }
+                   
   validates :status, :presence => true
   
   #default_scope order: 'jokes.created_at DESC'

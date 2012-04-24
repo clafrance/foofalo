@@ -29,7 +29,7 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
-    if @challenge.status == 1
+    if @challenge.status == "approved"
       @display_status = "It hasn't been published." 
     else
       @display_status = "It has been solved."
@@ -109,8 +109,5 @@ class ChallengesController < ApplicationController
         end
       end
     end
-
   end
-      
-  
 end

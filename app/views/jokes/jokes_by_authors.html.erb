@@ -6,9 +6,9 @@
 	  <ul class="users">
       <% @authors.each do |author| %>
 	      <li class="title">Jokes entered by <%= author %> 
-		                     (<%= Joke.where(:author => author, :status => 1).count %> )</li>
+		                     (<%= Joke.where(:author => author, :status => "approved").count %> )</li>
         <ul>
-	        <% Joke.where(:author => author, :status => 1).order(:name).each do |joke| %>
+	        <% Joke.where(:author => author, :status => "approved").order(:name).each do |joke| %>
 	          <li><%= link_to joke.name, joke %> 
 	              <%= link_to joke.created_at.strftime("%m/%d/%Y"), 
 	                      jokesdate_path(:joke=>joke.id) %></li>
