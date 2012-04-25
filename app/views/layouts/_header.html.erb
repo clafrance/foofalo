@@ -2,29 +2,34 @@
 	<% if @title != "Home" %>
 	  <%= image_tag("logo30.png", alt: "foofalo logo") %>
 	<% end %>
-	<nav class="clearfix">
-		<% if current_user %>
+	<% if current_user %>
+		<nav class="clearfix">
 	    <span>Signed in as <%= current_user.username %></span>
       <%= link_to "Home", index_url %>
       <%= link_to "Users", users_path %>
       <%= link_to "Profile", edit_user_path(current_user) %>
       <%= link_to "Sign out", signout_path %>
-  </nav>
-
-<!-- 	  <div class="nav_bar align_center">
-      <%= link_to "Home", index_url, :class=>"home_link round_top" %>
-      <%= link_to "Jokes", jokes_url, :class=>"jokes_link round_top" %>
-      <%= link_to "Challenges", challenges_url, :class=>"challenges_link round_top" %>
-	    <%= link_to "Fun Facts", fun_facts_url, :class=>"fun_facts_link round_top" %>
-      <%= link_to "Games", games_url, :class=>"games_link round_top" %>
-      <%= link_to "Manster Cards", "http://www.chikaradev.com/mansters/", 
-              :target => :blank, :class=>"mansters_link round_top" %>
-      <%= link_to "My Links", links_url, :class=>"my_links round_top" %>
-	  </div> -->
+	  </nav>
 	<% else %>
-	  <nav class="round">
-		  <%= link_to "Sign in", signin_url, :class => "signin_button" %>
-		  <%= link_to "Sign up", signup_url, :class => "signin_button" %>
+	  <nav class="clearfix">
+		  <%= link_to "Home", root_url %>
+		  <%= link_to "Sign in", signin_url %>
+		  <%= link_to "Sign up", signup_url %>
 	  </nav>
 	<% end %>
 </header>
+
+<% if current_user %>
+  <ul class="nav_bar clearfix round_top">
+	  <div class="clearfix">
+    <li class="home_link"><%= link_to "Home", index_url %></li>
+    <li class="jokes_link"><%= link_to "Jokes", jokes_url %></li>
+    <li class="challenges_link"><%= link_to "Challenges", challenges_url %></li>
+    <li class="fun_facts_link"><%= link_to "Fun Facts", fun_facts_url %></li>
+    <li class="games_link"><%= link_to "Games", games_url %></li>
+    <li class="mansters_link"><%= link_to "Manster Cards", "http://www.chikaradev.com/mansters/", 
+           :target => :blank %></li>
+    <li class="my_links"><%= link_to "My Links", links_url %></li>
+   </div>
+  </ul>
+<% end %>

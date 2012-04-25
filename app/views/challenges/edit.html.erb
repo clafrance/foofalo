@@ -1,7 +1,7 @@
 <% provide :title, "Edit Challenge" %>
 
-<div class="clearfix">
-	<h1 class="title">Edit Challenge</h1>
+<div class="content_container clearfix">
+	<h1 class="center">Edit Challenge</h1>
   <%= form_for(@challenge, :action=> :update_challenge) do |f| %>
     <%= render 'shared/error_messages', :object => f.object %>
     <div class="field">
@@ -39,8 +39,7 @@
    </div>
    <div class="actions">
      <%= f.submit "Update", :class=>"button" %>
-     <p class="button cancel_button">
-        <a href="javascript:history.back()">Cancel</a></p>
+     <a href="javascript:history.back()">Cancel</a>
    </div>
   <% end %>	  
 </div>

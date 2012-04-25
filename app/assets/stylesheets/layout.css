@@ -1,6 +1,5 @@
-/***** Layout *****/
+/*********************** Layout *****/
 body {
-	/*border: 1px solid yellow;*/	
 	background: #DCDEDC;
 }
 
@@ -11,60 +10,99 @@ body {
 	background: #C7D1CA;
 }
 
-/*div.top_inner {
-	height: 55px;
-	background: #C7D1CA;
-	background: green;
-	border: none !important;
-}
-
-.top_inner img {
-	float: left;
-	border: 1px solid red;
-	margin-top: 15px;
-	margin-left: 10px;
-}*/
-
 header {
 	height: 55px;
 	width: 991px;
 	background: #C7D1CA;
-	border: none !important;
-}
-
-nav {
-	width: 990px;
-  float: left;
- /* border: 1px blue solid;*/
-  margin-top: 20px;
-  margin-bottom: -6px;
-  margin-right: 10px;
+	margin-top: -6px;
+	border: none !important;	
 }
 
 header img {
-	/*border: 1px solid red;*/
-/*	margin-top: 15px;*/
-	margin-left: 10px;
-	margin-right: 526px;
+  margin-top: 19px;
+  margin-left: 10px;
 }
 
-nav a {
-	/*border: 1px solid purple;*/
-  font-size: 1.2em;
-	font-weight: bold;
-	color: #368BB5 !important;
-	margin-right: 12px;
-	margin-bottom: 10px;
-	/*padding-bottom: 15px;*/
+nav {
+	float: right;
+  margin-top: 24px;
+  margin-bottom: -6px;
 }
 
 nav span {
-	/*border: 1px solid purple;*/
-	margin-right: 12px;
+	padding-right: 30px;
+}
+
+nav a {
+  font-size: 1.2em;
+	font-weight: bold;
+	color: #368BB5 !important;
+	margin-right: 20px;
+	margin-bottom: 0px;
+}
+
+.nav_bar div {
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: -4px;
+}
+
+ul.nav_bar {
+	width: 992px;
+	border-left: 1px solid green;
+	border-right: 1px solid green;
+	border-top: 1px solid green;
+	background: #55B536;
+	color: #fff;
+	margin-bottom: 0;
+}
+
+.nav_bar li {
+	list-style-type: none;
+	float: left;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin-bottom: -14px;
+	font-size: 1.3em;
+}
+
+.nav_bar a {
+	padding-top: 8px;
+	padding-bottom: 7px;
+  padding-right: 20px;
+	padding-left: 20px;
+	color: #fff;
+}
+
+.nav_bar a:hover  {
+	color: #fff;
+	height: 20px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	text-decoration: none;
+}
+
+.nav_bar a:visited {
+	color: #fff;
+	height: 20px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+}
+
+body#Index li.home_link,
+body#Jokes li.jokes_link,
+body#Challenges li.challenges_link,
+body#FunFacts li.fun_facts_link,
+body#Games li.games_link,
+body#Links li.my_links {
+	background-color: #13A835;
+	color: #fff;
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
 
 div.container {
-	margin-top: -140px;
+	margin-top: -135px;
 }
 
 div.main {
@@ -72,11 +110,11 @@ div.main {
 	border: 1px solid #BBBFBF;
 	min-height: 600px;
 	max-height: 800px;
-	margin-top: -7px;
+	margin-top: -5px;
 	padding: 40px 40px 40px 40px;
 }
 
-/***** Home page *****/
+/************************* Home page *****/
 
 div.home_images {
 	width: 180px;
@@ -103,7 +141,6 @@ div.manster_image {
 
 #logo_image {
 	float: left;
-  /*border: 1px solid purple;*/
 	margin-top: 50px;
   margin-left: -80px;
   padding: 0 20px 0 20px;
@@ -112,7 +149,6 @@ div.manster_image {
 #home_main {
 	float: left;
 	width: 360px;
-  /*border: 1px solid purple;*/
 	margin-top: -420px;
   margin-left: 256px;
   padding: 20px 20px 0 20px;
@@ -132,7 +168,6 @@ div.game_image {
   float: right;
   margin: -132px 190px -10px 0;
 }
-
 
 .border-top {
   border-bottom: 1px solid #BBBFBF;
@@ -160,10 +195,9 @@ a.signup_button:hover {
   text-decoration: none !important;
 }
 
-/***** Signin /Signup forms *****/
+/********************* Signin /Signup forms *****/
 
 .content_container label {
-	/*border: 1px solid red;*/
 	font: 1.1em;
 }
 
@@ -173,7 +207,6 @@ a.signup_button:hover {
 }
 
 div.field {
-/*	border: 1px solid red;*/
 	width: 305px;
 	margin-top: 6px;
 }
@@ -215,7 +248,9 @@ input.button_sign {
 .rememberme {
 	margin-bottom: 25px;
 }
-/***** Footer *****/
+
+
+/********************** Footer *****/
 
 footer {
 	/*border: 1px solid red;*/
@@ -228,7 +263,7 @@ footer span, footer a  {
 	margin-left: 6px;
 }
 
-/***** Link Style *****/
+/********************** Link Style *****/
 
 a {
   color: #368BB5;
@@ -244,7 +279,7 @@ a:visited {
   color: #590E5A;
 }
 
-/**** Utilities ****/
+/************************ Utilities ****/
 
 p {
 	font-size: 1.2em
@@ -260,6 +295,18 @@ p {
 	-moz-border-radius:    0 0 8px 8px;
   -webkit-border-radius: 0 0 8px 8px;
   border-radius:         0 0 8px 8px;
+}
+
+.round_top {
+	-moz-border-radius:    8px 8px 0 0;
+  -webkit-border-radius: 8px 8px 0 0;
+  border-radius:         8px 8px 0 0;
+}
+
+.round_all {
+	-moz-border-radius:    8px;
+  -webkit-border-radius: 8px;
+  border-radius:         8px;
 }
 
 .center {

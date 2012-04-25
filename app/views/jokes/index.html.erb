@@ -1,4 +1,4 @@
-<% provide :title, "All Jokes" %>
+<% provide :title, "Jokes" %>
 <div class="clearfix">
 	<% if current_user.privilege == "admin" %>
 		<%= form_tag review_path, :method => :put do %>

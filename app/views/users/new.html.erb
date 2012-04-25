@@ -36,6 +36,6 @@
 	
 		<p class="signup_info">By clicking the Sign Up button, you agree to our <%= link_to "Terms and Use", terms_path %>. Please read it before clicking Sign up button.</p>
 	    <%= f.submit "Sign up", :class=>"button_sign" %>
-	    <%= link_to "Cancel" %>
+      <a href="javascript:history.back()">Cancel</a>
 	<% end %>
 </div>
