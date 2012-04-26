@@ -1,7 +1,7 @@
 <% provide(:title, 'Sign up') %>
 <h1 class="center">Sign up</h1>
 
-<div class="content_container">
+<div class="content_container clearfix">
 	<%= form_for(@user) do |f| %>
 	  <%= render 'shared/error_messages', :object => f.object %>
 
@@ -35,7 +35,7 @@
 		</div>
 	
 		<p class="signup_info">By clicking the Sign Up button, you agree to our <%= link_to "Terms and Use", terms_path %>. Please read it before clicking Sign up button.</p>
-	    <%= f.submit "Sign up", :class=>"button_sign" %>
+	    <%= f.submit "Sign up", :class=>"buttons" %>
       <a href="javascript:history.back()">Cancel</a>
 	<% end %>
 </div>

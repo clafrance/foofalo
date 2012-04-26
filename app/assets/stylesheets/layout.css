@@ -94,7 +94,10 @@ body#Jokes li.jokes_link,
 body#Challenges li.challenges_link,
 body#FunFacts li.fun_facts_link,
 body#Games li.games_link,
-body#Links li.my_links {
+body#Links li.my_links,
+body#ViewChallenge li.challenges_link,
+body#CreateChallenge li.challenges_link,
+body#EditChallenge li.challenges_link {
 	background-color: #13A835;
 	color: #fff;
 	padding-top: 6px;
@@ -195,48 +198,64 @@ a.signup_button:hover {
   text-decoration: none !important;
 }
 
-/********************* Signin /Signup forms *****/
-
-.content_container label {
-	font: 1.1em;
-}
+/********************** Form style *************/
 
 .content_container {
 	width: 910px;
 	min-height: 400px;
 }
 
+/*.content_container label {
+	font-size: 1.1em;
+}*/
+
+
 div.field {
 	width: 305px;
+	width: 500px;
 	margin-top: 6px;
+	/*border: 1px solid red;*/
+}
+
+.field label {
+	font-size: 1.1em;
+}
+
+.field input, .field select, .field textarea {
+	margin-top: 1px;
+	font-size: 1.1em;
 }
 
 .field_size {
-	width: 300px;
+	width: 400px;
 	height: 20px;
-	font-size: 14px;
+/*	font-size: 1.1em;*/
 }
+
+input.buttons {
+	width: 80px;
+	font-size: 1.4em;
+	margin-right: 20px;
+}
+
+textarea {
+/*	font-size: 1.1em;*/
+	line-height: 1.8em;
+  height: 140px;
+  width: 495px;
+}
+
+/********************* Signin /Signup forms *****/
 
 input#password {
-	width: 300px;
+	width: 400px;
 	height: 20px;
-	font-size: 14px; 
+	font-size: 1.1em; 
 }
-
-.field input {
-	margin-top: 1px;
-}
-
 
 p.signup_info {
 	width: 720px;
 	margin-top: 20px;
-}
-
-input.button_sign {
-	width: 80px;
-	font-size: 1.4em;
-	margin-right: 20px;
 }
 
 .content_container p {
@@ -249,7 +268,70 @@ input.button_sign {
 	margin-bottom: 25px;
 }
 
+/********************** page layout ********/
 
+
+.challenge_list a {
+	/*border: 1px solid red;*/
+	margin-right: 10px;
+}
+
+.challenge_list span {
+	color: #808080;
+}
+
+.page_main {
+	float: left;
+	border-right: 1px dotted #808080;
+/*	border: 1px solid red;*/
+	width: 630px;
+	padding: 0 20px 20px 20px;
+}
+
+div.page_links {
+	width: 198px;
+	padding-left: 20px;
+	margin-right: 0;
+	margin-top: 0;
+	float: left;
+	/*border: 1px dotted red;*/
+}
+
+.page_links li {
+	list-style-type: none;
+/*	border: 1px solid blue;*/
+}
+
+.page_links img{
+	float: left;
+	/*border: 1px solid red;*/
+	margin-right: 5px;
+}
+
+.page_links a {
+	float: left;
+	height: 18px;
+/*	border: 1px solid red;*/
+	margin: 0;
+	padding-top: 2px;
+}
+
+
+/********************** challenges ******/
+
+.challenge_list a {
+	/*border: 1px solid red;*/
+	margin-right: 10px;
+}
+
+.challenge_list span {
+	color: #808080;
+}
+
+.page_main p {
+/*	border: 1px solid blue;*/
+	margin-top: 0;
+}
 /********************** Footer *****/
 
 footer {
@@ -277,12 +359,13 @@ a:hover {
 
 a:visited {
   color: #590E5A;
+color: #9915E6;
 }
 
 /************************ Utilities ****/
 
 p {
-	font-size: 1.2em
+	font-size: 1.1em
 }
 
 .round {
@@ -325,6 +408,14 @@ p {
 	font-weight: bold;
 }
 	
+.right_margin_20 {
+	margin-right: 20px;
+}
+
+.title {
+	width: 630px;
+	text-align: center;
+}
 /*** enclose floated elements ***/
 .clearfix:after {
 	content: ".";

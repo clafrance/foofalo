@@ -1,15 +1,12 @@
 <% if current_user.privilege == "admin" %>
-	<p class="clearfix">
-	  <%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
-	  <%= link_to 'Enter New Challenge', newchallenge_path %>
-	</p>
-	<p class="clearfix">
-	  <%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
-	  <%= link_to 'View, Edit Challenges', challenges_path %>
-	</p>
-<% else %>
-	<p class="clearfix">
-	  <%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
-	  <%= link_to 'View Challenges', challenges_path %>
-	</p>
+	<ul class="clearfix">
+	  <li class="clearfix"><%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
+	  <%= link_to 'Enter New Challenge', newchallenge_path %></li>
+
+	  <li class="clearfix"><%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
+	  <%= link_to 'View, Edit Challenges', challenges_path, :id=>"aaa" %></li>
+  <% else %>
+	  <li class="clearfix"><%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
+	  <%= link_to 'View Challenges', challenges_path %></li>
+	</ul>
 <% end %>

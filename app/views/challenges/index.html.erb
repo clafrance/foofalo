@@ -1,31 +1,29 @@
 <% provide :title, "Challenges" %>
 
-<div class="clearfix">
-	<h3 class="title">All Challenges (<%= @challenges.count %> )</h3>
-	<p><span>Challenge Name</span> <span>Date Created</span></p>
-
-	<ul class="users">
+<div class="content_container clearfix">
+	<h2 class="title">All Challenges (<%= @challenges.count %>)</h2>
+	<ul class="page_main challenge_list clearfit">
 	  <% @challenges.each do |challenge| %>
 		  <li>
 			  <% if current_user.privilege == "admin" %>
-			    <p><%= link_to challenge.name, challenge %> 
-			       <%= challenge.created_at.strftime("%m/%d/%Y") %></p>
-          <p><%= simple_format challenge.content %></p>
+			    <%= link_to challenge.name, challenge, :class=>"bold" %>
+			    <span>Created by</span> <%= challenge.author %>
+			    <span>on</span> <span class="right_margin_20"><%= challenge.created_at.strftime("%m/%d/%Y") %></span>
+			    <%= link_to "Edit", edit_challenge_path(challenge) %>
+			    <%= link_to "delete", challenge, :method => :delete, 
+			             :confirm => "Deleting challenge #{challenge.name}?" %>
+          <%= simple_format challenge.content %>
 
-			    <p><%= link_to "Edit", edit_challenge_path(challenge) %>
-			       <%= link_to "delete", challenge, :method => :delete, 
-			             :confirm => "Deleting challenge #{challenge.name}?" %></p>
 			  <% else %>
-			    <p><%= link_to challenge.name, challenge %> 
-			       <%= challenge.created_at.strftime("%m/%d/%Y") %></p>
+			    <%= link_to challenge.name, challenge %> 
+			    <%= challenge.created_at.strftime("%m/%d/%Y") %>
           <p><%= simple_format challenge.content %></p>
 			  <% end %>
 			</li>
 	  <% end %>
 	</ul>
 
+	<div class="page_links" class="clearfix center">
+		<%= render '/challenges/linkstochallenges' %>
+	</div>	
 </div>
-
-<div class="challenge_links" class="clearfix align_center">
-	<%= render '/challenges/linkstochallenges' %>
-<div>

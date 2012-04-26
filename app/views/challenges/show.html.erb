@@ -1,12 +1,22 @@
-<% provide :title, "View Challenge" %>
+<% provide :title, "ViewChallenge" %>
 
-<div class="clearfix">
-	<h3 class="title"><%= @challenge.name %></h3> 
-  <div class="align-left joke_content clearfix">
+<div class="content_container clearfix">
+	<h2 class="title"><%= @challenge.name %></h2> 
+	
+	<div class="page_main clearfit">
     <%= simple_format @challenge.content %>
   </div>
-</div>
+ 
+  <% if current_user == @challenge.author %>
+		<ul>
+			<li><%= link_to "Edit", edit_challenge_path(@challenge) %>
+		      <%= link_to "delete", @challenge, :method => :delete, 
+		             :confirm => "Deleting challenge #{@challenge.name}?" %></li>
+		</ul>
+  <% end %>
 
-<div class="joke_links clearfix align_left">
-  <%= render 'linkstochallenges' %>
-<div>
+
+	<div class="page_links" class="clearfix center">
+		<%= render '/challenges/linkstochallenges' %>
+	</div>	
+</div>

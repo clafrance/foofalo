@@ -1,49 +1,59 @@
-<% provide :title, "Edit Challenge" %>
+<% provide :title, "EditChallenge" %>
 
 <div class="content_container clearfix">
-	<h1 class="center">Edit Challenge</h1>
-  <%= form_for(@challenge, :action=> :update_challenge) do |f| %>
-    <%= render 'shared/error_messages', :object => f.object %>
-    <div class="field">
-     <%= f.label :name, "Challenge Name:" %>
-     <%= f.text_field :name, :class=>"input", :autofocus=>true %>
-   </div>
-   <div class="field", id="challenge_details">
-     <%= f.label :content, "challenge details:" %>
-     <%= f.text_area :content, :class=>"input textarea" %>
-   </div>
+	<h2 class="title">Edit Challenge</h2>
+	<div class="page_main challenge_list clearfit">
+	  <%= form_for(@challenge, :action=> :update_challenge) do |f| %>
+	    <%= render 'shared/error_messages', :object => f.object %>
+	
+	    <div class="field">
+	      <%= f.label :name, "Challenge Name:" %>
+	      <%= f.text_field :name, :class => "field_size", :autofocus=>true %>
+	    </div>
+	
+	    <div class="field">
+	      <%= f.label :content, "Challenge Details:" %>
+	      <%= f.text_area :content %>
+	    </div>
 
-   <div class="field", id="joke_details">
-     <%= f.label :a, "Choice a:" %>
-     <%= f.text_field :a, :class=>"input textarea" %>
-   </div>
-   <div class="field", id="joke_details">
-     <%= f.label :b, "Choice b:" %>
-     <%= f.text_field :b, :class=>"input textarea" %>
-   </div>
-   <div class="field", id="joke_details">
-     <%= f.label :c, "Choice c:" %>
-     <%= f.text_field :c, :class=>"input textarea" %>
-   </div>
-   <div class="field", id="joke_details">
-     <%= f.label :d, "Choice d:" %>
-     <%= f.text_field :d, :class=>"input textarea" %>
-   </div>
-   <div class="field", id="joke_details">
-     <%= f.label :correct_col_name, "Correct Answer:" %>
-     <%= select(:challenge, :correct_col_name, Challenge::ANSWER_COLUMNS, {:prompt => true} ) %>
-   </div>
-   <div class="field", id="joke_details">
-     <%= f.label :explanation, "Explanation" %>
-     <%= f.text_area :explanation, :placeholder => "Optional", :class=>"input textarea" %>
-   </div>
-   <div class="actions">
-     <%= f.submit "Update", :class=>"button" %>
-     <a href="javascript:history.back()">Cancel</a>
-   </div>
-  <% end %>	  
+	    <div class="field">
+	      <%= f.label :a, "Choice a:" %><br />
+	      <%= f.text_field :a, :class => "field_size" %>
+	    </div>
+	
+	    <div class="field">
+	      <%= f.label :b, "Choice b:" %><br />
+	      <%= f.text_field :b, :class => "field_size" %>
+	    </div>
+	
+	    <div class="field">
+	      <%= f.label :c, "Choice c:" %><br />
+	      <%= f.text_field :c, :class => "field_size" %>
+	    </div>
+	
+	    <div class="field">
+	      <%= f.label :d, "Choice d:" %><br />
+	      <%= f.text_field :d, :class => "field_size" %>
+	    </div>
+	
+	    <div class="field">
+	      <%= f.label :correct_col_name, "Correct Answer:" %><br />
+	      <%= select(:challenge, :correct_col_name, Challenge::ANSWER_COLUMNS, {:prompt => true} ) %>
+	    </div>
+	
+	    <div class="field">
+	      <%= f.label :explanation, "Explanation:" %>
+	      <%= f.text_area :explanation, :placeholder => "Optional" %>
+	    </div>
+	
+	    <div class="actions">
+	      <%= f.submit "Update", :class=>"buttons" %>
+	      <a href="javascript:history.back()">Cancel</a>
+	    </div>
+	  <% end %>
+	</div>
+
+	<div class="page_links" class="clearfix center">
+		<%= render '/challenges/linkstochallenges' %>
+	</div>	
 </div>
-
-<div class="joke_links" class="clearfix align_center">
-	<%= render 'linkstochallenges' %>
-<div>
