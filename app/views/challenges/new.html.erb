@@ -1,7 +1,7 @@
 <% provide :title, "CreateChallenge" %>
 
 <div class="content_container clearfix">
-	<h2 class="title">Enter New Challenge</h2>
+	<h2 class="title">New Challenge</h2>
 	<div class="page_main challenge_list clearfit">
 	  <%= form_for(@challenge) do |f| %>
 	    <%= render 'shared/error_messages', :object => f.object %>
@@ -16,7 +16,7 @@
 	      <%= f.text_area :content %>
 	    </div>
 
-	    <h3 class="title">Enter the Answer Options</h3>
+	    <h3 class="title2 margin_top_20">Answer Options</h3>
 	    <div class="field">
 	      <%= f.label :a, "Choice a:" %><br />
 	      <%= f.text_field :a, :class=>"field_size" %>
