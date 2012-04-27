@@ -4,7 +4,7 @@ class Link < ActiveRecord::Base
   belongs_to :user
   
   validates :name, :presence => true,
-                   :length => { :maximum => 100 },
+                   :length => { :maximum => 30 },
                    :uniqueness => true
                    
   validates :category, :presence => true

@@ -42,14 +42,18 @@ class LinksController < ApplicationController
     end
   end
   
+  def manage_links
+    
+  end
+  
   def destroy
     link = Link.find(params[:id])
     if link.user_id == current_user.id
       link.destroy
       flash[:success] = "Link #{link.name} has been deleted."
-      redirect_to links_path
+      redirect_to managelinks_path
     else
-      redirect_to links_path, :notice => "You can only delete your links."
+      redirect_to managelinks_path, :notice => "You can only delete your links."
     end
   end
 end

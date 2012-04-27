@@ -4,14 +4,14 @@
 	<h2 class="title">Manage Links</h2>
   <ul class="page_main page_main_list clearfit">
     <% my_links.each do |link| %>
-		  <li>
-		    <%= link_to link.name, link, :class=>"bold" %>
-			  <%= link.category %>
-		    <span>on</span> <span class="right_margin_20">
-		    <%= link.created_at.strftime("%m/%d/%Y") %></span>
-		    <%= link_to "Edit", edit_link_path(link) %>
-		    <%= link_to "delete", link, :method => :delete, :confirm => "Deleting link #{link.name}?" %>
-			</li>
+		  <div class="clearfix">
+		    <div class="link_name links_row"><%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %></div>
+			  <div class="link_category links_row"><span><%= link.category %>,</span>
+		    <span>created on</span> <span>
+		    <%= link.created_at.strftime("%m/%d/%Y") %></span></div>
+		    <div class="delete_link links_row"><%= link_to "Edit", edit_link_path(link) %>
+		    <%= link_to "delete", link, :method => :delete, :confirm => "Deleting link #{link.name}?" %></div>
+			</div>
 	  <% end %>
   </ul>
 

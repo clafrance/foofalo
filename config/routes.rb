@@ -1,28 +1,5 @@
 Foofalo::Application.routes.draw do
 
-
-  # get "my_links/index"
-  # 
-  #  get "my_links/new"
-  # 
-  #  get "my_links/edit"
-
-  # get "fun_facts/index"
-  # 
-  # get "fun_facts/show"
-  # 
-  # get "fun_facts/new"
-  # 
-  # get "fun_facts/edit"
-  # 
-  # get "challenges/new"
-  # 
-  # get "challenges/show"
-  # 
-  # get "challenges/edit"
-  # 
-  # get "parent_confirms/new"
-
   #resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :password_resets
@@ -66,6 +43,7 @@ Foofalo::Application.routes.draw do
   match '/newfunfact',              :to => 'fun_facts#new'
   match '/links',                   :to => 'links#index'
   match '/newlink',                 :to => 'links#new'
+  match '/managelinks',            :to => 'links#manage_links'
   match '/review',                  :to => 'jokes#review', :method => :put
   match '/unapprove',               :to => 'jokes#unapprove', :method => :put
   match '/submit_answer',           :to => 'challenges#submit_answer', :method => :put

@@ -102,6 +102,7 @@ body#FunFact li.fun_facts_link,
 body#Games li.games_link,
 body#Links li.my_links,
 body#EditLink li.my_links,
+body#ManageLinks li.my_links,
 body#CreateLink li.my_links {
 	background-color: #13A835;
 	color: #fff;
@@ -218,6 +219,31 @@ div.links {
 	float: left;
 	/*width: 100px;*/
 	/*border: 1px solid red;*/
+}
+
+.link_name {
+	width: 210px;
+}
+
+.link_category {
+	width: 220px;
+}
+
+.delete_link{
+	width: 120px;
+}
+
+.links_row {
+ float: left;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 15px;
+	padding-left: 5px;
+	/*margin-right: 2px;*/
+	margin-top: 2px;
+	/*border: 1px solid red;*/
+	/*background-color: #E3E8E8;*/
+	border-bottom: 1px dotted grey;
 }
 
 div.categories {
