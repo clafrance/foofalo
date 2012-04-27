@@ -69,7 +69,7 @@ Foofalo::Application.routes.draw do
   match '/review',                  :to => 'jokes#review', :method => :put
   match '/unapprove',               :to => 'jokes#unapprove', :method => :put
   match '/submit_answer',           :to => 'challenges#submit_answer', :method => :put
-  match '/cancel',                  :to => 'users/cancel'
+  match '/cancel',                  :to => 'users#cancel'
   
   #match '/saveanswer',      :to => 'answers#save_answer', :method => :put
   
