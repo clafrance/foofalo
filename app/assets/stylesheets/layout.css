@@ -92,12 +92,17 @@ ul.nav_bar {
 body#Index li.home_link,
 body#Jokes li.jokes_link,
 body#Challenges li.challenges_link,
-body#FunFacts li.fun_facts_link,
-body#Games li.games_link,
-body#Links li.my_links,
 body#ViewChallenge li.challenges_link,
 body#CreateChallenge li.challenges_link,
-body#EditChallenge li.challenges_link {
+body#EditChallenge li.challenges_link,
+body#FunFacts li.fun_facts_link,
+body#CreateFunFact li.fun_facts_link,
+body#EditFunFact li.fun_facts_link,
+body#FunFact li.fun_facts_link,
+body#Games li.games_link,
+body#Links li.my_links,
+body#EditLink li.my_links,
+body#CreateLink li.my_links {
 	background-color: #13A835;
 	color: #fff;
 	padding-top: 6px;
@@ -198,6 +203,64 @@ a.signup_button:hover {
   text-decoration: none !important;
 }
 
+/********************* Links page **************/
+
+div.links {
+	/*border: 1px solid yellow;*/
+	margin-left: 20px;
+	margin-top: -8px;
+	margin-bottom: 20px;
+	font-size: 1.1em;
+}
+
+.links span {
+	margin-right: 5px;
+	float: left;
+	/*width: 100px;*/
+	/*border: 1px solid red;*/
+}
+
+div.categories {
+	/*border: 1px solid red;*/
+}
+
+/*div.categories h4 {
+	border: 1px solid red;
+}*/
+/*li.categories {
+	list-style-type: none;
+	font-weight: bold;
+}
+
+ul.category_lists li {
+	margin: 0;
+	padding: 0;
+}
+.category_lists li {
+	width: 550px;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	border: 1px solid red;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+div.link {
+	margin: 0 0 -10px 20px;
+	padding: 0;
+	float: left;
+	width: 150px;
+	border: 1px solid blue;
+}
+
+div.editdelet_buttons {
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 200px;
+	border: 1px solid blue;
+}*/
 /********************** Form style *************/
 
 .content_container {
@@ -246,6 +309,10 @@ textarea {
   width: 495px;
 }
 
+.actions {
+	margin-top: 10px;
+	/*border: 1px solid red;*/
+}
 /********************* Signin /Signup forms *****/
 
 input#password {
@@ -271,13 +338,12 @@ p.signup_info {
 
 /********************** page layout ********/
 
-
-.challenge_list a {
+.page_main_list a {
 	/*border: 1px solid red;*/
-	margin-right: 10px;
+	margin-right: 30px;
 }
 
-.challenge_list span {
+.page_main_list span {
 	color: #808080;
 }
 
@@ -285,16 +351,19 @@ p.signup_info {
 	float: left;
 	border-right: 1px dotted #808080;
 	/*border: 1px solid blue;*/
-	width: 630px;
-	padding: 0 20px 20px 20px;
+	min-height: 100px;
+	width: 650px;
+	margin-right: 0;
+	padding: 0 30px 20px 20px;
 }
 
 div.page_links {
-	width: 198px;
-	padding-left: 20px;
+	float: left;
+	width: 194px;
+	padding-left: 10px;
+	margin-left: 0;
 	margin-right: 0;
 	margin-top: 0;
-	float: left;
 	/*border: 1px dotted red;*/
 }
 
@@ -319,15 +388,6 @@ div.page_links {
 
 
 /********************** challenges ******/
-
-.challenge_list a {
-	/*border: 1px solid red;*/
-	margin-right: 10px;
-}
-
-.challenge_list span {
-	color: #808080;
-}
 
 .page_main p {
 /*	border: 1px solid blue;*/

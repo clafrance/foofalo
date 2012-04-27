@@ -2,13 +2,14 @@
 
 <div class="content_container clearfix">
 	<h2 class="title">All Challenges (<%= @challenges.count %>)</h2>
-	<ul class="page_main challenge_list clearfit">
+	<ul class="page_main page_main_list clearfit">
 	  <% @challenges.each do |challenge| %>
 		  <li>
 			  <% if current_user.privilege == "admin" %>
 			    <%= link_to challenge.name, challenge, :class=>"bold" %>
 			    <span>Created by</span> <%= challenge.author %>
-			    <span>on</span> <span class="right_margin_20"><%= challenge.created_at.strftime("%m/%d/%Y") %></span>
+			    <span>on</span> <span class="right_margin_20">
+			    <%= challenge.created_at.strftime("%m/%d/%Y") %></span>
 			    <%= link_to "Edit", edit_challenge_path(challenge) %>
 			    <%= link_to "delete", challenge, :method => :delete, 
 			             :confirm => "Deleting challenge #{challenge.name}?" %>
@@ -16,14 +17,14 @@
 
 			  <% else %>
 			    <%= link_to challenge.name, challenge %> 
-			    <%= challenge.created_at.strftime("%m/%d/%Y") %>
-          <p><%= simple_format challenge.content %></p>
+			    <span><%= challenge.created_at.strftime("%m/%d/%Y") %></span>
+          <%= simple_format challenge.content %>
 			  <% end %>
 			</li>
 	  <% end %>
 	</ul>
 
-	<div class="page_links" class="clearfix center">
+	<div class="page_links clearfix">
 		<%= render '/challenges/linkstochallenges' %>
 	</div>	
 </div>

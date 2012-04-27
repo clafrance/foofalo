@@ -1,8 +1,8 @@
-<p class="view_jokes clearfix">
-  <%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
-  <%= link_to 'View, Edit My Links', links_path %>
-</p>
-<p class="create_new_joke clearfix">
-  <%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
-  <%= link_to 'Create New Links', newlink_path %>
-</p>
+<ul class="clearfix">
+  <li class="clearfix"><%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
+      <%= link_to 'Create New Links', newlink_path %></li>
+	<li class="clearfix"><%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
+		  <%= link_to 'View Links', links_path %></li>
+	<li class="clearfix"><%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
+			<%= link_to 'Edit, Delet Links', "#" %></li>
+</ul>

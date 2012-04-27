@@ -13,9 +13,9 @@ class Link < ActiveRecord::Base
   
   validates :user_id, :presence => true
   
-  CATEGORIES =  ["Games", "Home Works", "School Works", "Others"]
+  CATEGORIES =  ["Game", "Home Work", "School Work", "Others"]
   
   def self.categories
-    categories = ["Games", "Home Works", "School Works", "Others"]
+    categories = ["Game", "Home Work", "School Work", "Others"]
   end
 end

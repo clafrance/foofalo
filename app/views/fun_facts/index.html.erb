@@ -1,28 +1,28 @@
 <% provide :title, "FunFacts" %>
 
-<div class="clearfix">
-	<h3 class="title">Fun Facts (<%= @fun_facts.count %> )</h3>
-	<p><span>Fun Fact Name</span> <span>Date Created</span></p>
-
-	<ul class="users">
+<div class="content_container clearfix">
+	<h2 class="title">Fun Facts (<%= @fun_facts.count %> )</h2>
+	<ul class="page_main page_main_list clearfit">
 	  <% @fun_facts.each do |fun_fact| %>
 		  <li>
 			  <% if current_user.privilege == "admin" %>
-			    <p><%= link_to fun_fact.name, fun_fact %> 
-			       <%= fun_fact.created_at.strftime("%m/%d/%Y") %></p>
-          <p><%= simple_format fun_fact.content %></p>
-			    <p><%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
-			       <%= link_to "delete", fun_fact, :method => :delete, :confirm => "Deleting fun_fact #{fun_fact.name}?" %></p>
+			    <%= link_to fun_fact.name, fun_fact, :class=>"bold" %>
+				  <span>Created by</span> <%= fun_fact.author %>
+			    <span>on</span> <span class="right_margin_20">
+			    <%= fun_fact.created_at.strftime("%m/%d/%Y") %></span>
+			    <%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
+			    <%= link_to "delete", fun_fact, :method => :delete, :confirm => "Deleting fun_fact #{fun_fact.name}?" %>
+			    <%= simple_format fun_fact.content %></p>
 			  <% else %>
-			    <p><%= link_to fun_fact.name, fun_fact %> 
-			       <%= fun_fact.created_at.strftime("%m/%d/%Y") %></p>
-          <p><%= simple_format fun_fact.content %></p>
+			    <%= link_to fun_fact.name, fun_fact %> 
+			    <span><%= fun_fact.created_at.strftime("%m/%d/%Y") %></span>
+          <%= simple_format fun_fact.content %>
 			  <% end %>
 			</li>
 	  <% end %>
 	</ul>
-</div>
 
-<div class="challenge_links" class="clearfix align_center">
-	<%= render 'linkstofunfacts' %>
-<div>
+	<div class="page_links clearfix">
+		<%= render '/fun_facts/linkstofunfacts' %>
+	</div>
+</div>

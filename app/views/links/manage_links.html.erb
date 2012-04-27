@@ -1,0 +1,21 @@
+<% provide :title, "ManageLinks" %>
+
+<div class="content_container clearfix">
+	<h2 class="title">Manage Links</h2>
+  <ul class="page_main page_main_list clearfit">
+    <% my_links.each do |link| %>
+		  <li>
+		    <%= link_to link.name, link, :class=>"bold" %>
+			  <%= link.category %>
+		    <span>on</span> <span class="right_margin_20">
+		    <%= link.created_at.strftime("%m/%d/%Y") %></span>
+		    <%= link_to "Edit", edit_link_path(link) %>
+		    <%= link_to "delete", link, :method => :delete, :confirm => "Deleting link #{link.name}?" %>
+			</li>
+	  <% end %>
+  </ul>
+
+	<div class="page_links clearfix">
+		<%= render '/links/linkstomylinks' %>
+	</div>
+</div>

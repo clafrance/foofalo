@@ -2,48 +2,48 @@
 
 <div class="content_container clearfix">
 	<h2 class="title">Edit Challenge</h2>
-	<div class="page_main challenge_list clearfit">
+	<div class="page_main page_main_list clearfit">
 	  <%= form_for(@challenge, :action=> :update_challenge) do |f| %>
 	    <%= render 'shared/error_messages', :object => f.object %>
 	
 	    <div class="field">
 	      <%= f.label :name, "Challenge Name:" %>
-	      <%= f.text_field :name, :class => "field_size", :autofocus=>true %>
+	      <p><%= f.text_field :name, :class => "field_size", :autofocus=>true %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :content, "Challenge Details:" %>
-	      <%= f.text_area :content %>
+	      <p><%= f.text_area :content %></p>
 	    </div>
 
 	    <div class="field">
 	      <%= f.label :a, "Choice a:" %><br />
-	      <%= f.text_field :a, :class => "field_size" %>
+	      <p><%= f.text_field :a, :class => "field_size" %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :b, "Choice b:" %><br />
-	      <%= f.text_field :b, :class => "field_size" %>
+	      <p><%= f.text_field :b, :class => "field_size" %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :c, "Choice c:" %><br />
-	      <%= f.text_field :c, :class => "field_size" %>
+	      <p><%= f.text_field :c, :class => "field_size" %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :d, "Choice d:" %><br />
-	      <%= f.text_field :d, :class => "field_size" %>
+	      <p><%= f.text_field :d, :class => "field_size" %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :correct_col_name, "Correct Answer:" %><br />
-	      <%= select(:challenge, :correct_col_name, Challenge::ANSWER_COLUMNS, {:prompt => true} ) %>
+	      <p><%= select(:challenge, :correct_col_name, Challenge::ANSWER_COLUMNS, {:prompt => true} ) %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :explanation, "Explanation:" %>
-	      <%= f.text_area :explanation, :placeholder => "Optional" %>
+	      <p><%= f.text_area :explanation, :placeholder => "Optional" %></p>
 	    </div>
 	
 	    <div class="actions">
@@ -53,7 +53,7 @@
 	  <% end %>
 	</div>
 
-	<div class="page_links" class="clearfix center">
+	<div class="page_links clearfix">
 		<%= render '/challenges/linkstochallenges' %>
 	</div>	
 </div>

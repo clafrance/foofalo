@@ -8,43 +8,43 @@
 	
 	    <div class="field">
 	      <%= f.label :name, "Challenge Name:" %>
-	      <%= f.text_field :name, :class=>"field_size", :autofocus=>true %>
+	      <p><%= f.text_field :name, :class=>"field_size", :autofocus=>true %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :content, "Challenge Details:" %>
-	      <%= f.text_area :content %>
+	      <p><%= f.text_area :content %></p>
 	    </div>
 
 	    <h3 class="title2 margin_top_20">Answer Options</h3>
 	    <div class="field">
 	      <%= f.label :a, "Choice a:" %><br />
-	      <%= f.text_field :a, :class=>"field_size" %>
+	      <p><%= f.text_field :a, :class=>"field_size" %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :b, "Choice b:" %><br />
-	      <%= f.text_field :b, :class=>"field_size" %>
+	      <p><%= f.text_field :b, :class=>"field_size" %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :c, "Choice c:" %><br />
-	      <%= f.text_field :c, :class=>"field_size" %>
+	      <p><%= f.text_field :c, :class=>"field_size" %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :d, "Choice d:" %><br />
-	      <%= f.text_field :d, :class=>"field_size" %>
+	      <p><%= f.text_field :d, :class=>"field_size" %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :correct_col_name, "Correct Answer:" %><br />
-	      <%= select(:challenge, :correct_col_name, Challenge::ANSWER_COLUMNS, {:prompt => true} ) %>
+	      <p><%= select(:challenge, :correct_col_name, Challenge::ANSWER_COLUMNS, {:prompt => true} ) %></p>
 	    </div>
 	
 	    <div class="field">
 	      <%= f.label :explanation, "Explanation:" %>
-	      <%= f.text_area :explanation, :placeholder => "You can put the reason here" %>
+	      <p><%= f.text_area :explanation, :placeholder => "You can put the reason here" %></p>
 	    </div>
 	
 	    <div class="actions">
@@ -54,7 +54,7 @@
 	  <% end %>	 
 	</div> 
 
-	<div class="page_links" class="clearfix center">
+	<div class="page_links clearfix">
 		<%= render '/challenges/linkstochallenges' %>
 	</div>
 </div>

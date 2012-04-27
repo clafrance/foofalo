@@ -1,25 +1,29 @@
 <% provide :title, "EditFunFact" %>
 
-<div class="clearfix">
-	<h1 class="title">Edit Fun Fact</h1>
-  <%= form_for(@fun_fact) do |f| %>
-    <%= render 'shared/error_messages', :object => f.object %>
-    <div class="field">
-	    <%= f.label :name, "Fun Fact Name:" %>
-	    <%= f.text_field :name, :class=>"input", :autofocus=>true %>
-    </div>
-    <div class="field", id="fun_fact_details">
-      <%= f.label :content, "fun_fact details:" %>
-      <%= f.text_area :content, :class=>"input textarea" %>
-    </div>
-    <div class="actions">
-      <%= f.submit "Update", :class=>"button" %>
-      <p class="button cancel_button">
-         <a href="javascript:history.back()">Cancel</a></p>
-    </div>
-  <% end %>	  
-</div>
+<div class="content_container clearfix">
+	<h2 class="title">Edit Fun Fact</h2>
+	<div class="page_main page_main_list clearfit">
+	  <%= form_for(@fun_fact) do |f| %>
+	    <%= render 'shared/error_messages', :object => f.object %>
+	
+	    <div class="field">
+		    <%= f.label :name, "Fun Fact Name:" %>
+		    <p><%= f.text_field :name, :class=>"field_size", :autofocus=>true %></p>
+	    </div>
+	
+	    <div class="field">
+	      <%= f.label :content, "fun_fact details:" %>
+	      <p><%= f.text_area :content %></p>
+	    </div>
+	
+	    <div class="actions">
+	      <%= f.submit "Update", :class=>"buttons" %>
+	      <a href="javascript:history.back()">Cancel</a>
+	    </div>
+	  <% end %>	  
+  </div>
 
-<div class="joke_links" class="clearfix align_center">
-	<%= render 'linkstofunfacts' %>
-<div>
+	<div class="page_links clearfix">
+		<%= render '/fun_facts/linkstofunfacts' %>
+	</div>
+</div>
