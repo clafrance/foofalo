@@ -91,6 +91,14 @@ ul.nav_bar {
 
 body#Index li.home_link,
 body#Jokes li.jokes_link,
+body#EditJoke li.jokes_link,
+body#JokesByAuthor li.jokes_link,
+body#JokesByAuthors li.jokes_link,
+body#JokesByDate li.jokes_link,
+body#MyJokes li.jokes_link,
+body#CreateJoke li.jokes_link,
+body#EditJoke li.jokes_link,
+body#Joke li.jokes_link,
 body#Challenges li.challenges_link,
 body#ViewChallenge li.challenges_link,
 body#CreateChallenge li.challenges_link,
@@ -217,8 +225,7 @@ div.links {
 .links span {
 	margin-right: 5px;
 	float: left;
-	/*width: 100px;*/
-	/*border: 1px solid red;*/
+	border: 1px solid red;
 }
 
 .link_name {
@@ -243,50 +250,13 @@ div.links {
 	margin-top: 2px;
 	/*border: 1px solid red;*/
 	/*background-color: #E3E8E8;*/
-	border-bottom: 1px dotted grey;
+	border-bottom: 1px dotted #808080;
 }
 
 div.categories {
 	/*border: 1px solid red;*/
 }
 
-/*div.categories h4 {
-	border: 1px solid red;
-}*/
-/*li.categories {
-	list-style-type: none;
-	font-weight: bold;
-}
-
-ul.category_lists li {
-	margin: 0;
-	padding: 0;
-}
-.category_lists li {
-	width: 550px;
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-	border: 1px solid red;
-	padding-top: 2px;
-	padding-bottom: 2px;
-}
-
-div.link {
-	margin: 0 0 -10px 20px;
-	padding: 0;
-	float: left;
-	width: 150px;
-	border: 1px solid blue;
-}
-
-div.editdelet_buttons {
-	margin: 0;
-	padding: 0;
-	float: left;
-	width: 200px;
-	border: 1px solid blue;
-}*/
 /********************** Form style *************/
 
 .content_container {
@@ -377,7 +347,7 @@ p.signup_info {
 	float: left;
 	border-right: 1px dotted #808080;
 	/*border: 1px solid blue;*/
-	min-height: 100px;
+	min-height: 150px;
 	width: 650px;
 	margin-right: 0;
 	padding: 0 30px 20px 20px;
@@ -412,6 +382,20 @@ div.page_links {
 	padding-top: 2px;
 }
 
+/********************** Jokes ***********/
+
+div.joke_author {
+	/*border: 1px solid blue;*/
+	margin: 5px 0 5px 0;
+}
+
+div.joke_name {
+	width: 200px;
+}
+
+#try {
+	visibility: hidden;
+}
 
 /********************** challenges ******/
 
@@ -419,6 +403,8 @@ div.page_links {
 /*	border: 1px solid blue;*/
 	margin-top: 0;
 }
+
+
 /********************** Footer *****/
 
 footer {
@@ -487,12 +473,21 @@ p {
 	font-size: .9em;
 }
 
+.font_2 {
+	font-size: 1.2em;
+}
+
 .font_color_grey {
 	color: #808080;
 }
 
 .bold {
 	font-weight: bold;
+}
+	
+
+.width_400 {
+	width: 400px;
 }
 	
 .right_margin_20 {
@@ -502,6 +497,27 @@ p {
 .margin_top_20 {
 	margin-top: 20px;
 }
+
+.margin_top_40 {
+	margin-top: 40px;
+}
+
+.margin_bottom_20 {
+	margin-bottom: 20px;
+}
+
+.margin_bottom_40 {
+	margin-bottom: 40px;
+}
+
+.margin_right_20 {
+	margin-right: 20px;
+}
+
+.margin_left_20 {
+	margin-left: 20px;
+}
+
 .title {
 	width: 670px;
 	text-align: center;
@@ -513,6 +529,7 @@ p {
 	text-align: center;
 /*	border: 1px solid green;*/
 }
+
 /*** enclose floated elements ***/
 .clearfix:after {
 	content: ".";

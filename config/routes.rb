@@ -43,9 +43,10 @@ Foofalo::Application.routes.draw do
   match '/newfunfact',              :to => 'fun_facts#new'
   match '/links',                   :to => 'links#index'
   match '/newlink',                 :to => 'links#new'
-  match '/managelinks',            :to => 'links#manage_links'
-  match '/review',                  :to => 'jokes#review', :method => :put
-  match '/unapprove',               :to => 'jokes#unapprove', :method => :put
+  match '/managelinks',             :to => 'links#manage_links'
+  match '/review_jokes',            :to => 'jokes#review_jokes', :method => :put
+  match '/review_joke',            :to => 'jokes#review_joke', :method => :put
+  # match '/unapprove',               :to => 'jokes#unapprove', :method => :put
   match '/submit_answer',           :to => 'challenges#submit_answer', :method => :put
   match '/cancel',                  :to => 'users#cancel'
   

@@ -14,7 +14,8 @@ class JokesController < ApplicationController
     @joke = current_user.jokes.build(params[:joke])
     @joke.author = current_user.username
     if @joke.save
-      redirect_to @joke, :success => "Joke has been created. It will be published after it is approved."
+      redirect_to index_url, :success => "Joke has been created. It will be published after it is approved."
+      # redirect_to @joke, :success => "Joke has been created. It will be published after it is approved."
     else
       render 'new'
     end
@@ -80,18 +81,44 @@ class JokesController < ApplicationController
     end
   end
   
-  def review
-    Joke.update_all(["status=?", "approved"], :id => params[:joke_ids])
-    Joke.update_all(["message=?", "approved"], :id => params[:joke_ids])
-    redirect_to jokes_path
+  def review_jokes
+    if params[:commit] == 'Approve'
+      Joke.update_all(["status=?", "approved"], :id => params[:joke_ids])
+      Joke.update_all(["message=?", "approved"], :id => params[:joke_ids])
+      redirect_to jokes_path
+    elsif params[:commit] == 'Unapprove'
+      Joke.update_all(["status=?", "unapproved"], :id => params[:joke_ids])
+      Joke.update_all(["message=?", "unapproved"], :id => params[:joke_ids])
+      Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[:joke_id])
+      redirect_to jokes_path     
+    end
   end
   
-  def unapprove
-    joke_id = params[:joke_id]
-    Joke.update_all(["status=?", "unapproved"], :id => params[:joke_id])
-    Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[:joke_id])
-    redirect_to jokes_path
-  end  
+  def review_joke
+    if params[:commit] == 'Approve'
+      Joke.update_all(["status=?", "approved"], :id => params[:joke_id])
+      Joke.update_all(["message=?", "approved"], :id => params[:joke_id])
+      redirect_to jokes_path
+    elsif params[:commit] == 'Unapprove'
+      Joke.update_all(["status=?", "unapproved"], :id => params[:joke_id])
+      Joke.update_all(["message=?", "unapproved"], :id => params[:joke_id])
+      Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[:joke_id])
+      redirect_to jokes_path     
+    end
+  end
+  
+  # def review
+  #   Joke.update_all(["status=?", "approved"], :id => params[:joke_ids])
+  #   Joke.update_all(["message=?", "approved"], :id => params[:joke_ids])
+  #   redirect_to jokes_path
+  # end
+  # 
+  # def unapprove
+  #   joke_id = params[:joke_id]
+  #   Joke.update_all(["status=?", "unapproved"], :id => params[:joke_id])
+  #   Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[:joke_id])
+  #   redirect_to jokes_path
+  # end  
   
   def destroy
     joke = Joke.find(params[:id])

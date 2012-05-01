@@ -1,50 +1,62 @@
 <% provide :title, "Jokes" %>
-<div class="clearfix">
-	<% if current_user.privilege == "admin" %>
-		<%= form_tag review_path, :method => :put do %>
-		  <H3>Unreviewed Jokes (<%= @unreviewed_jokes.count %> )</h3>
-			<ul class="users">
-		    <% @unreviewed_jokes.each do |joke| %>
-		      <li>
-			      <%= check_box_tag "joke_ids[]", joke.id %>
-	          <%= link_to joke.name, joke %> 
-	          <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
-	          <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %><br />
-	          <%= simple_format joke.content %>
-		      </li>
-		    <% end %>		
-		  </ul>
-		  <%= submit_tag "Approve" %>
-		<% end %>
+
+<div class="content_container clearfix">
+	<h1 class="title">Jokes</h1>
+	<div class="page_main page_main_list clearfit">
 	
-	  <H3>Unapproved Jokes (<%= @unapproved_jokes.count %> )</h3>
-		<ul class="users">
+	  <% if current_user.privilege == "admin" %>
+			<%= form_tag review_jokes_path, :method => :put do %>
+			  <h2>Unreviewed Jokes <span class="font_color_grey small">(<%= @unreviewed_jokes.count %>)</span></h2>
+				<% @unreviewed_jokes.each do |joke| %>  
+				  <ul>
+			      <li>
+				      <div class="width_400"><%= check_box_tag "joke_ids[]", joke.id %>
+		          <%= link_to joke.name, joke, :class=>"bold font_2" %></div>
+		          <div class="joke_author"><span>Author:
+		          <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>Created on: 
+		          <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %></span></div>
+		          <%= simple_format joke.content %>
+			      </li>
+					</ul>
+			  <% end %>	
+			  
+			  <% if @unreviewed_jokes.count > 0 %>	
+				  <%= submit_tag "Approve", :class => "buttons margin_bottom_20 margin_left_20" %>
+				  <%= submit_tag "Unapprove", :class => "buttons margin_bottom_20" %>
+				<% end %>
+			<% end %>
+	
+		  <h2>Unapproved Jokes <span class="font_color_grey small">(<%= @unapproved_jokes.count %>)</span></h2>
 	    <% @unapproved_jokes.each do |joke| %>
-	      <li><%= link_to joke.name, joke %> 
-	          <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
-	          <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %><br />
-	          <%= simple_format joke.content %>
-	      </li>
+	      <ul>
+	        <li>
+	          <div class="width_400"><%= link_to joke.name, joke, :class=>"bold font_2" %></div>
+	          <div class="joke_author"><span>Author:
+            <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>Created on:
+            <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %></span></div>
+            <%= simple_format joke.content %>
+	        </li>    	
+	      </ul>
 	    <% end %>	
-	  </ul>	
-  <% end %>
+    <% end %>
 
-	<h3 class="title">All Approved Jokes (<%= @jokes.count %> )</h3>
-	<p><span>Joke Name</span> <span>Entered by</span> <span>Date Created</span></p>	
-  <%= will_paginate %>
-    <ul class="users">
-      <% @jokes.each do |joke| %>
-        <li>
-          <p><%= link_to joke.name, joke %> 
-            <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
-            <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %><br />
-            <%= simple_format joke.content %></p>
-        </li>
-      <% end %>		
-    </ul>
-  <%= will_paginate %>
+	  <h2>Approved Jokes <span class="font_color_grey small">(<%= @jokes.count %>)</span></h2>	
+    <%= will_paginate %>
+      <ul>
+        <% @jokes.each do |joke| %>
+	        <li>
+	          <div class="width_400"><%= link_to joke.name, joke, :class=>"bold font_2" %></div>
+	          <div class="joke_author"><span>Author:
+	          <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>Created on:
+	          <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %></span></div>
+	          <%= simple_format joke.content %>
+	        </li>
+	      <% end %>	
+      <ul>	
+    <%= will_paginate %>
+  </div>
+
+	<div class="page_links clearfix">
+		<%= render '/jokes/linkstojokes' %>
+	</div>
 </div>
-
-<div class="joke_links" class="clearfix align_center">
-	<%= render 'linkstojokes' %>
-<div>

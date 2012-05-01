@@ -10,8 +10,7 @@ class Joke < ActiveRecord::Base
                    
   validates :content, :presence => true
   
-  validates :user_id, :presence => true,
-                   :uniqueness => true
+  validates :user_id, :presence => true
                    
   validates :author, :presence => true,
                    :length => { :maximum => 50 }

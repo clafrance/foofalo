@@ -1,23 +1,29 @@
-<% provide :title, "View Joke" %>
-<div class="clearfix">
-	<% if current_user.privilege == "admin" %>
-		<%= form_tag unapprove_path, :method => :put do %>
-			<%= check_box_tag "joke_id[]", @joke.id %>
-	    <h3 class="title"><%= @joke.name %></h3>
-      <p class="italic small_font_2">Entered by <span class="grey"><%= @joke.author %></span> on 
-	        <%= @joke.created_at.strftime("%m/%d/%Y") %>
-	    </p> 
-      <div class="align-left joke_content clearfix">
-        <%= simple_format @joke.content %>
-      </div>
-	    <%= submit_tag "Unapprove" %>
-	  <% end %>
-	<% end %>
+<% provide :title, "Joke" %>
+
+<div class="content_container clearfix">
+	<h2 class="title"><%= @joke.name %></h2> 
+	<div class="page_main page_main_list clearfit">			
+		<% if current_user.privilege == "admin" %>
+			<%= form_tag review_joke_path, :method => :put do %>
+			  <div id="try"><%= check_box_tag "joke_id[]", @joke.id, :checked => true %></div>
+			  <div class="margin_top_20 margin_bottom_40">
+			  <p class="small_font_2 center font_color_grey">Entered by <span class="grey"><%= @joke.author %></span> on 
+				   <%= @joke.created_at.strftime("%m/%d/%Y") %></p></div>
+			  <div class="align-left joke_content clearfix">
+			     <%= simple_format @joke.content %>
+			  </div>
+			  <% if @joke.status == "reviewing" %>
+					<div class="center margin_top_20">
+						<%= submit_tag "Approve", :class => "margin_right_20" %>
+						<%= submit_tag "Unapprove", :class => "margin_right_20" %>
+						<a href="javascript:history.back()">Cancel</a>
+					</div>
+				<% end%>
+		  <% end %>
+		<% end %>
+	</div>
+
+	<div class="page_links clearfix">
+		<%= render '/jokes/linkstojokes' %>
+	</div>	
 </div>
-
-<div class="joke_links clearfix align_left">
-  <%= render 'linkstojokes' %>
-<div>
-
-
-	       

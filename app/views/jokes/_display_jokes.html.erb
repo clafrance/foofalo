@@ -1,0 +1,8 @@
+<ul>
+  <li>
+    <%= link_to joke.name, joke, :class=>"bold" %><span>Author:
+    <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>Created on:
+    <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %></span><br />
+    <%= simple_format joke.content %>
+  </li>
+<ul>
