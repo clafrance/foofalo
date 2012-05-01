@@ -1,7 +1,8 @@
 <% provide :title, "Challenges" %>
 
 <div class="content_container clearfix">
-	<h1 class="title">Challenges <span class="font_color_grey small">(<%= @challenges.count %>)</span></h1>
+	<h2 class="title title_font">Challenges 
+		<span class="font_color_grey small">(<%= @challenges.count %>)</span></h2>
 	<ul class="page_main page_main_list clearfit">
 	  <% @challenges.each do |challenge| %>
 		  <li>

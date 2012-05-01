@@ -1,8 +1,8 @@
 <% provide :title, "JokesByAuthor" %>
 
 <div class="content_container clearfix">
-	<h1 class="title">Jokes entered by <%= @current_joke.author %> 
-		<span class="font_color_grey small">(<%= @jokes.count %>)</span></h1>
+	<h2 class="title title_font">Jokes entered by <%= @current_joke.author %> 
+		<span class="font_color_grey small">(<%= @jokes.count %>)</span></h2>
 	<div class="page_main page_main_list clearfit">
 		
   <%= will_paginate %>

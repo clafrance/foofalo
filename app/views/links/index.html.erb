@@ -1,7 +1,7 @@
 <% provide :title, "Links" %>
 
 <div class="content_container clearfix">
-	<h2 class="title">My Links</h2>
+	<h2 class="title title_font">My Links</h2>
   <div class="page_main page_main_list clearfit">
     <% @categories.each do |category| %>
 	    <% if Link.where(:user_id => current_user.id, 

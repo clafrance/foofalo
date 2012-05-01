@@ -2,9 +2,9 @@
 
 
 <div class="content_container clearfix">
-	<h1 class="title">My Jokes (<%= @jokes.count %>)</h1> 
+	<h2 class="title title_font">My Jokes <span class="font_color_grey small">(<%= @jokes.count %>)</span></h2> 
 	<div class="page_main page_main_list clearfit">
-		<h2>My Approved Jokes (<%= @jokes_approved.count %>)</h2>
+		<h2>My Approved Jokes <span class="font_color_grey small">(<%= @jokes_approved.count %>)</span></h2>
 	  <%= will_paginate %>
 		  <ul>
 	      <% @jokes_approved.each do |joke| %>
@@ -18,7 +18,7 @@
 	    </ul>
 	  <%= will_paginate %>
 
-		<h2>My Jokes Being Reviewed (<%= @jokes_review.count %>)</h2>
+		<h2>My Jokes Being Reviewed <span class="font_color_grey small">(<%= @jokes_review.count %>)</span></h2>
 	  <%= will_paginate %>
 		  <ul>
 	      <% @jokes_review.each do |joke| %>
@@ -32,7 +32,7 @@
 	    </ul>
 	  <%= will_paginate %>
 
-		<h2>My Unpproved Jokes (<%= @jokes_unapproved.count %>)</h2>
+		<h2>My Unpproved Jokes <span class="font_color_grey small">(<%= @jokes_unapproved.count %>)</span></h2>
 	  <%= will_paginate %>
 		  <ul>
 	      <% @jokes_unapproved.each do |joke| %>

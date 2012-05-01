@@ -1,25 +1,26 @@
 <% provide :title, "JokesByAuthors" %>
 
-<div class="clearfix">
-	<p><span>Joke Name</span> <span>Date Created</span></p>
-
-	  <ul class="users">
+<div class="content_container clearfix">
+	<h2 class="title title_font">Jokes by Author</h2>
+	<div class="page_main page_main_list clearfit">
+	  <ul class="list_no_style">
       <% @authors.each do |author| %>
-	      <li class="title">Jokes entered by <%= author %> 
-		                     (<%= Joke.where(:author => author, :status => "approved").count %> )</li>
+	      <li><h2>Jokes entered by <%= author %> 
+		            <span class="font_color_grey small">
+			          (<%= Joke.where(:author => author, :status => "approved").count %> )</span></h2></li>
         <ul>
 	        <% Joke.where(:author => author, :status => "approved").order(:name).each do |joke| %>
-	          <li><%= link_to joke.name, joke %> 
-	              <%= link_to joke.created_at.strftime("%m/%d/%Y"), 
-	                      jokesdate_path(:joke=>joke.id) %></li>
+	          <li><div class="width_400"><%= link_to joke.name, joke, :class=>"bold font_2" %></div> 
+	              <div class="joke_author"><span>Created on</span> <%= link_to joke.created_at.strftime("%m/%d/%Y"), 
+	                      jokesdate_path(:joke=>joke.id) %></div></li>
 	          <p><%= simple_format joke.content %></p>
           <% end %>
         </ul>
       <% end %>		
     </ul>
+  </div>
 
+	<div class="page_links clearfix">
+	<%= render '/jokes/linkstojokes' %>
+	</div>
 </div>
-
-<div class="joke_links" class="clearfix align_center">
-	<%= render 'linkstojokes' %>
-<div>

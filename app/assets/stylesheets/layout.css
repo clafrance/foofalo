@@ -225,7 +225,7 @@ div.links {
 .links span {
 	margin-right: 5px;
 	float: left;
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 }
 
 .link_name {
@@ -250,7 +250,13 @@ div.links {
 	margin-top: 2px;
 	/*border: 1px solid red;*/
 	/*background-color: #E3E8E8;*/
-	border-bottom: 1px dotted #808080;
+/*	border-bottom: 1px dotted #808080;*/
+	border-bottom: 1px solid #EBEFF0;
+	border-bottom: 1px solid #E8EDED;
+	/*border-bottom: 1px solid #BEC2C2;*/
+	/*border-bottom: 1px solid #C0C4C4;*/
+	border-bottom: 1px solid #C5C9C9;
+	border-bottom: 1px solid #CFD4D3;
 }
 
 div.categories {
@@ -393,10 +399,6 @@ div.joke_name {
 	width: 200px;
 }
 
-#try {
-	visibility: hidden;
-}
-
 /********************** challenges ******/
 
 .page_main p {
@@ -437,9 +439,9 @@ color: #9915E6;
 
 /************************ Utilities ****/
 
-p {
-	font-size: 1.1em
-}
+.title_font { font-size: 2.5em; }
+
+p {	font-size: 1.1em; }
 
 .round {
   -moz-border-radius:    12px;
@@ -465,70 +467,45 @@ p {
   border-radius:         8px;
 }
 
-.center {
-	text-align: center;
-}
+.list_no_style { list-style-type: none; }
 
-.font_small_1 {
-	font-size: .9em;
-}
+.center {	text-align: center; }
 
-.font_2 {
-	font-size: 1.2em;
-}
+.font_small_1 {	font-size: .9em; }
 
-.font_color_grey {
-	color: #808080;
-}
+.font_2 { font-size: 1.2em; }
 
-.bold {
-	font-weight: bold;
-}
+.font_color_grey { color: #808080; }
+
+.bold {	font-weight: bold; }
 	
-
-.width_400 {
-	width: 400px;
-}
+.width_400 { width: 400px; }
 	
-.right_margin_20 {
-	margin-right: 20px;
-}
+.right_margin_20 { margin-right: 20px; }
 
-.margin_top_20 {
-	margin-top: 20px;
-}
+.margin_top_20 { 	margin-top: 20px; }
 
-.margin_top_40 {
-	margin-top: 40px;
-}
+.margin_top_40 { margin-top: 40px; }
 
-.margin_bottom_20 {
-	margin-bottom: 20px;
-}
+.margin_bottom_20 {	margin-bottom: 20px; }
 
-.margin_bottom_40 {
-	margin-bottom: 40px;
-}
+.margin_bottom_40 {	margin-bottom: 40px; }
 
-.margin_right_20 {
-	margin-right: 20px;
-}
+.margin_right_20 { margin-right: 20px; }
 
-.margin_left_20 {
-	margin-left: 20px;
-}
+.margin_left_20 {	margin-left: 20px; }
 
 .title {
 	width: 670px;
 	text-align: center;
 /*	border: 1px solid green;*/
 }
-
+/*
 .title2 {
 	width: 630px;
 	text-align: center;
-/*	border: 1px solid green;*/
-}
+border: 1px solid green;
+}*/
 
 /*** enclose floated elements ***/
 .clearfix:after {
