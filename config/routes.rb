@@ -18,23 +18,24 @@ Foofalo::Application.routes.draw do
     resources :answers
   end
 
-  match '/',        :to => 'static_pages#home'
-  match '/about',   :to => 'static_pages#about'
-  match '/terms',   :to => 'static_pages#terms'
-  match '/index',   :to => 'static_pages#index'
-  match '/signup',  :to => 'users#new'
-  match '/users',   :to => 'static_pages#home'
-  match '/signin',  :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy'
-  match '/users',   :to => 'users#index'
-  match '/newjoke', :to => 'jokes#new'
-  match '/jokes',   :to => 'jokes#index'
+  match '/',                 :to => 'static_pages#home'
+  match '/about',            :to => 'static_pages#about'
+  match '/terms',            :to => 'static_pages#terms'
+  match '/index',            :to => 'static_pages#index'
+  match '/signup',           :to => 'users#new'
+  match '/users',            :to => 'users#index'
+  match '/users',            :to => 'static_pages#home'
+  match '/signin',           :to => 'sessions#new'
+  match '/signout',          :to => 'sessions#destroy'
+  match '/updateuser',       :to => 'users#update_privilege'
+  match '/newjoke',          :to => 'jokes#new'
+  match '/jokes',            :to => 'jokes#index'
   match '/jokesshow/',       :to => 'jokes#show'
   match '/jokesauthor',      :to => 'jokes#jokes_author'
   match '/jokesdate',        :to => 'jokes#jokes_date'
-  match '/myjokes',          :to => 'jokes#my_jokes'
-  match '/jokesbyauthors',   :to => 'jokes#jokes_by_authors'
-  match '/usernamereminder', :to => 'username_reminder#new'
+  match '/myjokes',                 :to => 'jokes#my_jokes'
+  match '/jokesbyauthors',          :to => 'jokes#jokes_by_authors'
+  match '/usernamereminder',        :to => 'username_reminder#new'
   match '/usernamereminder_create', :to => 'username_reminder#create'
   match '/challenges',              :to => 'challenges#index'
   match '/newchallenge',            :to => 'challenges#new'
@@ -45,7 +46,7 @@ Foofalo::Application.routes.draw do
   match '/newlink',                 :to => 'links#new'
   match '/managelinks',             :to => 'links#manage_links'
   match '/review_jokes',            :to => 'jokes#review_jokes', :method => :put
-  match '/review_joke',            :to => 'jokes#review_joke', :method => :put
+  match '/review_joke',             :to => 'jokes#review_joke', :method => :put
   # match '/unapprove',               :to => 'jokes#unapprove', :method => :put
   match '/submit_answer',           :to => 'challenges#submit_answer', :method => :put
   match '/cancel',                  :to => 'users#cancel'

@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :challenges
   has_many :fun_facts
   
+  USER_PRIVILEGES = ["user", "super_user", "admin", "guest"]
+  
   validates_presence_of :password, :on => :create
   before_create { generate_token(:remember_token) }
   

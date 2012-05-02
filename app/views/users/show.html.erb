@@ -1,12 +1,26 @@
-<% provide(:title, current_user.username) %>
+<% provide(:title, 'User') %>
 
-<div class="profile">
-  <div class="main">
-    <h1>Hi, <%= current_user.username %></h1>
-  </div>
-  <div class="sidebar round">
-    <strong>First Name</strong> <%= current_user.firstname %><br />
-    <strong>Last Name</strong> <%= current_user.lastname %><br />
-    <strong>URL</strong>  <%= link_to user_path(current_user), current_user %>
-  </div>
+<h2 class="center title_font"><%= @user.username %></h1>
+	
+<div class="content_container font_2">
+  <p><span class="bold">First Name:</span><span class="margin_left_20"><%= @user.firstname %></span></p>
+  <p><span class="bold">Last Name:</span><span class="margin_left_20"><%= @user.lastname %></span></p>
+  <p><span class="bold">Email:</span><span class="margin_left_20"><%= @user.email %></span></p>
+
+  <% if current_user.privilege == "admin" %>
+		<%= form_for(@user) do |f| %>
+
+			<div class="field">
+			  <%= f.label :privilege, "Privilege:" %>
+			  <span class="margin_left_20"><%= select(:user, :privilege, User::USER_PRIVILEGES, {:prompt => true} ) %></span>
+			</div>
+
+			<div class="actions margin_top_40">
+			  <%= f.submit "Update", :class=>"buttons" %>
+			  <a href="javascript:history.back()">Cancel</a>
+			</div>
+
+		<% end %>
+  <% end %>
 </div>
+

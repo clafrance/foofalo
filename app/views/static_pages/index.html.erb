@@ -1,41 +1,54 @@
 <% provide(:title, 'Index') %>
 
 <div class="content_container clearfix">
-  <div class="joke_legend_title round">
-    <h2 class="round">Joke of the Day</h2>
-    <div  class="legend clearfix">
-      <h3><%= @the_random_joke.name %></h3>
-      <p><%= @the_random_joke.content %></p>
-	   </div>
+	<div class="joke_Challenge clearfix">
+	  <div class="joke_of_day round_all">
+		  <div class="joke_title_area clearfix">
+				<%= image_tag("joke.png", alt: "joke image", :height=>"90px", :class => "joke_image") %>
+	      <h2 class="round">Joke of the Day</h2>
+	    </div>
+	    <div  class="joke_content clearfix">
+	      <h3 class="center"><%= @the_random_joke.name %></h3>
+	      <p><%= @the_random_joke.content %></p>
+		  </div>
+	  </div>
+	
+	  <div class="challenge_of_week round_all">
+		  <div class="challenge_title_area">
+			  <h2 class="round">Challenge of the week</h2>
+			  <%= image_tag("challenge.jpg", alt: "challenge image", :height=>"80px") %>
+	    </div>
+	    <div  class="clearfix">
+	      <h3><%= @the_random_challenge.name %></h3>
+	      <p><%= @the_random_challenge.content %></p>
+	      <% if @current_user_answer.length < 1 %>
+	        <%= render 'select_answer' %> 
+	      <% else %>
+	        <%= render 'show_answer' %>
+	      <% end %>
+		  </div>
+		</div>	
   </div>
 
-  <div class="challenge_legend_title round">
-    <h2 class="round">Challenge of the week</h2>
-    <div  class="legend clearfix">
-      <h3><%= @the_random_challenge.name %></h3>
-      <p><%= @the_random_challenge.content %></p>
-      <% if @current_user_answer.length < 1 %>
-        <%= render 'select_answer' %> 
-      <% else %>
-        <%= render 'show_answer' %>
-      <% end %>
+  <div class="fact_links clearfix">
+	  <div class="fun_fact round_all">
+		  <div class="fact_title_area">
+				<%= image_tag("funfact.jpg", alt: "fun fact image", :height=>"90px") %>
+	      <h2 class="round">Fun Facts</h2>
+	    </div>
+	    <div  class="legend clearfix">
+		    <h3><%= @the_random_fun_fact.name %></h3>
+	      <p><%= @the_random_fun_fact.content %></p>
+	    </div>
 	  </div>
- </div>
-
- <div class="fact_legend_title round">
-   <h2 class="round">Fun Facts</h2>
-   <div  class="legend clearfix">
-	    <h3><%= @the_random_fun_fact.name %></h3>
-     <p><%= @the_random_fun_fact.content %></p>
-   </div>
- </div>
-
- <div>
-	  <h2>My Links</h2>
-	  <ul>
-	  <% my_links.each do |link| %>
-	    <li><%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %></li>
-	  <% end %>
-	  </ul>
+	
+    <div class="my_links round_all">
+	    <h2 class="center">My Links</h2>
+	    <ul>
+			  <% my_links.each do |link| %>
+			    <li class="list_style_square margin_top_5"><%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %></li>
+			  <% end %>
+	    </ul>
+	  </div>  	
 	</div>
 </div>

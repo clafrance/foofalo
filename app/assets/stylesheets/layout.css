@@ -131,6 +131,17 @@ div.main {
 	padding: 40px 40px 40px 40px;
 }
 
+/************************* Header *********/
+body#Users a.highlight_users,
+body#User a.highlight_users,
+body#EditUser a.highlight_profile
+ {
+	/*border: 1px solid red;*/
+	padding: 2px;
+	background: #F0F5F3;
+}
+
+
 /************************* Home page *****/
 
 div.home_images {
@@ -212,6 +223,84 @@ a.signup_button:hover {
   text-decoration: none !important;
 }
 
+/********************** Index page *************/
+div.joke_Challenge {
+	float: left;
+	/*border: 1px solid blue;*/
+	width: 580px;
+	min-height: 500px;
+	/*max-height: 800px;*/
+	padding: 0;
+}
+
+div.joke_of_day {
+	border: 1px solid #808080;
+	min-height: 250px;
+	max-height: 600px;
+/*	height: 600px;*/
+	margin: 0 25px 25px 0;
+	padding: 20px 20px 20px 20px;
+}
+
+div.challenge_of_week {
+	min-height: 250px;
+	max-height: 600px;
+	/*height: 600px;*/
+	border: 1px solid #808080;
+	margin: 0 25px 0 0;
+	padding: 20px;
+}
+
+div.fact_links {
+	float: left;
+	width: 290px;
+	/*border: 1px solid blue;*/
+	min-height: 500px;
+	/*max-height: 800px;*/
+	padding: 0;
+}
+
+div.fun_fact {
+	min-height: 200px;
+	max-height: 600px;
+	border: 1px solid #808080;
+	margin: 0;
+	padding: 20px;
+}
+
+div.my_links {
+	min-height: 300px;
+	max-height: 600px;
+	border: 1px solid #808080;
+	margin: 25px 0 0 0;
+	padding: 20px 20px 20px 30px;
+}
+
+.joke_title_area {
+	width: 540px;
+/*	border: 1px solid red;*/
+}
+
+.joke_title_area img {
+	float: left;
+	margin-bottom: -18px;
+/*	border: 1px solid red;*/
+}
+
+.joke_title_area h2 {
+	width: 400px;
+	float: left;
+	/*border: 1px solid red;*/
+  /*margin-left: 4px;*/
+	margin: 12px 0 0 0;
+	text-align: center;
+}
+
+div.joke_content {
+	/*border: 1px solid red;*/
+	margin-top: -10px;
+	width: 540px;
+}
 /********************* Links page **************/
 
 div.links {
@@ -241,7 +330,7 @@ div.links {
 }
 
 .links_row {
- float: left;
+  float: left;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-right: 15px;
@@ -271,15 +360,10 @@ div.categories {
 	/*border: 1px solid red;*/
 }
 
-/*.content_container label {
-	font-size: 1.1em;
-}*/
-
-
 div.field {
 	width: 305px;
 	width: 500px;
-	margin-top: 6px;
+	margin-top: 8px;
 	/*border: 1px solid red;*/
 }
 
@@ -434,15 +518,27 @@ a:hover {
 
 a:visited {
   color: #590E5A;
-color: #9915E6;
+  color: #9915E6;
 }
 
 /************************ Utilities ****/
 
 .title_font { font-size: 2.5em; }
 
+.font_small_1 {	font-size: .9em; }
+
+.font_2 { font-size: 1.2em; }
+
+.font_color_grey { color: #808080; }
+
+.bold {	font-weight: bold; }
+
 p {	font-size: 1.1em; }
 
+div.hidden {
+	visibility: hidden;
+}
+	
 .round {
   -moz-border-radius:    12px;
   -webkit-border-radius: 12px;
@@ -469,19 +565,19 @@ p {	font-size: 1.1em; }
 
 .list_no_style { list-style-type: none; }
 
+.list_style_square { list-style-type: square; }
+
 .center {	text-align: center; }
-
-.font_small_1 {	font-size: .9em; }
-
-.font_2 { font-size: 1.2em; }
-
-.font_color_grey { color: #808080; }
-
-.bold {	font-weight: bold; }
 	
+.width_40 { width: 40px; border: 1px solid red;}
+
+.width_100 { width: 100px; border: 1px solid red;}
+
 .width_400 { width: 400px; }
 	
 .right_margin_20 { margin-right: 20px; }
+
+.margin_top_5 { 	margin-top: 5px; }
 
 .margin_top_20 { 	margin-top: 20px; }
 
@@ -491,9 +587,17 @@ p {	font-size: 1.1em; }
 
 .margin_bottom_40 {	margin-bottom: 40px; }
 
+.margin_right_10 { margin-right: 10px; }
+
 .margin_right_20 { margin-right: 20px; }
 
+.margin_left_10 {	margin-left: 10px; }
+
 .margin_left_20 {	margin-left: 20px; }
+
+.margin_left_30 {	margin-left: 30px; }
+
+.margin_left_40 {	margin-left: 40px; }
 
 .title {
 	width: 670px;

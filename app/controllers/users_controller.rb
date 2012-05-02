@@ -14,6 +14,10 @@ class UsersController < ApplicationController
     @title = @user.firstname
   end 
   
+  # def update_privilege
+  #   @user = User.find(params[:id])
+  # end
+  
   def new
     if current_user.nil?
       @user = User.new
@@ -72,9 +76,14 @@ class UsersController < ApplicationController
     end
   end
   
-  def cancel 
-    redirect_to home_url
+  def update_privilege
+    
   end
+  
+  # 
+  # def cancel 
+  #   redirect_to home_url
+  # end
   
   def destroy
     user = User.find(params[:id])

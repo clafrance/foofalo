@@ -5,7 +5,7 @@
 	<div class="page_main page_main_list clearfit">			
 		<% if current_user.privilege == "admin" %>
 			<%= form_tag review_joke_path, :method => :put do %>
-			  <div id="try"><%= check_box_tag "joke_id[]", @joke.id, :checked => true %></div>
+			  <div class="hidden"><%= check_box_tag "joke_id[]", @joke.id, :checked => true %></div>
 			  <div class="margin_top_20 margin_bottom_40">
 			  <p class="small_font_2 center font_color_grey">Entered by <span class="grey"><%= @joke.author %></span> on 
 				   <%= @joke.created_at.strftime("%m/%d/%Y") %></p></div>
