@@ -1,7 +1,7 @@
 <% provide :title, "Jokes" %>
 
 <div class="content_container clearfix">
-	<h2 class="title title_font">All Jokes<span class="font_color_grey small"> 
+	<h2 class="title title_font">Jokes<span class="font_color_grey small"> 
 		<% if current_user.privilege == "admin" %>
 		  (<%= @total_jokes_count %>)</h2>
 		<% else %>

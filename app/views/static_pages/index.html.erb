@@ -14,12 +14,12 @@
 	  </div>
 	
 	  <div class="challenge_of_week round_all">
-		  <div class="challenge_title_area">
+		  <div class="challenge_title_area clearfix">
 			  <h2 class="round">Challenge of the week</h2>
 			  <%= image_tag("challenge.jpg", alt: "challenge image", :height=>"80px") %>
 	    </div>
-	    <div  class="clearfix">
-	      <h3><%= @the_random_challenge.name %></h3>
+	    <div class="challenge_content clearfix">
+	      <h3 class="center"><%= @the_random_challenge.name %></h3>
 	      <p><%= @the_random_challenge.content %></p>
 	      <% if @current_user_answer.length < 1 %>
 	        <%= render 'select_answer' %> 
@@ -32,18 +32,18 @@
 
   <div class="fact_links clearfix">
 	  <div class="fun_fact round_all">
-		  <div class="fact_title_area">
-				<%= image_tag("funfact.jpg", alt: "fun fact image", :height=>"90px") %>
-	      <h2 class="round">Fun Facts</h2>
+		  <div class="fact_title_area clearfix">
+			  <h2 class="round">Fun Facts</h2>
+				<%= image_tag("funfact.jpg", alt: "fun fact image", :height=>"70px") %>
 	    </div>
-	    <div  class="legend clearfix">
-		    <h3><%= @the_random_fun_fact.name %></h3>
+	    <div  class="fact_content clearfix">
+		    <h3 class="center"><%= @the_random_fun_fact.name %></h3>
 	      <p><%= @the_random_fun_fact.content %></p>
 	    </div>
 	  </div>
 	
     <div class="my_links round_all">
-	    <h2 class="center">My Links</h2>
+	    <h2 class="margin_top_10 center">My Links</h2>
 	    <ul>
 			  <% my_links.each do |link| %>
 			    <li class="list_style_square margin_top_5"><%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %></li>

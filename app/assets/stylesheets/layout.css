@@ -125,10 +125,11 @@ div.container {
 div.main {
 	background: #fff;
 	border: 1px solid #BBBFBF;
+	/*border: 1px solid red;*/
 	min-height: 600px;
 	max-height: 800px;
 	margin-top: -5px;
-	padding: 40px 40px 40px 40px;
+	padding: 40px 40px 20px 40px;
 }
 
 /************************* Header *********/
@@ -276,8 +277,9 @@ div.my_links {
 	padding: 20px 20px 20px 30px;
 }
 
-.joke_title_area {
-	width: 540px;
+div.joke_title_area {
+	width: 500px;
+	margin-left: 10px;
 /*	border: 1px solid red;*/
 }
 
@@ -285,12 +287,13 @@ div.my_links {
 	float: left;
 	margin-bottom: -18px;
 /*	border: 1px solid red;*/
-}
+}	
 
-.joke_title_area h2 {
-	width: 400px;
+.joke_title_area h2,
+.challenge_title_area h2 {
+	width: 360px;
 	float: left;
-	/*border: 1px solid red;*/
+/*	border: 1px solid red;*/
   /*margin-left: 4px;*/
 	margin: 12px 0 0 0;
 	text-align: center;
@@ -301,6 +304,68 @@ div.joke_content {
 	margin-top: -10px;
 	width: 540px;
 }
+
+.joke_content h3 {
+	width: 360px;
+	margin-left:90px;
+	/*border: 1px solid red;*/
+}
+
+div.challenge_title_area {
+	width: 540px;
+	/*border: 1px solid red;*/
+}
+
+.challenge_title_area h2 {
+	width: 380px;
+	margin-left: 80px;
+	/*float: left;*/
+/*border: 1px solid red;*/
+	/*margin: 12px 0 0 0;*/
+	/*text-align: center;*/
+}
+
+.challenge_title_area img {
+	/*width: 400px;*/
+	/*float: left;*/
+/*border: 1px solid red;*/
+	/*margin: 12px 0 0 0;*/
+	/*text-align: center;*/
+}
+
+div.challenge_content {
+	/*border: 1px solid red;*/
+	margin-top: -10px;
+	width: 540px;
+}
+
+div.fact_title_area {
+	width: 240px;
+	margin-bottom: -12px;
+/*	border: 1px solid red;*/
+}
+
+.fact_title_area h2 {
+	width: 165px;
+	float: left;
+/*border: 1px solid red;*/
+	margin: 12px 0 0 0;
+	text-align: center;
+}
+
+.fact_title_area img {
+	float: right;
+	margin-right: -20px;
+	margin-bottom: 0px;
+/*	border: 1px solid red;*/
+}
+
+.fact_content h3 {
+width: 165px;
+/*border: 1px solid red;*/
+
+}
+
 /********************* Links page **************/
 
 div.links {
@@ -563,6 +628,16 @@ div.hidden {
   border-radius:         8px;
 }
 
+.list_style1 {
+  font-size: 1.2em;
+  width: 150px;
+  float-left;
+}
+
+.border {
+	border: 1px solid red;
+}
+
 .list_no_style { list-style-type: none; }
 
 .list_style_square { list-style-type: square; }
@@ -578,6 +653,8 @@ div.hidden {
 .right_margin_20 { margin-right: 20px; }
 
 .margin_top_5 { 	margin-top: 5px; }
+
+.margin_top_10 { 	margin-top: 10px; }
 
 .margin_top_20 { 	margin-top: 20px; }
 
@@ -599,6 +676,46 @@ div.hidden {
 
 .margin_left_40 {	margin-left: 40px; }
 
+.float_left { float:left; }
+
+.width_50 {
+	width: 50px;
+/*	border: 1px red solid;*/
+}
+
+.width_100 {
+	width: 100px;
+/*	border: 1px red solid;*/
+}
+
+.width_150 {
+	width: 150px;
+/*	border: 1px red solid;*/
+}
+.width_200 {
+	width: 200px;
+/*	border: 1px red solid;*/
+}
+
+.width_250 {
+	width: 250px;
+/*	border: 1px red solid;*/
+}
+
+.width_620 {
+	width: 620px;
+	border: 1px red solid;
+}
+
+
+.margin_auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.users p {
+	border: 1px solid red;
+}
 .title {
 	width: 670px;
 	text-align: center;

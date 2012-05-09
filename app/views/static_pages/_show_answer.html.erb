@@ -1,7 +1,10 @@
+<div class="center">
 <h3>My Answer</h3>
 <p><%= @current_user_answer[0].answer_col_selected %>, <%= @current_user_answer[0].answer_selected %></p>
 <% if @current_user_answer[0].correct == "yes" %>
 	<p>You are correct</p>
 <% else %>
+  <p>Sorry, the correct answer is <%= @the_random_challenge.correct_col_name %>, <%= @the_random_challenge.correct_answer %>.</p> 
   <p>Please try next week's challenge</p>
 <% end %>
+</div>

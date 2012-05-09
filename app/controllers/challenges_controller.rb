@@ -90,7 +90,7 @@ class ChallengesController < ApplicationController
         when answer[0] == @challenge.c
           @answer.answer_col_selected = "c"
         when answer[0] == @challenge.d
-          @answer.answer_col_selected = "c"
+          @answer.answer_col_selected = "d"
         end
     
         if @challenge.correct_col_name == @answer.answer_col_selected && @challenge.correct_answer == answer[0]

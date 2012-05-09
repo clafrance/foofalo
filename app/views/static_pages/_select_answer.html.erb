@@ -1,4 +1,4 @@
-<h3>Choose the Correct Answer for <%= @the_random_challenge.name %></h3>
+<h3>Choose the Correct Answer: <!-- for <%= @the_random_challenge.name %> --></h3>
 <%= form_tag(submit_answer_path, :method => :put) do %>
   <%= hidden_field_tag "challenge_id[]", @the_random_challenge.id %>
   <div class="field">
@@ -23,7 +23,7 @@
   </div>
 
   <div class="field", id="joke_details">
-    <%= label_tag 'Enter your explanation' %>
+    <%= label_tag 'Enter your explanation (optional)' %>
 	  <%= text_area_tag "reason[]" %>
   </div>
 
