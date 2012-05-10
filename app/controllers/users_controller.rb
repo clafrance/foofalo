@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   force_ssl :only => [:new, :create, :edit, :update]
   before_filter :signed_in_user, :only => [:index, :edit, :update, :destroy]
   before_filter :correct_user,   :only => [:edit, :update]
-  before_filter :admin_user?,    :only => :destroy
+  before_filter :admin_user?,    :only => [:destroy, :update_privilege]
   
   def index
     #@users = User.all
@@ -13,10 +13,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @title = @user.firstname
   end 
-  
-  # def update_privilege
-  #   @user = User.find(params[:id])
-  # end
   
   def new
     if current_user.nil?
@@ -77,13 +73,15 @@ class UsersController < ApplicationController
   end
   
   def update_privilege
-    
+    user_id = params[:user_id]
+    @user = User.find_by_id(user_id)
+    if @user.update_attributes(params[:user])
+      flash[:success] = "User privilege has been updated"
+      redirect_to users_path
+    else
+      render 'edit'
+    end
   end
-  
-  # 
-  # def cancel 
-  #   redirect_to home_url
-  # end
   
   def destroy
     user = User.find(params[:id])

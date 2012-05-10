@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   include UsersHelper 
   
   attr_accessible :firstname, :lastname, :email, :email_confirmation, :username, :password, :password_confirmation,
-                  :parent_approved, :parent_approved_at
+                  :parent_approved, :parent_approved_at, :privilege
   has_secure_password
   
   has_many :jokes

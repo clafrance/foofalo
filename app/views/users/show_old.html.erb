@@ -8,17 +8,19 @@
   <p><span class="bold">Email:</span><span class="margin_left_20"><%= @user.email %></span></p>
 
   <% if current_user.privilege == "admin" %>
-    <%= form_tag(update_privilege_path, :method => :put) do %>
-      <%= hidden_field_tag "user_id[]", @user.id %>
+		<%= form_for(@user) do |f| %>
+
 			<div class="field">
-			  <%= label_tag :privilege, "Privilege:" %>
+			  <%= f.label :privilege, "Privilege:" %>
 			  <span class="margin_left_20"><%= select(:user, :privilege, User::USER_PRIVILEGES, {:prompt => true} ) %></span>
 			</div>
 
 			<div class="actions margin_top_40">
-			  <%= submit_tag "Update Privilege" %>
+			  <%= f.submit "Update1", :class=>"buttons" %>
 			  <a href="javascript:history.back()">Cancel</a>
 			</div>
+
 		<% end %>
   <% end %>
 </div>
+
