@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20120405204819) do
   end
 
   create_table "links", :force => true do |t|
-    t.string   "name",       :limit => 50, :null => false
+    t.string   "name",       :limit => 30, :null => false
     t.string   "url"
     t.string   "category"
     t.integer  "user_id"

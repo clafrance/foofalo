@@ -1,5 +1,7 @@
 Foofalo::Application.routes.draw do
 
+  get "manster_cards/index"
+
   #resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :password_resets
@@ -8,6 +10,7 @@ Foofalo::Application.routes.draw do
   #resources :challenges
   resources :fun_facts
   resources :links
+  resources :manster_cards
 
   root :to => 'static_pages#home'
   
@@ -51,6 +54,7 @@ Foofalo::Application.routes.draw do
   match '/submit_answer',           :to => 'challenges#submit_answer', :method => :put
   # match '/cancel',                  :to => 'users#cancel'
   match '/update_privilege',        :to => 'users#update_privilege', :method => :put
+  match '/manstercards',            :to => 'manster_cards#index'
   
   
   #match '/saveanswer',      :to => 'answers#save_answer', :method => :put

@@ -54,7 +54,7 @@ Challenge.create(
   
 FunFact.create(
   name: 'Gravity', 
-  content: 'Because of differences in gravity, a 100kg (220 pound) person would only weigh 38kg (84 pounds) on Mars.', 
+  content: 'Because of differences in gravity, a 220 pound (100kg) person would only weigh 84 pounds (38kg) on Mars.', 
   status: 1, 
   user_id: 1,
   author: "aa",

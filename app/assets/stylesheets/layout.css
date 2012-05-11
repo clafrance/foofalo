@@ -111,7 +111,8 @@ body#Games li.games_link,
 body#Links li.my_links,
 body#EditLink li.my_links,
 body#ManageLinks li.my_links,
-body#CreateLink li.my_links {
+body#CreateLink li.my_links,
+body#MansterCards li.mansters_link {
 	background-color: #13A835;
 	color: #fff;
 	padding-top: 6px;
@@ -319,10 +320,6 @@ div.challenge_title_area {
 .challenge_title_area h2 {
 	width: 380px;
 	margin-left: 80px;
-	/*float: left;*/
-/*border: 1px solid red;*/
-	/*margin: 12px 0 0 0;*/
-	/*text-align: center;*/
 }
 
 .challenge_title_area img {
@@ -361,9 +358,8 @@ div.fact_title_area {
 }
 
 .fact_content h3 {
-width: 165px;
+  width: 165px;
 /*border: 1px solid red;*/
-
 }
 
 /********************* Links page **************/
@@ -426,10 +422,17 @@ div.categories {
 }
 
 div.field {
-	width: 305px;
-	width: 500px;
+	width: 420px;
 	margin-top: 8px;
-	/*border: 1px solid red;*/
+/*	margin-left: auto;
+	margin-right: auto;*/
+	/*border: 1px solid blue;*/
+}
+
+.field_center {
+	margin-left: auto;
+	margin-right: auto;
+	/*border: 1px solid blue;*/
 }
 
 .field label {
@@ -444,7 +447,7 @@ div.field {
 .field_size {
 	width: 400px;
 	height: 20px;
-/*	font-size: 1.1em;*/
+	border: 1px solid red;
 }
 
 input.buttons {
@@ -473,7 +476,7 @@ input#password {
 }
 
 p.signup_info {
-	width: 720px;
+/*	width: 720px;*/
 	margin-top: 20px;
 }
 
@@ -596,6 +599,22 @@ a:visited {
 
 .font_color_grey { color: #808080; }
 
+.font_color_orange { color: orange;}
+
+#border_orange { border: 2px solid orange; }
+
+.font_color_green { color: green;}
+
+#border_green { border: 2px solid green; }
+
+.font_color_red { color: red;}
+
+#border_red { border: 2px solid red; }
+
+.font_color_blue { color: #368BB5;}
+
+#border_blue { border: 2px solid #368BB5; }
+
 .bold {	font-weight: bold; }
 
 p {	font-size: 1.1em; }
@@ -649,6 +668,8 @@ div.hidden {
 .width_100 { width: 100px; border: 1px solid red;}
 
 .width_400 { width: 400px; }
+
+.width_300 { width: 300px; }
 	
 .right_margin_20 { margin-right: 20px; }
 
@@ -659,6 +680,8 @@ div.hidden {
 .margin_top_20 { 	margin-top: 20px; }
 
 .margin_top_40 { margin-top: 40px; }
+
+.margin_bottom_10 {	margin-bottom: 10px; }
 
 .margin_bottom_20 {	margin-bottom: 20px; }
 
@@ -677,6 +700,14 @@ div.hidden {
 .margin_left_30 {	margin-left: 30px; }
 
 .margin_left_40 {	margin-left: 40px; }
+
+.margin_left_100 {	margin-left: 100px; }
+
+.padding_top_10 {	padding-top: 10px; }
+
+.padding_top_20 {	padding-top: 20px; }
+
+.background_grey { background-color: #F0F5F4; }
 
 .float_left { float:left; }
 

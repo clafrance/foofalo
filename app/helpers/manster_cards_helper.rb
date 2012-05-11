@@ -1,0 +1,2 @@
+module MansterCardsHelper
+end

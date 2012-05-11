@@ -38,8 +38,8 @@ class UsersController < ApplicationController
   
       if @user.save 
         if @user.send_inform_parents
-          redirect_to root_url, :notice => "#{@user.username} You have signed up. Your parents should receive 
-            an email with a link to approval, then you can signin and have fun."
+          redirect_to root_url, :notice => "Welcome #{@user.username}, you have signed up. Your parents should receive 
+            an email with a link to approve you using Foofalo. Once approved, you can signin and have fun."
         else 
           redirect_to root_url, :notice => "You have signed up, but couldn't send confirmation to your parants, contact foofalo.com here."
         end
