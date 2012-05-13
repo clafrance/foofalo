@@ -34,7 +34,7 @@ class Challenge < ActiveRecord::Base
   validates :correct_col_name, :presence => true,
               :length => { :maximum => 16 }
               
-  validates :correct_answer, :presence => true,
+  validates :correct_answer, # :presence => true,
               :length => { :maximum => 128 }
                                  
   default_scope order: 'challenges.created_at DESC'
