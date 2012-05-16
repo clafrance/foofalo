@@ -146,57 +146,49 @@ body#EditUser a.highlight_profile
 
 /************************* Home page *****/
 
-div.home_images {
-	width: 180px;
-	height: 140px;
-	background-color: #CCFFCC;
-	text-align: center;
+img.joke_image_home {
+  float: left;
+  margin: 10px 0 0 60px;
 }
 
-div.joke_image {
+img.challenge_image_home {
   float: left;
-  margin: 15px 0 0 60px;
+  margin: 240px 0 0 -260px;
 }
 
-div.challenge_image {
+img.manster_image_home {
   float: left;
-  margin: 230px 0 0 -240px;
-}
-
-div.manster_image {
-  float: left;
-  margin: 485px 0 50px -10px;
-  margin: 440px 0 -10px -40px;
+  margin: 450px 0 -10px -100px;
 }
 
 #logo_image {
 	float: left;
-	margin-top: 50px;
-  margin-left: -80px;
+	margin-top: 40px;
+  margin-left: -60px;
   padding: 0 20px 0 20px;
 }
 
 #home_main {
 	float: left;
 	width: 360px;
-	margin-top: -420px;
+	margin-top: -440px;
   margin-left: 256px;
   padding: 20px 20px 0 20px;
 }
 
-div.funfact_image {
+img.funfact_image_home {
   float: right;
-  margin: -550px 65px 0 0;
+  margin: -572px 55px 0 0;
 }
 
-div.links_image {
+img.links_image_home {
   float: right;
-  margin: -340px 0px 0 0;
+  margin: -350px 0px 0 0;
 }
 
-div.game_image {
+img.game_image_home {
   float: right;
-  margin: -132px 190px -10px 0;
+  margin: -138px 160px -10px 0;
 }
 
 .border-top {
@@ -781,3 +773,5 @@ border: 1px solid green;
 }
 .clearfix {display: inline-table;}
 /*** END enclose floated elements ***/
+/*span#random_joke_font { font-size: 1.3em !important; 
+	font-weight: bold;}*/

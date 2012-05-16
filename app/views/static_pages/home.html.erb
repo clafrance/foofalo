@@ -1,39 +1,27 @@
 <% provide(:title, 'Home') %>
 
 <div class="content_container clearfix">
-<div class="home_images joke_image round">
-  <p><%= image_tag("jokeofday.png", alt: "jokeofday image") %></p>
-</div>
+  <p><%= image_tag("new_joke_1.png", alt: "jokeofday image", :class => "joke_image_home") %></p>
 
-<div class="home_images challenge_image round">
-  <p><%= image_tag("challengeofweek.png", alt: "challengeofweek image") %></p>
-</div>
+  <p><%= image_tag("new_challenge_1.png", alt: "challengeofweek image", :class => "challenge_image_home") %></p>
 
-<div class="home_images manster_image round">
-  <p>Manster Cards Image</p>
-</div>		
+  <p><%= image_tag("new_mansters_1.png", alt: "manster cards image", :class => "manster_image_home") %></p>		
 
-<div id="logo_image">
-  <%= image_tag("logo60.png", alt: "foofalo logo") %>
-</div>
+	<div id="logo_image">
+	  <%= image_tag("logo60.png", alt: "foofalo logo") %>
+	</div>
 
-<div id="home_main", class="round">
-   <p>
-    Foofalo is a website for Arthur and his friends to share jokes, learn fun facts, work on challenge question, view Masnter Cards, play games and more.
-  </p>
-  <%= link_to "Sign up now!", signup_path, class: "signup_button round" %>
-</div>
+	<div id="home_main", class="round">
+	   <p>
+	    Foofalo is a website for Arthur and his friends to share jokes, learn fun facts, work on challenge question, view Masnter Cards, play games and more. Want to have fun and be chalenged? Please sign up now or sign in. 
+	  </p>
+	  <%= link_to "Sign up now!", signup_path, class: "signup_button round" %>
+	</div>
 
-<div class="home_images funfact_image round">
-  <p><%= image_tag("funfact.png", alt: "funfact image") %></p>
-</div>
+  <p><%= image_tag("new_fact_1.png", alt: "funfact image", :class => "funfact_image_home") %></p>
 
-<div class="home_images links_image round">
-  <p><%= image_tag("mylinks_new.png", alt: "my links image") %></p>
-</div>
+  <p><%= image_tag("new_links_1.png", alt: "my links image", :class => "links_image_home") %></p>
 	
-<div class="home_images game_image round">
-  <p>Games Image</p>
-</div>
+  <p><%= image_tag("new_games_1.png", alt: "games image", :class => "game_image_home") %></p>
 </div>
 
