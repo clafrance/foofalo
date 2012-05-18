@@ -4,12 +4,12 @@
 	<h2 class="title title_font">Jokes by Author</h2>
 	<div class="page_main page_main_list clearfit">
     <% @authors.each do |author| %>
-	    <h2>Jokes entered by <%= author %> 
+	    <h3>Jokes entered by <%= author %> 
 		    <span class="font_color_grey small">
-			  (<%= Joke.where(:author => author, :status => "approved", :status => "displayed").count %> )</span></h2>
+			  (<%= Joke.where(:author => author, :status => "approved", :status => "displayed").count %> )</span></h3>
 	    <% Joke.where(:author => author, :status => "approved", :status => "displayed").order(:name).each do |joke| %>
 		    <div class="joke_author">
-		      <%= link_to joke.name, joke, :class=>"bold font_2" %>
+		      <span class="font_1" ><%= link_to joke.name, joke %></span>
 		         <span>Created on</span> <%= link_to joke.created_at.strftime("%m/%d/%Y"), 
 		               jokesdate_path(:joke=>joke.id) %>  
 		    </div>

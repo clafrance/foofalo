@@ -297,11 +297,11 @@ div.joke_content {
 	/*border: 1px solid red;*/
 	margin-top: -10px;
 	width: 540px;
+/*	border: 2px solid blue;*/
 }
 
 div.joke_content p {
   margin-bottom: -10px;
-
 }
 
 .joke_content h3 {
@@ -424,13 +424,13 @@ div.field {
 	margin-top: 8px;
 /*	margin-left: auto;
 	margin-right: auto;*/
-	/*border: 1px solid blue;*/
+/*	border: 1px solid blue;*/
 }
 
 .field_center {
 	margin-left: auto;
 	margin-right: auto;
-	/*border: 1px solid blue;*/
+/*	border: 1px solid blue;*/
 }
 
 .field label {
@@ -445,7 +445,11 @@ div.field {
 .field_size {
 	width: 400px;
 	height: 20px;
-	border: 1px solid red;
+}
+
+input#password {
+	width: 400px;
+	height: 20px;
 }
 
 input.buttons {
@@ -455,8 +459,6 @@ input.buttons {
 }
 
 textarea {
-	border: 1px solid red;
-/*	font-size: 1.1em;*/
 	line-height: 140%%;
   height: 140px;
   width: 495px;
@@ -466,6 +468,23 @@ textarea {
 	margin-top: 10px;
 	/*border: 1px solid red;*/
 }
+
+input:focus, textarea:focus  { 
+   outline:none;
+   border: 1px solid #368BB5 !important; 
+   border: 1px solid orange !important; 
+   
+   -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+           border-radius: 4px;
+   /* create a BIG glow */ 
+/*   -webkit-box-shadow: 0px 0px 1px #368BB5; 
+      -moz-box-shadow: 0px 0px 1px #368BB5;
+           box-shadow: 0px 0px 1px #368BB5; */    
+/*   -webkit-box-shadow: 0px 0px 1px green; 
+      -moz-box-shadow: 0px 0px 1px green;
+           box-shadow: 0px 0px 1px green; */
+}​
 /********************* Signin /Signup forms *****/
 
 input#password {
@@ -541,14 +560,23 @@ div.page_links {
 
 /********************** Jokes ***********/
 
-div.joke_author {
-	/*border: 1px solid blue;*/
-	margin: 5px 0 5px 0;
+span.joke_name {
+	width: 320px !important;
+	/*border: 1px solid red;	*/
 }
 
-div.joke_name {
-	width: 200px;
+#joke_ids_ {
+	border: 1px solid red;
+	margin-top: -10px;
+	margin-top: 10px;
 }
+
+.joke_space p {
+/*	border: 1px solid blue;*/
+	margin-bottom: 2px;
+}
+
+.jokes_checkbox { margin: -5px 5px 0 0; padding: 0; !important; float: left;}
 
 /********************** challenges ******/
 
@@ -556,7 +584,6 @@ div.joke_name {
 /*	border: 1px solid blue;*/
 	margin-top: 0;
 }
-
 
 /********************** Footer *****/
 
@@ -599,6 +626,8 @@ a:visited {
 
 .font_1 { font-size: 1.1em !important; }
 
+.font_08 { font-size: 0.8em !important; }
+
 .font_color_grey { color: #808080; }
 
 .font_color_orange { color: orange;}
@@ -617,6 +646,8 @@ a:visited {
 
 #border_blue { border: 2px solid #368BB5; }
 
+.border {	border: 1px solid red; }
+
 .bold {	font-weight: bold; }
 
 p, li {	font-size: 1.12em; }
@@ -626,9 +657,9 @@ div.hidden {
 }
 	
 .round {
-  -moz-border-radius:    12px;
   -webkit-border-radius: 12px;
-  border-radius:         12px;
+     -moz-border-radius: 12px;
+          border-radius: 12px;
 }
 
 .round_bottom {
@@ -655,10 +686,6 @@ div.hidden {
   float-left;
 }
 
-.border {
-	border: 1px solid red;
-}
-
 .list_no_style { list-style-type: none; }
 
 .list_style_square { list-style-type: square; }
@@ -671,11 +698,15 @@ div.hidden {
 
 .width_400 { width: 400px; }
 
-.width_300 { width: 300px; }
+.width_300 { width: 300px !important; }
 	
 .right_margin_20 { margin-right: 20px; }
 
-.margin_top_5 { 	margin-top: 5px; }
+.margin_bottom_0 { 	margin-bottom: 0 !important; float: left;}
+
+.margin_top_0 { 	margin-top: 0 !important; }
+
+.margin_top_5 { 	margin-top: 5px !important; }
 
 .margin_top_10 { 	margin-top: 10px; }
 
@@ -683,9 +714,13 @@ div.hidden {
 
 .margin_top_40 { margin-top: 40px; }
 
+.margin_top_n10 { margin-top: -10px !important; }
+
 .margin_bottom_10 {	margin-bottom: 10px; }
 
 .margin_bottom_20 {	margin-bottom: 20px; }
+
+.margin_bottom_30 {	margin-bottom: 30px; }
 
 .margin_bottom_40 {	margin-bottom: 40px; }
 
@@ -699,11 +734,15 @@ div.hidden {
 
 .margin_left_20 {	margin-left: 20px; }
 
+.margin_left_25 {	margin-left: 25px; }
+
 .margin_left_30 {	margin-left: 30px; }
 
 .margin_left_40 {	margin-left: 40px; }
 
 .margin_left_100 {	margin-left: 100px; }
+
+.padding_top_5 {	padding-top: 5px; }
 
 .padding_top_10 {	padding-top: 10px; }
 

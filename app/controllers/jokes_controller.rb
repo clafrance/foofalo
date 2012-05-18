@@ -24,6 +24,7 @@ class JokesController < ApplicationController
   def index
     @unreviewed_jokes = Joke.where(:status => "reviewing").order("#{:created_at}")
     @unapproved_jokes = Joke.where(:status => "unapproved").order("#{:created_at}")
+    @jokes_displayed = Joke.where(:status => "displayed").order("#{:created_at} DESC, #{:author}, #{:name}")
     @jokes = Joke.where(:status => "approved").order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
     #@jokes_by_date = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
     #@jokes_by_author = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
@@ -40,7 +41,7 @@ class JokesController < ApplicationController
   end
   
   def my_jokes
-    @jokes_approved = Joke.where(:author => current_user.username, :status => "approved").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
+    @jokes_approved = Joke.where(:author => current_user.username, :status => "approved", :status => "displayed").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
     @jokes_unapproved = Joke.where(:author => current_user.username, :status => "unapproved").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
     @jokes_review = Joke.where(:author => current_user.username, :status => "reviewing").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
     @jokes = Joke.where(:author => current_user.username).order("#{:name}").paginate(:page => params[:page], :per_page => 20)
