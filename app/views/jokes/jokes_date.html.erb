@@ -6,21 +6,41 @@
 	<div class="page_main page_main_list clearfit">
 		
 		<%= will_paginate %>
-			<ul>
-			  <% @jokes.each do |joke| %>
-			    <li class="list_no_style">
-			      <div class="clearfix margin_bottom_0">
-				      <span class="joke_name font_1 float_left">
-		             <%= link_to joke.name, joke %> 
-		          </span>
-		          <span class="float_left">
-			            By <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
-			        </span>
-			      </div>
-		        <div class="font_08 clearfix"><%= simple_format joke.content %></div>
-			    </li>
-			  <% end %>		
-			</ul>
+		  <% if current_user.privilege == "admin" %>
+				<ul>
+				  <% @jokes_all.each do |joke| %>
+				    <li class="list_no_style">
+				      <div class="clearfix margin_bottom_0">
+					      <span class="joke_name font_1 float_left">
+			             <%= link_to joke.name, joke %> 
+			          </span>
+			          <span class="float_left">
+				            By <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
+				            <%= joke.status %>
+				        </span>
+				      </div>
+			        <div class="font_08 clearfix width_600 margin_bottom_20"><%= simple_format joke.content %></div>
+				    </li>
+				  <% end %>		
+				</ul>
+		
+      <% else %>			
+				<ul>
+				  <% @jokes.each do |joke| %>
+				    <li class="list_no_style">
+				      <div class="clearfix margin_bottom_0">
+					      <span class="joke_name font_1 float_left">
+			             <%= link_to joke.name, joke %> 
+			          </span>
+			          <span class="float_left">
+				            By <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
+				        </span>
+				      </div>
+			        <div class="font_08 clearfix width_600 margin_bottom_20"><%= simple_format joke.content %></div>
+				    </li>
+				  <% end %>		
+				</ul>
+			<% end %>	
 		<%= will_paginate %>
   </div>
 

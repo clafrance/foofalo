@@ -7,13 +7,13 @@
 	    <% if Link.where(:user_id => current_user.id, 
 	                      :category => category).count > 0 %>
 	      <div class="categories">
-	        <h4><%= category %> <span>(<%= Link.where(:user_id => current_user.id, 
+	        <h4><b><%= category %></b> <span>(<%= Link.where(:user_id => current_user.id, 
 	                      :category => category).count %>)</span></h4>
 	      </div>
 			  <div class="links clearfix">
 			    <% Link.where(:user_id => current_user.id, 
 							:category => category).order(:name).each do |link| %>
-			      <span><%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %></span>
+			      <span class="width_200 margin_bottom_8"><%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %></span>
 			    <% end %><br />
         </div>
       <% end %>

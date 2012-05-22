@@ -1,6 +1,6 @@
 module JokesHelper
   def joke_author_count(author)
-    Joke.where(:author => author, :status => "approved", :status => "displayed").count
+    Joke.where(:author => author, :status => "displayed").count
   end  
   
   def jokes_by_author(author)

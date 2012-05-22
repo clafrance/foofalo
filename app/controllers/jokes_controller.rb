@@ -57,6 +57,7 @@ class JokesController < ApplicationController
   def jokes_date
     @current_joke = Joke.find(params[:joke])
     @jokes = Joke.where(:status => "displayed", :created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
+    @jokes_all = Joke.where(:created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
     
     # @jokes = Joke.where(:status => "displayed", :created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
   end
