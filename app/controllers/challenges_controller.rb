@@ -51,7 +51,7 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
-    if @challenge.status == "approved"
+    if @challenge.status == "displayed"
       @display_status = "It hasn't been published." 
     else
       @display_status = "It has been solved."
@@ -59,7 +59,8 @@ class ChallengesController < ApplicationController
   end
 
   def index
-    @challenges = Challenge.find(:all)
+    @challenges = Challenge.where(:status => "displayed").order(:name)
+    #@challenges = Challenge.find(:all)
   end
   
   def edit

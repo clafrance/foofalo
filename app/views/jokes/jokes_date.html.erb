@@ -8,10 +8,16 @@
 		<%= will_paginate %>
 			<ul>
 			  <% @jokes.each do |joke| %>
-			    <li>
-		        <p><%= link_to joke.name, joke, :class => "joke_name font_2" %> 
-		           <span>By</span> <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %></p>
-		        <p><%= simple_format joke.content %></p>
+			    <li class="list_no_style">
+			      <div class="clearfix margin_bottom_0">
+				      <span class="joke_name font_1 float_left">
+		             <%= link_to joke.name, joke %> 
+		          </span>
+		          <span class="float_left">
+			            By <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
+			        </span>
+			      </div>
+		        <div class="font_08 clearfix"><%= simple_format joke.content %></div>
 			    </li>
 			  <% end %>		
 			</ul>

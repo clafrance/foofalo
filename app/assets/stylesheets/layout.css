@@ -228,7 +228,7 @@ div.joke_Challenge {
 }
 
 div.joke_of_day {
-	border: 1px solid #808080;
+	/*border: 1px solid #808080;*/
 	min-height: 210px;
 	max-height: 600px;
 /*	height: 600px;*/
@@ -240,7 +240,7 @@ div.challenge_of_week {
 	min-height: 250px;
 	max-height: 600px;
 	/*height: 600px;*/
-	border: 1px solid #808080;
+	/*border: 1px solid #808080;*/
 	margin: 0 25px 0 0;
 	padding: 20px;
 }
@@ -257,7 +257,7 @@ div.fact_links {
 div.fun_fact {
 	min-height: 210px;
 	max-height: 600px;
-	border: 1px solid #808080;
+/*	border: 1px solid #808080;*/
 	margin: 0;
 	padding: 20px;
 }
@@ -265,7 +265,7 @@ div.fun_fact {
 div.my_links {
 	min-height: 180px;
 	max-height: 600px;
-	border: 1px solid #808080;
+/*	border: 1px solid #808080;*/
 	margin: 25px 0 0 0;
 	padding: 20px 20px 20px 30px;
 }
@@ -286,9 +286,9 @@ div.joke_title_area {
 .challenge_title_area h2 {
 	width: 360px;
 	float: left;
-/*	border: 1px solid red;*/
+	/*border: 1px solid red;*/
   /*margin-left: 4px;*/
-	margin: 12px 0 0 0;
+	margin: 12px 10px 0 0;
 	text-align: center;
 	padding-bottom: -10px;
 }
@@ -311,7 +311,7 @@ div.joke_content p {
 }
 
 div.challenge_title_area {
-	width: 540px;
+	width: 550px;
 	/*border: 1px solid red;*/
 }
 
@@ -561,7 +561,7 @@ div.page_links {
 /********************** Jokes ***********/
 
 span.joke_name {
-	width: 320px !important;
+	width: 280px !important;
 	/*border: 1px solid red;	*/
 }
 
@@ -569,11 +569,6 @@ span.joke_name {
 	border: 1px solid red;
 	margin-top: -10px;
 	margin-top: 10px;
-}
-
-.joke_space p {
-/*	border: 1px solid blue;*/
-	margin-bottom: 2px;
 }
 
 .jokes_checkbox { margin: -5px 5px 0 0; padding: 0; !important; float: left;}
@@ -692,11 +687,15 @@ div.hidden {
 
 .center {	text-align: center; }
 	
-.width_40 { width: 40px; border: 1px solid red;}
+.width_40 { width: 40px; /*border: 1px solid red;*/}
 
-.width_100 { width: 100px; border: 1px solid red;}
+.width_100 { width: 100px; /*border: 1px solid red;*/}
+
+.width_150 { width: 150px; /*border: 1px solid red;*/}
 
 .width_400 { width: 400px; }
+
+.width_600 { width: 600px; }
 
 .width_300 { width: 300px !important; }
 	
@@ -712,9 +711,13 @@ div.hidden {
 
 .margin_top_20 { 	margin-top: 20px; }
 
+.margin_top_30 { 	margin-top: 30px; }
+
 .margin_top_40 { margin-top: 40px; }
 
 .margin_top_n10 { margin-top: -10px !important; }
+
+.margin_bottom_5 {	margin-bottom: 5px; }
 
 .margin_bottom_10 {	margin-bottom: 10px; }
 
@@ -737,6 +740,8 @@ div.hidden {
 .margin_left_25 {	margin-left: 25px; }
 
 .margin_left_30 {	margin-left: 30px; }
+
+.margin_left_35 {	margin-left: 35px; }
 
 .margin_left_40 {	margin-left: 40px; }
 

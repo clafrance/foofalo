@@ -1,26 +1,43 @@
 <% provide :title, "FunFacts" %>
 
 <div class="content_container clearfix">
-	<h2 class="title title_font">Fun Facts <span class="font_color_grey small">(<%= @fun_facts.count %>)</span></h2>
-	<ul class="page_main page_main_list clearfit">
+	<h2 class="title title_font">Fun Facts 
+		<span class="font_color_grey small">(<%= @fun_facts.count %>)</span>
+	</h2>
+	
+	<div class="page_main page_main_list clearfit">
 	  <% @fun_facts.each do |fun_fact| %>
-		  <li>
-			  <% if current_user.privilege == "admin" %>
-			    <%= link_to fun_fact.name, fun_fact, :class=>"bold" %>
-				  <span>Created by</span> <%= fun_fact.author %>
-			    <span>on</span> <span class="right_margin_20">
-			    <%= fun_fact.created_at.strftime("%m/%d/%Y") %></span>
-			    <%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
-			    <%= link_to "delete", fun_fact, :method => :delete, :confirm => "Deleting fun_fact #{fun_fact.name}?" %>
-			    <%= simple_format fun_fact.content %></p>
-			  <% else %>
-			    <%= link_to fun_fact.name, fun_fact %> 
-			    <span><%= fun_fact.created_at.strftime("%m/%d/%Y") %></span>
-          <%= simple_format fun_fact.content %>
-			  <% end %>
-			</li>
+			<% if current_user.privilege == "admin" %>
+			  <ul>
+				  <li class="list_no_style">
+					  <div class="clearfix margin_bottom_0">
+				      <span class="joke_name font_1 float_left">
+			          <%= link_to fun_fact.name, fun_fact %>
+			        </span>
+			        <span class="float_left margin_left_30">
+						    <%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
+						    <%= link_to "delete", fun_fact, :method => :delete, 
+						          :confirm => "Deleting fun_fact #{fun_fact.name}?" %>
+						  </span>
+						</div>
+			      <div class="font_08 width_600 clearfix"><%= simple_format fun_fact.content %></div>
+			    </li>
+			  </ul>
+		  <% else %>
+			  <ul>
+				  <li class="list_no_style">
+					  <div class="clearfix margin_bottom_0">
+				      <span class="joke_name font_1 margin_bottom_20 float_left">
+				        <%= link_to fun_fact.name, fun_fact %>
+				      </span> 
+				      <span>On <%= fun_fact.created_at.strftime("%m/%d/%Y") %></span>
+		          <div class="font_08 width_600 margin_bottom_20 clearfix"><%= simple_format fun_fact.content %></div>
+		        </div>
+				  </li>
+			  </ul>
+			<% end %>
 	  <% end %>
-	</ul>
+	</div>
 
 	<div class="page_links clearfix">
 		<%= render '/fun_facts/linkstofunfacts' %>

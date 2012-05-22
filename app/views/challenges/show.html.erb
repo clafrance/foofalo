@@ -2,13 +2,20 @@
 
 <div class="content_container clearfix">
 	<h2 class="title title_font"><%= @challenge.name %></h2> 
-	<div class="page_main page_main_list clearfit">		
+	<p class="title font_color_grey">
+		<% if current_user.privilege == "admin" %>
+      By <%= @challenge.author %>
+    <% end %>
+     On <%= @challenge.created_at.strftime("%m/%d/%Y") %>
+  </p>
+	<div class="page_main margin_top_5 page_main_list clearfit">		
     <%= simple_format @challenge.content %>
- 
 	  <% if current_user.username == @challenge.author %>
-			<%= link_to "Edit", edit_challenge_path(@challenge) %>
-			<%= link_to "delete", @challenge, :method => :delete, 
-			             :confirm => "Deleting challenge #{@challenge.name}?" %>
+	    <span class="title float_left margin_top_30">
+				<%= link_to "Edit", edit_challenge_path(@challenge) %>
+				<%= link_to "delete", @challenge, :method => :delete, 
+				             :confirm => "Deleting challenge #{@challenge.name}?" %>
+			</span>
 	  <% end %>
 	</div>
 

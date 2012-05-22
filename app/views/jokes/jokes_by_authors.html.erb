@@ -2,23 +2,33 @@
 
 <div class="content_container clearfix">
 	<h2 class="title title_font">Jokes by Author</h2>
+	<p class="title font_color_grey margin_top_n10">Jokes that have already been displayed</p>
 	<div class="page_main page_main_list clearfit">
     <% @authors.each do |author| %>
-	    <h3>Jokes entered by <%= author %> 
-		    <span class="font_color_grey small">
-			  (<%= Joke.where(:author => author, :status => "approved", :status => "displayed").count %> )</span></h3>
-	    <% Joke.where(:author => author, :status => "approved", :status => "displayed").order(:name).each do |joke| %>
-		    <div class="joke_author">
-		      <span class="font_1" ><%= link_to joke.name, joke %></span>
-		         <span>Created on</span> <%= link_to joke.created_at.strftime("%m/%d/%Y"), 
-		               jokesdate_path(:joke=>joke.id) %>  
-		    </div>
-	      <p><%= simple_format joke.content %></p>
+      <h3 class="margin_top_20">By <%= author %> 
+	      <span class="font_color_grey small">(<%= joke_author_count(author) %>)</span>
+	    </h3>
+	
+	    <% jokes_by_author(author, "displayed").each do |joke| %>
+				<ul>
+				  <li class="list_no_style">
+				    <div class="clearfix margin_bottom_0">
+				      <span class="joke_name font_1 float_left">
+				        <%= link_to joke.name, joke %>
+					    </span>
+				      <span class="float_left">
+				        <!-- By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> --> 
+				        on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+				      </span>
+				    </div>
+				    <div class="font_08 width_600 clearfix"><%= simple_format(joke.content) %></div>
+				  </li>
+				</ul>
       <% end %>
     <% end %>		
   </div>
 
-	<div class="page_links clearfix">
-	<%= render '/jokes/linkstojokes' %>
+  <div class="page_links clearfix">
+	  <%= render '/jokes/linkstojokes' %>
 	</div>
 </div>

@@ -25,18 +25,22 @@
 						       <%= link_to joke.name, joke %>
 							   </span>
 		             <span class="float_left">
-			             By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
+			             <span class="float_left width_150">
+				               By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
+				           </span> 
 			             on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 			           </span>
 			        </div>
-		          <div class="font_08 joke_space clearfix"><%= simple_format(joke.content) %></div>
+		          <div class="font_08 clearfix width_600"><%= simple_format(joke.content) %></div>
 			      </li>
 					</ul>
-			  <% end %>	
+        <% end %>	
 			  
-			  <% if @unreviewed_jokes.count > 0 %>	
-				  <%= submit_tag "Approve", :class => "buttons margin_bottom_30 margin_left_40" %>
-				  <%= submit_tag "Unapprove", :class => "buttons margin_bottom_30" %>
+			  <% if @unreviewed_jokes.count > 0 %>
+			  <div class="title margin_bottom_30 buttons">	
+				  <%= submit_tag "Approve", :class => "buttons" %>
+				  <%= submit_tag "Unapprove", :class => "buttons" %>
+				</div>
 				<% end %>
 			<% end %>
 	
@@ -45,15 +49,17 @@
 	      <ul>
 	        <li class="list_no_style">
 			      <div class="clearfix margin_bottom_0">
-				       <span class="joke_name font_1 float_left">
+				       <span class="joke_name font_1 float_left">				       
 					       <%= link_to joke.name, joke %>
 						   </span>
 	             <span class="float_left">
-		             By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
+		             <span class="float_left width_150">
+			              By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
+			           </span>
 		             on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 		           </span>
 		        </div>
-	          <div class="font_08 joke_space clearfix"><%= simple_format(joke.content) %></div>
+	          <div class="font_08 width_600 clearfix"><%= simple_format(joke.content) %></div>
 	        </li>    	
 	      </ul>
 	    <% end %>	
@@ -68,18 +74,20 @@
 					        <%= link_to joke.name, joke %>
 						    </span>
 	              <span class="float_left">
-		              By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
+		              <span class="float_left width_150">
+		                By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
+		              </span>
 		              on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 		            </span>
 		          </div>
-	            <div class="font_08 joke_space clearfix"><%= simple_format(joke.content) %></div>
+	            <div class="font_08 width_600 clearfix"><%= simple_format(joke.content) %></div>
 		        </li>
-		      <ul>
+		      </ul>
 			  <%= will_paginate %>
 		  <% end %>		
 	  <% end %>
 	
-	  <h3>Jokes Already Displayed <span class="font_color_grey small">(<%= @jokes_displayed.count %>)</span></h3>
+	  <h3>Displayed Jokes <span class="font_color_grey small">(<%= @jokes_displayed.count %>)</span></h3>
     <ul>
        <% @jokes_displayed.each do |joke| %>
         <li class="list_no_style">
@@ -88,14 +96,16 @@
 			        <%= link_to joke.name, joke %>
 				    </span>
             <span class="float_left">
-              By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
+	            <span class="float_left width_150">
+                 By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
+              </span>
               on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
             </span>
           </div>
-          <div class="font_08 joke_space clearfix"><%= simple_format(joke.content) %></div>
+          <div class="font_08 margin_bottom_10 width_600 clearfix"><%= simple_format(joke.content) %></div>
         </li>
       <% end %>	
-     <ul>
+     </ul>
   </div>
 
 	<div class="page_links clearfix">

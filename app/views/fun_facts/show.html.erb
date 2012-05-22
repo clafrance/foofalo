@@ -2,13 +2,22 @@
 
 <div class="content_container clearfix">
 	<h2 class="title title_font"><%= @fun_fact.name %></h2>
-	<div class="page_main page_main_list clearfit"> 
+	
+	<p class="title font_color_grey">
+		<% if current_user.privilege == "admin" %>
+      By <%= @fun_fact.author %>
+    <% end %>
+     On <%= @fun_fact.created_at.strftime("%m/%d/%Y") %>
+  </p>
+	<div class="page_main margin_top_5 page_main_list clearfit"> 
     <%= simple_format @fun_fact.content %>
 
 	  <% if current_user.username == @fun_fact.author %>
-			<%= link_to "Edit", edit_fun_fact_path(@fun_fact) %>
-			<%= link_to "delete", @fun_fact, :method => :delete, 
-			             :confirm => "Deleting fun fact #{@fun_fact.name}?" %>
+		  <span class="title float_left margin_top_30">
+				<%= link_to "Edit", edit_fun_fact_path(@fun_fact) %>
+				<%= link_to "delete", @fun_fact, :method => :delete, 
+				             :confirm => "Deleting fun fact #{@fun_fact.name}?" %>
+			</span>
 	  <% end %>
   </div>
 

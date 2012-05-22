@@ -18,4 +18,5 @@ class Joke < ActiveRecord::Base
   validates :status, :presence => true
   
   #default_scope order: 'jokes.created_at DESC'
+
 end

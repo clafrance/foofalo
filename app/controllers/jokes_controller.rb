@@ -14,7 +14,7 @@ class JokesController < ApplicationController
     @joke = current_user.jokes.build(params[:joke])
     @joke.author = current_user.username
     if @joke.save
-      redirect_to index_url, :success => "Joke has been created. It will be published after it is approved."
+      redirect_to myjokes_url, :success => "Joke has been created. It will be published after it is approved."
       # redirect_to @joke, :success => "Joke has been created. It will be published after it is approved."
     else
       render 'new'
@@ -49,12 +49,16 @@ class JokesController < ApplicationController
   
   def jokes_author
     @current_joke = Joke.find(params[:joke])
-    @jokes = Joke.where(:author => @current_joke.author, :status => "approved").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
+    @jokes = Joke.where(:author => @current_joke.author).order("#{:name}").paginate(:page => params[:page], :per_page => 20)
+    
+    # @jokes = Joke.where(:author => @current_joke.author, :status => "approved").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
   end
   
   def jokes_date
     @current_joke = Joke.find(params[:joke])
-    @jokes = Joke.where(:status => "approved", :created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
+    @jokes = Joke.where(:status => "displayed", :created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
+    
+    # @jokes = Joke.where(:status => "displayed", :created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
   end
   
   def jokes_by_authors

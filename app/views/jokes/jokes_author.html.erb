@@ -1,21 +1,46 @@
 <% provide :title, "JokesByAuthor" %>
 
 <div class="content_container clearfix">
-	<h2 class="title title_font">Jokes entered by <%= @current_joke.author %> 
-		<span class="font_color_grey small">(<%= @jokes.count %>)</span></h2>
+	<h2 class="title title_font">Jokes Entered by <%= @current_joke.author %>
+		<span class="font_color_grey small">(<%= jokes_by_author(@current_joke.author).count %>)</span>
+	</h2>
 	<div class="page_main page_main_list clearfit">
-		
-  <%= will_paginate %>
-	  <ul>
-      <% @jokes.each do |joke| %>
-        <li>
-          <%= link_to joke.name, joke, :class => "joke_name font_2" %><br /> 
-          <div class="joke_author"><%= joke.created_at.strftime("%m/%d/%Y") %></div>
-          <%= simple_format joke.content %>
-        </li>
-      <% end %>		
-    </ul>
-  <%= will_paginate %>
+		<% if current_user.privilege != "admin" %>
+			<% jokes_by_author_status(@current_joke.author, "displayed").each do |joke| %>
+		    <ul>
+			    <li class="list_no_style">
+			      <div class="clearfix margin_bottom_0">
+				       <span class="joke_name font_1 float_left">				       
+					       <%= link_to joke.name, joke %>
+						   </span>
+	             <span class="float_left">
+		             on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+		           </span>
+		        </div>
+	          <div class="font_08 width_600 clearfix"><%= simple_format(joke.content) %></div>
+	        </li>
+	      </ul>	
+	    <% end %>	
+	  <% else %>
+	    <% jokes_by_author(@current_joke.author).each do |joke| %>
+		    <ul>
+			    <li class="list_no_style">
+			      <div class="clearfix margin_bottom_0">
+				       <span class="joke_name font_1 float_left">				       
+					       <%= link_to joke.name, joke %>
+						   </span>
+	             <span class="float_left">
+		             on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+		             <%= joke.status %>
+		           </span>
+		        </div>
+	          <div class="font_08 width_600 clearfix"><%= simple_format(joke.content) %></div>
+	        </li>
+	      </ul>	
+	    <% end %>
+	  <% end %>	
+
+
   </div>
 
 	<div class="page_links clearfix">

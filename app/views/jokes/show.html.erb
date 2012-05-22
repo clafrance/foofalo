@@ -1,23 +1,24 @@
 <% provide :title, "Joke" %>
 
 <div class="content_container clearfix">
-	<h2 class="title title_font"><%= @joke.name %></h2> 
+	<h2 class="title title_font"><%= @joke.name %></h2>
+	<p class="title small_font_2 font_color_grey">Entered by <%= @joke.author %> on 
+	   <%= @joke.created_at.strftime("%m/%d/%Y") %></p>
 	<div class="page_main page_main_list clearfit">			
 		<% if current_user.privilege == "admin" %>
 			<%= form_tag review_joke_path, :method => :put do %>
 			  <div class="hidden"><%= check_box_tag "joke_id[]", @joke.id, :checked => true %></div>
-			  <div class="margin_bottom_40" >
-			  <p class="small_font_2 center font_color_grey">Entered by <span class="grey"><%= @joke.author %></span> on 
-				   <%= @joke.created_at.strftime("%m/%d/%Y") %></p>
-			  <div class="joke_space"><%= simple_format @joke.content %></div></div>
+			  <div class="joke_space margin_bottom_40"><%= simple_format @joke.content %></div>
 			  <% if @joke.status == "reviewing" %>
-					<div class="center margin_top_2">
+					<div class="center">
 						<%= submit_tag "Approve", :class => "margin_right_20" %>
 						<%= submit_tag "Unapprove", :class => "margin_right_20" %>
 						<a href="javascript:history.back()">Cancel</a>
 					</div>
 				<% end%>
 		  <% end %>
+		<% else %>
+		  <div class="joke_space width_600 margin_bottom_40"><%= simple_format @joke.content %></div>
 		<% end %>
 	</div>
 

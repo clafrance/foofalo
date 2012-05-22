@@ -2,28 +2,42 @@
 
 <div class="content_container clearfix">
 	<h2 class="title title_font">Challenges 
-		<span class="font_color_grey small">(<%= @challenges.count %>)</span></h2>
-	<ul class="page_main page_main_list clearfit">
-	  <% @challenges.each do |challenge| %>
-		  <li>
-			  <% if current_user.privilege == "admin" %>
-			    <%= link_to challenge.name, challenge, :class=>"bold" %>
-			    <span>Created by</span> <%= challenge.author %>
-			    <span>on</span> <span class="right_margin_20">
-			    <%= challenge.created_at.strftime("%m/%d/%Y") %></span>
-			    <%= link_to "Edit", edit_challenge_path(challenge) %>
-			    <%= link_to "delete", challenge, :method => :delete, 
-			             :confirm => "Deleting challenge #{challenge.name}?" %>
-          <%= simple_format challenge.content %>
-
-			  <% else %>
-			    <%= link_to challenge.name, challenge %> 
-			    <span><%= challenge.created_at.strftime("%m/%d/%Y") %></span>
-          <%= simple_format challenge.content %>
-			  <% end %>
-			</li>
+		<span class="font_color_grey small">(<%= @challenges.count %>)</span>
+	</h2>
+	
+	<div class="page_main page_main_list clearfit">
+		<% @challenges.each do |challenge| %>
+	    <% if current_user.privilege == "admin" %>
+			  <ul>
+					<li class="list_no_style">
+			      <div class="clearfix margin_bottom_0">
+				      <span class="joke_name font_1 float_left">
+						    <%= link_to challenge.name, challenge %>
+						  </span>
+							<span class="float_left margin_left_30"> 
+							   <%= link_to "Edit", edit_challenge_path(challenge) %>
+							   <%= link_to "delete", challenge, :method => :delete, 
+							        :confirm => "Deleting challenge #{challenge.name}?" %>
+				      </span>
+				    </div>
+	          <div class="font_08 width_600 clearfix"><%= simple_format challenge.content %></div>
+	        </li>
+	      </ul>
+	    <% else %>
+			  <ul>
+				  <li class="list_no_style">
+					  <div class="clearfix margin_bottom_0">
+				      <span class="joke_name font_1 margin_bottom_20 float_left">
+				        <%= link_to challenge.name, challenge %>
+				      </span> 
+				      <span>On <%= challenge.created_at.strftime("%m/%d/%Y") %></span>
+		          <div class="font_08 width_600 margin_bottom_10 clearfix"><%= simple_format challenge.content %></div>
+		        </div>
+				  </li>
+			  </ul>
+			<% end %>
 	  <% end %>
-	</ul>
+	</div>
 
 	<div class="page_links clearfix">
 		<%= render '/challenges/linkstochallenges' %>
