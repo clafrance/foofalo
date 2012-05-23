@@ -1,4 +1,6 @@
 class PasswordResetsController < ApplicationController
+  force_ssl :only => [:new, :create, :edit, :update]
+  
   def new
   end
   
