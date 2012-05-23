@@ -563,7 +563,7 @@ span.joke_name {
 	margin-top: 10px;
 }
 
-.jokes_checkbox { margin: -5px 5px 0 0; padding: 0; !important; float: left;}
+.jokes_checkbox { margin: -5px 5px 0 0; float: left;}
 
 /********************** challenges ******/
 
