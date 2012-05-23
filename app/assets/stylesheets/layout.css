@@ -671,11 +671,11 @@ div.hidden {
   border-radius:         8px;
 }
 
-.list_style1 {
+/*.list_style1 {
   font-size: 1.2em;
   width: 150px;
-  float-left;
-}
+  float: left;
+}*/
 
 .list_no_style { list-style-type: none; }
 
