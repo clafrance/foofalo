@@ -1,29 +1,29 @@
-<% provide :title, "Sign in" %>
-<h2 class="center title_font">Sign in</h2>
+<% provide :title, "Signin" %>
+<h2 class="page_title">Sign in</h2>
 
-<div class="content_container padding_top_10 clairfix">
+<div class="content_container clairfix">
 	<%= form_tag sessions_path do %>
-	  <div class="field field_center">
+	  <div class="field">
 	    <%= label_tag :username %><br />
 	    <%= text_field_tag :username, params[:username], :autofocus=>true, :class => "field_size" %>
 	  </div>
 	
-	  <div class="field field_center">
+	  <div class="field">
 	    <%= label_tag :password %><br />
 	    <%= password_field_tag :password %>
 	  </div>
 	
-	  <div class="field field_center rememberme padding_top_20">
+	  <div class="field rememberme">
 	    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
     	<%= label_tag :remember_me %>
 	  </div>
 	
-	  <div class="field field_center">
+	  <div class="field">
 		  <p class="reminders">Forgot your username? Click <%= link_to "here", usernamereminder_path %></p>
 		  <p class="reminders">Forgot your password? Click <%= link_to "here", new_password_reset_path %></p>
 	  </div>
 	
-	  <div class="center margin_bottom_40 margin_top_40">
+	  <div class="sign_buttons center margin_bottom_40 margin_top_40">
 		  <%= submit_tag "Sign in", :class=>"buttons" %>
 		  <a href="javascript:history.back()">Cancel</a>
 	  </div>

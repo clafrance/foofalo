@@ -6,21 +6,24 @@
 	</head>
 	<body id="<%= yield(:title) %>">
 		<div class="top">
-    </div>
-
-		<div class="container round">
 			<%= render 'layouts/header' %>
-			<% if current_user.nil? %>
-				<div class="main clearfix round_all">
-			<% else %>
-			  <div class="main clearfix round_bottom">
-			<% end %>
-        <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
-        <%= yield %>
-      </div>
-      <%= render 'layouts/footer' %>
-    </div>
+		</div>
+		<div id="page" class="frame round">
+			<div id="header" class="row">
+				<%= render 'layouts/top_nav' %>
+			</div>
+			<div id="menu" class="row">
+				<% if current_user %>
+			    <p>Menu</p>
+			  <% end %>
+			</div>
+			<div id="content" class="row expand">
+	        <% flash.each do |key, value| %>
+	          <div class="flash <%= key %>"><%= value %></div>
+	        <% end %>
+	        <%= yield %>
+	    </div>
+	  </div>
+    <%= render 'layouts/footer' %>
 	</body>
 </html>

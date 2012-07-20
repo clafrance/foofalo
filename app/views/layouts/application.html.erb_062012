@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		 <title><%= full_title(yield(:title)) %></title>
+     <%= render 'layouts/stylesheets' %>
+	</head>
+	<body id="<%= yield(:title) %>">
+		<div class="top">
+    </div>
+
+		<div class="container round">
+			<%= render 'layouts/header' %>
+			<% if current_user.nil? %>
+				<div class="main clearfix round_all">
+			<% else %>
+			  <div class="main clearfix round_bottom">
+			<% end %>
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+        <%= yield %>
+      </div>
+      <%= render 'layouts/footer' %>
+    </div>
+	</body>
+</html>

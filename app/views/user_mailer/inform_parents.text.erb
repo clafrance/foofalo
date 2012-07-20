@@ -1,6 +1,6 @@
-To approve <%= @user.firstname %> <%= @user.lastname %>'s account with www.foofalo.com, click the link below.
+To approve <%= @user.firstname %> <%= @user.lastname %>'s account with <%= link_to "www.foofalo.com", "http://www.foofalo.com" %>, click the link below.
 
-By clicking the Approve link below, you and your child agree to our <%= link_to "Terms and Use", terms_path %>. Please read it and make sure you understand the Terms and Use before clicking the link.
+By clicking the Approve link below, you and your child agree to our <%= link_to "Terms of Use", terms_url %>. Please read it and make sure you understand the Terms and Use before clicking the link.
 
 <%= edit_parent_confirm_url(@user.inform_parents_token) %>
 
