@@ -50,7 +50,7 @@ html>body .row.expand {
 
 .content_container {
 	width: 920px;
-	min-height: 400px;
+	min-height: 300px;
 /*	border: 1px solid red;*/
 }
 
@@ -345,3 +345,7 @@ a:visited {
 .center { text-align: center; }
 
 .margin_left_5 { margin-left: 5px; }
+
+.padding_top_10 { padding-top: 20px; }
+
+/*.margin_bottom_20 { margin-bottom: -20px; }*/
