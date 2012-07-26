@@ -9,19 +9,14 @@
 			<%= render 'layouts/header' %>
 		</div>
 		<div id="page" class="frame round">
-			<div id="header" class="row">
-				<%= render 'layouts/top_nav' %>
-			</div>
 			<div id="menu" class="row">
-				<% if current_user %>
-			    <p>Menu</p>
-			  <% end %>
+        <%= render 'layouts/top_nav' %>
 			</div>
 			<div id="content" class="row expand">
-	        <% flash.each do |key, value| %>
-	          <div class="flash <%= key %>"><%= value %></div>
-	        <% end %>
-	        <%= yield %>
+        <% flash.each do |key, value| %>
+          <div class="flash <%= key %>"><%= value %></div>
+        <% end %>
+        <%= yield %>
 	    </div>
 	  </div>
     <%= render 'layouts/footer' %>

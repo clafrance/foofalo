@@ -35,8 +35,6 @@ html>body .row.expand {
 	border: 1px solid #BBBFBF;
 	margin: -85px auto 0 auto;
 	width: 960px;
-	padding: 15px 15px 30px 15px;
-	/*border: 1px solid blue;*/
 	height: auto;
 }
 
@@ -49,7 +47,9 @@ html>body .row.expand {
 }
 
 .content_container {
-	width: 920px;
+	width: 930px;
+  margin: 0 15px 15px 15px;
+	padding-top: 15px;
 	min-height: 300px;
 /*	border: 1px solid red;*/
 }
@@ -82,6 +82,96 @@ nav a {
 	color: #368BB5 !important;
 	margin-right: 20px;
 	margin-bottom: 0px;
+}
+
+/*nav a:hover {
+	text-decoration: none; 
+}*/
+
+/********** Nav menu on top **********/
+.nav_bar {
+	width: 98%;
+	background: #55B536;
+	border-left: 1px solid green;
+	border-right: 1px solid green;
+	border-top: 1px solid green;
+}
+
+
+ul.nav_bar {
+/*	  float: center;
+	border: 1px solid red;*/
+/*	margin-bottom: 0;*/
+}
+
+.nav_bar_container {
+  float: left;
+  width: 750px;
+  max-width: 950px;
+  margin-left: 90px;
+/*	border: 1px solid black;*/
+}
+
+.nav_bar li {
+	list-style-type: none;
+	float: left;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-right: 20px;
+	padding-left: 20px;
+	/*font-size: 1.3em;*/
+	font-size: 16px;
+/*	border: 1px solid blue;*/
+}
+
+.nav_bar a {
+	color: #fff;
+}
+
+.nav_bar a:hover  {
+/*	color: #BA6204 !important;
+	color: #BA5604 !important;*/
+	height: 20px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	/*text-decoration: none;*/
+}
+
+.nav_bar a:visited {
+	color: #fff;
+	height: 20px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+}
+
+body#Index li.home_link,
+body#Jokes li.jokes_link,
+body#EditJoke li.jokes_link,
+body#JokesByAuthor li.jokes_link,
+body#JokesByAuthors li.jokes_link,
+body#JokesByDate li.jokes_link,
+body#MyJokes li.jokes_link,
+body#CreateJoke li.jokes_link,
+body#EditJoke li.jokes_link,
+body#Joke li.jokes_link,
+body#Challenges li.challenges_link,
+body#ViewChallenge li.challenges_link,
+body#CreateChallenge li.challenges_link,
+body#EditChallenge li.challenges_link,
+body#FunFacts li.fun_facts_link,
+body#CreateFunFact li.fun_facts_link,
+body#EditFunFact li.fun_facts_link,
+body#FunFact li.fun_facts_link,
+body#Games li.games_link,
+body#Links li.my_links,
+body#EditLink li.my_links,
+body#ManageLinks li.my_links,
+body#CreateLink li.my_links,
+body#MansterCards li.mansters_link {
+	background-color: #13A835;
+	color: #fff;
+	padding-top: 6px;
+	padding-bottom: 6px;
 }
 
 /********** Home Page **********/
@@ -119,12 +209,12 @@ img.manster_image_home {
 
 img.funfact_image_home {
   float: right;
-  margin: -42.2em 55px 0 0;
+  margin: -42em 55px 0 0;
 }
 
 img.links_image_home {
   float: right;
-  margin: -27em 0 0 0;
+  margin: -26.8em 0 0 0;
 }
 
 img.game_image_home {
