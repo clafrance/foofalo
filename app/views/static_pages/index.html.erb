@@ -2,24 +2,24 @@
 
 <div class="content_container clearfix">
 	<div class="joke_Challenge clearfix">
-	  <div class="joke_of_day round_all" id="border_red">
+	  <div class="joke_of_day round_all">
 		  <div class="joke_title_area clearfix">
-				<%= image_tag("joke.png", alt: "joke image", :height=>"90px", :class => "joke_image") %>
-	      <h2 class="round large_font font_color_red">Joke of the Day</h2>
+				<%= image_tag("joke.png", alt: "joke image", :height=>"90px") %>
+	      <h2>Joke of the Day</h2>
 	    </div>
-	    <div  class="joke_content clearfix">
-	      <h3 class="center"><%= @the_random_joke.name %></h3>
+	    <div  class="joke_content">
+	      <h3><%= @the_random_joke.name %></h3>
 	      <p class="font_2"><%= @the_random_joke.content %></p>
 		  </div>
 	  </div>
 	
-	  <div class="challenge_of_week round_all" id="border_blue">
-		  <div class="challenge_title_area clearfix">
-			  <h2 class="round large_font margin_right_10 font_color_blue">Challenge of the week</h2>
+	  <div class="challenge_of_week round_all">
+		  <div class="challenge_title_area">
+			  <h2>Challenge of the week</h2>
 			  <%= image_tag("challenge.jpg", alt: "challenge image", :height=>"80px") %>
 	    </div>
 	    <div class="challenge_content clearfix">
-	      <h3 class="center"><%= @the_random_challenge.name %></h3>
+	      <h3><%= @the_random_challenge.name %></h3>
 	      <p class="font_2"><%= @the_random_challenge.content %></p>
 	      <% if @current_user_answer.length < 1 %>
 	        <%= render 'select_answer' %> 
@@ -31,22 +31,22 @@
   </div>
 
   <div class="fact_links clearfix">
-	  <div class="fun_fact round_all" id="border_green">
+	  <div class="fun_fact round_all">
 		  <div class="fact_title_area clearfix">
-			  <h2 class="round large_font font_color_green">Fun Facts</h2>
+			  <h2>Fun Facts</h2>
 				<%= image_tag("funfact.jpg", alt: "fun fact image", :height=>"70px") %>
 	    </div>
 	    <div  class="fact_content clearfix">
-		    <h3 class="center"><%= @the_random_fun_fact.name %></h3>
+		    <h3><%= @the_random_fun_fact.name %></h3>
 	      <p class="font_2"><%= @the_random_fun_fact.content %></p>
 	    </div>
 	  </div>
 	
-    <div class="my_links round_all" id="border_orange">
-	    <h2 class="margin_top_10 center large_font font_color_orange">My Links</h2>
+    <div class="my_links round_all">
+	    <h2>My Links</h2>
 	    <ul>
 			  <% my_links.each do |link| %>
-			    <li class="list_style_square margin_top_5 class="font_2""><%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %></li>
+			    <li class="list_style_square margin_top_5 font_2"><%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %></li>
 			  <% end %>
 	    </ul>
 	  </div>  	
