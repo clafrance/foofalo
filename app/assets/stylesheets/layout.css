@@ -50,7 +50,7 @@ html>body .row.expand {
 
 .content_container {
 	width: 930px;
-  margin: 0 15px 15px 15px;
+  margin: 0 15px 35px 15px;
 	padding-top: 15px;
 	min-height: 300px;
 /*	border: 1px solid red;*/
@@ -413,8 +413,9 @@ div.my_links {
 .my_links li {
 	list-style-type: none;
 	margin-top: 4px;
+	margin-right: 5px;
 	padding-bottom: 4px;
-	border-bottom: 1px dotted red;
+	border-bottom: 1px dotted gray;
 }
 
 .my_links ol {
@@ -604,7 +605,7 @@ a:visited {
 
 .padding_top_10 { padding-top: 20px; }
 
-.padding_side_20 { padding: 1px 20px 20px 20px; }
+.padding_side_20 { padding: 1px 20px 0 20px; }
 
 .font_color_red { color: red;}
 
