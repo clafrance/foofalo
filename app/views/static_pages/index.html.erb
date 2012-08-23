@@ -44,11 +44,18 @@
 	
     <div class="my_links round_all">
 	    <h2>My Links</h2>
-	    <ul>
-			  <% my_links.each do |link| %>
-			    <li class="list_style_square margin_top_5 font_2"><%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %></li>
-			  <% end %>
-	    </ul>
+	    <ol>
+			  <!-- <% my_links.each do |link| %>
+			    <li class="list_style_square margin_top_5 font_2">
+          <%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %></li>
+				<% end %> -->
+				
+				
+				<% for i in 0...my_links.length %>
+				  <li>
+          <%= i+1 %>. <%= link_to my_links[i].name, "#{url_with_protocol(my_links[i].url)}", :target => :blank %></li>
+				<% end %>
+	    </ol>
 	  </div>  	
 	</div>
 </div>
