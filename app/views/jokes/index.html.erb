@@ -1,10 +1,10 @@
 <% provide :title, "Jokes" %>
 
 <div class="content_container clearfix">
-	<h2 class="title title_font">Jokes
-		<span class="font_color_grey small"> 
+	<h2 class="page_title">Jokes
+		<span class="font_grey_small">
 		  <% if current_user.privilege == "admin" %>
-		    (<%= @total_jokes_count %>)
+		    ( Total: <%= @total_jokes_count %> )
 		  <% else %>
 		    (<%= @jokes_displayed.count %>)
 		  <% end %>
@@ -16,7 +16,7 @@
 	  <% if current_user.privilege == "admin" %>
 			<%= form_tag review_jokes_path, :method => :put do %>
 			  <div class="border_bottom_grey margin_bottom_40">
-			  <h3>Unreviewed Jokes <span class="font_color_grey small">(<%= @unreviewed_jokes.count %>)</span></h3>
+			  <h3>Unreviewed Jokes <span class="font_grey_small_1">(<%= @unreviewed_jokes.count %>)</span></h3>
 					<% @unreviewed_jokes.each do |joke| %>  
 						<ul>
 				      <li class="list_no_style">
@@ -32,13 +32,13 @@
 				             on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 				           </span>
 				        </div>
-			          <div class="font_08 clearfix width_600"><%= simple_format(joke.content) %></div>
+			          <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
 				      </li>
 						</ul>
 	        <% end %>	
 			  
 				  <% if @unreviewed_jokes.count > 0 %>
-					  <div class="title margin_bottom_30 buttons">	
+					  <div class="title margin_bottom_30 buttons center">	
 						  <%= submit_tag "Approve", :class => "buttons" %>
 						  <%= submit_tag "Unapprove", :class => "buttons" %>
 						</div>
@@ -47,7 +47,7 @@
 			<% end %>
 	
 	    <div class="border_bottom_grey margin_bottom_40">
-			  <h3>Unapproved Jokes <span class="font_color_grey small">(<%= @unapproved_jokes.count %>)</span></h3>
+			  <h3>Unapproved Jokes <span class="font_grey_small_1">(<%= @unapproved_jokes.count %>)</span></h3>
 		    <% @unapproved_jokes.each do |joke| %>
 		      <ul>
 		        <li class="list_no_style">
@@ -62,14 +62,14 @@
 			             on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 			           </span>
 			        </div>
-		          <div class="font_08 width_600 clearfix"><%= simple_format(joke.content) %></div>
+		          <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
 		        </li>    	
 		      </ul>
 		    <% end %>	
 	    </div>
 
       <div class="border_bottom_grey margin_bottom_40">
-			  <h3>Approved Jokes <span class="font_color_grey small">(<%= @jokes.count %>)</span></h3>	
+			  <h3>Approved Jokes <span class="font_grey_small_1">(<%= @jokes.count %>)</span></h3>	
 		    <% @jokes.each do |joke| %>
 		      <%= will_paginate %>
 		        <ul>
@@ -85,7 +85,7 @@
 			              on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 			            </span>
 			          </div>
-		            <div class="font_08 width_600 clearfix"><%= simple_format(joke.content) %></div>
+		            <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
 			        </li>
 			      </ul>
 				  <%= will_paginate %>
@@ -94,7 +94,7 @@
 	  <% end %>
 	
 	  <div class="margin_bottom_40">
-		  <h3>Displayed Jokes <span class="font_color_grey small">(<%= @jokes_displayed.count %>)</span></h3>
+		  <h3>Displayed Jokes <span class="font_grey_small_1">(<%= @jokes_displayed.count %>)</span></h3>
 	    <ul>
 	       <% @jokes_displayed.each do |joke| %>
 	        <li class="list_no_style">
@@ -109,7 +109,7 @@
 	              on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 	            </span>
 	          </div>
-	          <div class="font_08 margin_bottom_10 width_600 clearfix"><%= simple_format(joke.content) %></div>
+	          <div class="joke_content margin_bottom_10 clearfix round_all"><%= simple_format(joke.content) %></div>
 	        </li>
 	      <% end %>	
 	     </ul>

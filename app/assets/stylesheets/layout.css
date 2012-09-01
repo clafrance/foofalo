@@ -51,7 +51,7 @@ html>body .row.expand {
 .content_container {
 	width: 930px;
   margin: 0 15px 35px 15px;
-	padding-top: 15px;
+	padding-top: 5px;
 	min-height: 300px;
 /*	border: 1px solid red;*/
 }
@@ -88,6 +88,15 @@ nav a {
 
 nav span {
 	margin-right: 40px;
+}
+
+.page_title {
+	width: 690px;
+	text-align: center;
+	font-size: 2.2em;
+	margin-top: 10px;
+	margin-left: 30px;
+/*	border: 1px solid red;*/
 }
 
 /********** Nav menu on top **********/
@@ -297,13 +306,17 @@ div.joke_title_area {
 	margin-left: 90px;
 }
 
-.joke_content h3 {
+.joke_content_home h3 {
 	text-align: center;
 	width: 360px;
 	margin-left: 90px;
 	margin-top: -5px;
 /*	border: 1px solid red;*/
 }
+
+/*.joke_content_home {
+	padding: 0 10px;
+}*/
 
 div.challenge_of_week {
 	min-height: 250px;
@@ -412,9 +425,9 @@ div.my_links {
 
 .my_links li {
 	list-style-type: none;
-	margin-top: 4px;
 	margin-right: 5px;
-	padding-bottom: 4px;
+	padding-top: 6px;
+	padding-bottom: 5px;
 	border-bottom: 1px dotted gray;
 }
 
@@ -422,6 +435,11 @@ div.my_links {
 	font-size: 1.1em;
 }
 
+.submit_home {
+/*	border: 1px solid red;*/
+	text-align: center;
+	margin-top: 7px;
+}
 
 /********************** Footer *****/
 
@@ -453,12 +471,6 @@ body#EditUser a.highlight_profile
 
 /********************* Signin /Signup forms *****/
 
-/*input#password {
-	width: 96%;
-	height: 20px;
-	font-size: 1.1em; 
-}*/
-
 .content_container p {
 	margin-top: 15px;
 	margin-bottom: 25px;
@@ -479,34 +491,19 @@ body#EditUser a.highlight_profile
 
 /********************** Form style *************/
 
-.page_title {
-	text-align: center;
-	font-size: 2.5em;
-	margin-top: 20px;
-	margin-bottom: 30px;
-	/*border: 1px solid red;*/
-}
-
 div.field {
 	width: 420px;
 	margin-top: 14px;
 	margin-left: auto;
 	margin-right: auto;
-	/*border: 1px solid green;*/
 }
-/*
-.field_center {
-	margin-left: auto;
-	margin-right: auto;
-	border: 1px solid blue;
-}*/
 
 .field label {
 	font-size: 1.1em;
 }
 
 .field input, .field select, .field textarea {
-	margin-top: 1px;
+	margin-top: 4px;
 	font-size: 1.1em;
 }
 
@@ -532,10 +529,12 @@ textarea {
   width: 495px;
 }
 
-/*.actions {
+.actions {
+	width: 400px;
 	margin-top: 10px;
-	border: 1px solid red;
-}*/
+	margin-left: 110px;
+	margin-top: 40px;
+}
 
 input:focus, textarea:focus  { 
    outline: none;
@@ -554,7 +553,6 @@ input:focus, textarea:focus  {
            box-shadow: 0px 0px 1px green; */
 }​
 
-
 /********************** Link Style *****/
 
 a {
@@ -571,6 +569,94 @@ a:visited {
   color: #590E5A;
   color: #9915E6;
 }
+
+/********************** page layout ********/
+
+.page_main_list a {
+	/*border: 1px solid red;*/
+	margin-right: 30px;
+}
+
+.page_main_list span {
+	color: #808080;
+}
+
+.page_main {
+	float: left;
+	border-right: 1px dotted #808080;
+	/*border: 1px solid blue;*/
+	min-height: 150px;
+	width: 640px;
+	margin-right: 0;
+	padding: 0 30px 20px 20px;
+}
+
+div.page_links {
+	float: left;
+	width: 200px;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: 0;
+/*	border: 1px dotted red;*/
+}
+
+.page_links li {
+	list-style-type: none;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 15px;
+	margin-right: 10px;
+	border-bottom: 1px dotted gray;
+}
+
+.page_links img{
+	float: left;
+	/*border: 1px solid red;*/
+	margin-right: 5px;
+}
+
+.page_links a {
+	float: left;
+	height: 18px;
+/*	border: 1px solid red;*/
+	margin: 0;
+	padding-top: 2px;
+}
+
+/********************** Jokes ***********/
+
+span.joke_name {
+	width: 280px !important;
+	font-weight: bold;
+/*	border: 1px solid red;	*/
+}
+
+#joke_ids_ {
+	border: 1px solid red;
+	margin-top: -10px;
+	margin-top: 10px;
+}
+
+.joke_content {
+	background-color: #DEFADC;
+	background-color: #E3F5E1;
+	padding: 0 10px;
+}
+
+.jokes_checkbox { margin: -5px 5px 0 0; float: left;}
+
+/****** format the joke content area *****/
+.joke_content p {
+  margin-top: -20px;
+  padding-bottom: 5px;
+}
+
+div.joke_content p:first-child {
+/*	border: 1px solid red;*/
+	padding-top: 5px !important;
+	margin-top: 15px !important;
+}
+/****** end ******/ 
 
 
 /********* Utilities **********/
@@ -599,9 +685,25 @@ a:visited {
           border-radius: 8px;
 }
 
+.font_grey_small {
+	color: #808080;
+	font-size: 0.5em;
+}
+
+.font_grey_small_1 {
+	color: #808080;
+	font-size: 0.8em;
+}
+
 .center { text-align: center; }
 
 .margin_left_5 { margin-left: 5px; }
+
+.margin_bottom_0 { margin-bottom: 0; }
+
+.margin_bottom_30 {	margin-bottom: 30px; }
+
+.margin_bottom_40 {	margin-bottom: 40px; }
 
 .padding_top_10 { padding-top: 20px; }
 
@@ -609,11 +711,21 @@ a:visited {
 
 .font_color_red { color: red;}
 
+.font_1 { font-size: 1.1em !important; } 
+
 .font_2 { font-size: 1.2em !important; }
 
 #border_red { border: 2px solid red; }
 
+.border_bottom_grey { border-bottom: 1px solid #CFD4D3; }
+
 .bold { font-weight: bold; }
+
+.list_no_style { list-style-type: none; }
+
+.float_left { float:left; }
+
+.width_150 { width: 150px; /*border: 1px solid red;*/}
 
 .flash, .alert { 
 	margin-top: 8px; 
