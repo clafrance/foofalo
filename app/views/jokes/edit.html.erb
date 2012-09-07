@@ -1,15 +1,15 @@
 <% provide :title, "EditJoke" %>
 
 <div class="content_container clearfix">
-	<h2 class="title title_font">Edit Joke</h2>
+	<h2 class="page_title">Edit Joke</h2>
 	<div class="page_main challenge_list clearfit">
 	  <%= form_for(@joke) do |f| %>
 	    <%= render 'shared/error_messages', :object => f.object %>
-
+	
 	    <div class="field">
 	      <%= f.label :name, "Joke Name:" %>
-	      <%= f.text_field :name, :autofocus=>true %>
-	    </div>
+	      <%= f.text_field :name, :class=>"field_size", :autofocus=>true %>
+	    </div></br>
 
 	    <div class="field">
 	      <%= f.label :content, "Joke details:" %>

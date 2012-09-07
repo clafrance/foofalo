@@ -1,8 +1,8 @@
 <% provide :title, "JokesByDate" %>
 
 <div class="content_container clearfix">
-	<h2 class="page_title">Jokes entered on <%= @current_joke.created_at.strftime("%m/%d/%Y") %>
-		 <span class="font_color_grey small">(<%= @jokes.count %>)</span></h2>
+	<h2 class="page_title">Jokes on <%= @current_joke.created_at.strftime("%m/%d/%Y") %>
+		 <span class="font_grey_small">( Total: <%= @jokes.count %> )</span></h2>
 	<div class="page_main page_main_list clearfit">
 		
 		<%= will_paginate %>
@@ -11,15 +11,17 @@
 				  <% @jokes_all.each do |joke| %>
 				    <li class="list_no_style">
 				      <div class="clearfix margin_bottom_0">
-					      <span class="joke_name font_1 float_left">
+					      <span class="joke_name font_2 float_left">
 			             <%= link_to joke.name, joke %> 
 			          </span>
-			          <span class="float_left">
-				            By <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
-				            <%= joke.status %>
+			          <span>
+				          <span class="float_left width_150">
+					          By <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
+					        </span>
+				          <%= joke.status %>
 				        </span>
 				      </div>
-			        <div class="font_08 clearfix width_600 margin_bottom_20"><%= simple_format joke.content %></div>
+			        <div class="joke_content clearfix round_all"><%= simple_format joke.content %></div>
 				    </li>
 				  <% end %>		
 				</ul>
@@ -29,7 +31,7 @@
 				  <% @jokes.each do |joke| %>
 				    <li class="list_no_style">
 				      <div class="clearfix margin_bottom_0">
-					      <span class="joke_name font_1 float_left">
+					      <span class="joke_name font_2 float_left">
 			             <%= link_to joke.name, joke %> 
 			          </span>
 			          <span class="float_left">

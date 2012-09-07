@@ -91,11 +91,20 @@ nav span {
 }
 
 .page_title {
-	width: 690px;
+	width: 640px;
 	text-align: center;
 	font-size: 2.2em;
 	margin-top: 10px;
+	margin-bottom: 30px;
 	margin-left: 30px;
+/*	border: 1px solid red;*/
+}
+
+.page_title_full {
+	text-align: center;
+	font-size: 2.2em;
+	margin-top: 25px;
+	margin-bottom: -5px;
 /*	border: 1px solid red;*/
 }
 
@@ -198,7 +207,7 @@ img.manster_image_home {
 #logo_image {
 	float: left;
 	margin-top: 4em;
-  margin-left: -60px;
+  margin-left: -50px;
   padding: 0 20px 0 20px;
 }
 
@@ -211,6 +220,8 @@ img.manster_image_home {
   text-align: justify;
 }
 
+#home_main p { margin-left: 16px; }
+	
 img.funfact_image_home {
   float: right;
   margin: -39.7em 55px 0 0;
@@ -585,10 +596,10 @@ a:visited {
 	float: left;
 	border-right: 1px dotted #808080;
 	/*border: 1px solid blue;*/
-	min-height: 150px;
+	min-height: 220px;
 	width: 640px;
-	margin-right: 0;
-	padding: 0 30px 20px 20px;
+	margin-left: 30px;
+	padding: 0 30px 30px 0px;
 }
 
 div.page_links {
@@ -626,7 +637,7 @@ div.page_links {
 /********************** Jokes ***********/
 
 span.joke_name {
-	width: 280px !important;
+	width: 320px !important;
 	font-weight: bold;
 /*	border: 1px solid red;	*/
 }
@@ -658,6 +669,13 @@ div.joke_content p:first-child {
 }
 /****** end ******/ 
 
+.joke_bottons {
+	width: 640px;
+	text-align: center;
+	padding-top: 10px;
+	margin-left: 15px;
+/*	border: 1px solid red;*/
+}
 
 /********* Utilities **********/
 
@@ -699,23 +717,39 @@ div.joke_content p:first-child {
 
 .margin_left_5 { margin-left: 5px; }
 
+.margin_10 { border: 1px solid red; }
+
+.margin_left_60 { margin-left: 60px; }
+
+.margin_right_20 { margin-right: 20px; }
+
 .margin_bottom_0 { margin-bottom: 0; }
 
 .margin_bottom_30 {	margin-bottom: 30px; }
 
 .margin_bottom_40 {	margin-bottom: 40px; }
 
-.padding_top_10 { padding-top: 20px; }
+.margin_top_n30 { margin-top: -30px; }
+
+.margin_top_n10 { margin-top: -10px; }
+
+.padding_tb_5 { margin-top: 10px; margin-bottom: 10px; }
+
+.padding_top_10 { padding-top: 10px; }
 
 .padding_side_20 { padding: 1px 20px 0 20px; }
 
 .font_color_red { color: red;}
+
+.font_grey { color: #808080; }
 
 .font_1 { font-size: 1.1em !important; } 
 
 .font_2 { font-size: 1.2em !important; }
 
 #border_red { border: 2px solid red; }
+
+.border_blue { border: 1px solid blue; }
 
 .border_bottom_grey { border-bottom: 1px solid #CFD4D3; }
 
@@ -735,5 +769,9 @@ div.joke_content p:first-child {
 	-webkit-border-radius: 12px;
      -moz-border-radius: 12px;
           border-radius: 12px;
+}
+
+div.hidden {
+	visibility: hidden;
 }
 /*.margin_bottom_20 { margin-bottom: -20px; }*/

@@ -21,15 +21,15 @@
 						<ul>
 				      <li class="list_no_style">
 					      <div class="clearfix margin_bottom_0">
-						       <span class="joke_name font_1 float_left">
+						       <span class="joke_name font_2 float_left">
 							       <span class="jokes_checkbox float_left"><%= check_box_tag "joke_ids[]", joke.id %></span>
 							       <%= link_to joke.name, joke %>
 								   </span>
 			             <span class="float_left">
 				             <span class="float_left width_150">
-					               By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
+					               By:  <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
 					           </span> 
-				             on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+				             on:  <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 				           </span>
 				        </div>
 			          <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
@@ -52,7 +52,7 @@
 		      <ul>
 		        <li class="list_no_style">
 				      <div class="clearfix margin_bottom_0">
-					       <span class="joke_name font_1 float_left">				       
+					       <span class="joke_name font_2 float_left">				       
 						       <%= link_to joke.name, joke %>
 							   </span>
 		             <span class="float_left">
@@ -75,7 +75,7 @@
 		        <ul>
 			        <li class="list_no_style">
 				        <div class="clearfix margin_bottom_0">
-					        <span class="joke_name font_1 float_left">
+					        <span class="joke_name font_2 float_left">
 						        <%= link_to joke.name, joke %>
 							    </span>
 		              <span class="float_left">
@@ -99,7 +99,7 @@
 	       <% @jokes_displayed.each do |joke| %>
 	        <li class="list_no_style">
 		        <div class="clearfix margin_bottom_0">
-			        <span class="joke_name font_1 float_left">
+			        <span class="joke_name font_2 float_left">
 				        <%= link_to joke.name, joke %>
 					    </span>
 	            <span class="float_left">

@@ -1,8 +1,8 @@
 <% provide :title, "JokesByAuthors" %>
 
 <div class="content_container clearfix">
-	<h2 class="page_title">Jokes by Author</h2>
-	<p class="title font_color_grey margin_top_n10">Jokes that have already been displayed</p>
+	<h2 class="page_title">Jokes by Author<br />
+	<span class="font_grey_small">Jokes that have already been displayed</span></h2>
 	<div class="page_main page_main_list clearfit">
     <% @authors.each do |author| %>
       <h3 class="margin_top_20">By <%= author %> 
@@ -13,7 +13,7 @@
 				<ul>
 				  <li class="list_no_style">
 				    <div class="clearfix margin_bottom_0">
-				      <span class="joke_name font_1 float_left">
+				      <span class="joke_name font_2 float_left">
 				        <%= link_to joke.name, joke %>
 					    </span>
 				      <span class="float_left">
@@ -21,7 +21,7 @@
 				        on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 				      </span>
 				    </div>
-				    <div class="font_08 width_600 clearfix"><%= simple_format(joke.content) %></div>
+				    <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
 				  </li>
 				</ul>
       <% end %>
