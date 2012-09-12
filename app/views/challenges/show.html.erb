@@ -1,25 +1,26 @@
 <% provide :title, "ViewChallenge" %>
 
 <div class="content_container clearfix">
-	<h2 class="title title_font"><%= @challenge.name %></h2> 
-	<p class="title font_color_grey">
-		<% if current_user.privilege == "admin" %>
-      By <%= @challenge.author %>
-    <% end %>
-     On <%= @challenge.created_at.strftime("%m/%d/%Y") %>
-  </p>
-	<div class="page_main margin_top_5 page_main_list clearfit">		
+	<h2 class="page_title"><%= @challenge.name %></h2> 
+	<div class="page_main margin_top_5 page_main_list clearfit">
+		<p class="small_font_2 center font_grey">
+			<% if current_user.privilege == "admin" %>
+	      By <%= @challenge.author %>
+	    <% end %>
+	     On <%= @challenge.created_at.strftime("%m/%d/%Y") %>
+	  </p>
     <%= simple_format @challenge.content %>
-	  <% if current_user.username == @challenge.author %>
-	    <span class="title float_left margin_top_30">
+
+    <div class="center">
+		  <% if current_user.username == @challenge.author %>
 				<%= link_to "Edit", edit_challenge_path(@challenge) %>
 				<%= link_to "delete", @challenge, :method => :delete, 
 				             :confirm => "Deleting challenge #{@challenge.name}?" %>
-			</span>
-	  <% end %>
+		  <% end %>
+		</div>
 	</div>
 
-	<div class="page_links clearfix center">
+	<div class="page_links clearfix">
 		<%= render '/challenges/linkstochallenges' %>
 	</div>	
 </div>

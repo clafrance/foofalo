@@ -9,7 +9,7 @@
 	    </div>
 	    <div  class="joke_content_home">
 	      <h3><%= @the_random_joke.name %></h3>
-	      <p class="font_2"><%= @the_random_joke.content %></p>
+	      <div class="content_index joke_content font_0 clearfix"><%= simple_format(@the_random_joke.content) %></div>
 		  </div>
 	  </div>
 	
@@ -20,7 +20,7 @@
 	    </div>
 	    <div class="challenge_content clearfix">
 	      <h3><%= @the_random_challenge.name %></h3>
-	      <p class="font_2"><%= @the_random_challenge.content %></p>
+	      <div class="content_index joke_content font_0"><%= simple_format(@the_random_challenge.content) %></div>
 	      <% if @current_user_answer.length < 1 %>
 	        <%= render 'select_answer' %> 
 	      <% else %>
@@ -38,7 +38,7 @@
 	    </div>
 	    <div  class="fact_content clearfix">
 		    <h3><%= @the_random_fun_fact.name %></h3>
-	      <p class="font_2"><%= @the_random_fun_fact.content %></p>
+	      <div class="content_index joke_content font_0 clearfix"><%= simple_format(@the_random_fun_fact.content) %></div>
 	    </div>
 	  </div>
 	

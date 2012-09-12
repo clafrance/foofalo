@@ -452,6 +452,17 @@ div.my_links {
 	margin-top: 7px;
 }
 
+
+div.content_index  {
+  background: #fff;
+}
+
+.fun_fact div.content_index p:last-child {
+	padding-top: 6px;
+  color: gray;
+}
+
+
 /********************** Footer *****/
 
 footer {
@@ -473,11 +484,13 @@ footer span, footer a  {
 /************************* Header *********/
 body#Users a.highlight_users,
 body#User a.highlight_users,
-body#EditUser a.highlight_profile
+body#EditUser a.highlight_profile,
+body#Index a.highlight_index
  {
-	border: 1px solid red;
-	padding: 2px;
+	/*border: 1px solid red;*/
+	padding: 1px 5px;
 	background: #F0F5F3;
+		background: #fff;
 }
 
 /********************* Signin /Signup forms *****/
@@ -604,7 +617,7 @@ a:visited {
 
 div.page_links {
 	float: left;
-	width: 200px;
+	width: 220px;
 	margin-left: 0;
 	margin-right: 0;
 	margin-top: 0;
@@ -649,7 +662,6 @@ span.joke_name {
 }
 
 .joke_content {
-	background-color: #DEFADC;
 	background-color: #E3F5E1;
 	padding: 0 10px;
 }
@@ -677,6 +689,61 @@ div.joke_content p:first-child {
 /*	border: 1px solid red;*/
 }
 
+
+/********************* Links page **************/
+
+div.links {
+/*	border: 1px solid yellow;*/
+	/*margin-left: 20px;*/
+	margin-top: -8px;
+	margin-bottom: 20px;
+	font-size: 1.1em;
+}
+
+.links span {
+	margin-right: 5px;
+	float: left;
+	width: 200px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+/*	border: 1px solid red;*/
+}
+
+.link_name_width {
+	float: left;
+	width: 200px;
+/*	border: 1px solid red;*/
+}
+
+.link_cat_width {
+	float: left; 
+	width: 140px;
+/*	border: 1px solid red;*/
+}
+
+.link_date_width {
+	float: left; 
+	width: 130px;
+/*	border: 1px solid red;*/
+}
+
+.links_row {
+	width: 590px;
+  float: left;
+	padding: 8px 0 6px 5px;
+	margin: 0;
+	border-bottom: 1px solid #CFD4D3;
+}
+
+/*.links_row a {	border: 1px solid red;}*/
+
+/********* Fun Facts **********/
+
+div.fun_fact_content p:last-child {
+	color: gray;
+}
+/************END ************/
+
 /********* Utilities **********/
 
 .round {
@@ -703,6 +770,12 @@ div.joke_content p:first-child {
           border-radius: 8px;
 }
 
+.round_all_4 {
+  -webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
 .font_grey_small {
 	color: #808080;
 	font-size: 0.5em;
@@ -711,6 +784,11 @@ div.joke_content p:first-child {
 .font_grey_small_1 {
 	color: #808080;
 	font-size: 0.8em;
+}
+
+.title2 {
+	width: 500px;
+  margin-left: 110px;
 }
 
 .center { text-align: center; }
@@ -731,7 +809,7 @@ div.joke_content p:first-child {
 
 .margin_top_n30 { margin-top: -30px; }
 
-.margin_top_n10 { margin-top: -10px; }
+.margin_top_n20 { margin-top: -20px; }
 
 .padding_tb_5 { margin-top: 10px; margin-bottom: 10px; }
 
@@ -742,6 +820,8 @@ div.joke_content p:first-child {
 .font_color_red { color: red;}
 
 .font_grey { color: #808080; }
+
+.font_0 { font-size: 1em !important; }
 
 .font_1 { font-size: 1.1em !important; } 
 
@@ -757,7 +837,8 @@ div.joke_content p:first-child {
 
 .list_no_style { list-style-type: none; }
 
-.float_left { float:left; }
+.float_left { float: left; }
+.float_right { float: right; }
 
 .width_150 { width: 150px; /*border: 1px solid red;*/}
 
@@ -774,4 +855,5 @@ div.joke_content p:first-child {
 div.hidden {
 	visibility: hidden;
 }
+
 /*.margin_bottom_20 { margin-bottom: -20px; }*/

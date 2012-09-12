@@ -1,26 +1,27 @@
 <% provide :title, "FunFact" %>
 
 <div class="content_container clearfix">
-	<h2 class="title title_font"><%= @fun_fact.name %></h2>
-	
-	<p class="title font_color_grey">
-		<% if current_user.privilege == "admin" %>
-      By <%= @fun_fact.author %>
-    <% end %>
-     On <%= @fun_fact.created_at.strftime("%m/%d/%Y") %>
-  </p>
-	<div class="page_main margin_top_5 page_main_list clearfit"> 
-    <%= simple_format @fun_fact.content %>
+	<h2 class="page_title"><%= @fun_fact.name %></h2>
+	<div class="page_main page_main_list margin_top_n20 clearfit">
+		<p class="small_font_2 center font_grey">
+			<% if current_user.privilege == "admin" %>
+	      <%= @fun_fact.author %>
+	    <% end %>
+	     On <%= @fun_fact.created_at.strftime("%m/%d/%Y") %>
+	  </p>
+    <div class="fun_fact_content">
+	    <%= simple_format @fun_fact.content %>
+	  </div>
 
-	  <% if current_user.username == @fun_fact.author %>
-		  <span class="title float_left margin_top_30">
+    <div class="center">
+		  <% if current_user.username == @fun_fact.author %>
 				<%= link_to "Edit", edit_fun_fact_path(@fun_fact) %>
 				<%= link_to "delete", @fun_fact, :method => :delete, 
 				             :confirm => "Deleting fun fact #{@fun_fact.name}?" %>
-			</span>
-	  <% end %>
-  </div>
-
+		  <% end %>
+		</div>
+	</div>
+	
 	<div class="page_links clearfix">
 		<%= render '/fun_facts/linkstofunfacts' %>
 	</div>

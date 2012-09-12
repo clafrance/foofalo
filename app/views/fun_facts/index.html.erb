@@ -1,8 +1,8 @@
 <% provide :title, "FunFacts" %>
 
 <div class="content_container clearfix">
-	<h2 class="title title_font">Fun Facts 
-		<span class="font_color_grey small">(<%= @fun_facts.count %>)</span>
+	<h2 class="page_title">Fun Facts 
+		<span class="font_grey_small">( Total: <%= @fun_facts.count %> )</span>
 	</h2>
 	
 	<div class="page_main page_main_list clearfit">
@@ -11,23 +11,24 @@
 			  <ul>
 				  <li class="list_no_style">
 					  <div class="clearfix margin_bottom_0">
-				      <span class="joke_name font_1 float_left">
+				      <span class="joke_name font_2 float_left">
 			          <%= link_to fun_fact.name, fun_fact %>
 			        </span>
-			        <span class="float_left margin_left_30">
+			        <span class="float_right">
 						    <%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
 						    <%= link_to "delete", fun_fact, :method => :delete, 
 						          :confirm => "Deleting fun_fact #{fun_fact.name}?" %>
 						  </span>
 						</div>
-			      <div class="font_08 width_600 clearfix"><%= simple_format fun_fact.content %></div>
+			      <div class="joke_content clearfix round_all"><%= simple_format fun_fact.content %></div>
 			    </li>
-			  </ul>
+			  </ul>			
+			
 		  <% else %>
 			  <ul>
 				  <li class="list_no_style">
 					  <div class="clearfix margin_bottom_0">
-				      <span class="joke_name font_1 margin_bottom_20 float_left">
+				      <span class="joke_name font_2 float_left">
 				        <%= link_to fun_fact.name, fun_fact %>
 				      </span> 
 				      <span>On <%= fun_fact.created_at.strftime("%m/%d/%Y") %></span>

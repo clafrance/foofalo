@@ -1,24 +1,24 @@
 <% provide :title, "CreateLink" %>
 
 <div class="content_container clearfix">
-	<h2 class="title title_font">Enter New Link</h2>
+	<h2 class="page_title">Enter New Link</h2>
 	<div class="page_main challenge_list clearfit">
 	  <%= form_for(@link) do |f| %>
 	    <%= render 'shared/error_messages', :object => f.object %>
 	
 	    <div class="field">
 	      <%= f.label :name, "Link Name:" %>
-	      <p><%= f.text_field :name, :class=>"field_size", :autofocus=>true %></p>
+	      <%= f.text_field :name, :class=>"field_size", :autofocus=>true %>
 	    </div>
 	
+		  <div class="field">
+		    <%= f.label :url, "URL:" %>
+		    <%= f.text_field :url, :class => "field_size" %>
+		  </div>
+		
 	    <div class="field">
-		    <%= f.label :category, "Category:" %>
-	      <p><%= select(:link, :category, Link::CATEGORIES, {:prompt => true} ) %></p> 
-	    </div>
-	
-	    <div class="field">
-	      <%= f.label :url, "URL:" %>
-	      <p><%= f.text_field :url, :class => "field_size" %></p>
+		    <%= f.label :category, "Category:" %><br />
+	      <%= select(:link, :category, Link::CATEGORIES, {:prompt => true} ) %>
 	    </div>
 	
 	    <div class="actions">
