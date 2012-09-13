@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  force_ssl :only => [:new, :create]
+  # force_ssl :only => [:new, :create]
     
   def new
     if current_user.nil?
