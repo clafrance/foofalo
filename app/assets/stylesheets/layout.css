@@ -52,7 +52,7 @@ html>body .row.expand {
 	width: 930px;
   margin: 10px 30px 30px 30px;
 	min-height: 300px;
-	border: 1px solid gray;
+/*	border: 1px solid gray;*/
 }
 
 header {
@@ -96,7 +96,7 @@ nav span {
 	margin-top: 10px;
 	margin-bottom: 30px;
 	/*margin-left: 20px;*/
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 }
 
 .page_title_full {
@@ -558,10 +558,16 @@ textarea {
 
 .actions {
 	width: 430px;
-	margin-top: 10px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 20px;
+}
+
+.actions_1 {
+	width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
 }
 
 input:focus, textarea:focus  { 
@@ -616,7 +622,7 @@ a:visited {
 .page_main {
 	float: left;
 	border-right: 1px dotted #808080;
-	border: 1px solid blue;
+/*	border: 1px solid blue;*/
 	min-height: 220px;
 	width: 680px;
 	margin-left: 0;
@@ -635,7 +641,7 @@ div.page_links {
 	margin-left: 0;
 	margin-right: 0;
 	margin-top: -12px;
-	border: 1px dotted red;
+/*	border: 1px dotted red;*/
 }
 
 .page_links li {
@@ -666,11 +672,11 @@ div.page_links {
 span.joke_name {
 	width: 320px !important;
 	font-weight: bold;
-	border: 1px solid red;	
+/*	border: 1px solid red;*/	
 }
 
 #joke_ids_ {
-	border: 1px solid red;
+/*	border: 1px solid red;*/
 	margin-top: 10px;
 }
 
@@ -706,7 +712,7 @@ div.joke_content p:first-child {
 	width: 700px;
 	margin-bottom: 30px;
 	text-align: center; 
-	border: 1px solid blue;
+/*	border: 1px solid blue;*/
 }
 
 /********************* Links page **************/
@@ -852,9 +858,12 @@ div.fun_fact_content p:last-child {
 
 .margin_top_n20 { margin-top: -20px; }
 
+.margin_top_30 { margin-top: 30px; }
+
 .padding_tb_5 { margin-top: 10px; margin-bottom: 10px; }
 
 .margin_right_0 { margin-right: 0 !important; }
+
 .padding_right_0 { padding-right: 0 !important; }
 
 .padding_top_10 { padding-top: 10px; }
@@ -876,6 +885,8 @@ div.fun_fact_content p:last-child {
 .border_blue { border: 1px solid blue; }
 
 .border_bottom_grey { border-bottom: 1px solid #CFD4D3; }
+
+.width_250 { width: 300px; }
 
 .bold { font-weight: bold; }
 .list_no_style { list-style-type: none; }

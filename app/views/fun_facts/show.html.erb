@@ -8,7 +8,7 @@
 				<% if current_user.privilege == "admin" %>
 		      <%= @fun_fact.author %>
 		    <% end %>
-		     On <%= @fun_fact.created_at.strftime("%m/%d/%Y") %>
+		      <%= @fun_fact.created_at.strftime("%m/%d/%Y") %>
 		  </p>
 	    <div class="fun_fact_content">
 		    <%= simple_format @fun_fact.content %>

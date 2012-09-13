@@ -31,8 +31,8 @@
 				      <span class="joke_name font_2 float_left">
 				        <%= link_to fun_fact.name, fun_fact %>
 				      </span> 
-				      <span>On <%= fun_fact.created_at.strftime("%m/%d/%Y") %></span>
-		          <div class="font_08 width_600 margin_bottom_20 clearfix"><%= simple_format fun_fact.content %></div>
+				      <span class="float_right"><%= fun_fact.created_at.strftime("%m/%d/%Y") %></span><br />
+		          <div class="joke_content clearfix round_all"><%= simple_format fun_fact.content %></div>
 		        </div>
 				  </li>
 			  </ul>

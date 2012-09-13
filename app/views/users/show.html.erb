@@ -1,26 +1,26 @@
 <% provide(:title, 'User') %>
 
-<h2 class="center title_font"><%= @user.username %></h1>
+<h2 class="title_font center padding_top_10"><%= @user.username %></h2>
 	
 <div class="content_container font_2">
-	<div class="width_400 margin_auto">
-  <p><span class="bold">First Name:</span><span class="margin_left_20"><%= @user.firstname %></span></p>
-  <p><span class="bold">Last Name:</span><span class="margin_left_20"><%= @user.lastname %></span></p>
-  <p><span class="bold">Email:</span><span class="margin_left_20"><%= @user.email %></span></p>
+	<div class="width_250 margin_auto margin_top_30 clearfix">
+	  <p><span class="bold">First Name:</span><span class="margin_left_20"><%= @user.firstname %></span></p>
+	  <p><span class="bold">Last Name:</span><span class="margin_left_20"><%= @user.lastname %></span></p>
+	  <p><span class="bold">Email:</span><span class="margin_left_20"><%= @user.email %></span></p>
 
-  <% if current_user.privilege == "admin" %>
-    <%= form_tag(update_privilege_path, :method => :put) do %>
-      <%= hidden_field_tag "user_id[]", @user.id %>
-			<div class="field">
-			  <%= label_tag :privilege, "Privilege:" %>
-			  <span class="margin_left_20"><%= select(:user, :privilege, User::USER_PRIVILEGES, {:prompt => true} ) %></span>
-			</div>
+	  <% if current_user.privilege == "admin" %>
+	    <%= form_tag(update_privilege_path, :method => :put) do %>
+	      <%= hidden_field_tag "user_id[]", @user.id %>
+				<div class="field">
+				  <%= label_tag :privilege, "Privilege:" %>
+				  <span class="margin_left_20"><%= select(:user, :privilege, User::USER_PRIVILEGES, {:prompt => true} ) %></span>
+				</div>
 
-			<div class="actions margin_top_40">
-			  <%= submit_tag "Update Privilege" %>
-			  <a href="javascript:history.back()">Cancel</a>
-			</div>
-		<% end %>
-  <% end %>
+				<div class="actions_1 center">
+				  <%= submit_tag "Update Privilege" %>
+				  <a href="javascript:history.back()">Cancel</a>
+				</div>
+			<% end %>
+	  <% end %>
   </div>
 </div>

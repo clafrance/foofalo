@@ -25,11 +25,11 @@
 							       <span class="jokes_checkbox float_left"><%= check_box_tag "joke_ids[]", joke.id %></span>
 							       <%= link_to joke.name, joke %>
 								   </span>
-			             <span class="float_right border_blue">
+			             <span class="float_right">
 				             <span class="float_left width_150">
 					               By:  <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
 					           </span> 
-				             on:  <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+				                 <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 				           </span>
 				        </div>
 			          <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
@@ -62,7 +62,7 @@
 			             <span class="float_left width_150">
 				              By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
 				           </span>
-			             on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+			                <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 			           </span>
 					
 			        </div>
@@ -86,7 +86,7 @@
 			              <span class="float_left width_150">
 			                By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
 			              </span>
-			              on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+			                <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 			            </span>
 			          </div>
 		            <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
@@ -112,7 +112,7 @@
 		            <span class="float_left width_150">
 	                 By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
 	              </span>
-	              on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+	                 <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 	            </span>
 	          </div>
 	          <div class="joke_content margin_bottom_10 clearfix round_all"><%= simple_format(joke.content) %></div>

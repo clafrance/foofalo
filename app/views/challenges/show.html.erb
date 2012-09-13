@@ -8,7 +8,7 @@
 				<% if current_user.privilege == "admin" %>
 		      By <%= @challenge.author %>
 		    <% end %>
-		     On <%= @challenge.created_at.strftime("%m/%d/%Y") %>
+		     <%= @challenge.created_at.strftime("%m/%d/%Y") %>
 		  </p>
       <%= simple_format @challenge.content %>
 

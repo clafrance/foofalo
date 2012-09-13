@@ -18,7 +18,7 @@
 					    </span>
 				      <span class="float_right">
 				        <!-- By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> --> 
-				        on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+				        <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 				      </span>
 				    </div>
 				    <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>

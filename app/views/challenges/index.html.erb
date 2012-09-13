@@ -30,8 +30,8 @@
 				      <span class="joke_name font_1 margin_bottom_20 float_left">
 				        <%= link_to challenge.name, challenge %>
 				      </span> 
-				      <span>On <%= challenge.created_at.strftime("%m/%d/%Y") %></span>
-		          <div class="font_08 width_600 margin_bottom_10 clearfix"><%= simple_format challenge.content %></div>
+				      <span class="float_right"><%= challenge.created_at.strftime("%m/%d/%Y") %></span><br />
+		          <div class="joke_content clearfix round_all"><%= simple_format challenge.content %></div>
 		        </div>
 				  </li>
 			  </ul>
