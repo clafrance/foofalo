@@ -14,12 +14,10 @@
 					      <span class="joke_name font_2 float_left">
 			             <%= link_to joke.name, joke %> 
 			          </span>
-			          <span>
-				          <span class="float_left width_150">
-					          By <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
-					        </span>
-				          <%= joke.status %>
-				        </span>
+			          <span class="float_right">
+								  By <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
+								  <span class="margin_left_60">been <%= joke.status %></span>
+				        </span>				
 				      </div>
 			        <div class="joke_content clearfix round_all"><%= simple_format joke.content %></div>
 				    </li>

@@ -50,10 +50,9 @@ html>body .row.expand {
 
 .content_container {
 	width: 930px;
-  margin: 0 15px 35px 15px;
-	padding-top: 5px;
+  margin: 10px 30px 30px 30px;
 	min-height: 300px;
-/*	border: 1px solid red;*/
+	border: 1px solid gray;
 }
 
 header {
@@ -91,13 +90,13 @@ nav span {
 }
 
 .page_title {
-	width: 640px;
+	width: 700px;
 	text-align: center;
 	font-size: 2.2em;
 	margin-top: 10px;
 	margin-bottom: 30px;
-	margin-left: 30px;
-/*	border: 1px solid red;*/
+	/*margin-left: 20px;*/
+	border: 1px solid red;
 }
 
 .page_title_full {
@@ -276,10 +275,9 @@ a.signup_button:hover {
 div.joke_Challenge {
 	float: left;
 /*	border: 1px solid blue;*/
-	width: 580px;
+	width: 600px;
 	min-height: 500px;
 	padding: 0;
-	margin-left: 20px;
 }
 
 div.joke_of_day {
@@ -322,7 +320,7 @@ div.joke_title_area {
 	width: 360px;
 	margin-left: 90px;
 	margin-top: -5px;
-/*	border: 1px solid red;*/
+/*	border: 1px solid purple;*/
 }
 
 /*.joke_content_home {
@@ -379,7 +377,7 @@ div.challenge_title_area {
 
 div.fact_links {
 	float: left;
-	width: 310px;
+	width: 330px;
 	/*border: 1px solid blue;*/
 	min-height: 500px;
 	/*max-height: 800px;*/
@@ -516,7 +514,7 @@ body#Index a.highlight_index
 /********************** Form style *************/
 
 div.field {
-	width: 420px;
+	width: 430px;
 	margin-top: 14px;
 	margin-left: auto;
 	margin-right: auto;
@@ -531,8 +529,13 @@ div.field {
 	font-size: 1.1em;
 }
 
+.field textarea {
+	width: 420px;
+}
+
 .field_size {
-	width: 96%;
+/*	width: 96%;*/
+	width: 425px;
 	height: 20px;
 }
 
@@ -554,10 +557,11 @@ textarea {
 }
 
 .actions {
-	width: 400px;
+	width: 430px;
 	margin-top: 10px;
-	margin-left: 110px;
-	margin-top: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
 }
 
 input:focus, textarea:focus  { 
@@ -596,23 +600,33 @@ a:visited {
 
 /********************** page layout ********/
 
-.page_main_list a {
-	/*border: 1px solid red;*/
-	margin-right: 30px;
+.link_buttons_0 a {
+	float: right;
+/*	border: 1px solid blue;*/
+	margin-right: 5px;
+	margin-left: 30px;
+	margin-top: 8px;
 }
 
 .page_main_list span {
 	color: #808080;
+/*	border: 1px solid pink;*/
 }
 
 .page_main {
 	float: left;
 	border-right: 1px dotted #808080;
-	/*border: 1px solid blue;*/
+	border: 1px solid blue;
 	min-height: 220px;
-	width: 640px;
-	margin-left: 30px;
-	padding: 0 30px 30px 0px;
+	width: 680px;
+	margin-left: 0;
+	padding: 0 20px 30px 0px;
+}
+
+.page_main_link {
+
+	width: 700px;
+
 }
 
 div.page_links {
@@ -620,8 +634,8 @@ div.page_links {
 	width: 220px;
 	margin-left: 0;
 	margin-right: 0;
-	margin-top: 0;
-/*	border: 1px dotted red;*/
+	margin-top: -12px;
+	border: 1px dotted red;
 }
 
 .page_links li {
@@ -652,12 +666,11 @@ div.page_links {
 span.joke_name {
 	width: 320px !important;
 	font-weight: bold;
-/*	border: 1px solid red;	*/
+	border: 1px solid red;	
 }
 
 #joke_ids_ {
 	border: 1px solid red;
-	margin-top: -10px;
 	margin-top: 10px;
 }
 
@@ -689,6 +702,12 @@ div.joke_content p:first-child {
 /*	border: 1px solid red;*/
 }
 
+.joke_approve_unapprove {
+	width: 700px;
+	margin-bottom: 30px;
+	text-align: center; 
+	border: 1px solid blue;
+}
 
 /********************* Links page **************/
 
@@ -697,13 +716,13 @@ div.links {
 	/*margin-left: 20px;*/
 	margin-top: -8px;
 	margin-bottom: 20px;
-	font-size: 1.1em;
+	font-size: 1em;
 }
 
 .links span {
 	margin-right: 5px;
 	float: left;
-	width: 200px;
+	width: 165px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 /*	border: 1px solid red;*/
@@ -718,13 +737,21 @@ div.links {
 .link_cat_width {
 	float: left; 
 	width: 140px;
-/*	border: 1px solid red;*/
 }
 
 .link_date_width {
 	float: left; 
-	width: 130px;
-/*	border: 1px solid red;*/
+	width: 80px;
+}
+
+.link_buttons {
+	float: right;
+}
+
+.link_buttons a { 
+	float: right; 
+	margin-right: 0; 
+	margin-left: 40px;
 }
 
 .links_row {
@@ -787,19 +814,33 @@ div.fun_fact_content p:last-child {
 }
 
 .title2 {
-	width: 500px;
-  margin-left: 110px;
+	width: 430px;
+  margin-left: 124px;
 }
 
 .center { text-align: center; }
 
+.margin_auto { margin-left: auto;	margin-right: auto; }
+
 .margin_left_5 { margin-left: 5px; }
 
+.margin_left_10 { margin-left: 10px; }
+
+.margin_left_20 { margin-left: 20px; }
+
+.margin_left_30 { margin-left: 30px; }
+
 .margin_10 { border: 1px solid red; }
+
+.margin_left_40 { margin-left: 40px; }
 
 .margin_left_60 { margin-left: 60px; }
 
 .margin_right_20 { margin-right: 20px; }
+
+.margin_right_40 { margin-right: 40px; }
+
+.margin_right_20 { margin-right: 40px; }
 
 .margin_bottom_0 { margin-bottom: 0; }
 
@@ -812,6 +853,9 @@ div.fun_fact_content p:last-child {
 .margin_top_n20 { margin-top: -20px; }
 
 .padding_tb_5 { margin-top: 10px; margin-bottom: 10px; }
+
+.margin_right_0 { margin-right: 0 !important; }
+.padding_right_0 { padding-right: 0 !important; }
 
 .padding_top_10 { padding-top: 10px; }
 
@@ -834,13 +878,14 @@ div.fun_fact_content p:last-child {
 .border_bottom_grey { border-bottom: 1px solid #CFD4D3; }
 
 .bold { font-weight: bold; }
-
 .list_no_style { list-style-type: none; }
 
 .float_left { float: left; }
 .float_right { float: right; }
-
 .width_150 { width: 150px; /*border: 1px solid red;*/}
+.width_200 { width: 200px; /*border: 1px solid red;*/}
+.width_250 { width: 250px; /*border: 1px solid red;*/}
+.width_700 { width: 700px; /*border: 1px solid red;*/}
 
 .flash, .alert { 
 	margin-top: 8px; 

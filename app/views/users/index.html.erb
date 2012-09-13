@@ -2,59 +2,78 @@
 <h2 class="center title_font center padding_top_10">All Users</h2>
 
 <div class="content_container">
-	<%= will_paginate %>
-		<div class="margin_top_10 margin_auto clearfix">
-			<span class="font_2 width_150 float_left">
-			  <%= link_to current_user.username, edit_user_path(current_user) %>
-			</span>
-			<span class="font_color_grey margin_left_10 width_150 float_left">
-			  Joke entered: 
-			  <span class="margin_left_5"><%= jokes_entered_by_user(current_user.username) %></span>
-			</span>
-			<span class="font_color_grey margin_left_10 width_250 float_left">
-			  Challenges answered correctly: 
-			  <span class="margin_left_5"><%= correct_answers_by_user(current_user.username) %></span>
-			</span>
-    </div>
+	<div class="margin_left_40 margin_right_40">
+		<%= will_paginate %>
+		  <% if current_user.privilege == "super user" || current_user.privilege == "admin"%>
+				<div class="margin_top_10 margin_auto clearfix">
+					<span class="font_2 width_200 float_left">
+					  <%= link_to current_user.username, edit_user_path(current_user) %>
+					</span>
+					<span class="font_grey margin_left_10 width_150 float_left">
+					  Joke entered: 
+					  <span class="margin_left_5"><%= jokes_entered_by_user(current_user.username) %></span>
+					</span>
+					<span class="font_grey margin_left_10 width_250 float_left">
+					  Challenges answered correctly: 
+					  <span class="margin_left_5"><%= correct_answers_by_user(current_user.username) %></span>
+					</span>
+		    </div>
+		  <% else %>
+				<div class="margin_top_10 margin_auto width_700 clearfix">
+					<span class="font_2 width_250 float_left">
+					  <%= link_to current_user.username, edit_user_path(current_user) %>
+					</span>
+					<span class="font_grey margin_left_10 width_150 float_left">
+					  Joke entered: 
+					  <span class="margin_left_5"><%= jokes_entered_by_user(current_user.username) %></span>
+					</span>
+					<span class="font_grey margin_left_10 width_250 float_left">
+					  Challenges answered correctly: 
+					  <span class="margin_left_5"><%= correct_answers_by_user(current_user.username) %></span>
+					</span>
+		    </div>
+		  <% end %>
 
-	  <% @users.each do |user| %>
-			<% if current_user.privilege == "super user" || current_user.privilege == "admin"%>
-				<% if current_user.id != user.id %>
-				  <div class="margin_auto clearfix">
-				    <span class="bold font_2 width_150 float_left">
-				      <%= link_to user.username, user %>
-				    </span>
-						<span class="font_color_grey margin_left_10 width_150 float_left">
-							Joke entered: 
-							<span class="margin_left_5"><%= jokes_entered_by_user(user.username) %></span>
-						</span>
-						<span class="font_color_grey margin_left_10 width_250 float_left">
-							Challenges answered correctly: 
-							<span class="margin_left_5"><%= correct_answers_by_user(user.username) %></span>
-						</span>
-				    <span class="float_left"><%= link_to "Update Privilege", user %> 
-				      <span class="margin_right_10 margin_left_10">|</span>
-				      <%= link_to "Delete User", user, :method => :delete, 
-				          :confirm => "Deleting user #{full_name(user.firstname, user.lastname)}?" %>
-				    </span>
-				  </div>
-        <% end %>
-        <br />
-			<% else %>
-				<% if current_user.id != user.id %>
-				  <div  class="margin_auto clearfix">
-				    <span class="font_2 width_150 float_left"><%= user.username %></span>
-					  <span class="font_color_grey margin_left_10 width_150 float_left">
-							Joke entered: <span class="margin_left_5"><%= jokes_entered_by_user(user.username) %></span>
-						</span>
-						<span class="font_color_grey margin_left_10 width_250 float_left">
-							Challenges answered correctly: <span class="margin_left_5">
-							<%= correct_answers_by_user(user.username) %></span>
-						</span>
-					</div>
+		  <% @users.each do |user| %>
+				<% if current_user.privilege == "super user" || current_user.privilege == "admin"%>
+					<% if current_user.id != user.id %>
+					  <div class="margin_auto clearfix">
+					    <span class="bold font_2 width_200 float_left">
+					      <%= link_to user.username, user %>
+					    </span>
+							<span class="font_grey margin_left_10 width_150 float_left">
+								Joke entered: 
+								<span class="margin_left_5"><%= jokes_entered_by_user(user.username) %></span>
+							</span>
+							<span class="font_grey margin_left_10 width_250 float_left">
+								Challenges answered correctly: 
+								<span class="margin_left_5"><%= correct_answers_by_user(user.username) %></span>
+							</span>
+					    <span class="float_right"><%= link_to "Update Privilege", user %> 
+					      <span class="margin_left_60">
+					        <%= link_to "Delete User", user, :method => :delete, 
+					          :confirm => "Deleting user #{full_name(user.firstname, user.lastname)}?" %>
+					      </span>
+					    </span>
+					  </div>
+	        <% end %>
+	        <br />
+				<% else %>
+					<% if current_user.id != user.id %>
+					  <div  class="padding_top_10 width_700 margin_auto clearfix">
+					    <span class="font_2 width_250 float_left"><%= user.username %></span>
+						  <span class="font_grey margin_left_10 width_150 float_left">
+								Joke entered: <span class="margin_left_5"><%= jokes_entered_by_user(user.username) %></span>
+							</span>
+							<span class="font_grey margin_left_10 width_250 float_left">
+								Challenges answered correctly: <span class="margin_left_5">
+								<%= correct_answers_by_user(user.username) %></span>
+							</span>
+						</div>
+					<% end %>
 				<% end %>
-			<% end %>
-	  <% end %>
+		  <% end %>
 
-	<%= will_paginate %>
+  	<%= will_paginate %>
+  </div>
 </div>

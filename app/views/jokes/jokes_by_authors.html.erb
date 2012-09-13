@@ -5,7 +5,7 @@
 	<span class="font_grey_small">Jokes that have already been displayed</span></h2>
 	<div class="page_main page_main_list clearfit">
     <% @authors.each do |author| %>
-      <h3 class="margin_top_20">By <%= author %> 
+      <h3 class="margin_left_20 margin_top_20">By <%= author %> 
 	      <span class="font_color_grey small">(<%= joke_author_count(author) %>)</span>
 	    </h3>
 	
@@ -16,7 +16,7 @@
 				      <span class="joke_name font_2 float_left">
 				        <%= link_to joke.name, joke %>
 					    </span>
-				      <span class="float_left">
+				      <span class="float_right">
 				        <!-- By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> --> 
 				        on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 				      </span>

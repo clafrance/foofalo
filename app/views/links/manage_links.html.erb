@@ -13,8 +13,9 @@
 		      </span>
 					<span class="link_cat_width"><%= link.category %></span>
 					<span class="link_date_width"><%= link.created_at.strftime("%m/%d/%Y") %></span>
-		      <%= link_to "Edit", edit_link_path(link) %>
+					<span class="link_buttons">      
 		      <%= link_to "Delete", link, :method => :delete, :confirm => "Deleting link #{link.name}?" %>
+		      <%= link_to "Edit", edit_link_path(link) %></span>
 				</div>
 		  <% end %>
 	  </ul>

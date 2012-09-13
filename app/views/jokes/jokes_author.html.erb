@@ -13,7 +13,7 @@
 				       <span class="joke_name font_2 float_left">				       
 					       <%= link_to joke.name, joke %>
 						   </span>
-	             <span class="float_left">
+	             <span class="float_right">
 		             on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 		           </span>
 		        </div>
@@ -29,9 +29,9 @@
 				       <span class="joke_name font_2 float_left">				       
 					       <%= link_to joke.name, joke %>
 						   </span>
-	             <span class="float_left">
-		             on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
-		             <%= joke.status %>
+	             <span class="float_right">
+		             Created on: <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+		             <span class="margin_left_60">been <%= joke.status %></span>
 		           </span>
 		        </div>
 	          <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>

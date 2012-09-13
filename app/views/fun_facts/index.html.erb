@@ -14,10 +14,10 @@
 				      <span class="joke_name font_2 float_left">
 			          <%= link_to fun_fact.name, fun_fact %>
 			        </span>
-			        <span class="float_right">
-						    <%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
-						    <%= link_to "delete", fun_fact, :method => :delete, 
+			        <span class="link_buttons_0">
+						    <%= link_to "Delete", fun_fact, :method => :delete, 
 						          :confirm => "Deleting fun_fact #{fun_fact.name}?" %>
+						    <%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
 						  </span>
 						</div>
 			      <div class="joke_content clearfix round_all"><%= simple_format fun_fact.content %></div>
