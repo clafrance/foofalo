@@ -3,7 +3,7 @@
 <h2 class="title_font center padding_top_10">Update My Profile</h2>
 
 <div class="content_container padding_top_10 clearfix">
-	<% if current_user != "guest" %>
+	<% if current_user.username != "guest" %>
 		<%= form_for(@user) do |f| %>
 		  <%= render 'shared/error_messages', :object => f.object %>
 
