@@ -34,7 +34,7 @@ class SessionsController < ApplicationController
       sign_in(user)
     else
       sign_out
-      flash[:notice] = "Previous user has been signed out, try signin again."
+      flash[:notice] = "Previous user: #{current_user} has been signed out, try signin again."
       redirect_to signin_url
     end
   end
@@ -44,8 +44,8 @@ class SessionsController < ApplicationController
     redirect_to root_url, :notice => "See you next time!"
   end
   
-  def guest
-    user = User.find_by_username("guest")
-    sign_in(user)
-  end
+  # def guest
+  #   user = User.find_by_username("guest")
+  #   sign_in(user)
+  # end
 end
