@@ -30,6 +30,8 @@ class SessionsController < ApplicationController
         flash.now.alert = "Invalid username or password"
         render "new"
       end
+    elsif current_user == "guest"
+      sign_in(user)
     else
       sign_out
       flash[:notice] = "Previous user has been signed out, try signin again."
@@ -40,5 +42,10 @@ class SessionsController < ApplicationController
   def destroy
     sign_out
     redirect_to root_url, :notice => "See you next time!"
+  end
+  
+  def guest
+    user = User.find_by_username("guest")
+    sign_in(user)
   end
 end
