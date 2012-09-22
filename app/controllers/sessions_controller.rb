@@ -44,8 +44,8 @@ class SessionsController < ApplicationController
     redirect_to root_url, :notice => "See you next time!"
   end
   
-  # def guest
-  #   user = User.find_by_username("guest")
-  #   sign_in(user)
-  # end
+  def guest
+    user = User.find_by_username("guest")
+    sign_in(user)
+  end
 end
