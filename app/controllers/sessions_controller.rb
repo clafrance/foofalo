@@ -47,5 +47,6 @@ class SessionsController < ApplicationController
   def guest
     user = User.find_by_username("guest")
     sign_in(user)
+    redirect_to index_url
   end
 end
