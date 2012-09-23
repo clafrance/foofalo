@@ -59,17 +59,12 @@ class UsersController < ApplicationController
   
   def update
     @user = User.find(params[:id])
-
-    if @user = current_user 
-      if @user.username != "guest"
-        if @user.update_attributes(params[:user])
-          flash[:success] = "Profile Updated"
-          redirect_to @user
-        else
-          render 'edit'
-        end
+    if @user = current_user
+      if @user.update_attributes(params[:user])
+        flash[:success] = "Profile Updated"
+        redirect_to @user
       else
-        flash[:notice] = "Guest user can't update user profile"
+        render 'edit'
       end
     else
       flash[:notice] = "You can only update your own profile"
