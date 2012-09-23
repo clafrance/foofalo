@@ -30,8 +30,6 @@ class SessionsController < ApplicationController
         flash.now.alert = "Invalid username or password"
         render "new"
       end
-    # elsif current_user == "guest"
-    #   sign_in(user)
     else
       sign_out
       flash[:notice] = "Previous user: #{current_user} has been signed out, try signin again."

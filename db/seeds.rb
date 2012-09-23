@@ -7,23 +7,23 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-# User.create(
-#   id: 1, 
-#   firstname: "Christie", 
-#   lastname: "Lafrance", 
-#   email: "christie.lafrance@gmail.com", 
-#   created_at: "2012-03-28 06:34:25", 
-#   updated_at: "2012-03-28 06:34:41", 
-#   password_digest: "$2a$10$D8dMdFjKG6zz8g9jhYn98uZ6Z5G/r4giyj1p/Ru76RILqUWqtj/SO", 
-#   remember_token: "ms7t0wDkH5IA24QWvDJ-SA", 
-#   privilege: 0, 
-#   username: "aa", 
-#   password_reset_token: nil, 
-#   password_reset_sent_at: nil, 
-#   inform_parents_token: "feH5l7Mo-9kOdJ_DVS0gHA", 
-#   inform_parents_sent_at: "2012-03-28 06:34:25", 
-#   parent_approved: "Yes", 
-#   parent_approved_at: "2012-03-28 06:34:41")
+User.create(
+  id: 1, 
+  firstname: "Christie", 
+  lastname: "Lafrance", 
+  email: "christie.lafrance@gmail.com", 
+  created_at: "2012-03-28 06:34:25", 
+  updated_at: "2012-03-28 06:34:41", 
+  password_digest: "$2a$10$D8dMdFjKG6zz8g9jhYn98uZ6Z5G/r4giyj1p/Ru76RILqUWqtj/SO", 
+  remember_token: "ms7t0wDkH5IA24QWvDJ-SA", 
+  privilege: 0, 
+  username: "aa", 
+  password_reset_token: nil, 
+  password_reset_sent_at: nil, 
+  inform_parents_token: "feH5l7Mo-9kOdJ_DVS0gHA", 
+  inform_parents_sent_at: "2012-03-28 06:34:25", 
+  parent_approved: "Yes", 
+  parent_approved_at: "2012-03-28 06:34:41")
 
 Joke.create(
   name: 'Law of Refrigerator Observation', 
