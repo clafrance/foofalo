@@ -236,6 +236,22 @@ img.game_image_home {
   margin: -11.3em 160px 0 0;
 }
 
+/*a.signup_button {
+	display: block;
+	width: 170px;
+  background: #F2A81A;
+  padding: 20px;
+	margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+  text-align: center;
+  color: white !important;
+  font-size: 150%;
+  font-weight: bold;
+  text-decoration: none;
+}*/
+
 a.signup_button {
   display: block;
 	width: 170px;
@@ -455,6 +471,7 @@ footer {
   text-align: center;
   font-size: .8em; 
   color: #565957;
+
 }
 
 footer span, footer a  {
@@ -492,11 +509,6 @@ body#Index a.highlight_index
 	text-align: center;
 	margin-top: 40px;
 	margin-bottom: 40px;
-}
-
-#signin_username input {
-	float: left;
-	width: 410px;
 }
 
 /********************** Form style *************/

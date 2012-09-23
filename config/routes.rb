@@ -29,7 +29,6 @@ Foofalo::Application.routes.draw do
   match '/users',            :to => 'users#index'
   match '/users',            :to => 'static_pages#home'
   match '/signin',           :to => 'sessions#new'
-  match '/guest',            :to => 'sessions#guest'
   match '/signout',          :to => 'sessions#destroy'
   match '/updateuser',       :to => 'users#update_privilege'
   match '/newjoke',          :to => 'jokes#new'
