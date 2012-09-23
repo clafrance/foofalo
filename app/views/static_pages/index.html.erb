@@ -21,11 +21,13 @@
 	    <div class="challenge_content clearfix">
 	      <h3><%= @the_random_challenge.name %></h3>
 	      <div class="content_index joke_content font_0"><%= simple_format(@the_random_challenge.content) %></div>
-	      <% if @current_user_answer.length < 1 %>
-	        <%= render 'select_answer' %> 
-	      <% else %>
-	        <%= render 'show_answer' %>
-	      <% end %>
+	      <div class="margin_left_10">
+		      <% if @current_user_answer.length < 1 %>
+		        <%= render 'select_answer' %> 
+		      <% else %>
+		        <%= render 'show_answer' %>
+		      <% end %>
+		    </div>
 		  </div>
 		</div>	
   </div>

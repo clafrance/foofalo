@@ -343,6 +343,10 @@ div.challenge_title_area {
 	text-align: center;
 }
 
+#challenge_details textarea {
+	width: 495px;
+}
+
 .challenge_answer {
 /*	border: 1px solid red;*/
 	width: 360px;
