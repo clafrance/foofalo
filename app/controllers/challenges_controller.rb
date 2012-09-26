@@ -7,28 +7,28 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new
     @focus ="autofocus"
   end
-  
-  def create
-    @challenge = current_user.challenges.build(params[:challenge])
-    @challenge.author = current_user.username
-  
-      id = @challenge.id
-      col_name = @challenge.correct_col_name
-      correct_answer = Challenge.find(:all, :select => "#{@challenge.correct_col_name}", :conditions => ["id=?", @challenge.id])
-      @challenge.correct_answer = correct_answer[0][col_name]
-          if @challenge.save && !@challenge.correct_answer.nil?
-              flash[:success] = "Challenge has been created."
-              redirect_to @challenge
-      # if @challenge.save
-      #   flash[:success] = "Challenge has been created."
-      #   redirect_to @challenge
-      # else
-      #   render 'new'
-      # end
-    else
-      render 'new'
-    end
-  end
+  # 
+  # def create
+  #   @challenge = current_user.challenges.build(params[:challenge])
+  #   @challenge.author = current_user.username
+  # 
+  #     id = @challenge.id
+  #     col_name = @challenge.correct_col_name
+  #     correct_answer = Challenge.find(:all, :select => "#{@challenge.correct_col_name}", :conditions => ["id=?", @challenge.id])
+  #     @challenge.correct_answer = correct_answer[0][col_name]
+  #         if @challenge.save && !@challenge.correct_answer.nil?
+  #             flash[:success] = "Challenge has been created."
+  #             redirect_to @challenge
+  #     # if @challenge.save
+  #     #   flash[:success] = "Challenge has been created."
+  #     #   redirect_to @challenge
+  #     # else
+  #     #   render 'new'
+  #     # end
+  #   else
+  #     render 'new'
+  #   end
+  # end
   
   def create
     @challenge = current_user.challenges.build(params[:challenge])
