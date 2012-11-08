@@ -891,13 +891,12 @@ div.fun_fact_content p:last-child {
 
 .border_bottom_grey { border-bottom: 1px solid #CFD4D3; }
 
-.width_250 { width: 300px; }
-
 .bold { font-weight: bold; }
 .list_no_style { list-style-type: none; }
 
 .float_left { float: left; }
 .float_right { float: right; }
+.width_120 { width: 120px; /*border: 1px solid red;*/}
 .width_150 { width: 150px; /*border: 1px solid red;*/}
 .width_200 { width: 200px; /*border: 1px solid red;*/}
 .width_250 { width: 250px; /*border: 1px solid red;*/}

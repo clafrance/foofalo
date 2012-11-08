@@ -29,6 +29,7 @@ class JokesController < ApplicationController
     #@jokes_by_date = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
     #@jokes_by_author = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
     @total_jokes_count = Joke.all.count
+    @display_joke = DisplayObject.where(:obj_type => "joke")
   end
   
   def show
@@ -45,6 +46,7 @@ class JokesController < ApplicationController
     @jokes_unapproved = Joke.where(:author => current_user.username, :status => "unapproved").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
     @jokes_review = Joke.where(:author => current_user.username, :status => "reviewing").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
     @jokes = Joke.where(:author => current_user.username).order("#{:name}").paginate(:page => params[:page], :per_page => 20)
+    @display_joke = DisplayObject.where(:obj_type => "joke")
   end
   
   def jokes_author
@@ -134,10 +136,16 @@ class JokesController < ApplicationController
   # end  
   
   def destroy
+    @display_joke = DisplayObject.where(:obj_type => "joke")
     joke = Joke.find(params[:id])
-    joke.destroy
-    flash[:success] = "Joke #{joke.name} has been deleted."
-    redirect_to jokes_path
+    if joke.id != @display_joke[0].obj_id
+      joke.destroy
+      flash[:success] = "Joke #{joke.name} has been deleted."
+      redirect_to jokes_path
+    else
+      flash[:notice] = "Can't delete the joke, it is displayed in the Home page."
+      redirect_to jokes_path
+    end
   end
 
 end

@@ -13,6 +13,9 @@
 			      <div class="clearfix margin_bottom_0">
 				      <span class="joke_name font_2 float_left">
 						    <%= link_to challenge.name, challenge %>
+						    <% if challenge.id == @display_challenge[0].obj_id %>
+						      <span> * </span>
+						    <% end %>
 						  </span>
 							<span class="link_buttons_0">
 							  <%= link_to "Delete", challenge, :method => :delete, 

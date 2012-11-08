@@ -7,7 +7,7 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new
     @focus ="autofocus"
   end
-  # 
+  
   # def create
   #   @challenge = current_user.challenges.build(params[:challenge])
   #   @challenge.author = current_user.username
@@ -60,6 +60,7 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = Challenge.where(:status => "displayed").order(:name)
+    @display_challenge = DisplayObject.where(:obj_type => "challenge")
     #@challenges = Challenge.find(:all)
   end
   
@@ -78,12 +79,17 @@ class ChallengesController < ApplicationController
   end
   
   def destroy
+    @display_challenge = DisplayObject.where(:obj_type => "challenge")
     challenge = Challenge.find(params[:id])
-    challenge.destroy
-    flash[:success] = "Challenge #{challenge.name} has been deleted."
-    redirect_to challenges_path
-  end
-  
+    if challenge.id != @display_challenge[0].obj_id
+      challenge.destroy
+      flash[:success] = "Challenge #{challenge.name} has been deleted."
+      redirect_to challenges_path
+    else
+      flash[:notice] = "Can't delete the challenge, it is displayed in the Home page."
+      redirect_to challenges_path
+    end
+  end  
   
   def submit_answer
     challenge_id = params[:challenge_id]

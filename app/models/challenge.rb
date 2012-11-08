@@ -16,26 +16,26 @@ class Challenge < ActiveRecord::Base
   validates :status, :presence => true
   
   validates :a, :presence => true,
-              :length => { :maximum => 128 }
+            :length => { :maximum => 128 }
               
   validates :b, :presence => true,
-              :length => { :maximum => 128 }
+            :length => { :maximum => 128 }
               
   validates :c, :presence => true,
-              :length => { :maximum => 128 }
+            :length => { :maximum => 128 }
               
   validates :d, :presence => true,
-              :length => { :maximum => 128 }
+            :length => { :maximum => 128 }
               
   validates :e, :length => { :maximum => 128 }
   
   validates :explanation, :length => { :maximum => 400 }
   
   validates :correct_col_name, :presence => true,
-              :length => { :maximum => 16 }
+            :length => { :maximum => 16 }
               
   validates :correct_answer, # :presence => true,
-              :length => { :maximum => 128 }
+            :length => { :maximum => 128 }
                                  
   default_scope order: 'challenges.created_at DESC'
   

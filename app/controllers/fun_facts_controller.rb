@@ -28,6 +28,7 @@ class FunFactsController < ApplicationController
 
   def index
     @fun_facts = FunFact.find(:all)
+    @display_funfact = DisplayObject.where(:obj_type => "fun_fact")
   end
   
   def edit
@@ -45,9 +46,15 @@ class FunFactsController < ApplicationController
   end
   
   def destroy
+    @display_funfact = DisplayObject.where(:obj_type => "fun_fact")
     fun_fact = FunFact.find(params[:id])
-    fun_fact.destroy
-    flash[:success] = "Fun fact #{fun_fact.name} has been deleted."
-    redirect_to fun_facts_path
+    if @display_funfact[0].obj_id != fun_fact.id
+      fun_fact.destroy
+      flash[:success] = "Fun fact #{fun_fact.name} has been deleted."
+      redirect_to fun_facts_path
+    else
+      flash[:notice] = "Can't delete the fun fact, it is displayed in the Home page."
+      redirect_to fun_facts_path    
+    end
   end
 end

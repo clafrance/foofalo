@@ -26,10 +26,14 @@
 							       <%= link_to joke.name, joke %>
 								   </span>
 			             <span class="float_right">
-				             <span class="float_left width_150">
+				             <span class="float_left width_120">
 					               By:  <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
 					           </span> 
+					           <span class="float_left width_120">
 				                 <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+				             </span>
+										 <%= link_to "Delete", joke, :method => :delete, 
+											        :confirm => "Deleting joke #{joke.name}?" %>
 				           </span>
 				        </div>
 			          <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
@@ -59,10 +63,14 @@
 							   </span>
 													
 		             <span class="float_right">
-			             <span class="float_left width_150">
+			             <span class="float_left width_120">
 				              By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
 				           </span>
+				           <span class="float_left width_120">
 			                <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+			             </span>
+									 <%= link_to "Delete", joke, :method => :delete, 
+										        :confirm => "Deleting joke #{joke.name}?" %>
 			           </span>
 					
 			        </div>
@@ -81,12 +89,19 @@
 				        <div class="clearfix margin_bottom_0">
 					        <span class="joke_name font_2 float_left">
 						        <%= link_to joke.name, joke %>
+						        <% if joke.id == @display_joke[0].obj_id %>
+						          <span> * </span>
+						        <% end %>
 							    </span>
 		              <span class="float_right">
-			              <span class="float_left width_150">
+			              <span class="float_left width_120">
 			                By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
 			              </span>
+			              <span class="float_left width_120">
 			                <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+			              </span>
+										<%= link_to "Delete", joke, :method => :delete, 
+											        :confirm => "Deleting joke #{joke.name}?" %>
 			            </span>
 			          </div>
 		            <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
@@ -107,12 +122,19 @@
 		        <div class="clearfix margin_bottom_0">
 			        <span class="joke_name font_2 float_left">
 				        <%= link_to joke.name, joke %>
+					      <% if joke.id == @display_joke[0].obj_id %>
+					        <span> * </span>
+					      <% end %>
 					    </span>
 	            <span class="float_right">
-		            <span class="float_left width_150">
+		            <span class="float_left width_120">
 	                 By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
 	              </span>
+	              <span class="float_left width_120">
 	                 <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+	              </span>
+								<%= link_to "Delete", joke, :method => :delete, 
+									        :confirm => "Deleting joke #{joke.name}?" %>
 	            </span>
 	          </div>
 	          <div class="joke_content margin_bottom_10 clearfix round_all"><%= simple_format(joke.content) %></div>
