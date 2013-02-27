@@ -51,6 +51,7 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
+    @display_challenge = DisplayObject.where(:obj_type => "challenge")
     if @challenge.status == "displayed"
       @display_status = "It hasn't been published." 
     else

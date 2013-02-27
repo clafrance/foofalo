@@ -10,6 +10,7 @@ Foofalo::Application.routes.draw do
   #resources :challenges
   resources :fun_facts
   resources :links
+  resources :games
   resources :manster_cards
 
   root :to => 'static_pages#home'

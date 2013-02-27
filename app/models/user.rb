@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :answers, :dependent => :destroy
   has_many :challenges
   has_many :fun_facts
+  has_many :games
   
   USER_PRIVILEGES = ["user", "super_user", "admin", "guest"]
   

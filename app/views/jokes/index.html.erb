@@ -17,12 +17,36 @@
 			<%= form_tag review_jokes_path, :method => :put do %>
 			  <div class="border_bottom_grey margin_bottom_40">
 			  <h3 class="margin_left_20">Unreviewed Jokes <span class="font_grey_small_1">(<%= @unreviewed_jokes.count %>)</span></h3>
+				<!-- <% @unreviewed_jokes.each do |joke| %>  
+					<ul>
+			      <li class="list_no_style">
+				      <div class="clearfix margin_bottom_0">
+					       <span class="joke_name font_2 float_left">
+						       <span class="jokes_checkbox float_left"><%= check_box_tag "joke_ids[]", joke.id %></span>
+						       <%= link_to joke.name, "#", :onclick => "toggle('#div1', 500)" %>
+							   </span>
+		             <span class="float_right">
+			             <span class="float_left width_120">
+				               By:  <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %>
+				           </span> 
+				           <span class="float_left width_120">
+			                 <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+			             </span>
+									 <%= link_to "Delete", joke, :method => :delete, 
+										        :confirm => "Deleting joke #{joke.name}?" %>
+			           </span>
+			        </div>
+		          <div class="joke_content clearfix round_all" id="div1"><%= simple_format(joke.content) %></div>
+			      </li>
+					</ul>
+        <% end %> -->
+			
 					<% @unreviewed_jokes.each do |joke| %>  
 						<ul>
 				      <li class="list_no_style">
 					      <div class="clearfix margin_bottom_0">
-						       <span class="joke_name font_2 float_left">
-							       <span class="jokes_checkbox float_left"><%= check_box_tag "joke_ids[]", joke.id %></span>
+						       <span class="joke_name font_2">
+							       <span class="jokes_checkbox"><%= check_box_tag "joke_ids[]", joke.id %></span>
 							       <%= link_to joke.name, joke %>
 								   </span>
 			             <span class="float_right">
@@ -82,7 +106,34 @@
 
       <div class="border_bottom_grey margin_bottom_40">
 			  <h3 class="margin_left_20">Approved Jokes <span class="font_grey_small_1">(<%= @jokes.count %>)</span></h3>	
-		    <% @jokes.each do |joke| %>
+			  <% @jokes.each do |joke| %>
+		      <%= will_paginate %>
+		        <ul>
+			        <li class="list_no_style">
+				        <div class="clearfix margin_bottom_0">
+					        <span class="joke_name font_2 float_left">
+						        <%= link_to joke.name, "#", :onclick => "toggle(\"#div#{@jokes_displayed.index(joke)}\", 500)" %>
+						        <% if joke.id == @display_joke[0].obj_id %>
+						          <span> * </span>
+						        <% end %>
+							    </span>
+		              <span class="float_right">
+			              <span class="float_left width_120">
+			                By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
+			              </span>
+			              <span class="float_left width_120">
+			                <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+			              </span>
+										<%= link_to "Delete", joke, :method => :delete, 
+											        :confirm => "Deleting joke #{joke.name}?" %>
+			            </span>
+			          </div>
+		            <div class="hide" id="div<%= @jokes_displayed.index(joke) %>"><%= simple_format(joke.content) %></div>
+			        </li>
+			      </ul>
+				  <%= will_paginate %>
+			  <% end %>
+		    <!-- <% @jokes.each do |joke| %>
 		      <%= will_paginate %>
 		        <ul>
 			        <li class="list_no_style">
@@ -108,16 +159,62 @@
 			        </li>
 			      </ul>
 				  <%= will_paginate %>
-			  <% end %>	
+			  <% end %>	 -->
 			</div>	
 	  <% end %>
 	
-	  <div class="margin_bottom_40">
+    <div class="margin_bottom_40">
 		  <h3 class="margin_left_20">Displayed Jokes 
 			  <span class="font_grey_small_1">(<%= @jokes_displayed.count %>)</span>
 			</h3>
 	    <ul>
-	       <% @jokes_displayed.each do |joke| %>
+		    <% @jokes_displayed.each do |joke| %>
+	        <li class="list_no_style">
+		        <div class="clearfix margin_bottom_0">
+			        <span class="joke_name font_2">
+				        <%= link_to joke.name, "#", :onclick => "toggle('.jokedetails', \"div#{@jokes_displayed.index(joke)}\", 200); return false;" %>
+					      <% if joke.id == @display_joke[0].obj_id %>
+					        <span> * </span>
+					      <% end %>
+					    </span>
+	            <span class="float_right">
+		            <span class="float_left width_120">
+	                 By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
+	              </span>
+	              <span class="float_left width_120">
+	                 <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+	              </span>
+								<%= link_to "Delete", joke, :method => :delete, 
+									        :confirm => "Deleting joke #{joke.name}?" %>
+	            </span>
+	          </div>
+	          <div class="hide jokedetails" id="div<%= @jokes_displayed.index(joke) %>"><%= simple_format(joke.content) %></div>
+	        </li>
+	      <% end %>
+		    <!-- <% @jokes_displayed.each do |joke| %>
+	        <li class="list_no_style">
+		        <div class="clearfix margin_bottom_0">
+			        <span class="joke_name font_2">
+				        <%= link_to joke.name, "#", :onclick => "toggle(\"#div#{@jokes_displayed.index(joke)}\", 1000); return false;" %>
+					      <% if joke.id == @display_joke[0].obj_id %>
+					        <span> * </span>
+					      <% end %>
+					    </span>
+	            <span class="float_right">
+		            <span class="float_left width_120">
+	                 By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> 
+	              </span>
+	              <span class="float_left width_120">
+	                 <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+	              </span>
+								<%= link_to "Delete", joke, :method => :delete, 
+									        :confirm => "Deleting joke #{joke.name}?" %>
+	            </span>
+	          </div>
+	          <div class="hide" id="div<%= @jokes_displayed.index(joke) %>"><%= simple_format(joke.content) %></div>
+	        </li>
+	      <% end %> -->
+	      <!-- <% @jokes_displayed.each do |joke| %>
 	        <li class="list_no_style">
 		        <div class="clearfix margin_bottom_0">
 			        <span class="joke_name font_2 float_left">
@@ -139,8 +236,8 @@
 	          </div>
 	          <div class="joke_content margin_bottom_10 clearfix round_all"><%= simple_format(joke.content) %></div>
 	        </li>
-	      <% end %>	
-	     </ul>
+	      <% end %> -->	
+	    </ul>
 	  </div>
   </div>
 

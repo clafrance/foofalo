@@ -1,0 +1,934 @@
+a { text-decoration: none; 
+	  color: #368BB5;
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	background: #DCDEDC;
+}
+
+.frame {
+	display: table;
+	width: 100%;
+}
+
+html>/**/body .frame {
+	height: 100%;
+}
+
+.row {
+	display: table-row;
+	height: 1px;
+	overflow: hidden;
+}
+
+html>body .row.expand {
+	height: auto;
+}
+
+#page {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	background-color: #fff;
+	border: 1px solid #BBBFBF;
+	margin: -86px auto 0 auto;
+	width: 960px;
+	height: auto;
+/*	padding-top: -20px;*/
+/*	border: 1px solid red;*/
+}
+
+.top {
+  border-bottom: 1px solid #BBBFBF;
+  height: 140px; 
+  margin-top: 0px; 	
+	background: #C7D1CA;
+	/*border: 1px solid yellow;*/
+}
+
+.content_container {
+	width: 930px;
+  margin: 10px 30px 30px 30px;
+	min-height: 300px;
+/*	border: 1px solid gray;*/
+}
+
+header {
+	height: 55px;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	background: #C7D1CA;
+	/*border: 1px solid green;*/
+	border: none !important;	
+}
+
+header img {
+  margin-top: 19px;
+  margin-left: 10px;
+}
+
+nav {
+	float: right;
+  margin-top: 24px;
+  margin-bottom: -6px;
+  /*border: 1px solid green;*/
+}
+
+nav a {
+  font-size: 1.2em;
+	font-weight: bold;
+	color: #368BB5 !important;
+	margin-right: 20px;
+	margin-bottom: 0px;
+}
+
+nav span {
+	margin-right: 40px;
+}
+
+.page_title {
+	width: 700px;
+	text-align: center;
+	font-size: 2.2em;
+	margin-top: 10px;
+	margin-bottom: 30px;
+	/*margin-left: 20px;*/
+	/*border: 1px solid red;*/
+}
+
+.page_title_full {
+	text-align: center;
+	font-size: 2.2em;
+	margin-top: 25px;
+	margin-bottom: -5px;
+/*	border: 1px solid red;*/
+}
+
+/********** Nav menu on top **********/
+.nav_bar {
+	width: 98%;
+	background: #55B536;
+	border-left: 1px solid green;
+	border-right: 1px solid green;
+	border-top: 1px solid green;
+}
+
+.nav_bar_container {
+  float: left;
+  width: 750px;
+  max-width: 950px;
+  margin-left: 90px;
+/*	border: 1px solid black;*/
+}
+
+.nav_bar li {
+	list-style-type: none;
+	float: left;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-right: 20px;
+	padding-left: 20px;
+	/*font-size: 1.3em;*/
+	font-size: 16px;
+/*	border: 1px solid blue;*/
+}
+
+.nav_bar a {
+	color: #fff;
+}
+
+.nav_bar a:hover  {
+/*	color: #BA6204 !important;
+	color: #BA5604 !important;*/
+	height: 20px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+	/*text-decoration: none;*/
+}
+
+.nav_bar a:visited {
+	color: #fff;
+	height: 20px;
+	padding-top: 5px;
+	padding-bottom: 3px;
+}
+
+body#Index li.home_link,
+body#Jokes li.jokes_link,
+body#EditJoke li.jokes_link,
+body#JokesByAuthor li.jokes_link,
+body#JokesByAuthors li.jokes_link,
+body#JokesByDate li.jokes_link,
+body#MyJokes li.jokes_link,
+body#CreateJoke li.jokes_link,
+body#EditJoke li.jokes_link,
+body#Joke li.jokes_link,
+body#Challenges li.challenges_link,
+body#ViewChallenge li.challenges_link,
+body#CreateChallenge li.challenges_link,
+body#EditChallenge li.challenges_link,
+body#FunFacts li.fun_facts_link,
+body#CreateFunFact li.fun_facts_link,
+body#EditFunFact li.fun_facts_link,
+body#FunFact li.fun_facts_link,
+body#Games li.games_link,
+body#Links li.my_links,
+body#EditLink li.my_links,
+body#ManageLinks li.my_links,
+body#CreateLink li.my_links,
+body#MansterCards li.mansters_link {
+	background-color: #13A835;
+	color: #fff;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+/********** Home Page **********/
+
+img.joke_image_home {
+  float: left;
+  margin: 1em 0 0 60px;
+}
+
+img.challenge_image_home {
+  float: left;
+  margin: 15em 0 0 -260px;
+}
+
+img.manster_image_home {
+  float: left;
+  margin: 29em 0 0 -100px;
+}
+
+#logo_image {
+	float: left;
+	margin-top: 4em;
+  margin-left: -50px;
+  padding: 0 20px 0 20px;
+}
+
+#home_main {
+	float: left;
+	width: 360px;
+	margin-top: -34em;
+  margin-left: 256px;
+  padding: 20px 20px 0 20px;
+  text-align: justify;
+}
+
+#home_main p { margin-left: 16px; }
+	
+img.funfact_image_home {
+  float: right;
+  margin: -39.7em 55px 0 0;
+}
+
+img.links_image_home {
+  float: right;
+  margin: -25.6em 0 0 0;
+}
+
+img.game_image_home {
+  float: right;
+  margin: -11.3em 160px 0 0;
+}
+
+a.signup_button {
+  display: block;
+	width: 170px;
+	margin-top: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #F2A81A !important;
+  color: #4E8F0D !important;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+a.signup_button:hover {
+  text-decoration: none !important;
+  color: #F2A81A !important;
+}
+
+/************ Index Page **********/
+
+div.joke_Challenge {
+	float: left;
+/*	border: 1px solid blue;*/
+	width: 600px;
+	min-height: 500px;
+	padding: 0;
+}
+
+div.joke_of_day {
+	border: 2px solid red;
+	min-height: 192px;
+	max-height: 600px;
+	margin: 0 25px 25px 0;
+	padding: 20px 20px 0px 20px;
+}
+
+div.joke_title_area {
+	width: 500px;
+	margin-left: 10px;
+/*	border: 1px solid red;*/
+}
+
+.joke_title_area img {
+	float: left;
+	margin-bottom: -18px;
+/*	border: 1px solid red;*/
+}
+
+
+.joke_title_area h2,
+.challenge_title_area h2 {
+	float: left;
+  font-size: 2em; 
+	margin: 12px 12px 0 0;
+	text-align: center;
+/*		border: 1px solid red;*/
+}
+
+.joke_title_area h2 {
+	color: red;
+	margin-left: 90px;
+}
+
+.joke_content_home h3 {
+	text-align: center;
+	width: 360px;
+	margin-left: 90px;
+	margin-top: -5px;
+/*	border: 1px solid purple;*/
+}
+
+/*.joke_content_home {
+	padding: 0 10px;
+}*/
+
+div.challenge_of_week {
+	min-height: 250px;
+	max-height: 600px;
+	border: 2px solid #368BB5;
+	/*border: 1px solid #808080;*/
+	margin: 0 25px 0 0;
+	padding: 20px;
+}
+
+div.challenge_title_area {
+	width: 510px;
+/*	border: 1px solid red;*/
+}
+
+.challenge_title_area h2 {
+	color: #368BB5;
+	margin-left: 100px;
+}
+
+.challenge_title_area img {
+  /*border: 1px solid red;*/
+  margin-left: 60px;
+}
+
+.challenge_content h3:first-child {
+	width: 360px;
+	margin-left: 35px;
+	margin-top: -16px;
+/*	border: 1px solid red;*/
+	text-align: center;
+}
+
+#challenge_details textarea {
+	width: 495px;
+}
+
+.challenge_answer {
+/*	border: 1px solid red;*/
+	width: 360px;
+	margin-left: 35px;
+}
+
+.challenge_content h4 {
+	font-weight: bold;
+/*	border: 1px solid red;*/
+}
+
+.challenge_content div.field {
+	margin-left: 0;
+	/*border: 1px solid blue;*/
+}
+
+div.fact_links {
+	float: left;
+	width: 330px;
+	/*border: 1px solid blue;*/
+	min-height: 500px;
+	/*max-height: 800px;*/
+	padding: 0;
+}
+
+div.fun_fact {
+	border: 2px solid green;
+	min-height: 120px;
+	max-height: 600px;
+	margin: 0;
+	padding: 20px 20px 0px 20px;
+}
+
+div.fact_title_area {
+	width: 240px;
+/*	margin-bottom: -12px;*/
+/*	border: 1px solid red;*/
+}
+
+.fact_title_area h2 {
+	color: green;
+	width: 165px;
+	float: left;
+	margin: 12px 0 0 0;
+	text-align: center;
+}
+
+.fact_title_area img {
+	float: right;
+	margin-right: -5px;
+}
+
+.fact_content h3 {
+  width: 160px;
+  text-align: center;
+  margin-top: -4px;
+}
+
+div.my_links {
+	min-height: 150px;
+	max-height: 600px;
+	margin: 25px 0 0 0;
+	padding: 20px;
+	border: 2px solid orange;
+}
+
+.my_links h2 {
+	color: orange;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.my_links li {
+	list-style-type: none;
+	margin-right: 5px;
+	padding-top: 6px;
+	padding-bottom: 5px;
+	border-bottom: 1px dotted gray;
+}
+
+.my_links ol {
+	font-size: 1.1em;
+}
+
+.submit_home {
+/*	border: 1px solid red;*/
+	text-align: center;
+	margin-top: 7px;
+}
+
+
+div.content_index  {
+  background: #fff;
+}
+
+.fun_fact div.content_index p:last-child {
+	padding-top: 6px;
+  color: gray;
+}
+
+
+/********************** Footer *****/
+
+footer {
+	/*border: 1px solid red;*/
+  padding-top: 22px;
+  padding-bottom: 22px;
+  width: 100%;
+  text-align: center;
+  font-size: .8em; 
+  color: #565957;
+}
+
+footer span, footer a  {
+	margin-right: 6px;
+	margin-left: 6px;
+}
+
+/************************* Header *********/
+body#Users a.highlight_users,
+body#User a.highlight_users,
+body#EditUser a.highlight_profile,
+body#Index a.highlight_index
+ {
+	/*border: 1px solid red;*/
+	padding: 1px 5px;
+	background: #F0F5F3;
+		background: #fff;
+}
+
+/********************* Signin /Signup forms *****/
+
+.content_container p {
+	margin-top: 15px;
+	margin-bottom: 25px;
+	font-size: 1.1em;
+}
+
+#rememberme {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.sign_buttons {
+	/*border: 1px solid red;*/
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+#signin_username input {
+	float: left;
+	width: 410px;
+}
+
+/********************** Username, Password Reminder *************/
+
+#email, #username {
+	width: 300px;
+}
+
+
+/********************** Form style *************/
+
+div.field {
+	width: 430px;
+	margin-top: 14px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.field label {
+	font-size: 1.1em;
+}
+
+.field input, .field select, .field textarea {
+	margin-top: 4px;
+	font-size: 1.1em;
+}
+
+.field textarea {
+	width: 420px;
+}
+
+.field_size {
+/*	width: 96%;*/
+	width: 425px;
+	height: 20px;
+}
+
+input#password {
+	width: 96%;
+	height: 20px;
+}
+
+input.buttons {
+	width: 80px;
+	font-size: 1.4em;
+	margin-right: 20px;
+}
+
+textarea {
+	line-height: 140%%;
+  height: 140px;
+  width: 495px;
+}
+
+.actions {
+	width: 430px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+
+.actions_1 {
+	width: 250px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+}
+
+input:focus, textarea:focus  { 
+   outline: none;
+   border: 1px solid #368BB5 !important; 
+   border: 1px solid orange !important; 
+   
+   -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+           border-radius: 4px;
+   /* create a BIG glow */ 
+/*   -webkit-box-shadow: 0px 0px 1px #368BB5; 
+      -moz-box-shadow: 0px 0px 1px #368BB5;
+           box-shadow: 0px 0px 1px #368BB5; */    
+/*   -webkit-box-shadow: 0px 0px 1px green; 
+      -moz-box-shadow: 0px 0px 1px green;
+           box-shadow: 0px 0px 1px green; */
+}​
+
+/********************** Link Style *****/
+
+a {
+  color: #368BB5;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #590E5A;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #590E5A;
+  color: #9915E6;
+}
+
+/********************** page layout ********/
+
+.link_buttons_0 a {
+	float: right;
+/*	border: 1px solid blue;*/
+	margin-right: 5px;
+	margin-left: 30px;
+	margin-top: 8px;
+}
+
+.page_main_list span {
+	color: #808080;
+/*	border: 1px solid pink;*/
+}
+
+.page_main {
+	float: left;
+	border-right: 1px dotted #808080;
+/*	border: 1px solid blue;*/
+	min-height: 220px;
+	width: 680px;
+	margin-left: 0;
+	padding: 0 20px 30px 0px;
+}
+
+.page_main_link {
+
+	width: 700px;
+
+}
+
+div.page_links {
+	float: left;
+	width: 220px;
+	margin-left: 0;
+	margin-right: 0;
+	margin-top: -12px;
+/*	border: 1px dotted red;*/
+}
+
+.page_links li {
+	list-style-type: none;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-left: 15px;
+	margin-right: 10px;
+	border-bottom: 1px dotted gray;
+}
+
+.page_links img{
+	float: left;
+	/*border: 1px solid red;*/
+	margin-right: 5px;
+}
+
+.page_links a {
+	float: left;
+	height: 18px;
+/*	border: 1px solid red;*/
+	margin: 0;
+	padding-top: 2px;
+}
+
+/********************** Jokes ***********/
+
+span.joke_name {
+	width: 320px !important;
+	font-weight: bold;
+/*	border: 1px solid red;*/	
+}
+
+#joke_ids_ {
+/*	border: 1px solid red;*/
+	margin-top: 10px;
+}
+
+.joke_content {
+	padding: 0 10px;
+  background-color: #E3F5E1;
+}
+
+.jokes_checkbox { margin: -5px 5px 0 0; float: left;}
+
+/****** format the joke content area *****/
+.joke_content p {
+  margin-top: -20px;
+  padding-bottom: 5px;
+}
+
+div.joke_content p:first-child {
+/*	border: 1px solid red;*/
+	padding-top: 5px !important;
+	margin-top: 15px !important;
+}
+/****** end ******/ 
+
+.joke_bottons {
+	width: 640px;
+	text-align: center;
+	padding-top: 10px;
+	margin-left: 15px;
+/*	border: 1px solid red;*/
+}
+
+.joke_approve_unapprove {
+	width: 700px;
+	margin-bottom: 30px;
+	text-align: center; 
+/*	border: 1px solid blue;*/
+}
+
+/********************* Links page **************/
+
+div.links {
+/*	border: 1px solid yellow;*/
+	/*margin-left: 20px;*/
+	margin-top: -8px;
+	margin-bottom: 20px;
+	font-size: 1em;
+}
+
+.links span {
+	margin-right: 5px;
+	float: left;
+	width: 165px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+/*	border: 1px solid red;*/
+}
+
+.link_name_width {
+	float: left;
+	width: 200px;
+/*	border: 1px solid red;*/
+}
+
+.link_cat_width {
+	float: left; 
+	width: 140px;
+}
+
+.link_date_width {
+	float: left; 
+	width: 80px;
+}
+
+.link_buttons {
+	float: right;
+}
+
+.link_buttons a { 
+	float: right; 
+	margin-right: 0; 
+	margin-left: 40px;
+}
+
+.links_row {
+	width: 590px;
+  float: left;
+	padding: 8px 0 6px 5px;
+	margin: 0;
+	border-bottom: 1px solid #CFD4D3;
+}
+
+/*.links_row a {	border: 1px solid red;}*/
+
+/********* Fun Facts **********/
+
+div.fun_fact_content p:last-child {
+	color: gray;
+}
+/************END ************/
+
+/********* Utilities **********/
+
+.round {
+  -webkit-border-radius: 12px;
+     -moz-border-radius: 12px;
+          border-radius: 12px;
+}
+
+.round_bottom {
+  -webkit-border-radius: 0 0 8px 8px;
+     -moz-border-radius: 0 0 8px 8px;
+          border-radius: 0 0 8px 8px;
+}
+
+.round_top {
+  -webkit-border-radius: 8px 8px 0 0;
+     -moz-border-radius: 8px 8px 0 0;
+          border-radius: 8px 8px 0 0;
+}
+
+.round_all {
+  -webkit-border-radius: 8px;
+	   -moz-border-radius: 8px;
+          border-radius: 8px;
+}
+
+.round_all_4 {
+  -webkit-border-radius: 4px;
+	   -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.font_grey_small {
+	color: #808080;
+	font-size: 0.5em;
+}
+
+.font_grey_small_1 {
+	color: #808080;
+	font-size: 0.8em;
+}
+
+.title2 {
+	width: 430px;
+  margin-left: 124px;
+}
+
+.center { text-align: center; }
+
+.margin_auto { margin-left: auto;	margin-right: auto; }
+
+.margin_left_5 { margin-left: 5px; }
+
+.margin_left_10 { margin-left: 10px; }
+
+.margin_left_20 { margin-left: 20px; }
+
+.margin_left_30 { margin-left: 30px; }
+
+.margin_10 { border: 1px solid red; }
+
+.margin_left_40 { margin-left: 40px; }
+
+.margin_left_60 { margin-left: 60px; }
+
+.margin_right_20 { margin-right: 20px; }
+
+.margin_right_40 { margin-right: 40px; }
+
+.margin_right_20 { margin-right: 40px; }
+
+.margin_bottom_0 { margin-bottom: 0; }
+
+.margin_bottom_30 {	margin-bottom: 30px; }
+
+.margin_bottom_40 {	margin-bottom: 40px; }
+
+.margin_top_n30 { margin-top: -30px; }
+
+.margin_top_n20 { margin-top: -20px; }
+
+.margin_top_30 { margin-top: 30px; }
+
+.margin_top_60 { margin-top: 60px; }
+
+.padding_tb_5 { margin-top: 10px; margin-bottom: 10px; }
+
+.margin_right_0 { margin-right: 0 !important; }
+
+.padding_right_0 { padding-right: 0 !important; }
+
+.padding_top_10 { padding-top: 10px; }
+
+.padding_top_60 { padding-top: 60px; }
+
+.padding_bottom_20 { padding-bottom: 20px; }
+
+.padding_side_20 { padding: 1px 20px 0 20px; }
+
+.font_color_red { color: red;}
+
+.font_grey { color: #808080; }
+
+.font_0 { font-size: 1em !important; }
+
+.font_1 { font-size: 1.1em !important; } 
+
+.font_2 { font-size: 1.2em !important; }
+
+#border_red { border: 2px solid red; }
+
+.border_blue { border: 1px solid blue; }
+
+.border_bottom_grey { border-bottom: 1px solid #CFD4D3; }
+
+.bold { font-weight: bold; }
+.list_no_style { list-style-type: none; }
+
+.float_left { float: left; }
+.float_right { float: right; }
+.width_120 { width: 120px; /*border: 1px solid red;*/}
+.width_150 { width: 150px; /*border: 1px solid red;*/}
+.width_200 { width: 200px; /*border: 1px solid red;*/}
+.width_250 { width: 250px; /*border: 1px solid red;*/}
+.width_500 { width: 500px; /*border: 1px solid red;*/}
+.width_700 { width: 700px; /*border: 1px solid red;*/}
+
+.flash, .alert { 
+	margin-top: 8px; 
+	width: 96%; 
+	margin-left: auto; 
+	margin-right: auto;
+	-webkit-border-radius: 12px;
+     -moz-border-radius: 12px;
+          border-radius: 12px;
+}
+
+.full-circle {
+  background-color: #c06;
+  height: 300px;
+  width: 300px;
+  -webkit-border-radius: 150px;
+     -moz-border-radius: 150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.hidden {
+	visibility: hidden;
+}
+
+.hide {
+	display: none;
+}
+
+/*.margin_bottom_20 { margin-bottom: -20px; }*/
