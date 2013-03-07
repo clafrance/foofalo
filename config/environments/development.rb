@@ -37,4 +37,7 @@ Foofalo::Application.configure do
   
   # setup mailer (added by Christie)
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  
+  # new to rails 3,useful for log in production:
+  # config.log_tags = [:uuid, :remote_in]
 end

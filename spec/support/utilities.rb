@@ -8,35 +8,29 @@ def random_letters(n)
 end
 
 def sign_in(user)
-  visit signin_path
+  visit new_session_path
   fill_in "Username", :with => user.username
   fill_in "Password", :with => user.password
   click_button "Sign in"
 end
 
 def remember_me_sign_in_successfully(user)
-  visit signin_path
+  visit new_session_path
   fill_in "Username", :with => user.username
   fill_in "Password", :with => user.password
   check("Remember me")
   click_button "Sign in"
-  should_have_links_after_signin(user)
+  should have_content('You have successfully signed in!')
+  current_path.should eq(index_path)
 end
 
 def sign_in_successfully(user)
-  visit signin_path
+  visit new_session_path
   fill_in "Username", :with => user.username
   fill_in "Password", :with => user.password
   click_button "Sign in"
-  should_have_links_after_signin(user)
-end
-
-def should_have_links_after_signin(user)
-  #save_and_open_page
-  # current_path.should eq(front_path)
-  page.should have_content("Signed in as #{user.username}")
-  page.should have_link("Users")
-  page.should have_link("Sign out")
+  should have_content('You have successfully signed in!')
+  current_path.should eq(index_path)
 end
 
 def should_have_links_before_signin

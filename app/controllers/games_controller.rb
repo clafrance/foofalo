@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.where(:name => "magicball")
+    # @games = Game.where(:name => "magicball")
     
     # Joke.where(:status => "reviewing")
     

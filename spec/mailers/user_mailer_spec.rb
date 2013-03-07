@@ -35,7 +35,7 @@ describe UserMailer do
       mail.to.should eq([user.email])
       mail.from.should eq(["foofalo12@gmail.com"])
       mail.body.encoded.should match(edit_parent_confirm_path(user.inform_parents_token))
-      mail.body.encoded.should have_content("By clicking the Approve link below, you and your child agree to our Terms and Use.")
+      mail.body.encoded.should have_content("By clicking the Approve link below, you and your child agree to our Terms of Use.")
     end
   end
   

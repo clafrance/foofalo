@@ -9,7 +9,7 @@ class UsernameReminderController < ApplicationController
       user.send_username_reminder
       redirect_to root_url, :notice => "Email sent with username(s)."
     else
-      redirect_to signin_url, :notice => "Invalid email address, please try again or contact us."
+      redirect_to new_session_url, :notice => "Invalid email address, please try again or contact us."
     end
   end
 end

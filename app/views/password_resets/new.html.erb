@@ -5,8 +5,8 @@
 <div class="content_container center margin_top_60">
 	<%= form_tag password_resets_path, :method => :post do %>
 	  <div class="field">
-	    <%= label_tag "Your username: " %>
-	    <%= text_field_tag :username %>
+	    <%= label_tag :username %>
+	    <%= text_field_tag :username, params[:username] %>
 	  </div>
 		<div class="actions"><%= submit_tag "Reset Password" %></div>
 	<% end %>

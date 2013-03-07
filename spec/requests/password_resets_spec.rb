@@ -2,22 +2,24 @@ require 'spec_helper'
 
 describe "PasswordResets" do
   subject { page }
-  it "email user when requesting password reset" do
+  it "emails user when requesting password reset" do
     user = Factory(:user)
-    visit signin_path
-    click_link "password"
-    fill_in "Username", :with => user.username
-    click_button "Reset Password"
+    visit new_session_path
+    click_link "Reset password"
+    fill_in "Username", :with => user.username    
+    click_button "Reset Password"   
     current_path.should eq(root_path)
-    should have_content("Email sent")
+    should have_content("Email sent with password reset instructions.")
     last_email.to.should include(user.email)
   end
   
   it "does not email invalid user when requestion password reset" do
-    visit signin_path
-    click_link "password"
+    visit new_session_path
+    click_link "Reset password"
     fill_in "Username", :with => "nobody"
     click_button "Reset Password"
+    current_path.should eq(root_path)
+    should have_content("Email sent with password reset instructions.")
     last_email.should be_nil
   end
   
@@ -31,6 +33,7 @@ describe "PasswordResets" do
     fill_in "Password", :with => "foobar"
     fill_in "Retype Password", :with => "foobar"
     click_button "Update Password"
+    current_path.should eq(root_path)
     should have_content("Password has been reset")
   end
   

@@ -1,79 +1,78 @@
 require 'spec_helper'
 
 describe User do
-
-  describe "test methods in user model" do
-    describe "#send_password_reset" do
-      let(:user) { Factory(:user) }
   
-      it "generates a unique password_reset_token each time" do
-        user.send_password_reset
-        last_token = user.password_reset_token
-        user.send_password_reset
-        user.password_reset_token.should_not eq(last_token)
-      end
-   
-      it "saves the time the password reset was sent" do
-        user.send_password_reset
-        user.reload.password_reset_sent_at.should be_present
-      end
-  
-      it "delivers email to user" do
-        user.send_password_reset
-        last_email.to.should include(user.email)
-      end
+  describe "#send_password_reset" do
+    let(:user) { Factory(:user) }
+    
+    it "generates a unique password_reset_token each time" do
+      user.send_password_reset
+      last_token = user.password_reset_token
+      user.send_password_reset
+      user.password_reset_token.should_not eq(last_token)
     end
-  
-    describe "#send_username_reminder" do
-      let(:user) { Factory(:user) }
-  
-      it "delivers email to user" do
-        user.send_username_reminder
-        last_email.to.should include(user.email)
-      end
+    
+    it "saves the time the password reset was sent" do
+      user.send_password_reset
+      user.reload.password_reset_sent_at.should be_present
     end
-
-    describe "#send_inform_parents" do
-      let(:user) { Factory(:user) }
-  
-      it "generates a unique inform_parents_token each time" do
-        user.send_inform_parents
-        last_token = user.inform_parents_token
-        user.send_inform_parents
-        user.inform_parents_token.should_not eq(last_token)
-      end
-  
-      it "saves the time the inform parents was sent" do
-        user.send_inform_parents
-        user.reload.inform_parents_sent_at.should be_present
-      end
-  
-      it "delivers email to user" do
-        user.send_inform_parents
-        last_email.to.should include(user.email)
-      end
-    end
-  
-    describe "#send_parent_confirm" do
-      let(:user) { Factory(:user) }
-  
-      it "sets the 'parent_approved' to Yes" do
-        user.send_parent_confirm
-        user.reload.parent_approved.should eq("Yes")
-      end
-  
-      it "sets the parent_approved_atto current time" do
-        user.send_parent_confirm
-        user.reload.parent_approved_at.should be_present
-      end
-  
-      it "delivers email to user" do
-        user.send_parent_confirm
-        last_email.to.should include(user.email)
-      end
+    
+    it "delivers email to user" do
+      user.send_password_reset
+      last_email.to.should include(user.email)
     end
   end
-  
+
+  describe "#send_username_reminder" do
+    let(:user) { Factory(:user) }
+
+    it "delivers email to user" do
+      user.send_username_reminder
+      last_email.to.should include(user.email)
+    end
+  end
+
+  describe "#send_inform_parents" do
+    let(:user) { Factory(:user) }
+
+    it "generates a unique inform_parents_token each time" do
+      user.send_inform_parents
+      last_token = user.inform_parents_token
+      user.send_inform_parents
+      user.inform_parents_token.should_not eq(last_token)
+    end
+
+    it "saves the time the inform parents was sent" do
+      user.send_inform_parents
+      user.reload.inform_parents_sent_at.should be_present
+    end
+
+    it "delivers email to user" do
+      user.send_inform_parents
+      last_email.to.should include(user.email)
+    end
+  end
+
+  describe "#send_parent_confirm" do
+    let(:user) { Factory(:user) }
+
+    it "sets the 'parent_approved' to Yes" do
+      user.send_parent_confirm
+      user.reload.parent_approved.should eq("Yes")
+    end
+
+    it "sets the parent_approved_atto current time" do
+      user.send_parent_confirm
+      user.reload.parent_approved_at.should be_present
+    end
+
+    it "delivers email to user" do
+      user.send_parent_confirm
+      last_email.to.should include(user.email)
+    end
+  end
+# end
+
   describe "test user validations" do
     before do
       @user = User.new(:username => "cg", :password => "foobar", 
@@ -95,7 +94,7 @@ describe User do
       should respond_to(:authenticate) 
       should be_valid 
     end
-
+  
     describe "when username is not present" do
       before { @user.username = " " }
       it { should_not be_valid }
@@ -130,7 +129,7 @@ describe User do
       before { @user.password_confirmation = "mismatch" }
       it { should_not be_valid }
     end
-
+  
     describe "when password confirmation is empty" do
       before { @user.password_confirmation = "" }
       it { should_not be_valid }
@@ -144,14 +143,14 @@ describe User do
     describe "return value of authenticate method" do
       before { @user.save }
       let(:found_user) { User.find_by_username(@user.username) }
-
+  
       describe "with valid password" do
         it { should == found_user.authenticate(@user.password) }
       end
-
+  
       describe "with invalid password" do
         let(:user_for_invalid_password) { found_user.authenticate("invalid") }
-
+  
         it { should_not == user_for_invalid_password }
         specify { user_for_invalid_password.should be_false }
       end

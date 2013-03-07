@@ -6,10 +6,11 @@ module SessionsHelper
   end
   
   def store_referrer_location
-    if request.referrer == signup_url || request.referrer == signup_path 
+    if request.referrer == new_user_url || request.referrer == new_user_path 
       session[:return_to] = index_url
     else
-      if request.referrer == signin_path || request.referrer == signin_url 
+      # if request.referrer == signin_path || request.referrer == signin_url 
+      if request.referrer == new_session_path || request.referrer == new_session_url
         session[:return_to] = index_url
       else
         session[:return_to] = request.referrer
@@ -56,7 +57,7 @@ module SessionsHelper
     def signed_in_user
       if current_user.nil?
         store_location
-        redirect_to signin_url, notice: "Please sign in."
+        redirect_to new_session_url, notice: "Please sign in."
       end
     end
     
