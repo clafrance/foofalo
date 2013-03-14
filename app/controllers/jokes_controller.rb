@@ -14,7 +14,7 @@ class JokesController < ApplicationController
     @joke = current_user.jokes.build(params[:joke])
     @joke.author = current_user.username
     if @joke.save
-      redirect_to myjokes_url, :success => "Joke has been created. It will be published after it is approved."
+      redirect_to myjokes_url, :notice => "Joke has been created. It will be published after it is approved."
       # redirect_to @joke, :success => "Joke has been created. It will be published after it is approved."
     else
       render 'new'

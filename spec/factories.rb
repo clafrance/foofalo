@@ -24,7 +24,7 @@ Factory.define :joke do |f|
 end
 
 Factory.define :challenge do |f|
-  f.name "Challenge"
+  f.name "Challenge1"
   f.content "The biggest challenge is this."
   f.user_id "1"
   f.author "Bob"
@@ -34,14 +34,14 @@ Factory.define :challenge do |f|
   f.c "column c"
   f.d "column d"
   f.correct_col_name "c"
-  f.correct_answer "c is the correct answer"
+  f.correct_answer "column c"
   f.explanation "what ever explanation"
   f.created_at "2013-01-29 06:05:49"
   f.updated_at "2013-01-31 06:05:49"
 end
 
 Factory.define :fun_fact do |f|
-  f.name "Fun Fact"
+  f.name "Fun Fact1"
   f.content "Best time to pickup shell is during low tide."
   f.user_id "1"
   f.author "Bob"
@@ -53,6 +53,15 @@ end
 Factory.define :display_object do |f|
   f.obj_type "challenge"
   f.obj_id "1"
+  f.created_at "2013-02-20 06:05:49"
+  f.updated_at "2013-02-21 06:05:49"
+end
+
+Factory.define :link do |f|
+  f.name "Google"
+  f.url "www.google.com"
+  f.category "Home Work"
+  f.user_id "1"
   f.created_at "2013-02-20 06:05:49"
   f.updated_at "2013-02-21 06:05:49"
 end
