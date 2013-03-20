@@ -3,6 +3,9 @@
 
 # changed the default, added :all_after_pass => false, so Gurad doesn't run all the test after a failing test passes
 
+# Added to "Problem with watch action! []#] undefined method `singularize' for error"
+require 'active_support/inflector'
+
 guard 'rspec', :version => 2, :all_after_pass => false do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }

@@ -22,11 +22,11 @@
 	      <h3><%= @the_random_challenge.name %></h3>
 	      <div class="content_index joke_content font_0"><%= simple_format(@the_random_challenge.content) %></div>
 	      <div class="margin_left_10">
-		      <% if @current_user_answer.length < 1 %>
-		        <%= render 'select_answer' %> 
-		      <% else %>
-		        <%= render 'show_answer' %>
-		      <% end %>
+	      <% if @current_user_answer.length < 1 %>
+	        <%= render 'select_answer' %> 
+	      <% else %>
+	        <%= render 'show_answer' %>
+	      <% end %>
 		    </div>
 		  </div>
 		</div>	
@@ -47,10 +47,10 @@
     <div class="my_links round_all">
 	    <h2>My Links</h2>
 	    <ol>
-				<% for i in 0...my_links.length %>
-				  <li>
-          <%= i+1 %>. <%= link_to my_links[i].name, "#{url_with_protocol(my_links[i].url)}", :target => :blank %></li>
-				<% end %>
+			<% for i in 0...my_links.length %>
+			  <li>
+         <%= i+1 %>. <%= link_to my_links[i].name, "#{url_with_protocol(my_links[i].url)}", :target => :blank %></li>
+			<% end %>
 	    </ol>
 	  </div>  	
 	</div>

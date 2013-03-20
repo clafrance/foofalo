@@ -1,20 +1,20 @@
 <header class="clearfix">
-	<% if @title != "Home" %>
-	  <%= image_tag("logo30.png", alt: "foofalo logo") %>
-	<% end %>
-	<% if current_user %>
-		<nav class="clearfix">
-	    <span class="font_grey">Signed in as: <%= current_user.username %></span>
-      <%= link_to "Home", index_url, :class => "highlight_index round_all_4"  %>
-      <%= link_to "Users", users_path, :class => "highlight_users round_all_4" %>
-      <%= link_to "Profile", edit_user_path(current_user), :class => "highlight_profile round_all_4" %>
-      <%= link_to "Sign out", signout_path %>
-	  </nav>
-	<% else %>
-	  <nav class="clearfix">
-		  <%= link_to "Home", root_url %>
-		  <%= link_to "Sign in", new_session_path %>
-		  <%= link_to "Sign up", new_user_path %>
-	  </nav>
-	<% end %>
+<% if @title != "Home" %>
+  <%= image_tag("logo30.png", alt: "foofalo logo") %>
+<% end %>
+<% if current_user %>
+	<nav class="clearfix">
+    <span class="font_grey">Signed in as: <%= current_user.username %></span>
+     <%= link_to "Home", index_url, :class => "highlight_index round_all_4"  %>
+     <%= link_to "Users", users_path, :class => "highlight_users round_all_4" %>
+     <%= link_to "Profile", edit_user_path(current_user), :class => "highlight_profile round_all_4" %>
+     <%= link_to "Sign out", signout_path %>
+  </nav>
+<% else %>
+  <nav class="clearfix">
+	  <%= link_to "Home", root_url %>
+	  <%= link_to "Sign in", new_session_path %>
+	  <%= link_to "Sign up", new_user_path %>
+  </nav>
+<% end %>
 </header>

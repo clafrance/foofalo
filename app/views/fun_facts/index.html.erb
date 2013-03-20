@@ -6,44 +6,43 @@
 	</h2>
 	
 	<div class="page_main page_main_list clearfit">
-	  <% @fun_facts.each do |fun_fact| %>
-			<% if current_user.privilege == "admin" %>
-			  <ul>
-				  <li class="list_no_style">
-					  <div class="clearfix margin_bottom_0">
-				      <span class="joke_name font_2 float_left">
-			          <%= link_to fun_fact.name, fun_fact %>
-					      <% if fun_fact.id == @display_funfact[0].obj_id %>
-					        <span> * </span>
-					      <% end %>
-			        </span>
-			        <span class="link_buttons_0">
-						    <%= link_to "Delete", fun_fact, :method => :delete, 
-						          :confirm => "Deleting fun_fact #{fun_fact.name}?" %>
-						    <%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
-						  </span>
-						</div>
-			      <div class="joke_content clearfix round_all"><%= simple_format fun_fact.content %></div>
-			    </li>
-			  </ul>			
-			
-		  <% else %>
-			  <ul>
-				  <li class="list_no_style">
-					  <div class="clearfix margin_bottom_0">
-				      <span class="joke_name font_2 float_left">
-				        <%= link_to fun_fact.name, fun_fact %>
-					      <% if fun_fact.id == @display_funfact[0].obj_id %>
-					        <span> * </span>
-					      <% end %>
-				      </span> 
-				      <span class="float_right"><%= fun_fact.created_at.strftime("%m/%d/%Y") %></span><br />
-		          <div class="joke_content clearfix round_all"><%= simple_format fun_fact.content %></div>
-		        </div>
-				  </li>
-			  </ul>
-			<% end %>
-	  <% end %>
+  <% @fun_facts.each do |fun_fact| %>
+		<% if current_user.privilege == "admin" %>
+	  <ul>
+		  <li class="list_no_style">
+			  <div class="clearfix margin_bottom_0">
+		      <span class="joke_name font_2 float_left">
+          <%= link_to fun_fact.name, fun_fact %>
+		      <% if fun_fact.id == @display_funfact[0].obj_id %>
+		        <span> * </span>
+		      <% end %>
+	        </span>
+	        <span class="link_buttons_0">
+			    <%= link_to "Delete", fun_fact, :method => :delete, 
+			          :confirm => "Deleting fun_fact #{fun_fact.name}?" %>
+			    <%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
+				  </span>
+				</div>
+	      <div class="joke_content clearfix round_all"><%= simple_format fun_fact.content %></div>
+	    </li>
+	  </ul>					
+	  <% else %>
+	  <ul>
+		  <li class="list_no_style">
+			  <div class="clearfix margin_bottom_0">
+		      <span class="joke_name font_2 float_left">
+	        <%= link_to fun_fact.name, fun_fact %>
+		      <% if fun_fact.id == @display_funfact[0].obj_id %>
+		        <span> * </span>
+		      <% end %>
+		      </span> 
+		      <span class="float_right"><%= fun_fact.created_at.strftime("%m/%d/%Y") %></span><br />
+          <div class="joke_content clearfix round_all"><%= simple_format fun_fact.content %></div>
+        </div>
+		  </li>
+	  </ul>
+		<% end %>
+  <% end %>
 	</div>
 
 	<div class="page_links clearfix">

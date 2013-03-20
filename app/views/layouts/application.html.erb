@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		 <title><%= full_title(yield(:title)) %></title>
-     <%= render 'layouts/stylesheets' %>
+		<title><%= full_title(yield(:title)) %></title>
+      <%= render 'layouts/stylesheets' %>
 	</head>
 	<body id="<%= yield(:title) %>">
 		<div class="top">
@@ -13,10 +13,10 @@
         <%= render 'layouts/top_nav' %>
 			</div>
 			<div id="content" class="row expand">
-        <% flash.each do |key, value| %>
-          <div class="flash <%= key %>"><%= value %></div>
-        <% end %>
-        <%= yield %>
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
+      <%= yield %>
 	    </div>
 	  </div>
     <%= render 'layouts/footer' %>

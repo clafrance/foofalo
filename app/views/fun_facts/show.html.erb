@@ -5,21 +5,21 @@
 	<div class="page_main page_main_list margin_top_n20 clearfit">
 		<div class="margin_left_30">
 			<p class="small_font_2 center font_grey">
-				<% if current_user.privilege == "admin" %>
-		      <%= @fun_fact.author %>
-		    <% end %>
-		      <%= @fun_fact.created_at.strftime("%m/%d/%Y") %>
+			<% if current_user.privilege == "admin" %>
+	      <%= @fun_fact.author %>
+	    <% end %>
+	      <%= @fun_fact.created_at.strftime("%m/%d/%Y") %>
 		  </p>
 	    <div class="fun_fact_content">
 		    <%= simple_format @fun_fact.content %>
 		  </div>
 
 	    <div class="center">
-			  <% if current_user.username == @fun_fact.author %>
-					<%= link_to "Edit", edit_fun_fact_path(@fun_fact), :class=>"margin_right_20" %>
-					<%= link_to "Delete", @fun_fact, :method => :delete, 
-					             :confirm => "Deleting fun fact #{@fun_fact.name}?" %>
-			  <% end %>
+		  <% if current_user.username == @fun_fact.author %>
+				<%= link_to "Edit", edit_fun_fact_path(@fun_fact), :class=>"margin_right_20" %>
+				<%= link_to "Delete", @fun_fact, :method => :delete, 
+				             :confirm => "Deleting fun fact #{@fun_fact.name}?" %>
+		  <% end %>
 			</div>
 		</div>
 	</div>

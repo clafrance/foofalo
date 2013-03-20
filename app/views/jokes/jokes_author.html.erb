@@ -5,43 +5,41 @@
 		<span class="font_grey_small">( Total: <%= jokes_by_author(@current_joke.author).count %> )</span>
 	</h2>
 	<div class="page_main page_main_list clearfit">
-		<% if current_user.privilege != "admin" %>
-			<% jokes_by_author_status(@current_joke.author, "displayed").each do |joke| %>
-		    <ul>
-			    <li class="list_no_style">
-			      <div class="clearfix margin_bottom_0">
-				       <span class="joke_name font_2 float_left">				       
-					       <%= link_to joke.name, joke %>
-						   </span>
-	             <span class="float_right">
-		             <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
-		             <span class="margin_left_60">been <%= joke.status %></span>
-		           </span>
-		        </div>
-	          <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
-	        </li>
-	      </ul>	
-	    <% end %>	
-	  <% else %>
-	    <% jokes_by_author(@current_joke.author).each do |joke| %>
-		    <ul>
-			    <li class="list_no_style">
-			      <div class="clearfix margin_bottom_0">
-				       <span class="joke_name font_2 float_left">				       
-					       <%= link_to joke.name, joke %>
-						   </span>
-	             <span class="float_right">
-		             <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
-		             <span class="margin_left_60">been <%= joke.status %></span>
-		           </span>
-		        </div>
-	          <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
-	        </li>
-	      </ul>	
-	    <% end %>
-	  <% end %>	
-
-
+	<% if current_user.privilege != "admin" %>
+		<% jokes_by_author_status(@current_joke.author, "displayed").each do |joke| %>
+    <ul>
+	    <li class="list_no_style">
+	      <div class="clearfix margin_bottom_0">
+		       <span class="joke_name font_2 float_left">				       
+			       <%= link_to joke.name, joke %>
+				   </span>
+           <span class="float_right">
+             <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+             <span class="margin_left_60">been <%= joke.status %></span>
+           </span>
+         </div>
+         <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
+       </li>
+     </ul>	
+    <% end %>	
+  <% else %>
+    <% jokes_by_author(@current_joke.author).each do |joke| %>
+    <ul>
+	    <li class="list_no_style">
+	      <div class="clearfix margin_bottom_0">
+		      <span class="joke_name font_2 float_left">				       
+			      <%= link_to joke.name, joke %>
+				  </span>
+          <span class="float_right">
+            <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+            <span class="margin_left_60">been <%= joke.status %></span>
+          </span>
+        </div>
+        <div class="joke_content clearfix round_all"><%= simple_format(joke.content) %></div>
+      </li>
+    </ul>	
+    <% end %>
+  <% end %>	
   </div>
 
 	<div class="page_links clearfix">

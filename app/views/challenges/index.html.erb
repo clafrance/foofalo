@@ -6,40 +6,40 @@
 	</h2>
 	
 	<div class="page_main page_main_list clearfit">
-		<% @challenges.each do |challenge| %>
-	    <% if current_user.privilege == "admin" %>
-			  <ul>
-					<li class="list_no_style">
-			      <div class="clearfix margin_bottom_0">
-				      <span class="joke_name font_2 float_left">
-						    <%= link_to challenge.name, challenge %>
-						    <% if challenge.id == @display_challenge[0].obj_id %>
-						      <span> * </span>
-						    <% end %>
-						  </span>
-							<span class="link_buttons_0">
-							  <%= link_to "Delete", challenge, :method => :delete, 
-							        :confirm => "Deleting challenge #{challenge.name}?" %>
-							  <%= link_to "Edit", edit_challenge_path(challenge) %>
-				      </span>
-				    </div>
-	          <div class="joke_content clearfix round_all"><%= simple_format challenge.content %></div>
-	        </li>
-	      </ul>	
-	    <% else %>
-			  <ul>
-				  <li class="list_no_style">
-					  <div class="clearfix margin_bottom_0">
-				      <span class="joke_name font_2 margin_bottom_20 float_left">
-				        <%= link_to challenge.name, challenge %>
-				      </span> 
-				      <span class="float_right"><%= challenge.created_at.strftime("%m/%d/%Y") %></span><br />
-		          <div class="joke_content clearfix round_all"><%= simple_format challenge.content %></div>
-		        </div>
-				  </li>
-			  </ul>
-			<% end %>
-	  <% end %>
+	<% @challenges.each do |challenge| %>
+    <% if current_user.privilege == "admin" %>
+	  <ul>
+			<li class="list_no_style">
+	      <div class="clearfix margin_bottom_0">
+		      <span class="joke_name font_2 float_left">
+				    <%= link_to challenge.name, challenge %>
+				    <% if challenge.id == @display_challenge[0].obj_id %>
+				      <span> * </span>
+				    <% end %>
+				  </span>
+					<span class="link_buttons_0">
+					  <%= link_to "Delete", challenge, :method => :delete, 
+					        :confirm => "Deleting challenge #{challenge.name}?" %>
+					  <%= link_to "Edit", edit_challenge_path(challenge) %>
+		      </span>
+		    </div>
+        <div class="joke_content clearfix round_all"><%= simple_format challenge.content %></div>
+      </li>
+    </ul>	
+    <% else %>
+	  <ul>
+		  <li class="list_no_style">
+			  <div class="clearfix margin_bottom_0">
+		      <span class="joke_name font_2 margin_bottom_20 float_left">
+		        <%= link_to challenge.name, challenge %>
+		      </span> 
+		      <span class="float_right"><%= challenge.created_at.strftime("%m/%d/%Y") %></span><br />
+          <div class="joke_content clearfix round_all"><%= simple_format challenge.content %></div>
+        </div>
+		  </li>
+	  </ul>
+		<% end %>
+  <% end %>
 	</div>
 
 	<div class="page_links clearfix">

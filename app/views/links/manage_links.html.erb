@@ -6,18 +6,18 @@
 	</h2>
 	<div class="page_main page_main_list clearfit">
 	  <ul>
-	    <% my_links.each do |link| %>
-			  <div class="clearfix links_row">
-		      <span class="link_name_width">
-		        <%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %>
-		      </span>
-					<span class="link_cat_width"><%= link.category %></span>
-					<span class="link_date_width"><%= link.created_at.strftime("%m/%d/%Y") %></span>
-					<span class="link_buttons">      
-		      <%= link_to "Delete", link, :method => :delete, :confirm => "Deleting link #{link.name}?" %>
-		      <%= link_to "Edit", edit_link_path(link) %></span>
-				</div>
-		  <% end %>
+    <% my_links.each do |link| %>
+		  <div class="clearfix links_row">
+	      <span class="link_name_width">
+	        <%= link_to link.name, "#{url_with_protocol(link.url)}", :target => :blank %>
+	      </span>
+				<span class="link_cat_width"><%= link.category %></span>
+				<span class="link_date_width"><%= link.created_at.strftime("%m/%d/%Y") %></span>
+				<span class="link_buttons">      
+	      <%= link_to "Delete", link, :method => :delete, :confirm => "Deleting link #{link.name}?" %>
+	      <%= link_to "Edit", edit_link_path(link) %></span>
+			</div>
+	  <% end %>
 	  </ul>
   </div>
 

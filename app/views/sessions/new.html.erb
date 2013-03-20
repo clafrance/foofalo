@@ -2,31 +2,31 @@
 <h2 class="page_title_full">Sign in</h2>
 
 <div class="content_container clairfix">
-	<%= form_tag sessions_path do %>
-	  <div class="field" id="signin_username">
-	    <%= label_tag :username %><br />
-	    <%= text_field_tag :username, params[:username], :autofocus=>true, :class => "field_size" %>
-	  </div>
-	
-	  <div class="field">
-	    <%= label_tag :password %><br />
-	    <%= password_field_tag :password %>
-	  </div>
-	
-	  <div class="field" id="rememberme">
-	    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
-    	<%= label_tag :remember_me %>
-	  </div>
-	
-	  <div class="field">
-		  <p class="reminders">Forgot your username? <%= link_to "Find username", usernamereminder_path %></p>
-		  <p class="reminders">Forgot your password? <%= link_to "Reset password", new_password_reset_path %></p>
-	  </div>
-	
-	  <div class="sign_buttons">
-		  <%= submit_tag "Sign in", :class=>"buttons" %>
-		  <a href="javascript:history.back()">Cancel</a>
-	  </div>
-	<% end %>
+<%= form_tag sessions_path do %>
+  <div class="field" id="signin_username">
+    <%= label_tag :username %><br />
+    <%= text_field_tag :username, params[:username], :autofocus=>true, :class => "field_size" %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :password %><br />
+    <%= password_field_tag :password %>
+  </div>
+
+  <div class="field" id="rememberme">
+    <%= check_box_tag :remember_me, 1, params[:remember_me] %>
+   	<%= label_tag :remember_me %>
+  </div>
+
+  <div class="field">
+	  <p class="reminders">Forgot your username? <%= link_to "Find username", usernamereminder_path %></p>
+	  <p class="reminders">Forgot your password? <%= link_to "Reset password", new_password_reset_path %></p>
+  </div>
+
+  <div class="sign_buttons">
+	  <%= submit_tag "Sign in", :class=>"buttons" %>
+	  <a href="javascript:history.back()">Cancel</a>
+  </div>
+<% end %>
 	<p class="center padding_bottom_20">Click <%= link_to "here", guest_path, :class => "margin_left_5" %> to sign in as a guest</p>
 </div>

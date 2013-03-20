@@ -5,19 +5,19 @@
 	<div class="page_main margin_top_5 page_main_list clearfit">
 		<div class="margin_left_30">
 			<p class="small_font_2 center font_grey">
-				<% if current_user.privilege == "admin" %>
-		      By <%= @challenge.author %>
-		    <% end %>
-		     <%= @challenge.created_at.strftime("%m/%d/%Y") %>
+			<% if current_user.privilege == "admin" %>
+	      By <%= @challenge.author %>
+	    <% end %>
+	      <%= @challenge.created_at.strftime("%m/%d/%Y") %>
 		  </p>
       <%= simple_format @challenge.content %>
 
 	    <div class="center">
-			  <% if current_user.username == @challenge.author %>
-					<%= link_to "Edit", edit_challenge_path(@challenge), :class=>"margin_right_20" %>
-					<%= link_to "Delete", @challenge, :method => :delete, 
-					             :confirm => "Deleting challenge #{@challenge.name}?" %>
-			  <% end %>
+		  <% if current_user.username == @challenge.author %>
+				<%= link_to "Edit", edit_challenge_path(@challenge), :class=>"margin_right_20" %>
+				<%= link_to "Delete", @challenge, :method => :delete, 
+				             :confirm => "Deleting challenge #{@challenge.name}?" %>
+		  <% end %>
 			</div>
 		</div>
 	</div>

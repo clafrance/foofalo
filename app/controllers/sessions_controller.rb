@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
             sign_in(user)
           end
           redirect_back_or(index_url)
-          flash[:notice] = "You have successfully signed in!"
+          flash[:success] = "You have successfully signed in!"
         else      
           redirect_to root_url, :notice => "still waiting for your parents approval."
         end
@@ -33,14 +33,15 @@ class SessionsController < ApplicationController
       end
     else
       sign_out
-      flash[:notice] = "Previous user: #{current_user} has been signed out, try signin again."
+      flash[:success] = "Previous user: #{current_user} has been signed out, try signin again."
       redirect_to new_session_url
     end
   end
   
   def destroy
     sign_out
-    redirect_to root_url, :notice => "See you next time!"
+    flash[:success] = "See you next time!"
+    redirect_to root_url
   end
   
   def guest

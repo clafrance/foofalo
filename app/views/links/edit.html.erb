@@ -3,29 +3,29 @@
 <div class="content_container clearfix">
 	<h2 class="page_title">Edit Link</h2>
 	<div class="page_main challenge_list clearfit">
-	  <%= form_for(@link) do |f| %>
-	    <%= render 'shared/error_messages', :object => f.object %>
-	
-	    <div class="field">
-	      <%= f.label :name, "Link Name:" %>
-	      <%= f.text_field :name, :class=>"field_size", :autofocus=>true %>
-	    </div>
-	
-	    <div class="field">
-	      <%= f.label :url, "URL:" %>
-	      <%= f.text_field :url, :class=>"field_size" %>
-	    </div>
-	
-	    <div class="field">
-				<%= f.label :category, "Category:" %><br />
-	      <%= select("link", "category", Link::CATEGORIES, {:prompt => true}) %>
-	    </div>
-	
-	    <div class="actions center">
-	      <%= f.submit "Update", :class=>"buttons" %>
-	      <a href="javascript:history.back()">Cancel</a>
-	    </div>
-	  <% end %>	  
+  <%= form_for(@link) do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>
+
+    <div class="field">
+      <%= f.label :name, "Link Name:" %>
+      <%= f.text_field :name, :class=>"field_size", :autofocus=>true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :url, "URL:" %>
+      <%= f.text_field :url, :class=>"field_size" %>
+    </div>
+
+    <div class="field">
+			<%= f.label :category, "Category:" %><br />
+      <%= select("link", "category", Link::CATEGORIES, {:prompt => true}) %>
+    </div>
+
+    <div class="actions center">
+      <%= f.submit "Update", :class=>"buttons" %>
+      <a href="javascript:history.back()">Cancel</a>
+    </div>
+  <% end %>	  
 	</div>
 	
 	<div class="page_links clearfix">

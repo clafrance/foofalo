@@ -3,55 +3,55 @@
 <div class="content_container clearfix">
 	<h2 class="page_title">Edit Challenge</h2>
 	<div class="page_main page_main_list clearfit">
-	  <%= form_for(@challenge, :action=> :update_challenge) do |f| %>
-	    <%= render 'shared/error_messages', :object => f.object %>
-	
-	    <div class="field">
-	      <%= f.label :name, "Challenge Name:" %>
-	      <%= f.text_field :name, :class => "field_size", :autofocus=>true %>
-	    </div>
-	
-	    <div class="field">
-	      <%= f.label :content, "Challenge Details:" %>
-	      <%= f.text_area :content %>
-	    </div>
-	
-      <p><h3 class="title2 margin_top_20">Answer Options:</h3></p>
-	    <div class="field">
-	      <%= f.label :a, "Choice a:" %><br />
-	      <%= f.text_field :a, :class => "field_size" %>
-	    </div>
-	
-	    <div class="field">
-	      <%= f.label :b, "Choice b:" %><br />
-	      <%= f.text_field :b, :class => "field_size" %>
-	    </div>
-	
-	    <div class="field">
-	      <%= f.label :c, "Choice c:" %><br />
-	      <%= f.text_field :c, :class => "field_size" %>
-	    </div>
-	
-	    <div class="field">
-	      <%= f.label :d, "Choice d:" %><br />
-	      <%= f.text_field :d, :class => "field_size" %>
-	    </div>
-	
-	    <div class="field">
-	      <%= f.label :correct_col_name, "Correct Answer:" %><br />
-	      <%= select(:challenge, :correct_col_name, Challenge::ANSWER_COLUMNS, {:prompt => true} ) %>
-	    </div>
-	
-	    <div class="field">
-	      <%= f.label :explanation, "Explanation:" %>
-	      <%= f.text_area :explanation, :placeholder => "Optional" %>
-	    </div>
-	
-	    <div class="actions center">
-	      <%= f.submit "Update", :class=>"buttons" %>
-	      <a href="javascript:history.back()">Cancel</a>
-	    </div>
-	  <% end %>
+  <%= form_for(@challenge, :action=> :update_challenge) do |f| %>
+    <%= render 'shared/error_messages', :object => f.object %>
+
+    <div class="field">
+      <%= f.label :name, "Challenge Name:" %>
+      <%= f.text_field :name, :class => "field_size", :autofocus=>true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :content, "Challenge Details:" %>
+      <%= f.text_area :content %>
+    </div>
+
+     <p><h3 class="title2 margin_top_20">Answer Options:</h3></p>
+    <div class="field">
+      <%= f.label :a, "Choice a:" %><br />
+      <%= f.text_field :a, :class => "field_size" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :b, "Choice b:" %><br />
+      <%= f.text_field :b, :class => "field_size" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :c, "Choice c:" %><br />
+      <%= f.text_field :c, :class => "field_size" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :d, "Choice d:" %><br />
+      <%= f.text_field :d, :class => "field_size" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :correct_col_name, "Correct Answer:" %><br />
+      <%= select(:challenge, :correct_col_name, Challenge::ANSWER_COLUMNS, {:prompt => true} ) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :explanation, "Explanation:" %>
+      <%= f.text_area :explanation, :placeholder => "Optional" %>
+    </div>
+
+    <div class="actions center">
+      <%= f.submit "Update", :class=>"buttons" %>
+      <a href="javascript:history.back()">Cancel</a>
+    </div>
+  <% end %>
 	</div>
 
 	<div class="page_links clearfix">

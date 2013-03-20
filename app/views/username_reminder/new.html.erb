@@ -3,11 +3,11 @@
 <h2 class="title_font center padding_top_60">Username Reminder</h2>
 
 <div class="content_container center margin_top_60">
-	<%= form_tag usernamereminder_create_path, :method => :post do %>
-	  <div class="field">
-	    <%= label_tag "Email: " %>
-	    <%= text_field_tag :email %>
-	  </div>
-		<div class="actions"><%= submit_tag "Send Me Username" %></div>
-	<% end %>
+<%= form_tag usernamereminder_create_path, :method => :post do %>
+  <div class="field">
+    <%= label_tag "Email: " %>
+    <%= text_field_tag :email %>
+  </div>
+	<div class="actions"><%= submit_tag "Send Me Username" %></div>
+<% end %>
 </div>

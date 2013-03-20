@@ -1,62 +1,56 @@
 <% provide :title, "MyJokes" %>
 
-
 <div class="content_container clearfix">
 	<h2 class="page_title">My Jokes <span class="font_grey_small">( Total: <%= @jokes.count %> )</span></h2> 
 	<div class="page_main page_main_list clearfit">
 		<h3 class="margin_left_20">My Approved Jokes 
 			<span class="font_grey_small_1">(<%= @jokes_approved.count %>)</span>
 		</h3>
-	  <%= will_paginate %>
-		  <ul>
-	      <% @jokes_approved.each do |joke| %>
-	        <li class="list_no_style padding_tb_5 clearfix">
-	          <span class="joke_name font_2 float_left"><%= link_to joke.name, joke %></span>
-            <span class="float_right">
-	            Created on <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
-              <span class="margin_left_60"><%= link_to "Edit", edit_joke_path(joke) %></span>
-            </span>
-	          <!-- <p><%= simple_format joke.content %></p> -->
-	        </li>
-	      <% end %>		
-	    </ul>
-	  <%= will_paginate %>
+
+	  <ul>
+    <% @jokes_approved.each do |joke| %>
+      <li class="list_no_style padding_tb_5 clearfix">
+        <span class="joke_name font_2 float_left"><%= link_to joke.name, joke %></span>
+        <span class="float_right">
+          Created on <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+           <span class="margin_left_60"><%= link_to "Edit", edit_joke_path(joke) %></span>
+        </span>
+        <!-- <p><%= simple_format joke.content %></p> -->
+      </li>
+    <% end %>		
+    </ul>
 
 		<h3 class="margin_left_20">My Jokes Being Reviewed 
 			<span class="font_grey_small_1">(<%= @jokes_review.count %>)</span>
 		</h3>
-	  <%= will_paginate %>
-		  <ul>
-	      <% @jokes_review.each do |joke| %>
-	        <li class="list_no_style padding_tb_5 clearfix">
-	          <span class="joke_name font_2 float_left"><%= link_to joke.name, joke %></span>
-	          <span class="float_right">
-		          Created on <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
-	            <span class="margin_left_60"><%= link_to "Edit", edit_joke_path(joke) %></span>
-	          </span>
-	          <!-- <p><%= simple_format joke.content %></p> -->
-	        </li>
-	      <% end %>		
-	    </ul>
-	  <%= will_paginate %>
+	  <ul>
+    <% @jokes_review.each do |joke| %>
+      <li class="list_no_style padding_tb_5 clearfix">
+        <span class="joke_name font_2 float_left"><%= link_to joke.name, joke %></span>
+        <span class="float_right">
+         Created on <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+          <span class="margin_left_60"><%= link_to "Edit", edit_joke_path(joke) %></span>
+        </span>
+        <!-- <p><%= simple_format joke.content %></p> -->
+      </li>
+    <% end %>		
+    </ul>
 
 		<h3 class="margin_left_20">
 			My Unapproved Jokes <span class="font_grey_small_1">(<%= @jokes_unapproved.count %>)</span>
 		</h3>
-	  <%= will_paginate %>
-		  <ul>
-			  <% @jokes_unapproved.each do |joke| %>
-	        <li class="list_no_style padding_tb_5 clearfix">
-	          <span class="joke_name font_2 float_left"><%= link_to joke.name, joke %></span>
-	          <span class="float_right">
-		          Created on <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
-	            <span class="margin_left_60"><%= link_to "Edit", edit_joke_path(joke) %></span>
-	          </span>
-	          <!-- <p><%= simple_format joke.content %></p> -->
-	        </li>
-	      <% end %>		
-	    </ul>
-	  <%= will_paginate %>
+	  <ul>
+	  <% @jokes_unapproved.each do |joke| %>
+      <li class="list_no_style padding_tb_5 clearfix">
+        <span class="joke_name font_2 float_left"><%= link_to joke.name, joke %></span>
+        <span class="float_right">
+          Created on <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
+          <span class="margin_left_60"><%= link_to "Edit", edit_joke_path(joke) %></span>
+        </span>
+        <!-- <p><%= simple_format joke.content %></p> -->
+      </li>
+    <% end %>		
+    </ul>
   </div>
 
 	<div class="page_links clearfix">

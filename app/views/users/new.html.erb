@@ -1,46 +1,46 @@
 <% provide(:title, 'Sign up') %>
+
 <h2 class="page_title_full">Sign up</h2>
-
 <div class="content_container clearfix">
-	<%= form_for(@user) do |f| %>
-	  <%= render 'shared/error_messages', :object => f.object %>
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
 
-		<div class="field">
-		  <%= f.label :username %><br />
-		  <%= f.text_field :username, :class => "field_size", :autofocus=>true %>
-		</div>
-		<div class="field">
-		  <%= f.label :password %> <span class="font_color_grey">(minimum 6 characters)</span><br />
-		  <%= f.password_field :password, :class => "field_size" %>
-		</div>
-		<div class="field">
-		  <%= f.label :password_confirmation, "Retype Password" %><br />
-		  <%= f.password_field :password_confirmation, :class => "field_size" %>
-		</div>
-		<div class="field">
-		  <%= f.label :firstname, "First Name" %><br />
-		  <%= f.text_field :firstname, :class => "field_size" %>
-		</div>
-		<div class="field">
-		  <%= f.label :lastname, "Last Name" %><br />
-		  <%= f.text_field :lastname, :class => "field_size" %>
-		</div>
-		<div class="field">
-		  <%= f.label :email, "Parents' Email" %><br />
-		  <%= f.text_field :email, :class => "field_size" %>
-		</div>
-		<div class="field">
-		  <%= f.label :email_confirmation, "Retype Parents' Email" %><br />
-		  <%= f.text_field :email_confirmation, :class => "field_size" %>
-		</div>
-	
-		<p class="center padding_top_10">By clicking the Sign Up button, you agree to our 
-		   <%= link_to "Terms of Use", terms_path %>. 
-		   Please read it before clicking Sign up button.
-		</p>
-	  <div class="sign_buttons">
-	    <%= f.submit "Sign up", :class=>"buttons" %>
-      <a href="javascript:history.back()">Cancel</a>
-    </div>
-	<% end %>
+	<div class="field">
+	  <%= f.label :username %><br />
+	  <%= f.text_field :username, :class => "field_size", :autofocus=>true %>
+	</div>
+	<div class="field">
+	  <%= f.label :password %> <span class="font_color_grey">(minimum 6 characters)</span><br />
+	  <%= f.password_field :password, :class => "field_size" %>
+	</div>
+	<div class="field">
+	  <%= f.label :password_confirmation, "Retype Password" %><br />
+	  <%= f.password_field :password_confirmation, :class => "field_size" %>
+	</div>
+	<div class="field">
+	  <%= f.label :firstname, "First Name" %><br />
+	  <%= f.text_field :firstname, :class => "field_size" %>
+	</div>
+	<div class="field">
+	  <%= f.label :lastname, "Last Name" %><br />
+	  <%= f.text_field :lastname, :class => "field_size" %>
+	</div>
+	<div class="field">
+	  <%= f.label :email, "Parents' Email" %><br />
+	  <%= f.text_field :email, :class => "field_size" %>
+	</div>
+	<div class="field">
+	  <%= f.label :email_confirmation, "Retype Parents' Email" %><br />
+	  <%= f.text_field :email_confirmation, :class => "field_size" %>
+	</div>
+
+	<p class="center padding_top_10">By clicking the Sign Up button, you agree to our 
+	  <%= link_to "Terms of Use", terms_path %>. 
+	  Please read it before clicking Sign up button.
+	</p>
+  <div class="sign_buttons">
+    <%= f.submit "Sign up", :class=>"buttons" %>
+     <a href="javascript:history.back()">Cancel</a>
+   </div>
+<% end %>
 </div>
