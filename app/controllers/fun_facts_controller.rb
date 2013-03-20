@@ -11,7 +11,8 @@ class FunFactsController < ApplicationController
     @fun_fact = current_user.fun_facts.build(params[:fun_fact])
     @fun_fact.author = current_user.username
     if @fun_fact.save
-      redirect_to @fun_fact, :success => "Fun fact has been created."
+      flash[:success] = "Fun fact has been created."
+      redirect_to @fun_fact
     else
       render 'new'
     end

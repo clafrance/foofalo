@@ -94,7 +94,4 @@ describe "ChallengesPages" do
     click_link("Delete")
     should have_content("Challenge New Challenge 1 has been deleted.")
   end
-  
-  
-  
 end

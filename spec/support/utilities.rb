@@ -111,3 +111,18 @@ def should_have_challenge_links_for_admin
   should have_link("Enter New Challenge")
   should have_link("View, Edit Challenges")
 end
+
+def should_have_fun_fact_links_for_user
+  should have_link("View Fun Facts")
+end
+
+def should_have_fun_fact_links_for_admin
+  should have_link("Enter New Fun Fact")
+  should have_link("View, Edit Fun Facts")
+end
+
+def should_have_my_link_links_for_user
+  should have_link("Create New Links")
+  should have_link("My Links")
+  should have_link("Edit, Delete Links")
+end

@@ -17,7 +17,7 @@
 	    <div class="center">
 			  <% if current_user.username == @fun_fact.author %>
 					<%= link_to "Edit", edit_fun_fact_path(@fun_fact), :class=>"margin_right_20" %>
-					<%= link_to "delete", @fun_fact, :method => :delete, 
+					<%= link_to "Delete", @fun_fact, :method => :delete, 
 					             :confirm => "Deleting fun fact #{@fun_fact.name}?" %>
 			  <% end %>
 			</div>
