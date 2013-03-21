@@ -12,11 +12,48 @@ describe "Show Users" do
     display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
     display_object = Factory(:display_object, :obj_type => "joke", :obj_id => displayed_joke.id)
     sign_in(user)
+    should_have_items_after_signin
     click_link("Users")
     should have_content("All Users")
     User.all.each do |user|
       should have_selector('a', text: user.username)
     end
+    should have_content("Joke entered: 1 Challenges answered correctly: 0")
+    should_have_items_after_signin
+  end
+  
+  it "updates user privilege" do
+    sign_in_admin_user
+    user1 = Factory(:user, :username => "testuser", :privilege => "user", :email => "lafrance.family@yahoo.com", :email_confirmation => "lafrance.family@yahoo.com", :firstname => "testfirst", :lastname => "testlast", :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
+    # Verify Users page info
+    click_link("Users")
+    should_have_items_after_signin
+    should have_link("testuser")
+    should have_link("Update Privilege")
+    should have_link("Delete User")
+    click_link("testuser")
+    should_have_items_after_signin
+    should have_selector("h2", :text => "testuser")
+    should have_content("First Name:")
+    should have_content("testfirst")
+    should have_content("Last Name:")
+    should have_content("testlast")
+    should have_content("Email:")
+    should have_content("lafrance.family@yahoo.com")
+    has_select?('user_privilege', :selected => 'user').should == true
+    should have_button("Update Privilege")
+    should have_link("Cancel")
+    # Testing change privilege feature
+    select('admin', :from => 'user_privilege')
+    click_button("Update Privilege")
+    click_link("testuser")
+    should have_content("First Name:")
+    should have_content("testfirst")
+    should have_content("Last Name:")
+    should have_content("testlast")
+    should have_content("Email:")
+    should have_content("lafrance.family@yahoo.com")
+    has_select?('user_privilege', :selected => 'admin').should == true
   end
 end
 
@@ -33,6 +70,7 @@ describe "EditProfile" do
     display_object = Factory(:display_object, :obj_type => "joke", :obj_id => displayed_joke.id)
     sign_in(user)
     click_link("Profile") 
+    should_have_items_after_signin
     fill_in "Password", :with => "ssssss"
     fill_in "Retype Password", :with => "ssssss"
     fill_in "First Name", :with => "new_first"
@@ -164,4 +202,6 @@ describe "EditProfile" do
     should have_selector('title', text: "Foofalo: Index")   
     current_url.should eq(root_url) 
   end
+  
+  
 end
