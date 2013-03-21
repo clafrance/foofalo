@@ -14,6 +14,7 @@ describe "InformParents" do
     fill_in "Parents' Email", :with => user.email
     fill_in "Retype Parents' Email", :with => user.email
     click_button "Sign up"
+    save_and_open_page
     should have_content("you have signed up")
     last_email.to.should include(user.email)
   end

@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   before_filter :admin_user?,    :only => [:destroy, :update_privilege]
   
   def index
-    #@users = User.all
-    @users = User.paginate(:page => params[:page], :per_page => 20)
+    @users = User.all
+    #@users = User.paginate(:page => params[:page], :per_page => 20)
   end
   
   def show
@@ -28,13 +28,7 @@ class UsersController < ApplicationController
   def create
     if current_user.nil?
       @user = User.new(params[:user])
-      emails = ["christie.lafrance@gmail.com", "gclafrance@gmail.com", "philliptao@gmail.com"]
-      emails.each do |email|
-        if @user.email == email
-          @user.privilege = "admin"
-          break
-        end
-      end
+      grant_admin_privilege(@user.email, @user.privilege)
   
       if @user.save 
         if @user.send_inform_parents
@@ -62,12 +56,7 @@ class UsersController < ApplicationController
 
     if @user = current_user 
       if @user.username != "guest"
-        if @user.update_attributes(params[:user])
-          flash[:success] = "Profile Updated"
-          redirect_to @user
-        else
-          render 'edit'
-        end
+        update_profile(@user)
       else
         flash[:notice] = "Guest user can't update user profile"
       end
@@ -97,8 +86,23 @@ class UsersController < ApplicationController
   
   private
   
-  # def correct_user
-  #   @user = User.find(params[:id])
-  #   redirect_to(root_path) unless @user == current_user
-  # end
+    def is_admin?(email)
+      emails = ["christie.lafrance@gmail.com", "gclafrance@gmail.com", "philliptao@gmail.com"]
+      emails.include?(email)
+    end
+  
+    def grant_admin_privilege(email, privilege)
+      if is_admin?(email)
+        privilege = "admin"
+      end
+    end
+    
+    def update_profile(user)
+      if user.update_attributes(params[:user])
+        flash[:success] = "Profile Updated"
+        redirect_to user
+      else
+        render 'edit'
+      end
+    end
 end
