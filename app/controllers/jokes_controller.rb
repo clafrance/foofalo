@@ -59,7 +59,11 @@ class JokesController < ApplicationController
   end
   
   def jokes_by_authors
-    @authors = Joke.select("DISTINCT(author)").order(:author).map(&:author) 
+    author_names = Joke.select(:author).uniq
+    @authors = []
+    author_names.each do |a|
+      @authors << User.find_by_username(a.author)
+    end
   end
   
   def edit
