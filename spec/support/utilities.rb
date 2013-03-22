@@ -98,7 +98,6 @@ end
 def should_have_joke_links_for_admin
   should have_link("Enter New Jokes")
   should have_link("View, Edit My Jokes")
-  should have_link("Displayed Jokes")
   should have_link("Manage Jokes")
   should have_link("Jokes by Authors")
 end

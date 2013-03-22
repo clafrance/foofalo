@@ -41,6 +41,7 @@ class JokesController < ApplicationController
     @jokes_approved = current_user.jokes.where(:status => "approved", :status => "displayed").order("#{:name}")
     @jokes_unapproved = current_user.jokes.where(:status => "unapproved").order("#{:name}")
     @jokes_review = current_user.jokes.where(:status => "reviewing").order("#{:name}")
+    @jokes_displayed = current_user.jokes.where(:status => "displayed").order("#{:name}")
     @jokes = current_user.jokes.order("#{:name}")
     @display_joke = DisplayObject.where(:obj_type => "joke")
   end
@@ -83,13 +84,26 @@ class JokesController < ApplicationController
     end
   end
   
-  def review_jokes
-    joke_ids = params[:joke_ids]
-    if !joke_ids.nil?
-      approve_unapprove_jokes(:joke_ids)
-    else
-      flash[:notice] = "You need to select joke before click the button."
+  # def review_jokes
+  #   joke_ids = params[:joke_ids]
+  #   if !joke_ids.nil?
+  #     approve_unapprove_jokes(:joke_ids)
+  #   else
+  #     flash[:notice] = "You need to select joke before click the button."
+  #     redirect_to jokes_path
+  #   end
+  # end
+  
+  def review_joke
+    if params[:commit] == 'Approve'
+      Joke.update_all(["status=?", "approved"], :id => params[:joke_id])
+      Joke.update_all(["message=?", "approved"], :id => params[:joke_id])
       redirect_to jokes_path
+    elsif params[:commit] == 'Unapprove'
+      Joke.update_all(["status=?", "unapproved"], :id => params[:joke_id])
+      Joke.update_all(["message=?", "unapproved"], :id => params[:joke_id])
+      Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[:joke_id])
+      redirect_to jokes_path     
     end
   end
   
@@ -107,17 +121,28 @@ class JokesController < ApplicationController
   end
   
   private
+  
+    # def approve(joke_id)
+    #   Joke.update_all(["status=?", "approved"], :id => params[joke_id])
+    #   Joke.update_all(["message=?", "approved"], :id => params[joke_id])
+    # end
+    # 
+    # def unapprove(jokes_id)
+    #   Joke.update_all(["status=?", "unapproved"], :id => params[joke_id])
+    #   Joke.update_all(["message=?", "unapproved"], :id => params[joke_id])
+    #   Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[joke_id])
+    # end
    
-    def approve_unapprove_jokes(joke_ids)
-      if params[:commit] == 'Approve'
-        Joke.update_all(["status=?", "approved"], :id => params[joke_ids])
-        Joke.update_all(["message=?", "approved"], :id => params[joke_ids])
-        redirect_to jokes_path
-      elsif params[:commit] == 'Unapprove'
-        Joke.update_all(["status=?", "unapproved"], :id => params[joke_ids])
-        Joke.update_all(["message=?", "unapproved"], :id => params[joke_ids])
-        Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[joke_ids])
-        redirect_to jokes_path     
-      end
-    end
+    # def approve_unapprove_jokes(joke_ids)
+    #   if params[:commit] == 'Approve'
+    #     Joke.update_all(["status=?", "approved"], :id => params[joke_ids])
+    #     Joke.update_all(["message=?", "approved"], :id => params[joke_ids])
+    #     redirect_to jokes_path
+    #   elsif params[:commit] == 'Unapprove'
+    #     Joke.update_all(["status=?", "unapproved"], :id => params[joke_ids])
+    #     Joke.update_all(["message=?", "unapproved"], :id => params[joke_ids])
+    #     Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[joke_ids])
+    #     redirect_to jokes_path     
+    #   end
+    # end
 end

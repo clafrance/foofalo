@@ -84,5 +84,115 @@ describe "JokesPages" do
     should have_selector("h2", :text => "Jokes on 01/29/2013")
     should_have_items_after_signin
     should_have_joke_links_for_user
-  end  
+  end
+  
+  it "prove, unapprove jokes" do
+    sign_in_admin_user
+    should_have_items_after_signin
+    click_link("Jokes")
+    should_have_joke_links_for_admin
+    should have_content("Unreviewed Jokes (0)")
+    should have_content("Unapproved Jokes (0)")
+    should have_content("Approved Jokes (0)")
+    should have_content("Displayed Jokes (1)")
+    
+    # Create joke1
+    click_link("Enter New Jokes")
+    should_have_items_after_signin
+    should_have_joke_links_for_admin
+    should have_selector("h2", :text => "Enter New Joke")
+    should have_content("Joke Name")
+    should have_content("Joke Details")
+    should have_button("Submit")
+    should have_link("Cancel")
+    fill_in("Joke Name", :with => "Joke1")
+    fill_in("Joke Details", :with => "Joke1 details")
+    click_button("Submit")
+    should have_selector("h2", :text => "My Jokes ( Total: 2 )")
+    should have_content("My Approved Jokes (1)")
+    should have_content("My Jokes Being Reviewed (1)")
+    should have_content("My Unapproved Jokes (0)")
+    should have_content("My Displayed Jokes")
+    
+    # Approve Joke
+    click_link("Joke1")
+    should have_selector("h2", :text => "Joke1")
+    should have_button("Approve")
+    should have_button("Unapprove")
+    should have_link("Cancel")
+    click_button("Approve")
+    should have_selector("h2", :text => "Jokes")
+    should have_content("Approved Jokes (1)")
+    should have_content("Unreviewed Jokes (0)")
+    
+    # Create joke2
+    click_link("Enter New Jokes")
+    should_have_items_after_signin
+    should_have_joke_links_for_admin
+    should have_selector("h2", :text => "Enter New Joke")
+    should have_content("Joke Name")
+    should have_content("Joke Details")
+    should have_button("Submit")
+    should have_link("Cancel")
+    fill_in("Joke Name", :with => "Joke2")
+    fill_in("Joke Details", :with => "Joke2 details")
+    click_button("Submit")
+    
+    # save_and_open_page
+    should have_selector("h2", :text => "My Jokes ( Total: 3 )")
+    should have_content("My Approved Jokes (1)")
+    should have_content("My Jokes Being Reviewed (1)")
+    should have_content("My Unapproved Jokes (0)")
+    should have_content("My Displayed Jokes (1)")
+    
+    # Unapprove Joke
+    click_link("Joke2")
+    should have_selector("h2", :text => "Joke2")
+    should have_button("Approve")
+    should have_button("Unapprove")
+    should have_link("Cancel")
+    click_button("Unapprove")
+    should have_selector("h2", :text => "Jokes")
+    should have_content("( Total: 3 )")
+    should have_content("Unreviewed Jokes (0)")
+    should have_content("Approved Jokes (1)")
+    should have_content("Unapproved Jokes (1)")
+    should have_content("Displayed Jokes (1)")
+  end
+   
+  it "Delete jokes as admin" do
+    sign_in_admin_user
+    should_have_items_after_signin
+    click_link("Jokes")
+    should_have_joke_links_for_admin
+    
+    # Create joke3
+    click_link("Enter New Jokes")
+    should_have_items_after_signin
+    should_have_joke_links_for_admin
+    should have_selector("h2", :text => "Enter New Joke")
+    should have_content("Joke Name")
+    should have_content("Joke Details")
+    should have_button("Submit")
+    should have_link("Cancel")
+    fill_in("Joke Name", :with => "Joke3")
+    fill_in("Joke Details", :with => "Joke3 details")
+    click_button("Submit")
+    should have_selector("h2", :text => "My Jokes ( Total: 2 )")
+    should have_content("My Approved Jokes (1)")
+    should have_content("My Jokes Being Reviewed (1)")
+    should have_content("My Unapproved Jokes (0)")
+    should have_content("My Displayed Jokes")
+    
+    # Delete Joke
+    click_link("Manage Jokes")
+    should have_selector("h2", :text => "Jokes")
+    should have_content("( Total: 2 )")
+    should have_link("Delete")
+    click_link("Delete")
+    should have_content("Joke Joke3 has been deleted.")
+    should have_selector("h2", :text => "Jokes")
+    should have_content("( Total: 1 )")
+  end
+    
 end
