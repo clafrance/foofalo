@@ -47,7 +47,7 @@
 #   correct_answer: '15 6 1',
 #   explanation: "The sequence is the seventh row of the additive number triangle.",
 #   status: "new", 
-#   user_id: 1,
+#   author_id: 1,
 #   author: "clafrance",
 #   created_at: '2012-03-28 04:43:52', 
 #   updated_at: '2012-03-28 04:43:52')
