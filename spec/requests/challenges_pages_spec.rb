@@ -51,7 +51,7 @@ describe "ChallengesPages" do
     fill_in("Explanation", :with => "New challenge explanation")
     click_button("Submit")
     
-    # show challenge
+    # show the new challenge
     should have_content("Challenge has been created")
     should have_selector("h2", :text => "New Challenge")
     should_have_items_after_signin
@@ -59,6 +59,13 @@ describe "ChallengesPages" do
     should have_content("New Challenge details")
     should have_link("Edit")
     should have_link("Delete")
+    
+    # new challenge should display in the index page
+    click_link("Challenges")
+    should have_selector("h2", :text => "Challenges")
+    should have_link("New Challenge")
+    should have_content("New Challenge details")
+    click_link("New Challenge")
     
     # edit challenge
     click_link("Edit")
