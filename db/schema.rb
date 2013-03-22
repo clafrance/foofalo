@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321212450) do
+ActiveRecord::Schema.define(:version => 20130322152000) do
 
   create_table "answers", :id => false, :force => true do |t|
     t.integer  "user_id"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(:version => 20130321212450) do
     t.string   "correct_answer",   :limit => 128
     t.string   "explanation",      :limit => 500
     t.string   "author",           :limit => 50
-    t.integer  "user_id"
     t.integer  "author_id"
   end
 

@@ -6,7 +6,7 @@ describe "Show Users" do
   it "shows all users" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
     display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
@@ -63,7 +63,7 @@ describe "EditProfile" do
   it "updates user profile with valid info" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
     display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
@@ -88,7 +88,7 @@ describe "EditProfile" do
   it "doesn't update user profile with invalid password" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
     display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
@@ -105,7 +105,7 @@ describe "EditProfile" do
   it "doesn't update user profile when password doesn't match confirmation" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
     display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
@@ -122,7 +122,7 @@ describe "EditProfile" do
   it "doesn't update user profile with invalid firstname" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
     display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
@@ -139,7 +139,7 @@ describe "EditProfile" do
   it "doesn't update user profile with invalid lastname" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
     display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
@@ -155,7 +155,7 @@ describe "EditProfile" do
   it "doesn't update user profile with invalid email" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
     display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
@@ -172,7 +172,7 @@ describe "EditProfile" do
   it "doesn't update user profile when email doesn't match confirmation" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
     display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
@@ -189,7 +189,7 @@ describe "EditProfile" do
   it "does not submit a PUT request to the Users#update action" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
     display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)

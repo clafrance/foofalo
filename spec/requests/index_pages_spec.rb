@@ -11,7 +11,7 @@ describe "IndexPages" do
   it "displays correct info after signing in" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     displayed_link = Factory(:link, :user_id => user.id)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
@@ -38,7 +38,7 @@ describe "IndexPages" do
   it "submits challenge answers when choose the correct answer" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
     display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
@@ -54,7 +54,7 @@ describe "IndexPages" do
   it "submits challenge answers when choose the incorrect answer" do
     user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
-    displayed_challenge = Factory(:challenge, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
     displayed_link = Factory(:link)
     display_object = Factory(:display_object, :obj_id => displayed_challenge.id)

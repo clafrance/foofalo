@@ -26,7 +26,7 @@ end
 Factory.define :challenge do |f|
   f.name "Challenge1"
   f.content "The biggest challenge is this."
-  f.user_id "1"
+  f.author_id "1"
   f.author "Bob"
   f.status "Approved"
   f.a "column a"
