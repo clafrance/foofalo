@@ -9,13 +9,11 @@ class JokesController < ApplicationController
   end
   
   def create
-    # @joke = Joke.new(params[:joke])
-    # @joke.user_id = current_user.id
     @joke = current_user.jokes.build(params[:joke])
     @joke.author = current_user.username
     if @joke.save
-      redirect_to myjokes_url, :notice => "Joke has been created. It will be published after it is approved."
-      # redirect_to @joke, :success => "Joke has been created. It will be published after it is approved."
+      flash[:success] = "Joke has been created. It will be published after approved."
+      redirect_to myjokes_url
     else
       render 'new'
     end
@@ -26,8 +24,6 @@ class JokesController < ApplicationController
     @unapproved_jokes = Joke.where(:status => "unapproved").order("#{:created_at}")
     @jokes_displayed = Joke.where(:status => "displayed").order("#{:created_at} DESC, #{:author}, #{:name}")
     @jokes = Joke.where(:status => "approved").order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
-    #@jokes_by_date = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
-    #@jokes_by_author = Joke.where(:status => 1).order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
     @total_jokes_count = Joke.all.count
     @display_joke = DisplayObject.where(:obj_type => "joke")
   end
@@ -42,26 +38,23 @@ class JokesController < ApplicationController
   end
   
   def my_jokes
-    @jokes_approved = Joke.where(:author => current_user.username, :status => "approved", :status => "displayed").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
-    @jokes_unapproved = Joke.where(:author => current_user.username, :status => "unapproved").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
-    @jokes_review = Joke.where(:author => current_user.username, :status => "reviewing").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
-    @jokes = Joke.where(:author => current_user.username).order("#{:name}").paginate(:page => params[:page], :per_page => 20)
+    @jokes_approved = current_user.jokes.where(:status => "approved", :status => "displayed").order("#{:name}")
+    @jokes_unapproved = current_user.jokes.where(:status => "unapproved").order("#{:name}")
+    @jokes_review = current_user.jokes.where(:status => "reviewing").order("#{:name}")
+    @jokes = current_user.jokes.order("#{:name}")
     @display_joke = DisplayObject.where(:obj_type => "joke")
   end
   
   def jokes_author
     @current_joke = Joke.find(params[:joke])
-    @jokes = Joke.where(:author => @current_joke.author).order("#{:name}").paginate(:page => params[:page], :per_page => 20)
-    
-    # @jokes = Joke.where(:author => @current_joke.author, :status => "approved").order("#{:name}").paginate(:page => params[:page], :per_page => 20)
+    @author = User.find_by_id(@current_joke.user_id)
+    @jokes = @author.jokes.order("#{:name}")
   end
   
   def jokes_date
     @current_joke = Joke.find(params[:joke])
-    @jokes = Joke.where(:status => "displayed", :created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
-    @jokes_all = Joke.where(:created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
-    
-    # @jokes = Joke.where(:status => "displayed", :created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
+    @jokes = Joke.where(:status => "displayed", :created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}")
+    @jokes_all = Joke.where(:created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}")
   end
   
   def jokes_by_authors
@@ -93,47 +86,12 @@ class JokesController < ApplicationController
   def review_jokes
     joke_ids = params[:joke_ids]
     if !joke_ids.nil?
-      if params[:commit] == 'Approve'
-        Joke.update_all(["status=?", "approved"], :id => params[:joke_ids])
-        Joke.update_all(["message=?", "approved"], :id => params[:joke_ids])
-        redirect_to jokes_path
-      elsif params[:commit] == 'Unapprove'
-        Joke.update_all(["status=?", "unapproved"], :id => params[:joke_ids])
-        Joke.update_all(["message=?", "unapproved"], :id => params[:joke_ids])
-        Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[:joke_id])
-        redirect_to jokes_path     
-      end
+      approve_unapprove_jokes(:joke_ids)
     else
       flash[:notice] = "You need to select joke before click the button."
       redirect_to jokes_path
     end
   end
-  
-  def review_joke
-    if params[:commit] == 'Approve'
-      Joke.update_all(["status=?", "approved"], :id => params[:joke_id])
-      Joke.update_all(["message=?", "approved"], :id => params[:joke_id])
-      redirect_to jokes_path
-    elsif params[:commit] == 'Unapprove'
-      Joke.update_all(["status=?", "unapproved"], :id => params[:joke_id])
-      Joke.update_all(["message=?", "unapproved"], :id => params[:joke_id])
-      Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[:joke_id])
-      redirect_to jokes_path     
-    end
-  end
-  
-  # def review
-  #   Joke.update_all(["status=?", "approved"], :id => params[:joke_ids])
-  #   Joke.update_all(["message=?", "approved"], :id => params[:joke_ids])
-  #   redirect_to jokes_path
-  # end
-  # 
-  # def unapprove
-  #   joke_id = params[:joke_id]
-  #   Joke.update_all(["status=?", "unapproved"], :id => params[:joke_id])
-  #   Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[:joke_id])
-  #   redirect_to jokes_path
-  # end  
   
   def destroy
     @display_joke = DisplayObject.where(:obj_type => "joke")
@@ -147,5 +105,19 @@ class JokesController < ApplicationController
       redirect_to jokes_path
     end
   end
-
+  
+  private
+   
+    def approve_unapprove_jokes(joke_ids)
+      if params[:commit] == 'Approve'
+        Joke.update_all(["status=?", "approved"], :id => params[joke_ids])
+        Joke.update_all(["message=?", "approved"], :id => params[joke_ids])
+        redirect_to jokes_path
+      elsif params[:commit] == 'Unapprove'
+        Joke.update_all(["status=?", "unapproved"], :id => params[joke_ids])
+        Joke.update_all(["message=?", "unapproved"], :id => params[joke_ids])
+        Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[joke_ids])
+        redirect_to jokes_path     
+      end
+    end
 end

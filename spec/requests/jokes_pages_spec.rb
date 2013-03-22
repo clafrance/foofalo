@@ -35,7 +35,7 @@ describe "JokesPages" do
     fill_in 'Name', :with => 'Test Joke'
     fill_in 'Details', :with => 'Test Joke details'
     click_button("Submit")
-    should have_content("Joke has been created. It will be published after it is approved.")
+    should have_content("Joke has been created. It will be published after approved.")
     current_path.should eq("/myjokes")
     should_have_items_after_signin
     should_have_joke_links_for_user
