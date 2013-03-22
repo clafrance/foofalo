@@ -3,7 +3,7 @@ class Challenge < ActiveRecord::Base
                   :correct_col_name, :correct_answer, :explanation, :user_id, :author,
                   :created_at, :updated_at
   
-  belongs_to :user
+  has_many :users, :through => :answers
   has_many :answers, :dependent => :destroy
   has_one :display_object
   
