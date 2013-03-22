@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121110060336) do
+ActiveRecord::Schema.define(:version => 20130321212450) do
 
   create_table "answers", :id => false, :force => true do |t|
     t.integer  "user_id"
@@ -39,8 +39,9 @@ ActiveRecord::Schema.define(:version => 20121110060336) do
     t.string   "correct_col_name", :limit => 16
     t.string   "correct_answer",   :limit => 128
     t.string   "explanation",      :limit => 500
-    t.integer  "user_id"
     t.string   "author",           :limit => 50
+    t.integer  "user_id"
+    t.integer  "author_id"
   end
 
   create_table "display_objects", :force => true do |t|
