@@ -84,16 +84,6 @@ class JokesController < ApplicationController
     end
   end
   
-  # def review_jokes
-  #   joke_ids = params[:joke_ids]
-  #   if !joke_ids.nil?
-  #     approve_unapprove_jokes(:joke_ids)
-  #   else
-  #     flash[:notice] = "You need to select joke before click the button."
-  #     redirect_to jokes_path
-  #   end
-  # end
-  
   def review_joke
     if params[:commit] == 'Approve'
       Joke.update_all(["status=?", "approved"], :id => params[:joke_id])
@@ -122,27 +112,4 @@ class JokesController < ApplicationController
   
   private
   
-    # def approve(joke_id)
-    #   Joke.update_all(["status=?", "approved"], :id => params[joke_id])
-    #   Joke.update_all(["message=?", "approved"], :id => params[joke_id])
-    # end
-    # 
-    # def unapprove(jokes_id)
-    #   Joke.update_all(["status=?", "unapproved"], :id => params[joke_id])
-    #   Joke.update_all(["message=?", "unapproved"], :id => params[joke_id])
-    #   Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[joke_id])
-    # end
-   
-    # def approve_unapprove_jokes(joke_ids)
-    #   if params[:commit] == 'Approve'
-    #     Joke.update_all(["status=?", "approved"], :id => params[joke_ids])
-    #     Joke.update_all(["message=?", "approved"], :id => params[joke_ids])
-    #     redirect_to jokes_path
-    #   elsif params[:commit] == 'Unapprove'
-    #     Joke.update_all(["status=?", "unapproved"], :id => params[joke_ids])
-    #     Joke.update_all(["message=?", "unapproved"], :id => params[joke_ids])
-    #     Joke.update_all(["message=?", "Please update the joke with proper language or content."], :id => params[joke_ids])
-    #     redirect_to jokes_path     
-    #   end
-    # end
 end
