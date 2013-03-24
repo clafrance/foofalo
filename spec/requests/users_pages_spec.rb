@@ -22,6 +22,12 @@ describe "Show Users" do
     should_have_items_after_signin
   end
   
+  it "grant admin privilege to admin user" do
+    user1 = Factory(:user, :username => "testuser", :email => "lafrance.family@yahoo.com", :email_confirmation => "lafrance.family@yahoo.com", :firstname => "testfirst", :lastname => "testlast", :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
+    user2 = Factory(:user, :username => "testadmin", :email => "gclafrance@gmail.com", :email_confirmation => "gclafrance@gmail.com", :firstname => "adminfirst", :lastname => "adminlast", :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
+    # need to find a way to test privilege
+  end
+  
   it "updates user privilege" do
     sign_in_admin_user
     user1 = Factory(:user, :username => "testuser", :privilege => "user", :email => "lafrance.family@yahoo.com", :email_confirmation => "lafrance.family@yahoo.com", :firstname => "testfirst", :lastname => "testlast", :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
