@@ -5,7 +5,7 @@
 	<div class="margin_left_40 margin_right_40">
   <% if current_user.privilege == "super user" || current_user.privilege == "admin"%>
 		<div class="margin_top_10 margin_auto clearfix">
-			<span class="font_2 width_250 float_left">
+			<span class="font_2 width_200 float_left">
 			  <%= link_to current_user.username, edit_user_path(current_user) %>
 			</span>
 			<span class="font_grey margin_left_10 width_150 float_left">
