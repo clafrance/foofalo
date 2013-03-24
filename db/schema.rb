@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130322152000) do
+ActiveRecord::Schema.define(:version => 20130324201400) do
 
   create_table "answers", :id => false, :force => true do |t|
     t.integer  "user_id"
@@ -109,15 +109,15 @@ ActiveRecord::Schema.define(:version => 20130322152000) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "firstname",              :limit => 50,                     :null => false
-    t.string   "lastname",               :limit => 50,                     :null => false
-    t.string   "email",                  :limit => 64,                     :null => false
-    t.datetime "created_at",                                               :null => false
-    t.datetime "updated_at",                                               :null => false
+    t.string   "firstname",              :limit => 50, :null => false
+    t.string   "lastname",               :limit => 50, :null => false
+    t.string   "email",                  :limit => 64, :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.string   "privilege",                            :default => "user"
-    t.string   "username",               :limit => 50,                     :null => false
+    t.string   "privilege"
+    t.string   "username",               :limit => 50, :null => false
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "inform_parents_token"

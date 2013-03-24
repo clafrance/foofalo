@@ -99,7 +99,6 @@ describe "IndexPages" do
     click_link "Manster Cards"
     current_path.should eq("/manster_cards")
     should_have_items_after_signin
-    should have_selector("h2", :text => "Manster Cards")
     click_link "Home"
     current_path.should eq("/index")
     click_link "Games"

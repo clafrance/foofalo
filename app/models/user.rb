@@ -43,8 +43,7 @@ class User < ActiveRecord::Base
                     
   validates :password, :length => { :within => 6..16 }, :if => :password
   
-  validates :privilege, :presence => true,
-            :length => { :maximum => 20 }
+  validates :privilege, :length => { :maximum => 20 }
   
   def send_password_reset
     generate_token(:password_reset_token)

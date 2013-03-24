@@ -29,14 +29,20 @@ class UsersController < ApplicationController
     if current_user.nil?
       @user = User.new(params[:user])
       grant_admin_privilege(@user.email, @user.privilege)
-  
-      if @user.save 
+      if @user.save
         if @user.send_inform_parents
           redirect_to root_url, :notice => "Welcome #{@user.username}, you have signed up. Your parents should receive 
             an email with a link to approve you using Foofalo. Once approved, you can signin and have fun."
         else 
-          redirect_to root_url, :notice => "You have signed up, but couldn't send confirmation to your parants, contact foofalo.com here."
+          redirect_to root_url, :notice => "You have signed up, but couldn't send confirmation to your parants, please contact foofalo.com to resolve the issue."
         end
+        if is_admin?(@user.email)
+          @user.privilege = "admin"
+        else
+          @user.privilege = "user"
+        end
+        @user.save!
+          
       else      
         render 'new'
       end
@@ -94,6 +100,8 @@ class UsersController < ApplicationController
     def grant_admin_privilege(email, privilege)
       if is_admin?(email)
         privilege = "admin"
+      else 
+        privilege = "user"
       end
     end
     
