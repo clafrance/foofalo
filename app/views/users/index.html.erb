@@ -4,19 +4,19 @@
 <div class="content_container">
 	<div class="margin_left_40 margin_right_40">
   <% if current_user.privilege == "super user" || current_user.privilege == "admin"%>
-		<div class="margin_top_10 margin_auto clearfix">
+		<div class="margin_top_10 margin_auto width_900 clearfix">
 			<span class="font_2 width_200 float_left">
 			  <%= link_to current_user.username, edit_user_path(current_user) %>
 			</span>
 			<span class="font_grey margin_left_10 width_150 float_left">
-			  JOKE ENTERED: 
+			  Joke entered: 
 			  <span class="margin_left_5"><%= jokes_entered_by_user(current_user.username) %></span>
 			</span>
 			<span class="font_grey margin_left_10 width_250 float_left">
 			  Challenges answered correctly: 
 			  <span class="margin_left_5"><%= correct_answers_by_user(current_user.username) %></span>
 			</span>
-    </div>
+    </div><br />
   <% else %>
 		<div class="margin_top_10 margin_auto width_700 clearfix">
 			<span class="font_2 width_250 float_left">
@@ -30,7 +30,7 @@
 			  Challenges answered correctly: 
 			  <span class="margin_left_5"><%= correct_answers_by_user(current_user.username) %></span>
 			</span>
-    </div>
+    </div><br />
   <% end %>
 
   <% @users.each do |user| %>
