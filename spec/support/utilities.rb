@@ -88,6 +88,20 @@ def sign_in_admin_user
   should have_link("Users")
 end
 
+def sign_in_superuser
+  user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49", :privilege => "super_user")
+  displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
+  displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
+  displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
+  displayed_link = Factory(:link, :user_id => user.id)
+  display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
+  display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
+  display_object = Factory(:display_object, :obj_type => "joke", :obj_id => displayed_joke.id)
+  sign_in_successfully(user)
+  should_have_items_after_signin
+  should have_link("Users")
+end
+
 def should_have_joke_links_for_user
   should have_link("Enter New Jokes")
   should have_link("View, Edit My Jokes")

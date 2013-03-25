@@ -37,7 +37,7 @@ class ChallengesController < ApplicationController
   end
 
   def index
-    if current_user.privilege == "admin"
+    if current_user.privilege == "admin" or current_user.privilege == "super_user"
       @challenges = Challenge.find(:all)
     else
       @challenges = Challenge.where(:status => "displayed").order(:name)
