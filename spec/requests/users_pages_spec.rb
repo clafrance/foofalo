@@ -36,7 +36,7 @@ describe "Show Users" do
     should_have_items_after_signin
     should have_link("testuser")
     should have_link("Update Privilege")
-    should have_link("Delete User")
+    should have_link("Delete")
     click_link("testuser")
     should_have_items_after_signin
     should have_selector("h2", :text => "testuser")

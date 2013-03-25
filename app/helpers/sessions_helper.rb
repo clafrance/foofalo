@@ -27,6 +27,23 @@ module SessionsHelper
   def current_user
     @current_user ||= User.find_by_remember_token(cookies[:remember_token]) if cookies[:remember_token]
   end
+    
+  def non_current_users
+    users = User.all
+    users.reject { |u| u.id == current_user.id }   
+  end
+  
+  def admin_or_superuser?
+    current_user.privilege == "admin" or current_user.privilege == "super_user"
+  end
+  
+  def admin?
+    current_user.privilege == "admin"
+  end
+  
+  def super_user?
+    current_user.privilege == "super_user"
+  end
   
   def sign_in_remember(user)
     cookies.permanent[:remember_token] = user.remember_token 
@@ -63,21 +80,35 @@ module SessionsHelper
     
     def admin_user?
       if current_user.privilege != "admin" 
-        if current_user.privilege != "super_user"
-          redirect_to store_referrer_location ||= root_url
-        end 
+        redirect_to store_referrer_location ||= root_url
       end
     end
     
     def admin_user
       if current_user.privilege != "admin" 
-        if current_user.privilege != "super_user"
-          redirect_to store_referrer_location ||= root_url
-        end
+        redirect_to store_referrer_location ||= root_url
       else
         current_user
       end
     end
+    
+    # def admin_user?
+    #   if current_user.privilege != "admin" 
+    #     if current_user.privilege != "super_user"
+    #       redirect_to store_referrer_location ||= root_url
+    #     end 
+    #   end
+    # end
+    # 
+    # def admin_user
+    #   if current_user.privilege != "admin" 
+    #     if current_user.privilege != "super_user"
+    #       redirect_to store_referrer_location ||= root_url
+    #     end
+    #   else
+    #     current_user
+    #   end
+    # end
     
     def clear_return_to
       session.delete(:return_to)

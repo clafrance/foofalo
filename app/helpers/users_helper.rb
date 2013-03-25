@@ -14,4 +14,9 @@ module UsersHelper
     userid = user[0].id
     answers_by_user = Answer.where(:user_id => userid, :correct => "yes").count
   end
+  # 
+  # def non_current_users
+  #   users = User.all
+  #   users.reject { |u| u.id == current_user.id }   
+  # end
 end

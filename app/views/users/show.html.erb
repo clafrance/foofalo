@@ -3,24 +3,25 @@
 <h2 class="title_font center padding_top_10"><%= @user.username %></h2>
 	
 <div class="content_container font_2">
-	<div class="width_250 margin_auto margin_top_30 clearfix">
-	  <p><span class="bold">First Name:</span><span class="margin_left_20"><%= @user.firstname %></span></p>
-	  <p><span class="bold">Last Name:</span><span class="margin_left_20"><%= @user.lastname %></span></p>
-	  <p><span class="bold">Email:</span><span class="margin_left_20"><%= @user.email %></span></p>
+	<div class="width_350 margin_auto margin_top_30 clearfix">
+	  <p><span class="bold float_left width_120">First Name:</span><span><%= @user.firstname %></span></p>
+	  <p><span class="bold float_left width_120">Last Name:</span><span><%= @user.lastname %></span></p>
+	  <p><span class="bold float_left width_120">Email:</span><span><%= @user.email %></span></p>
+	  <% if super_user? %>
+    <p><span class="bold float_left width_120">Privilege:</span><span><%= @user.privilege %>
+	  <% elsif admin? %>
+	    <%= form_tag(update_privilege_path, :method => :put) do %>
+	      <%= hidden_field_tag "user_id[]", @user.id %>
+				<div class="field">
+				  <span class="bold float_left width_120"><%= label_tag :privilege, "Privilege:" %></span>
+				  <span><%= select(:user, :privilege, User::USER_PRIVILEGES, {:prompt => true} ) %></span>
+				</div>
 
-  <% if current_user.privilege == "admin" %>
-    <%= form_tag(update_privilege_path, :method => :put) do %>
-      <%= hidden_field_tag "user_id[]", @user.id %>
-			<div class="field">
-			  <%= label_tag :privilege, "Privilege:" %>
-			  <span class="margin_left_20"><%= select(:user, :privilege, User::USER_PRIVILEGES, {:prompt => true} ) %></span>
-			</div>
-
-			<div class="actions_1 center">
-			  <%= submit_tag "Update Privilege" %>
-			  <a href="javascript:history.back()">Cancel</a>
-			</div>
-		<% end %>
-  <% end %>
+				<div class="actions_1 center">
+				  <%= submit_tag "Update Privilege" %>
+				  <a href="javascript:history.back()">Cancel</a>
+				</div>
+			<% end %>
+	  <% end %>
   </div>
 </div>
