@@ -6,7 +6,9 @@
 	<nav class="clearfix">
     <span class="font_grey">Signed in as: <%= current_user.username %></span>
      <%= link_to "Home", index_url, :class => "highlight_index round_all_4"  %>
-     <%= link_to "Users", users_path, :class => "highlight_users round_all_4" %>
+     <% if current_user.privilege == "admin" or current_user.privilege == "super_user" %>
+       <%= link_to "Users", users_path, :class => "highlight_users round_all_4" %>
+     <% end %>
      <%= link_to "Profile", edit_user_path(current_user), :class => "highlight_profile round_all_4" %>
      <%= link_to "Sign out", signout_path %>
   </nav>

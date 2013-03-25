@@ -3,8 +3,8 @@ require 'spec_helper'
 describe "Show Users" do
   subject { page }
   
-  it "shows all users" do
-    user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
+  it "shows all users for super user" do
+    user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49", :privilege => "super_user")
     displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
     displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
     displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)

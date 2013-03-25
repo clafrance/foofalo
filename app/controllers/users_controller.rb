@@ -89,10 +89,17 @@ class UsersController < ApplicationController
       emails = ["christie.lafrance@gmail.com", "gclafrance@gmail.com", "philliptao@gmail.com"]
       emails.include?(email)
     end
+    
+    def is_super_user?(email)
+      emails = ["arthur.lafrance@icloud.com", "matthew.lafrance@icloud.com"]
+      emails.include?(email)
+    end
   
     def grant_user_privilege(user)
       if is_admin?(user.email)
         user.privilege = "admin"
+      elsif is_super_user?(user.email)
+        user.privilege = "super_user"
       else
         user.privilege = "user"
       end

@@ -48,7 +48,6 @@ end
 def should_have_items_after_signin
   should have_link("Sign out")
   should have_link("Home")
-  should have_link("Users")
   should have_link("Profile")
   should have_link("Jokes")
   should have_link("Challenges")
@@ -86,6 +85,7 @@ def sign_in_admin_user
   display_object = Factory(:display_object, :obj_type => "joke", :obj_id => displayed_joke.id)
   sign_in_successfully(user)
   should_have_items_after_signin
+  should have_link("Users")
 end
 
 def should_have_joke_links_for_user

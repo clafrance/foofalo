@@ -91,6 +91,24 @@ describe "User Signin" do
     click_link "Profile"
     current_path.should eq(edit_user_path(user))
     should have_content("Edit") 
+    click_link "Sign out"
+    should have_link('Sign up')
+    should have_link('Sign in')
+    should_not have_link("Profile")
+  end    
+  
+  it "links admin user to other pages when click links" do
+    user = Factory(:user, :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49", :privilege => "admin")
+    displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
+    displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
+    display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
+    display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
+    display_object = Factory(:display_object, :obj_type => "joke", :obj_id => displayed_joke.id)
+    sign_in_successfully(user)
+    click_link "Profile"
+    current_path.should eq(edit_user_path(user))
+    should have_content("Edit") 
     click_link "Users"
     current_path.should eq(users_path)
     should have_content("All")
@@ -98,5 +116,5 @@ describe "User Signin" do
     should have_link('Sign up')
     should have_link('Sign in')
     should_not have_link("Profile")
-  end    
+  end
 end
