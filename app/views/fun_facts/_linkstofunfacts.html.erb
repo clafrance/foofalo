@@ -1,4 +1,4 @@
-<% if current_user.privilege == "admin" %>
+<% if current_user.privilege == "admin" or current_user.privilege == "super_user" %>
 <ul class="clearfix">
   <li class="clearfix"><%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
       <%= link_to 'Enter New Fun Fact', new_fun_fact_path %></li>

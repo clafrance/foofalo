@@ -7,7 +7,7 @@
 	
 	<div class="page_main page_main_list clearfit">
   <% @fun_facts.each do |fun_fact| %>
-		<% if current_user.privilege == "admin" %>
+		<% if current_user.privilege == "admin" or current_user.privilege == "super_user"%>
 	  <ul>
 		  <li class="list_no_style">
 			  <div class="clearfix margin_bottom_0">
@@ -18,8 +18,10 @@
 		      <% end %>
 	        </span>
 	        <span class="link_buttons_0">
+		      <% if current_user.privilege == "admin" %>
 			    <%= link_to "Delete", fun_fact, :method => :delete, 
 			          :confirm => "Deleting fun_fact #{fun_fact.name}?" %>
+			    <% end %>
 			    <%= link_to "Edit", edit_fun_fact_path(fun_fact) %>
 				  </span>
 				</div>

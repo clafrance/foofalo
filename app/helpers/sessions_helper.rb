@@ -62,12 +62,18 @@ module SessionsHelper
     end
     
     def admin_user?
-      redirect_to store_referrer_location ||= root_url if current_user.privilege != "admin"
+      if current_user.privilege != "admin" 
+        if current_user.privilege != "super_user"
+          redirect_to store_referrer_location ||= root_url
+        end 
+      end
     end
     
     def admin_user
-      if current_user.privilege != "admin"
-        redirect_to store_referrer_location ||= root_url
+      if current_user.privilege != "admin" 
+        if current_user.privilege != "super_user"
+          redirect_to store_referrer_location ||= root_url
+        end
       else
         current_user
       end
