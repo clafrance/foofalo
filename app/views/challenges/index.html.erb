@@ -7,7 +7,7 @@
 	
 	<div class="page_main page_main_list clearfit">
 	<% @challenges.each do |challenge| %>
-    <% if current_user.privilege == "admin" %>
+    <% if admin_or_superuser? %>
 	  <ul>
 			<li class="list_no_style">
 	      <div class="clearfix margin_bottom_0">
@@ -18,8 +18,10 @@
 				    <% end %>
 				  </span>
 					<span class="link_buttons_0">
-					  <%= link_to "Delete", challenge, :method => :delete, 
+						<% if admin? %>
+					    <%= link_to "Delete", challenge, :method => :delete, 
 					        :confirm => "Deleting challenge #{challenge.name}?" %>
+					  <% end %>
 					  <%= link_to "Edit", edit_challenge_path(challenge) %>
 		      </span>
 		    </div>
