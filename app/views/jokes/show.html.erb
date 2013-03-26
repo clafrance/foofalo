@@ -7,7 +7,7 @@
 	    <p class="small_font_2 center font_grey">By <%= @joke.author %> on 
 	       <%= @joke.created_at.strftime("%m/%d/%Y") %>
 	    </p>		
-		  <% if current_user.privilege == "admin" %>
+		  <% if admin? %>
 			  <%= form_tag review_joke_path, :method => :put do %>
 				  <div class="hidden"><%= check_box_tag "joke_id[]", @joke.id, :checked => true %></div>
 				  <div class="margin_top_n30"><%= simple_format @joke.content %></div>

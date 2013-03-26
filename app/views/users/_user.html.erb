@@ -1,6 +1,6 @@
 <li>
   <p><%= user.username %> <%= full_name(user.firstname, user.lastname) %><br />
-  <% if current_user.privilege == "admin" && current_user.id != user.id %>
+  <% if admin? && current_user.id != user.id %>
     | <%= link_to "delete", user, :method => :delete, :confirm => "Deleting user #{full_name(user.firstname, user.lastname)}?" %>
   <% end %></p>
 </li>

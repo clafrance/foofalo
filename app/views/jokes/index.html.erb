@@ -3,7 +3,7 @@
 <div class="content_container clearfix">
 	<h2 class="page_title">Jokes
 		<span class="font_grey_small">
-	  <% if current_user.privilege == "admin" %>
+	  <% if admin? %>
 	    ( Total: <%= @total_jokes_count %> )
 	  <% else %>
 	    (<%= @jokes_displayed.count %>)
@@ -13,7 +13,7 @@
 		
 	<div class="page_main page_main_list clearfit">
 	
-  <% if current_user.privilege == "admin" %>
+  <% if admin? %>
 		<%= form_tag review_jokes_path, :method => :put do %>
 	  <div class="border_bottom_grey margin_bottom_40">
 	    <h3 class="margin_left_20">Unreviewed Jokes <span class="font_grey_small_1">(<%= @unreviewed_jokes.count %>)</span></h3>			

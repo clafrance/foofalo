@@ -4,7 +4,7 @@
 
   <li class="clearfix"><%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %>
 	  <%= link_to 'View, Edit My Jokes', myjokes_path %></li>
-	<% if current_user.privilege == "admin" %>
+	<% if admin? %>
     <li class="clearfix"><%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %><%= link_to 'Manage Jokes', jokes_path %></li>
   <% else %>
     <li class="clearfix"><%= image_tag("arrow_right.png", :alt => "arrow image", :height=>"20px") %><%= link_to 'Displayed Jokes', jokes_path %></li>

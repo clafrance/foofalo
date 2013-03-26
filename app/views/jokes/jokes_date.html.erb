@@ -4,7 +4,7 @@
 	<h2 class="page_title">Jokes on <%= @current_joke.created_at.strftime("%m/%d/%Y") %>
 		 <span class="font_grey_small">( Total: <%= @jokes.count %> )</span></h2>
 	<div class="page_main page_main_list clearfit">
-  <% if current_user.privilege == "admin" %>
+  <% if admin? %>
 		<ul>
 	  <% @jokes_all.each do |joke| %>
 	    <li class="list_no_style">
