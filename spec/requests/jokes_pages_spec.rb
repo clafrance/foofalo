@@ -15,6 +15,37 @@ describe "JokesPages" do
     current_path.should eq("/jokes")
     should have_selector("h3", :text => "Displayed Jokes")
     should_have_joke_links_for_user
+    should have_link("Joke About Dog")
+    should have_link("01/29/2013")
+    should have_link("Delete")
+    should have_content("Why does dog cross the street?")
+    click_link("01/29/2013")
+    should have_selector("h2", :text => "Jokes on 01/29/2013")
+    should have_content("Total: 1")
+    should have_link("Joke About Dog")
+    should_have_joke_links_for_user
+  end
+  
+  it "displays jokes created by current user" do
+    user = Factory(:user, :username => "firethorne", :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49", :privilege => "super_user")
+    displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
+    displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
+    display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
+    display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
+    display_object = Factory(:display_object, :obj_type => "joke", :obj_id => displayed_joke.id)
+    sign_in(user)
+    click_link "Jokes"
+    click_link("firethorne")
+    should have_selector("h2", :text => "Jokes by firethorne")
+    should have_content("Total: 1")
+    should have_link("Joke About Dog")   
+    click_link("Jokes by Authors") 
+    should have_selector("h2", :text => "Jokes by Authors")
+    should have_content("By firethorne (1)")
+    should have_link("Joke About Dog")
+    should have_link("01/29/2013")
+    # save_and_open_page
   end
   
   it "creates, edits, views jokes" do

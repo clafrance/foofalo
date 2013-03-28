@@ -10,11 +10,13 @@ class ApplicationController < ActionController::Base
   
   
   # helper is available to views by default, include make it available to controllers
+  include ApplicationHelper
   include SessionsHelper 
   include UsersHelper 
   include StaticPagesHelper
   include JokesHelper
   include LinksHelper
+  include ChallengesHelper
   
   
     # def current_user

@@ -6,7 +6,7 @@
 	</h2>
 	<div class="page_main page_main_list clearfit">
 	<% if admin? %>
-		<% jokes_by_author_status(@current_joke.author, "displayed").each do |joke| %>
+		<% jokes_by_author_status(@author, "displayed").each do |joke| %>
     <ul>
 	    <li class="list_no_style">
 	      <div class="clearfix margin_bottom_0">

@@ -105,7 +105,7 @@ class ChallengesController < ApplicationController
     def select_correct_answer(challenge)
       id = challenge.id
       col_name = challenge.correct_col_name
-      correct_answer = Challenge.find(:all, :select => "#{challenge.correct_col_name}", :conditions => ["id=?", challenge.id])
+      correct_answer = Challenge.select(challenge.correct_col_name).where("id=?", challenge.id)
       challenge.correct_answer = correct_answer[0][col_name]
     end
     

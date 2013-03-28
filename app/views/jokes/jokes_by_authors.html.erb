@@ -1,7 +1,7 @@
 <% provide :title, "JokesByAuthors" %>
 
 <div class="content_container clearfix">
-	<h2 class="page_title">Jokes by Author<br />
+	<h2 class="page_title">Jokes by Authors<br />
 	  <span class="font_grey_small">Jokes that have already been displayed</span></h2>
 	<div class="page_main page_main_list clearfit">
   <% @authors.each do |jokes_author| %>
@@ -9,7 +9,7 @@
       <span class="font_color_grey small">(<%= joke_author_count(jokes_author) %>)</span>
     </h3>
 
-    <% jokes_by_author_status(jokes_author).each do |joke| %>
+    <% jokes_by_author_status(jokes_author, "displayed").each do |joke| %>
 		<ul>
 		  <li class="list_no_style">
 		    <div class="clearfix margin_bottom_0">
@@ -17,7 +17,6 @@
 		        <%= link_to joke.name, joke %>
 			    </span>
 		      <span class="float_right">
-		        <!-- By: <%= link_to joke.author, jokesauthor_path(:joke=>joke.id) %> --> 
 		        <%= link_to joke.created_at.strftime("%m/%d/%Y"), jokesdate_path(:joke=>joke.id) %>
 		      </span>
 		    </div>

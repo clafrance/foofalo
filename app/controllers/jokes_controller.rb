@@ -23,8 +23,8 @@ class JokesController < ApplicationController
     @unreviewed_jokes = Joke.where(:status => "reviewing").order("#{:created_at}")
     @unapproved_jokes = Joke.where(:status => "unapproved").order("#{:created_at}")
     @jokes_displayed = Joke.where(:status => "displayed").order("#{:created_at} DESC, #{:author}, #{:name}")
-    @jokes = Joke.where(:status => "approved").order("#{:created_at} DESC, #{:author}, #{:name}").paginate(:page => params[:page], :per_page => 20)
-    @total_jokes_count = Joke.all.count
+    @jokes = Joke.where(:status => "approved").order("#{:created_at} DESC, #{:author}, #{:name}")
+    @total_jokes_count = Joke.count
     @display_joke = DisplayObject.where(:obj_type => "joke")
   end
   
@@ -47,23 +47,27 @@ class JokesController < ApplicationController
   end
   
   def jokes_author
+    # @current_joke = Joke.find(params[:joke])
+    # @author = User.find_by_id(@current_joke.user_id)
+    # @jokes = @author.jokes.order("#{:name}")
     @current_joke = Joke.find(params[:joke])
-    @author = User.find_by_id(@current_joke.user_id)
-    @jokes = @author.jokes.order("#{:name}")
+    @author = User.where("id=?", @current_joke.user_id)[0]
+    # @jokes_by_author_status = @author.jokes.where(:status => "displayed").order(:name)
+    # @jokes = @author.jokes.order("#{:name}")
   end
   
   def jokes_date
     @current_joke = Joke.find(params[:joke])
-    @jokes = Joke.where(:status => "displayed", :created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}")
-    @jokes_all = Joke.where(:created_at => @current_joke.created_at.beginning_of_day..@current_joke.created_at.end_of_day).order("#{:author}, #{:name}")
+    @jokes = Joke.where(:status => "displayed", :created_at => beginning_of_day(@current_joke)..end_of_day(@current_joke)).order("#{:author}, #{:name}")
+    @jokes_all = Joke.where(:created_at => beginning_of_day(@current_joke)..end_of_day(@current_joke)).order("#{:author}, #{:name}")
   end
   
   def jokes_by_authors
-    author_names = Joke.select(:author).uniq
     @authors = []
-    author_names.each do |a|
+    (Joke.select(:author).uniq).each do |a|
       @authors << User.find_by_username(a.author)
     end
+    return @authors
   end
   
   def edit
