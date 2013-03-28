@@ -38,7 +38,7 @@ class JokesController < ApplicationController
   end
   
   def my_jokes
-    @jokes_approved = current_user.jokes.where(:status => "approved", :status => "displayed").order("#{:name}")
+    @jokes_approved = current_user.jokes.where(:status => "approved").order("#{:name}")
     @jokes_unapproved = current_user.jokes.where(:status => "unapproved").order("#{:name}")
     @jokes_review = current_user.jokes.where(:status => "reviewing").order("#{:name}")
     @jokes_displayed = current_user.jokes.where(:status => "displayed").order("#{:name}")
