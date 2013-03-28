@@ -36,6 +36,7 @@ describe "JokesPages" do
     display_object = Factory(:display_object, :obj_type => "joke", :obj_id => displayed_joke.id)
     sign_in(user)
     click_link "Jokes"
+    should_have_joke_links_for_user
     click_link("firethorne")
     should have_selector("h2", :text => "Jokes by firethorne")
     should have_content("Total: 1")
@@ -45,6 +46,35 @@ describe "JokesPages" do
     should have_content("By firethorne (1)")
     should have_link("Joke About Dog")
     should have_link("01/29/2013")
+    # save_and_open_page
+  end
+  
+  it "displays jokes created by current admin user" do
+    user = Factory(:user, :username => "firethorne", :privilege => "admin", :parent_approved => "Yes", :parent_approved_at => "2012-02-29 06:05:49")
+    displayed_joke = Factory(:joke, :user_id => user.id, :author => user.username)
+    displayed_challenge = Factory(:challenge, :author_id => user.id, :author => user.username)
+    displayed_fun_fact = Factory(:fun_fact, :user_id => user.id, :author => user.username)
+    display_object = Factory(:display_object, :obj_id => displayed_challenge.id)
+    display_object = Factory(:display_object, :obj_type => "fun_fact", :obj_id => displayed_fun_fact.id)
+    display_object = Factory(:display_object, :obj_type => "joke", :obj_id => displayed_joke.id)
+    sign_in(user)
+    click_link "Jokes"
+    should_have_joke_links_for_admin
+    click_link("Manage Jokes")
+    should have_selector("h2", :text => "Jokes")
+    should have_content("Total: 1")
+    should have_link("Joke About Dog")
+    click_link("firethorne")
+    should have_selector("h2", :text => "Jokes by firethorne")
+    should have_content("Total: 1")
+    should have_link("Joke About Dog")   
+    click_link("Jokes by Authors") 
+    should have_selector("h2", :text => "Jokes by Authors")
+    should have_content("By firethorne (1)")
+    should have_link("Joke About Dog")
+    should have_link("01/29/2013")
+    should have_content("Why does dog cross the street?")
+    should_have_joke_links_for_admin
     # save_and_open_page
   end
   
