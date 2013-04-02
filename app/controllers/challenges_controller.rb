@@ -28,7 +28,8 @@ class ChallengesController < ApplicationController
 
   def show
     @challenge = Challenge.find(params[:id])
-    @display_challenge = DisplayObject.where(:obj_type => "challenge")
+    @display_challenge = DisplayObject.where('obj_type = :challenge_obj', :challenge_obj => "challenge")
+    # @display_challenge = DisplayObject.where(:obj_type => "challenge")
     if @challenge.status == "displayed"
       @display_status = "It hasn't been published." 
     else
@@ -38,11 +39,13 @@ class ChallengesController < ApplicationController
 
   def index
     if current_user.privilege == "admin" or current_user.privilege == "super_user"
-      @challenges = Challenge.find(:all)
+      @challenges = Challenge.all
     else
-      @challenges = Challenge.where(:status => "displayed").order(:name)
+      @challenges = Challenge.where('status = :display_status', :display_status => "displayed").order(:name)
+      # @challenges = Challenge.where(:status => "displayed").order(:name)
     end
-    @display_challenge = DisplayObject.where(:obj_type => "challenge")
+    @display_challenge = DisplayObject.where('obj_type = :challenge_obj', :challenge_obj => "challenge")
+    # @display_challenge = DisplayObject.where(:obj_type => "challenge")
   end
   
   def edit
@@ -60,7 +63,8 @@ class ChallengesController < ApplicationController
   end
   
   def destroy
-    @display_challenge = DisplayObject.where(:obj_type => "challenge")
+    @display_challenge = DisplayObject.where('obj_type = :challenge_obj', :challenge_obj => "challenge")
+    #@display_challenge = DisplayObject.where(:obj_type => "challenge")
     challenge = Challenge.find(params[:id])
     if challenge.id != @display_challenge[0].obj_id
       challenge.destroy
@@ -111,7 +115,7 @@ class ChallengesController < ApplicationController
     
     def user_select_answer(challenge, answer)
       @answer = challenge.answers.build(params[:answers])
-      @answer.challenge_name = challenge.name
+      # @answer.challenge_name = challenge.name
       @answer.user_id = current_user.id
       @answer.answer_selected = answer[0]
       @answer.reason = params[:reason][0]

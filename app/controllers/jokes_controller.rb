@@ -20,12 +20,17 @@ class JokesController < ApplicationController
   end
   
   def index
-    @unreviewed_jokes = Joke.where(:status => "reviewing").order("#{:created_at}")
-    @unapproved_jokes = Joke.where(:status => "unapproved").order("#{:created_at}")
-    @jokes_displayed = Joke.where(:status => "displayed").order("#{:created_at} DESC, #{:author}, #{:name}")
-    @jokes = Joke.where(:status => "approved").order("#{:created_at} DESC, #{:author}, #{:name}")
+    @unreviewed_jokes = Joke.where('status = :review_status', :review_status => "reviewing").order("#{:created_at}")
+    @unapproved_jokes = Joke.where('status = :review_status', :review_status => "unapproved").order("#{:created_at}")
+    @jokes_displayed = Joke.where('status = :review_status', :review_status => "displayed").order("#{:created_at} DESC, #{:author}, #{:name}")
+    @jokes = Joke.where('status = :review_status', :review_status => "approved").order("#{:created_at} DESC, #{:author}, #{:name}")
+    @display_joke = DisplayObject.where('obj_type = :display_obj', :display_obj => "joke")
+    # @unreviewed_jokes = Joke.where(:status => "reviewing").order("#{:created_at}")
+    # @unapproved_jokes = Joke.where(:status => "unapproved").order("#{:created_at}")
+    # @jokes_displayed = Joke.where(:status => "displayed").order("#{:created_at} DESC, #{:author}, #{:name}")
+    # @jokes = Joke.where(:status => "approved").order("#{:created_at} DESC, #{:author}, #{:name}")
+    # @display_joke = DisplayObject.where(:obj_type => "joke")
     @total_jokes_count = Joke.count
-    @display_joke = DisplayObject.where(:obj_type => "joke")
   end
   
   def show
@@ -38,22 +43,23 @@ class JokesController < ApplicationController
   end
   
   def my_jokes
-    @jokes_approved = current_user.jokes.where(:status => "approved").order("#{:name}")
-    @jokes_unapproved = current_user.jokes.where(:status => "unapproved").order("#{:name}")
-    @jokes_review = current_user.jokes.where(:status => "reviewing").order("#{:name}")
-    @jokes_displayed = current_user.jokes.where(:status => "displayed").order("#{:name}")
+    @jokes_approved = current_user.jokes.where('status = :review_status', :review_status => "approved").order("#{:name}")
+    @jokes_unapproved = current_user.jokes.where('status = :review_status', :review_status => "unapproved").order("#{:name}")
+    @jokes_review = current_user.jokes.where('status = :review_status', :review_status => "reviewing").order("#{:name}")
+    @jokes_displayed = current_user.jokes.where('status = :review_status', :review_status => "displayed").order("#{:name}")
     @jokes = current_user.jokes.order("#{:name}")
-    @display_joke = DisplayObject.where(:obj_type => "joke")
+    
+    # @jokes_approved = current_user.jokes.where(:status => "approved").order("#{:name}")
+    # @jokes_unapproved = current_user.jokes.where(:status => "unapproved").order("#{:name}")
+    # @jokes_review = current_user.jokes.where(:status => "reviewing").order("#{:name}")
+    # @jokes_displayed = current_user.jokes.where(:status => "displayed").order("#{:name}")
+    # @jokes = current_user.jokes.order("#{:name}")
+    # @display_joke = DisplayObject.where(:obj_type => "joke")
   end
   
   def jokes_author
-    # @current_joke = Joke.find(params[:joke])
-    # @author = User.find_by_id(@current_joke.user_id)
-    # @jokes = @author.jokes.order("#{:name}")
     @current_joke = Joke.find(params[:joke])
     @author = User.where("id=?", @current_joke.user_id)[0]
-    # @jokes_by_author_status = @author.jokes.where(:status => "displayed").order(:name)
-    # @jokes = @author.jokes.order("#{:name}")
   end
   
   def jokes_date

@@ -29,7 +29,8 @@ class FunFactsController < ApplicationController
 
   def index
     @fun_facts = FunFact.find(:all)
-    @display_funfact = DisplayObject.where(:obj_type => "fun_fact")
+    @display_funfact = DisplayObject.where('obj_type = :fun_fact_obj', :fun_fact_obj => "fun_fact")
+    # @display_funfact = DisplayObject.where(:obj_type => "fun_fact")
   end
   
   def edit
@@ -47,7 +48,8 @@ class FunFactsController < ApplicationController
   end
   
   def destroy
-    @display_funfact = DisplayObject.where(:obj_type => "fun_fact")
+    @display_funfact = DisplayObject.where('obj_type = :fun_fact_obj', :fun_fact_obj => "fun_fact")
+    #@display_funfact = DisplayObject.where(:obj_type => "fun_fact")
     fun_fact = FunFact.find(params[:id])
     if @display_funfact[0].obj_id != fun_fact.id
       fun_fact.destroy

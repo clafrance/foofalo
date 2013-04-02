@@ -17,9 +17,9 @@ module ApplicationHelper
   def end_of_day(obj)
     obj.created_at.end_of_day
   end
-  # 
-  # def full_name(first, last)
-  #   full_name = first + ' ' + last
-  # end
+  
+  def full_name(first, last)
+    full_name = first + ' ' + last
+  end
   
 end
