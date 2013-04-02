@@ -1,6 +1,7 @@
 module StaticPagesHelper
   def random_joke
-    displayed_joke = DisplayObject.where(:obj_type => "joke").first
+    displayed_joke = DisplayObject.where('obj_type = :object_type', :object_type => "joke").first
+    # displayed_joke = DisplayObject.where(:obj_type => "joke").first
     displayed_date = displayed_joke.updated_at.strftime("%Y-%m-%d")
     current_date = Time.now().strftime("%Y-%m-%d")
     random_joke_id = Joke.find(:all, :select => "id", :conditions => ["status=?", "approved"]).map(&:id).shuffle.first
@@ -14,7 +15,7 @@ module StaticPagesHelper
   end  
   
   def random_challenge
-    displayed_challenge = DisplayObject.where(:obj_type => "challenge").first
+    displayed_challenge = DisplayObject.where('obj_type = :object_type', :object_type => "challenge").first
     displayed_date = displayed_challenge.updated_at.strftime("%Y-%m-%d") if !displayed_challenge.updated_at.nil?
     current_date = Time.now().strftime("%Y-%m-%d")
     random_challenge_id = Challenge.find(:all, :select => "id", :conditions => ["status=?", "new"]).map(&:id).shuffle.first
@@ -28,7 +29,7 @@ module StaticPagesHelper
   end
 
   def random_fun_fact
-    displayed_fun_fact = DisplayObject.where(:obj_type => "fun_fact").first
+    displayed_fun_fact = DisplayObject.where('obj_type = :object_type', :object_type => "fun_fact").first
     displayed_date = displayed_fun_fact.updated_at.strftime("%Y-%m-%d")
     current_date = Time.now().strftime("%Y-%m-%d")
     random_fun_fact_id = FunFact.find(:all, :select => "id", :conditions => ["status=?", "new"]).map(&:id).shuffle.first
