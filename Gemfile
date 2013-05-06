@@ -5,6 +5,9 @@ gem 'bcrypt-ruby', '~> 3.0.1'
 gem 'will_paginate', '~> 3.0.3'
 gem 'jquery-rails', '~> 2.0.2'
 gem 'faker'  # generate fake data into database
+
+# add on 5/5/13
+gem 'newrelic_rpm'
 # gem 'kaminari'
 # gem 'mysql2', '~> 0.3.11'
 
